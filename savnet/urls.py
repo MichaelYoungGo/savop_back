@@ -9,6 +9,7 @@ import savnet.log.views as log_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^api/getNetData/$', log_views.FPathInfoView.as_view()),
+    url(r'^api/refresh/$', log_views.CollectSavnetTopologyProgressData.as_view()),
 ]
 
 if settings.DEBUG:
