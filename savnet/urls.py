@@ -9,7 +9,7 @@ import savnet.log.views as log_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^api/getNetData/$', log_views.FPathInfoView.as_view()),
-    url(r'^api/netinfo/$', log_views.CollectSavnetTopologyProgressData.as_view()),
+    url(r'^api/netinfo/(?P<topo>.+)/$', log_views.CollectSavnetTopologyProgressData.as_view()),
 ]
 
 if settings.DEBUG:

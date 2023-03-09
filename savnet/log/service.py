@@ -22,8 +22,10 @@ class SavnetContrller:
         file_name_list = os.listdir(path)
         file_num = len(file_name_list)
         routers_info = []
+        as_info_list = []
         for i in range(1, int(file_num/2)+1):
-            info = { "route_id": i, "route_name": NAME_MAPPING.get(i)}
+            info = { "route_id": str(i), "route_name": NAME_MAPPING.get(i)}
+            as_info = {"route_id": str(i), "route_name": NAME_MAPPING.get(i)}
             file_conf_name, file_json_name = str(i) + ".conf", str(i) + ".json"
             with open(os.path.join(path, file_conf_name), mode="r") as f:
                 lines = f.readlines()
@@ -32,14 +34,23 @@ class SavnetContrller:
                         continue
                     router_NO = li.split(" ")[-1].split(";")[0]
             info.update({"router_NO": router_NO})
+
+            with open(os.path.join(path, file_conf_name), mode="r") as f:
+                lines = f.readlines()
+                for li in lines:
+                    if "local as" not in li:
+                        continue
+                    AS_number = li.split(" ")[-1].split(";")[0]
+            as_info.update({"AS_number": AS_number})
             # the files of *.json have no useful information temporarity, maybe have after
             with open(os.path.join(path, file_json_name), mode="r") as f:
                 lines = f.readlines()
             routers_info.append(info)
-        return {"routers_info": routers_info}
+            as_info_list.append(as_info)
+        return {"routers_info": routers_info, "as_info": as_info_list}
     
     def get_links_info(file="/root/savnet_bird/host_run.sh"):
-        command = "cat {0}|grep funCreateV|grep -v '()'".format(file)
+        command = "cat {0}|grep funCreateV|grep -v '()'|grep -v '#'".format(file)
         command_result = subprocess.run(command, shell=True, capture_output=True, encoding='utf-8')
         return_code, std_out = command_result.returncode, command_result.stdout
         link_funcs = std_out.split("\n")[:-1]
@@ -49,9 +60,14 @@ class SavnetContrller:
             link_info_list = link.split(" ")[1:]
             src_router = link_info_list[0][1:-1]
             dst_router = link_info_list[1][1:-1]
+            src_router = NAME_MAPPING.get(ord(src_router) - ord("a") + 1)
+            dst_router = NAME_MAPPING.get(ord(dst_router)- ord("a") + 1)
             src_router_inf = link_info_list[0][1:-1] + "_" + link_info_list[1][1:-1]
             dst_router_inf = link_info_list[1][1:-1] + "_" + link_info_list[0][1:-1]
-            info.update({"src_router": src_router, "dst_router": dst_router, "src_router_inf": src_router_inf, "dst_router_inf": dst_router_inf})
+            src_router_link_ip =  link_info_list[4][1:-1]
+            dst_router_link_ip =  link_info_list[5][1:-1]
+            info.update({"src_router": src_router, "dst_router": dst_router, "src_router_inf": src_router_inf, "dst_router_inf": dst_router_inf, 
+                         "src_router_link_ip": src_router_link_ip, "dst_router_link_ip": dst_router_link_ip})
             links_info.append(info)
         return {"links_info": links_info}
     
@@ -60,7 +76,7 @@ class SavnetContrller:
         file_num = len(file_name_list)
         prefixs_info = []
         for i in range(1, int(file_num/2)+1):
-            info = { "route_id": i, "route_name": NAME_MAPPING.get(i)}
+            info = { "route_id": str(i), "route_name": NAME_MAPPING.get(i)}
             file_conf_name, file_json_name = str(i) + ".conf", str(i) + ".json"
             # *.conf
             command = "cat %s |grep blackhole| awk '{ print $2 }'" % (os.path.join(path, file_conf_name))
@@ -76,7 +92,6 @@ class SavnetContrller:
                 lines = f.readlines()
         return {"prefixs_info": prefixs_info}
 
-
     def get_msg_data(path="/root/savnet_bird/logs", file_name = "server.log"):
         global msg_step
         msg_step = []
@@ -85,7 +100,6 @@ class SavnetContrller:
         # for step in msg_step:
         #     SavnetContrller.remove_redundant_variables(step)
         return {"msg_step": msg_step}
-
 
     def depth_first_search(path, file_name, entry, depth, msg_rx=None):
         if depth == "0":
@@ -146,7 +160,6 @@ class SavnetContrller:
         if len(depth_list) == 1:
             return str(int(depth_list[-1]) + 1)
         else:
-            print(depth_str)
             depth_list[-1] = str(int(depth_list[-1]) + 1)
             result = depth_list[0]
             for index in range(1, len(depth_list)):
@@ -172,6 +185,9 @@ class SavnetContrller:
             msg_list.append(msg)
         return msg_list
     
+    def get_as_info(path="/root/savnet_bird/configs"):
+        pass
+
     def remove_redundant_variables(msg_rx):
         msg_rx.pop("as4_session")
         msg_rx.pop("is_interior")
