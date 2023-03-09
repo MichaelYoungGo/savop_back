@@ -2,6 +2,7 @@ import os
 import subprocess
 import json
 import ast
+import copy
 from django.forms import model_to_dict
 from constants.error_code import ErrorCode
 from savnet.log.models import FPath
@@ -37,7 +38,7 @@ class SavnetContrller:
             routers_info.append(info)
         return {"routers_info": routers_info}
     
-    def get_links_info(file="/root/savnet_bird/run.sh"):
+    def get_links_info(file="/root/savnet_bird/host_run.sh"):
         command = "cat {0}|grep funCreateV|grep -v '()'".format(file)
         command_result = subprocess.run(command, shell=True, capture_output=True, encoding='utf-8')
         return_code, std_out = command_result.returncode, command_result.stdout
@@ -67,8 +68,9 @@ class SavnetContrller:
             return_code, std_out = command_result.returncode, command_result.stdout
             prefix_info_list = std_out.split("\n")[:-1]
             for pre in prefix_info_list:
-                info.update({"prefix_name": pre})
-                prefixs_info.append(info)
+                info_ = copy.deepcopy(info)
+                info_.update({"prefix_name": pre})
+                prefixs_info.append(info_)
             # the files of *.json have no useful information temporarity, maybe have after
             with open(os.path.join(path, file_json_name), mode="r") as f:
                 lines = f.readlines()
@@ -80,8 +82,8 @@ class SavnetContrller:
         msg_step = []
         #Depth First Search, DFS
         SavnetContrller.depth_first_search(path=path, file_name=file_name, entry="a", depth="0")
-        for step in msg_step:
-            SavnetContrller.remove_redundant_variables(step)
+        # for step in msg_step:
+        #     SavnetContrller.remove_redundant_variables(step)
         return {"msg_step": msg_step}
 
 
@@ -96,14 +98,25 @@ class SavnetContrller:
                 SavnetContrller.depth_first_search(path=path, file_name=file_name, entry=eth_out, depth = depth, msg_rx=msg)
                 start = start + 1
         else:
-            command = "grep INFO {}/server.log |grep -v -E 'SAV GRAPH LINK ADDED|SAV GRAPH|UPDATED LOCAL'|grep -A 2 -E \"GOT MSG ON.*'sav_origin': '{}'\"".format(os.path.join(path, str(ord(entry)-ord("a") + 1)), msg_rx.get("sav_origin"))
+            path_ = os.path.join(path, str(ord(entry)-ord("a") + 1))
+            sav_scope_list = msg_rx.get("sav_scope")[0]
+            sav_scope_str = "'"+sav_scope_list[0]+"'"
+            if len(sav_scope_list) > 1:
+                 for index in range(1, len(sav_scope_list)):
+                     sav_scope_str =  sav_scope_str + ", '" + sav_scope_list[index] + "'"
+            command = "grep INFO {}/server.log |grep -v -E 'SAV GRAPH LINK ADDED|SAV GRAPH|UPDATED LOCAL'|grep -A 2 -E \"GOT MSG ON.*'sav_origin': '{}'\"|grep -A 2  \"'sav_scope': \\\[\\\[{}\\\]\\\]\"".format(path_, msg_rx.get("sav_origin"), sav_scope_str)
             command_result = subprocess.run(command, shell=True, capture_output=True, encoding='utf-8')
-            return_code, std_out = command_result.returncode, command_result.stdout
+            return_code, std_out, std_err = command_result.returncode, command_result.stdout, command_result.stderr
             msg_list = std_out.split("\n")[:-1]
             msg_list = [msg for msg in msg_list if len(msg) > 10]
-            length, start = len(msg_list), 0
-            while start < length:
-                msg_str = msg_list[start]
+            length, index = len(msg_list), 0
+            while index < length:
+                msg_str = msg_list[index]
+                # if "GOT MSG ON" in msg_str:
+                #     sav_scope = msg_rx.get("sav_scope")[0][0]
+                #     start = msg_str.find("{")
+                #     end = msg_str.find("}")
+                #     msg = eval(msg_str[start: end + 1])
                 if "SAV RULE ADDED" in msg_str:
                     start = msg_str.find("{")
                     end = msg_str.find("}")
@@ -117,24 +130,27 @@ class SavnetContrller:
                     msg_rx.update({"msg_name": "msg_" + depth, "src_prefix": msg.get("prefix"), "income_interface": msg.get("interface")})
                     msg_step.append(msg_rx)
                 if "TERMINATING" in msg_str:
-                    pass
+                    send_off = False
                 if "SENT MSG ON LINK" in msg_str:
-                    depth = SavnetContrller.depth_auto_increm(depth)
                     start = msg_str.find("{")
                     end = msg_str.find("}")
                     msg = eval(msg_str[start: end + 1])
-                    SavnetContrller.depth_first_search(path=path, file_name=file_name, entry=eth_out,depth = depth, msg_rx=msg)
-                start = start + 1
+                    eth_out = msg.get("protocol_name")[-1] 
+                    SavnetContrller.depth_first_search(path=path, file_name=file_name, entry=eth_out,depth = depth+".1", msg_rx=msg)
+                    depth = SavnetContrller.depth_auto_increm(depth)
+                    send_off = False
+                index = index + 1
 
     def depth_auto_increm(depth_str):
         depth_list = depth_str.split(".")
         if len(depth_list) == 1:
             return str(int(depth_list[-1]) + 1)
         else:
+            print(depth_str)
             depth_list[-1] = str(int(depth_list[-1]) + 1)
-            result = ""
-            for i in depth_list:
-                result = result + "." + i
+            result = depth_list[0]
+            for index in range(1, len(depth_list)):
+                result = result + "." + depth_list[index]
             return result
     
     def get_orgin_send_msg(path, entry):
