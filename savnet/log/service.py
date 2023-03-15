@@ -8,7 +8,7 @@ from constants.error_code import ErrorCode
 from savnet.log.models import FPath
 from netaddr import IPAddress
 
-NAME_MAPPING = { 1: "A", 2: "B", 3: "C", 4: "D", 5: "E", 6: "F", 7: "G", 8: "H", 9: "I"}
+NAME_MAPPING = { 1: "A", 2: "B", 3: "C", 4: "D", 5: "E", 6: "F", 7: "G", 8: "H", 9: "I", 10: "J", 11: "K"}
 
 def test():
     asn_path = FPath.objects.values('fp_id', 'dst_prefix', 'asn_path')
