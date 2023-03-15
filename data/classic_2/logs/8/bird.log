@@ -1,0 +1,3162 @@
+2023-03-15 06:37:03.421 <TRACE> savnet_hf: Initializing
+2023-03-15 06:37:03.421 <TRACE> savnet_hg: Initializing
+2023-03-15 06:37:03.421 <TRACE> savnet_hj: Initializing
+2023-03-15 06:37:03.421 <ERR> from interface 1:lo
+2023-03-15 06:37:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:37:03.421 <ERR> from interface 2227:h_f
+2023-03-15 06:37:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:37:03.421 <ERR> from interface 2230:h_j
+2023-03-15 06:37:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:37:03.421 <ERR> from interface 2237:h_g
+2023-03-15 06:37:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:37:03.421 <TRACE> savnet_hf: Starting
+2023-03-15 06:37:03.421 <DBG> link [savnet_hf] meta sent
+2023-03-15 06:37:03.421 <TRACE> savnet_hf: Protocol state changed to start
+2023-03-15 06:37:03.421 <TRACE> savnet_hg: Starting
+2023-03-15 06:37:03.421 <DBG> link [savnet_hg] meta sent
+2023-03-15 06:37:03.421 <TRACE> savnet_hg: Protocol state changed to start
+2023-03-15 06:37:03.421 <TRACE> savnet_hj: Starting
+2023-03-15 06:37:03.421 <DBG> link [savnet_hj] meta sent
+2023-03-15 06:37:03.421 <TRACE> savnet_hj: Protocol state changed to start
+2023-03-15 06:37:03.421 <INFO> Started
+BGP: Got lock
+2023-03-15 06:37:03.429 <TRACE> savnet_hj: Started
+2023-03-15 06:37:03.429 <TRACE> savnet_hj: Connect delayed by 5 seconds
+BGP: Got lock
+2023-03-15 06:37:03.429 <TRACE> savnet_hg: Started
+2023-03-15 06:37:03.429 <TRACE> savnet_hg: Connect delayed by 5 seconds
+BGP: Got lock
+2023-03-15 06:37:03.429 <TRACE> savnet_hf: Started
+2023-03-15 06:37:03.429 <TRACE> savnet_hf: Connect delayed by 5 seconds
+BGP: Incoming connection from 10.0.13.1 port 51897
+2023-03-15 06:37:07.264 <TRACE> savnet_hg: Incoming connection from 10.0.13.1 (port 51897) accepted
+BGP: Sending open
+2023-03-15 06:37:07.264 <TRACE> savnet_hg: Sending OPEN(ver=4,as=65508,hold=240,id=0a000802)
+2023-03-15 06:37:07.264 <TRACE> savnet_hg: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 06:37:07.264 <TRACE> savnet_hg: Got OPEN(as=65507,hold=240,id=10.0.7.2)
+2023-03-15 06:37:07.264 <TRACE> savnet_hg: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 06:37:07.264 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 06:37:07.266 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 06:37:07.266 <TRACE> savnet_hg: BGP session established
+2023-03-15 06:37:07.266 <TRACE> savnet_hg: Protocol state changed to up
+2023-03-15 06:37:07.266 <DBG> link [savnet_hg] up sent
+2023-03-15 06:37:07.267 <TRACE> savnet_hg.savnet4 < filtered out 10.0.13.0/24 2237L 7G unicast
+2023-03-15 06:37:07.267 <TRACE> savnet_hg.savnet4 < filtered out 10.0.8.0/24 2227L 5G unicast
+2023-03-15 06:37:07.267 <TRACE> savnet_hg.savnet4 < filtered out 10.0.9.0/24 2230L 6G unicast
+2023-03-15 06:37:07.267 <TRACE> savnet_hg.savnet4 < filtered out 192.168.8.0/24 0L 4G blackhole
+2023-03-15 06:37:07.267 <TRACE> savnet_hg.ipv4 < added 10.0.13.0/24 2237L 7G unicast
+2023-03-15 06:37:07.267 <TRACE> savnet_hg.ipv4 < added 10.0.8.0/24 2227L 5G unicast
+2023-03-15 06:37:07.267 <TRACE> savnet_hg.ipv4 < added 10.0.9.0/24 2230L 6G unicast
+2023-03-15 06:37:07.267 <TRACE> savnet_hg.ipv4 < added 192.168.8.0/24 0L 4G blackhole
+BGP: Incoming connection from 10.0.9.2 port 35313
+2023-03-15 06:37:07.278 <TRACE> savnet_hj: Incoming connection from 10.0.9.2 (port 35313) accepted
+BGP: Sending open
+2023-03-15 06:37:07.278 <TRACE> savnet_hg: Sending END-OF-RIB
+2023-03-15 06:37:07.278 <TRACE> savnet_hg: Sending UPDATE
+2023-03-15 06:37:07.278 <TRACE> savnet_hg: Sending END-OF-RIB
+2023-03-15 06:37:07.278 <TRACE> savnet_hj: Sending OPEN(ver=4,as=65508,hold=240,id=0a000802)
+2023-03-15 06:37:07.278 <TRACE> savnet_hj: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 06:37:07.278 <TRACE> savnet_hj: Got OPEN(as=65510,hold=240,id=10.0.9.2)
+2023-03-15 06:37:07.278 <TRACE> savnet_hj: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+BGP: Closing connection
+2023-03-15 06:37:07.278 <TRACE> savnet_hg: Got UPDATE
+2023-03-15 06:37:07.278 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.278 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-15 06:37:07.278 <TRACE> savnet_hg: Got END-OF-RIB
+2023-03-15 06:37:07.278 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.278 <TRACE> savnet_hg: Got UPDATE
+2023-03-15 06:37:07.278 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 16
+2023-03-15 06:37:07.278 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-15 06:37:07.278 <TRACE> savnet_hg.ipv4 > added [best] 10.0.11.0/24 0L 8G unicast
+2023-03-15 06:37:07.278 <TRACE> savnet_hg.savnet4 < rejected by protocol 10.0.11.0/24 0L 8G unicast
+2023-03-15 06:37:07.278 <TRACE> savnet_hg.ipv4 < rejected by protocol 10.0.11.0/24 0L 8G unicast
+2023-03-15 06:37:07.278 <TRACE> savnet_hg.ipv4 > added 10.0.13.0/24 0L 8G unicast
+2023-03-15 06:37:07.278 <TRACE> savnet_hg.ipv4 > added [best] 10.0.7.0/24 0L 8G unicast
+2023-03-15 06:37:07.278 <TRACE> savnet_hg.savnet4 < rejected by protocol 10.0.7.0/24 0L 8G unicast
+2023-03-15 06:37:07.278 <TRACE> savnet_hg.ipv4 < rejected by protocol 10.0.7.0/24 0L 8G unicast
+2023-03-15 06:37:07.278 <TRACE> savnet_hg.ipv4 > added [best] 192.168.7.0/24 0L 8G unicast
+2023-03-15 06:37:07.278 <TRACE> savnet_hg.savnet4 < rejected by protocol 192.168.7.0/24 0L 8G unicast
+2023-03-15 06:37:07.278 <TRACE> savnet_hg.ipv4 < rejected by protocol 192.168.7.0/24 0L 8G unicast
+2023-03-15 06:37:07.278 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.278 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65507"
+    ,"interface_name":"h_g"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_hg"
+    ,"as_path":"65507"
+    ,"sav_origin":""
+    ,"routes":"+10.0.11.0/24,+10.0.13.0/24,+10.0.7.0/24,+192.168.7.0/24"
+    ,"sav_scope":""
+    ,"sav_nlri":""    }}
+2023-03-15 06:37:07.278 <TRACE> savnet_hg: Got UPDATE
+2023-03-15 06:37:07.278 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.278 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-15 06:37:07.278 <TRACE> savnet_hg: Got END-OF-RIB
+2023-03-15 06:37:07.278 <DBG> BGP UPDATE PROCESSING FINISHED
+BGP: Decision start
+2023-03-15 06:37:07.280 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 06:37:07.280 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 06:37:07.280 <TRACE> savnet_hj: BGP session established
+2023-03-15 06:37:07.280 <TRACE> savnet_hj: Protocol state changed to up
+2023-03-15 06:37:07.280 <DBG> link [savnet_hj] up sent
+2023-03-15 06:37:07.282 <TRACE> savnet_hj.savnet4 < filtered out 10.0.11.0/24 0L 8G unicast
+2023-03-15 06:37:07.282 <TRACE> savnet_hj.savnet4 < filtered out 10.0.13.0/24 2237L 7G unicast
+2023-03-15 06:37:07.282 <TRACE> savnet_hj.savnet4 < filtered out 10.0.7.0/24 0L 8G unicast
+2023-03-15 06:37:07.282 <TRACE> savnet_hj.savnet4 < filtered out 10.0.8.0/24 2227L 5G unicast
+2023-03-15 06:37:07.282 <TRACE> savnet_hj.savnet4 < filtered out 10.0.9.0/24 2230L 6G unicast
+2023-03-15 06:37:07.282 <TRACE> savnet_hj.savnet4 < filtered out 192.168.7.0/24 0L 8G unicast
+2023-03-15 06:37:07.282 <TRACE> savnet_hj.savnet4 < filtered out 192.168.8.0/24 0L 4G blackhole
+2023-03-15 06:37:07.282 <TRACE> savnet_hj.ipv4 < rejected by protocol 10.0.11.0/24 0L 8G unicast
+2023-03-15 06:37:07.282 <TRACE> savnet_hj.ipv4 < added 10.0.13.0/24 2237L 7G unicast
+2023-03-15 06:37:07.282 <TRACE> savnet_hj.ipv4 < rejected by protocol 10.0.7.0/24 0L 8G unicast
+2023-03-15 06:37:07.282 <TRACE> savnet_hj.ipv4 < added 10.0.8.0/24 2227L 5G unicast
+2023-03-15 06:37:07.282 <TRACE> savnet_hj.ipv4 < added 10.0.9.0/24 2230L 6G unicast
+2023-03-15 06:37:07.282 <TRACE> savnet_hj.ipv4 < rejected by protocol 192.168.7.0/24 0L 8G unicast
+2023-03-15 06:37:07.282 <TRACE> savnet_hj.ipv4 < added 192.168.8.0/24 0L 4G blackhole
+2023-03-15 06:37:07.282 <TRACE> savnet_hj: Sending END-OF-RIB
+2023-03-15 06:37:07.282 <TRACE> savnet_hj: Sending UPDATE
+2023-03-15 06:37:07.282 <TRACE> savnet_hj: Sending END-OF-RIB
+2023-03-15 06:37:07.284 <DBG> call_agent
+2023-03-15 06:37:07.284 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,1,0,0,255,228",
+    "as_path_len": 6,
+    "is_interior": 1,
+    "next_hop": "4,10,0,13,2",
+    "nlri_len": 4,
+    "protocol_name": "savnet_hg",
+    "sav_nlri": "24,192,168,8",
+    "sav_origin": "0,0,255,228",
+    "sav_scope": "1,1,0,0,255,227",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-15 06:37:07.284 <DBG> inserting 0,0
+2023-03-15 06:37:07.284 <DBG> inserting 4,10,0,13,2
+2023-03-15 06:37:07.284 <DBG> inserting 0,0,255,228
+2023-03-15 06:37:07.284 <DBG> inserting 1,1,0,0,255,227
+2023-03-15 06:37:07.284 <DBG> inserting 24,192,168,8
+2023-03-15 06:37:07.284 <DBG> inserting 2,1,0,0,255,228
+2023-03-15 06:37:07.284 <DBG> savnet update packet assembled
+2023-03-15 06:37:07.284 <DBG> packet len 63
+2023-03-15 06:37:07.284 <DBG> call agent send result, 1
+2023-03-15 06:37:07.286 <TRACE> savnet_hg: Got UPDATE
+2023-03-15 06:37:07.286 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.286 <DBG> 
+mp_reach_len: 14
+mp_unreach_len: 0
+2023-03-15 06:37:07.286 <DBG> bgp_decode_nlri_savnet4 len: 14
+2023-03-15 06:37:07.286 <DBG> s->sav_origin: [65507]
+2023-03-15 06:37:07.286 <DBG> s->sav_scope: [1,1,65508]
+2023-03-15 06:37:07.286 <DBG> s->sav_nlri: [24,192,168,7]
+2023-03-15 06:37:07.286 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.286 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65507"
+    ,"interface_name":"h_g"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_hg"
+    ,"as_path":"65507"
+    ,"sav_origin":"65507"
+    ,"routes":""
+    ,"sav_scope":"1,1,65508"
+    ,"sav_nlri":"24,192,168,7"    }}
+2023-03-15 06:37:07.286 <TRACE> savnet_hj: Got UPDATE
+2023-03-15 06:37:07.286 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.286 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-15 06:37:07.286 <TRACE> savnet_hj: Got END-OF-RIB
+2023-03-15 06:37:07.286 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.286 <TRACE> ...
+2023-03-15 06:37:07.286 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 12
+2023-03-15 06:37:07.286 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-15 06:37:07.286 <TRACE> savnet_hj.ipv4 > added [best] 192.168.10.0/24 0L 9G unicast
+2023-03-15 06:37:07.286 <TRACE> savnet_hg.savnet4 < filtered out 192.168.10.0/24 0L 9G unicast
+2023-03-15 06:37:07.286 <TRACE> savnet_hg.ipv4 < rejected by protocol 192.168.10.0/24 0L 9G unicast
+2023-03-15 06:37:07.286 <TRACE> savnet_hj.savnet4 < rejected by protocol 192.168.10.0/24 0L 9G unicast
+2023-03-15 06:37:07.286 <TRACE> savnet_hj.ipv4 < rejected by protocol 192.168.10.0/24 0L 9G unicast
+2023-03-15 06:37:07.286 <TRACE> savnet_hj.ipv4 > added 10.0.9.0/24 0L 9G unicast
+2023-03-15 06:37:07.286 <TRACE> savnet_hj.ipv4 > added [best] 10.0.10.0/24 0L 9G unicast
+2023-03-15 06:37:07.286 <TRACE> savnet_hg.savnet4 < filtered out 10.0.10.0/24 0L 9G unicast
+2023-03-15 06:37:07.286 <TRACE> savnet_hg.ipv4 < rejected by protocol 10.0.10.0/24 0L 9G unicast
+2023-03-15 06:37:07.286 <TRACE> savnet_hj.savnet4 < rejected by protocol 10.0.10.0/24 0L 9G unicast
+2023-03-15 06:37:07.286 <TRACE> savnet_hj.ipv4 < rejected by protocol 10.0.10.0/24 0L 9G unicast
+2023-03-15 06:37:07.286 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.286 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65510"
+    ,"interface_name":"h_j"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_hj"
+    ,"as_path":"65510"
+    ,"sav_origin":""
+    ,"routes":"+192.168.10.0/24,+10.0.9.0/24,+10.0.10.0/24"
+    ,"sav_scope":""
+    ,"sav_nlri":""    }}
+2023-03-15 06:37:07.286 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.286 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-15 06:37:07.286 <TRACE> savnet_hj: Got END-OF-RIB
+2023-03-15 06:37:07.286 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.290 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.290 <DBG> 
+mp_reach_len: 14
+mp_unreach_len: 0
+2023-03-15 06:37:07.290 <DBG> bgp_decode_nlri_savnet4 len: 14
+2023-03-15 06:37:07.290 <DBG> s->sav_origin: [65510]
+2023-03-15 06:37:07.290 <DBG> s->sav_scope: [1,1,65508]
+2023-03-15 06:37:07.290 <DBG> s->sav_nlri: [24,192,168,10]
+2023-03-15 06:37:07.290 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.290 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65510"
+    ,"interface_name":"h_j"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_hj"
+    ,"as_path":"65510"
+    ,"sav_origin":"65510"
+    ,"routes":""
+    ,"sav_scope":"1,1,65508"
+    ,"sav_nlri":"24,192,168,10"    }}
+2023-03-15 06:37:07.315 <DBG> call_agent
+2023-03-15 06:37:07.315 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,1,0,0,255,228",
+    "as_path_len": 6,
+    "is_interior": 1,
+    "next_hop": "4,10,0,9,1",
+    "nlri_len": 4,
+    "protocol_name": "savnet_hj",
+    "sav_nlri": "24,192,168,8",
+    "sav_origin": "0,0,255,228",
+    "sav_scope": "1,1,0,0,255,230",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-15 06:37:07.315 <DBG> inserting 0,0
+2023-03-15 06:37:07.315 <DBG> inserting 4,10,0,9,1
+2023-03-15 06:37:07.315 <DBG> inserting 0,0,255,228
+2023-03-15 06:37:07.315 <DBG> inserting 1,1,0,0,255,230
+2023-03-15 06:37:07.315 <DBG> inserting 24,192,168,8
+2023-03-15 06:37:07.315 <DBG> inserting 2,1,0,0,255,228
+2023-03-15 06:37:07.315 <DBG> savnet update packet assembled
+2023-03-15 06:37:07.315 <DBG> packet len 63
+2023-03-15 06:37:07.315 <DBG> call agent send result, 1
+BGP: Incoming connection from 10.0.8.1 port 41341
+2023-03-15 06:37:07.660 <TRACE> savnet_hf: Incoming connection from 10.0.8.1 (port 41341) accepted
+BGP: Sending open
+2023-03-15 06:37:07.660 <TRACE> savnet_hf: Sending OPEN(ver=4,as=65508,hold=240,id=0a000802)
+2023-03-15 06:37:07.660 <TRACE> savnet_hf: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 06:37:07.660 <TRACE> savnet_hf: Got OPEN(as=65506,hold=240,id=10.0.6.2)
+2023-03-15 06:37:07.660 <TRACE> savnet_hf: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 06:37:07.660 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 06:37:07.660 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 06:37:07.660 <TRACE> savnet_hf: BGP session established
+2023-03-15 06:37:07.660 <TRACE> savnet_hf: Protocol state changed to up
+2023-03-15 06:37:07.660 <DBG> link [savnet_hf] up sent
+2023-03-15 06:37:07.662 <TRACE> savnet_hf.savnet4 < filtered out 10.0.11.0/24 0L 8G unicast
+2023-03-15 06:37:07.662 <TRACE> savnet_hf.savnet4 < filtered out 10.0.13.0/24 2237L 7G unicast
+2023-03-15 06:37:07.662 <TRACE> savnet_hf.savnet4 < filtered out 10.0.7.0/24 0L 8G unicast
+2023-03-15 06:37:07.662 <TRACE> savnet_hf.savnet4 < filtered out 192.168.10.0/24 0L 9G unicast
+2023-03-15 06:37:07.662 <TRACE> savnet_hf.savnet4 < filtered out 10.0.8.0/24 2227L 5G unicast
+2023-03-15 06:37:07.662 <TRACE> savnet_hf.savnet4 < filtered out 10.0.9.0/24 2230L 6G unicast
+2023-03-15 06:37:07.662 <TRACE> savnet_hf.savnet4 < filtered out 10.0.10.0/24 0L 9G unicast
+2023-03-15 06:37:07.662 <TRACE> savnet_hf.savnet4 < filtered out 192.168.7.0/24 0L 8G unicast
+2023-03-15 06:37:07.662 <TRACE> savnet_hf.savnet4 < filtered out 192.168.8.0/24 0L 4G blackhole
+2023-03-15 06:37:07.662 <TRACE> savnet_hf.ipv4 < added 10.0.11.0/24 0L 8G unicast
+2023-03-15 06:37:07.662 <TRACE> savnet_hf.ipv4 < added 10.0.13.0/24 2237L 7G unicast
+2023-03-15 06:37:07.662 <TRACE> savnet_hf.ipv4 < added 10.0.7.0/24 0L 8G unicast
+2023-03-15 06:37:07.662 <TRACE> savnet_hf.ipv4 < added 192.168.10.0/24 0L 9G unicast
+2023-03-15 06:37:07.662 <TRACE> savnet_hf.ipv4 < added 10.0.8.0/24 2227L 5G unicast
+2023-03-15 06:37:07.662 <TRACE> savnet_hf.ipv4 < added 10.0.9.0/24 2230L 6G unicast
+2023-03-15 06:37:07.662 <TRACE> savnet_hf.ipv4 < added 10.0.10.0/24 0L 9G unicast
+2023-03-15 06:37:07.662 <TRACE> savnet_hf.ipv4 < added 192.168.7.0/24 0L 8G unicast
+2023-03-15 06:37:07.662 <TRACE> savnet_hf.ipv4 < added 192.168.8.0/24 0L 4G blackhole
+2023-03-15 06:37:07.754 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.754 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-15 06:37:07.754 <TRACE> savnet_hf: Got END-OF-RIB
+2023-03-15 06:37:07.754 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.755 <TRACE> savnet_hf: Sending END-OF-RIB
+2023-03-15 06:37:07.755 <TRACE> savnet_hf: Sending UPDATE
+2023-03-15 06:37:07.755 <TRACE> savnet_hf: Sending UPDATE
+2023-03-15 06:37:07.755 <TRACE> savnet_hf: Sending UPDATE
+2023-03-15 06:37:07.755 <TRACE> savnet_hf: Sending END-OF-RIB
+2023-03-15 06:37:07.755 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 12
+2023-03-15 06:37:07.755 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-15 06:37:07.755 <TRACE> savnet_hf.ipv4 > added 10.0.8.0/24 0L 10G unicast
+2023-03-15 06:37:07.755 <TRACE> savnet_hf.ipv4 > added [best] 192.168.6.0/24 0L 10G unicast
+2023-03-15 06:37:07.755 <TRACE> savnet_hg.savnet4 < filtered out 192.168.6.0/24 0L 10G unicast
+2023-03-15 06:37:07.755 <TRACE> savnet_hg.ipv4 < added 192.168.6.0/24 0L 10G unicast
+2023-03-15 06:37:07.755 <TRACE> savnet_hj.savnet4 < filtered out 192.168.6.0/24 0L 10G unicast
+2023-03-15 06:37:07.755 <TRACE> savnet_hj.ipv4 < added 192.168.6.0/24 0L 10G unicast
+2023-03-15 06:37:07.755 <TRACE> savnet_hf.savnet4 < rejected by protocol 192.168.6.0/24 0L 10G unicast
+2023-03-15 06:37:07.755 <TRACE> savnet_hf.ipv4 < rejected by protocol 192.168.6.0/24 0L 10G unicast
+2023-03-15 06:37:07.755 <TRACE> savnet_hf.ipv4 > added [best] 10.0.6.0/24 0L 10G unicast
+2023-03-15 06:37:07.755 <TRACE> savnet_hg.savnet4 < filtered out 10.0.6.0/24 0L 10G unicast
+2023-03-15 06:37:07.755 <TRACE> savnet_hg.ipv4 < added 10.0.6.0/24 0L 10G unicast
+2023-03-15 06:37:07.755 <TRACE> savnet_hj.savnet4 < filtered out 10.0.6.0/24 0L 10G unicast
+2023-03-15 06:37:07.755 <TRACE> savnet_hj.ipv4 < added 10.0.6.0/24 0L 10G unicast
+2023-03-15 06:37:07.755 <TRACE> savnet_hf.savnet4 < rejected by protocol 10.0.6.0/24 0L 10G unicast
+2023-03-15 06:37:07.755 <TRACE> savnet_hf.ipv4 < rejected by protocol 10.0.6.0/24 0L 10G unicast
+2023-03-15 06:37:07.755 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.755 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65506"
+    ,"interface_name":"h_f"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_hf"
+    ,"as_path":"65506"
+    ,"sav_origin":""
+    ,"routes":"+10.0.8.0/24,+192.168.6.0/24,+10.0.6.0/24"
+    ,"sav_scope":""
+    ,"sav_nlri":""    }}
+2023-03-15 06:37:07.755 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.755 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-15 06:37:07.755 <TRACE> savnet_hf: Got END-OF-RIB
+2023-03-15 06:37:07.755 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.757 <TRACE> ...
+2023-03-15 06:37:07.760 <DBG> call_agent
+2023-03-15 06:37:07.760 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,1,0,0,255,228",
+    "as_path_len": 6,
+    "is_interior": 1,
+    "next_hop": "4,10,0,8,2",
+    "nlri_len": 4,
+    "protocol_name": "savnet_hf",
+    "sav_nlri": "24,192,168,8",
+    "sav_origin": "0,0,255,228",
+    "sav_scope": "1,1,0,0,255,226",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-15 06:37:07.760 <DBG> inserting 0,0
+2023-03-15 06:37:07.760 <DBG> inserting 4,10,0,8,2
+2023-03-15 06:37:07.760 <DBG> inserting 0,0,255,228
+2023-03-15 06:37:07.760 <DBG> inserting 1,1,0,0,255,226
+2023-03-15 06:37:07.760 <DBG> inserting 24,192,168,8
+2023-03-15 06:37:07.760 <DBG> inserting 2,1,0,0,255,228
+2023-03-15 06:37:07.760 <DBG> savnet update packet assembled
+2023-03-15 06:37:07.760 <DBG> packet len 63
+2023-03-15 06:37:07.760 <DBG> call agent send result, 1
+2023-03-15 06:37:07.764 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.764 <DBG> 
+mp_reach_len: 18
+mp_unreach_len: 0
+2023-03-15 06:37:07.764 <DBG> bgp_decode_nlri_savnet4 len: 18
+2023-03-15 06:37:07.764 <DBG> s->sav_origin: [65510]
+2023-03-15 06:37:07.764 <DBG> s->sav_scope: [1,2,65508,65506]
+2023-03-15 06:37:07.764 <DBG> s->sav_nlri: [24,192,168,10]
+2023-03-15 06:37:07.764 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.764 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65510"
+    ,"interface_name":"h_j"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_hj"
+    ,"as_path":"65510"
+    ,"sav_origin":"65510"
+    ,"routes":""
+    ,"sav_scope":"1,2,65508,65506"
+    ,"sav_nlri":"24,192,168,10"    }}
+2023-03-15 06:37:07.765 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.765 <DBG> 
+mp_reach_len: 18
+mp_unreach_len: 0
+2023-03-15 06:37:07.765 <DBG> bgp_decode_nlri_savnet4 len: 18
+2023-03-15 06:37:07.765 <DBG> s->sav_origin: [65507]
+2023-03-15 06:37:07.765 <DBG> s->sav_scope: [1,2,65508,65506]
+2023-03-15 06:37:07.765 <DBG> s->sav_nlri: [24,192,168,7]
+2023-03-15 06:37:07.765 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.765 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65507"
+    ,"interface_name":"h_g"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_hg"
+    ,"as_path":"65507"
+    ,"sav_origin":"65507"
+    ,"routes":""
+    ,"sav_scope":"1,2,65508,65506"
+    ,"sav_nlri":"24,192,168,7"    }}
+2023-03-15 06:37:07.767 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.767 <DBG> 
+mp_reach_len: 18
+mp_unreach_len: 0
+2023-03-15 06:37:07.767 <DBG> bgp_decode_nlri_savnet4 len: 18
+2023-03-15 06:37:07.767 <DBG> s->sav_origin: [65506]
+2023-03-15 06:37:07.767 <DBG> s->sav_scope: [1,2,65508,65507]
+2023-03-15 06:37:07.767 <DBG> s->sav_nlri: [24,192,168,6]
+2023-03-15 06:37:07.767 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.767 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65506"
+    ,"interface_name":"h_f"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_hf"
+    ,"as_path":"65506"
+    ,"sav_origin":"65506"
+    ,"routes":""
+    ,"sav_scope":"1,2,65508,65507"
+    ,"sav_nlri":"24,192,168,6"    }}
+2023-03-15 06:37:07.770 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 8
+2023-03-15 06:37:07.770 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-15 06:37:07.770 <TRACE> savnet_hf.ipv4 > added [best] 10.0.4.0/24 0L 10G unicast
+2023-03-15 06:37:07.770 <TRACE> savnet_hg.savnet4 < filtered out 10.0.4.0/24 0L 10G unicast
+2023-03-15 06:37:07.770 <TRACE> savnet_hg.ipv4 < added 10.0.4.0/24 0L 10G unicast
+2023-03-15 06:37:07.770 <TRACE> savnet_hj.savnet4 < filtered out 10.0.4.0/24 0L 10G unicast
+2023-03-15 06:37:07.770 <TRACE> savnet_hj.ipv4 < added 10.0.4.0/24 0L 10G unicast
+2023-03-15 06:37:07.770 <TRACE> savnet_hf.savnet4 < rejected by protocol 10.0.4.0/24 0L 10G unicast
+2023-03-15 06:37:07.770 <TRACE> savnet_hf.ipv4 < rejected by protocol 10.0.4.0/24 0L 10G unicast
+2023-03-15 06:37:07.770 <TRACE> savnet_hf.ipv4 > added [best] 192.168.4.0/24 0L 10G unicast
+2023-03-15 06:37:07.770 <TRACE> savnet_hg.savnet4 < filtered out 192.168.4.0/24 0L 10G unicast
+2023-03-15 06:37:07.770 <TRACE> savnet_hg.ipv4 < added 192.168.4.0/24 0L 10G unicast
+2023-03-15 06:37:07.770 <TRACE> savnet_hj.savnet4 < filtered out 192.168.4.0/24 0L 10G unicast
+2023-03-15 06:37:07.770 <TRACE> savnet_hj.ipv4 < added 192.168.4.0/24 0L 10G unicast
+2023-03-15 06:37:07.770 <TRACE> savnet_hf.savnet4 < rejected by protocol 192.168.4.0/24 0L 10G unicast
+2023-03-15 06:37:07.770 <TRACE> savnet_hf.ipv4 < rejected by protocol 192.168.4.0/24 0L 10G unicast
+2023-03-15 06:37:07.770 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.770 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65506"
+    ,"interface_name":"h_f"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_hf"
+    ,"as_path":"65506,65504"
+    ,"sav_origin":""
+    ,"routes":"+10.0.4.0/24,+192.168.4.0/24"
+    ,"sav_scope":""
+    ,"sav_nlri":""    }}
+2023-03-15 06:37:07.772 <DBG> call_agent
+2023-03-15 06:37:07.772 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,2,0,0,255,230,0,0,255,228",
+    "as_path_len": 10,
+    "is_interior": 1,
+    "next_hop": "4,10,0,8,2",
+    "nlri_len": 4,
+    "protocol_name": "savnet_hf",
+    "sav_nlri": "24,192,168,10",
+    "sav_origin": "0,0,255,230",
+    "sav_scope": "1,1,0,0,255,226",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-15 06:37:07.772 <DBG> inserting 0,0
+2023-03-15 06:37:07.772 <DBG> inserting 4,10,0,8,2
+2023-03-15 06:37:07.772 <DBG> inserting 0,0,255,230
+2023-03-15 06:37:07.772 <DBG> inserting 1,1,0,0,255,226
+2023-03-15 06:37:07.772 <DBG> inserting 24,192,168,10
+2023-03-15 06:37:07.772 <DBG> inserting 2,2,0,0,255,230,0,0,255,228
+2023-03-15 06:37:07.772 <DBG> savnet update packet assembled
+2023-03-15 06:37:07.772 <DBG> packet len 67
+2023-03-15 06:37:07.772 <DBG> call agent send result, 1
+2023-03-15 06:37:07.778 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.778 <DBG> 
+mp_reach_len: 22
+mp_unreach_len: 0
+2023-03-15 06:37:07.778 <DBG> bgp_decode_nlri_savnet4 len: 22
+2023-03-15 06:37:07.778 <DBG> s->sav_origin: [65507]
+2023-03-15 06:37:07.778 <DBG> s->sav_scope: [1,3,65508,65506,65504]
+2023-03-15 06:37:07.778 <DBG> s->sav_nlri: [24,192,168,7]
+2023-03-15 06:37:07.778 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.778 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65507"
+    ,"interface_name":"h_g"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_hg"
+    ,"as_path":"65507"
+    ,"sav_origin":"65507"
+    ,"routes":""
+    ,"sav_scope":"1,3,65508,65506,65504"
+    ,"sav_nlri":"24,192,168,7"    }}
+2023-03-15 06:37:07.780 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.780 <DBG> 
+mp_reach_len: 22
+mp_unreach_len: 0
+2023-03-15 06:37:07.780 <DBG> bgp_decode_nlri_savnet4 len: 22
+2023-03-15 06:37:07.780 <DBG> s->sav_origin: [65510]
+2023-03-15 06:37:07.780 <DBG> s->sav_scope: [1,3,65508,65506,65504]
+2023-03-15 06:37:07.780 <DBG> s->sav_nlri: [24,192,168,10]
+2023-03-15 06:37:07.780 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.780 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65510"
+    ,"interface_name":"h_j"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_hj"
+    ,"as_path":"65510"
+    ,"sav_origin":"65510"
+    ,"routes":""
+    ,"sav_scope":"1,3,65508,65506,65504"
+    ,"sav_nlri":"24,192,168,10"    }}
+2023-03-15 06:37:07.783 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.783 <DBG> 
+mp_reach_len: 18
+mp_unreach_len: 0
+2023-03-15 06:37:07.783 <DBG> bgp_decode_nlri_savnet4 len: 18
+2023-03-15 06:37:07.783 <DBG> s->sav_origin: [65506]
+2023-03-15 06:37:07.783 <DBG> s->sav_scope: [1,2,65508,65510]
+2023-03-15 06:37:07.783 <DBG> s->sav_nlri: [24,192,168,6]
+2023-03-15 06:37:07.783 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.783 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65506"
+    ,"interface_name":"h_f"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_hf"
+    ,"as_path":"65506"
+    ,"sav_origin":"65506"
+    ,"routes":""
+    ,"sav_scope":"1,2,65508,65510"
+    ,"sav_nlri":"24,192,168,6"    }}
+2023-03-15 06:37:07.785 <DBG> call_agent
+2023-03-15 06:37:07.785 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,2,0,0,255,227,0,0,255,228",
+    "as_path_len": 10,
+    "is_interior": 1,
+    "next_hop": "4,10,0,8,2",
+    "nlri_len": 4,
+    "protocol_name": "savnet_hf",
+    "sav_nlri": "24,192,168,7",
+    "sav_origin": "0,0,255,227",
+    "sav_scope": "1,1,0,0,255,226",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-15 06:37:07.785 <DBG> inserting 0,0
+2023-03-15 06:37:07.785 <DBG> inserting 4,10,0,8,2
+2023-03-15 06:37:07.785 <DBG> inserting 0,0,255,227
+2023-03-15 06:37:07.785 <DBG> inserting 1,1,0,0,255,226
+2023-03-15 06:37:07.785 <DBG> inserting 24,192,168,7
+2023-03-15 06:37:07.785 <DBG> inserting 2,2,0,0,255,227,0,0,255,228
+2023-03-15 06:37:07.785 <DBG> savnet update packet assembled
+2023-03-15 06:37:07.785 <DBG> packet len 67
+2023-03-15 06:37:07.785 <DBG> call agent send result, 1
+2023-03-15 06:37:07.794 <DBG> call_agent
+2023-03-15 06:37:07.794 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,2,0,0,255,226,0,0,255,228",
+    "as_path_len": 10,
+    "is_interior": 1,
+    "next_hop": "4,10,0,13,2",
+    "nlri_len": 4,
+    "protocol_name": "savnet_hg",
+    "sav_nlri": "24,192,168,6",
+    "sav_origin": "0,0,255,226",
+    "sav_scope": "1,1,0,0,255,227",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-15 06:37:07.794 <DBG> inserting 0,0
+2023-03-15 06:37:07.794 <DBG> inserting 4,10,0,13,2
+2023-03-15 06:37:07.794 <DBG> inserting 0,0,255,226
+2023-03-15 06:37:07.794 <DBG> inserting 1,1,0,0,255,227
+2023-03-15 06:37:07.794 <DBG> inserting 24,192,168,6
+2023-03-15 06:37:07.794 <DBG> inserting 2,2,0,0,255,226,0,0,255,228
+2023-03-15 06:37:07.794 <DBG> savnet update packet assembled
+2023-03-15 06:37:07.794 <DBG> packet len 67
+2023-03-15 06:37:07.794 <DBG> call agent send result, 1
+2023-03-15 06:37:07.797 <DBG> call_agent
+2023-03-15 06:37:07.797 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,1,0,0,255,228",
+    "as_path_len": 6,
+    "is_interior": 1,
+    "next_hop": "4,10,0,8,2",
+    "nlri_len": 4,
+    "protocol_name": "savnet_hf",
+    "sav_nlri": "24,192,168,8",
+    "sav_origin": "0,0,255,228",
+    "sav_scope": "1,2,0,0,255,226,0,0,255,224",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-15 06:37:07.797 <DBG> inserting 0,0
+2023-03-15 06:37:07.797 <DBG> inserting 4,10,0,8,2
+2023-03-15 06:37:07.797 <DBG> inserting 0,0,255,228
+2023-03-15 06:37:07.797 <DBG> inserting 1,2,0,0,255,226,0,0,255,224
+2023-03-15 06:37:07.797 <DBG> inserting 24,192,168,8
+2023-03-15 06:37:07.797 <DBG> inserting 2,1,0,0,255,228
+2023-03-15 06:37:07.797 <DBG> savnet update packet assembled
+2023-03-15 06:37:07.797 <DBG> packet len 67
+2023-03-15 06:37:07.797 <DBG> call agent send result, 1
+2023-03-15 06:37:07.802 <DBG> call_agent
+2023-03-15 06:37:07.802 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,2,0,0,255,227,0,0,255,228",
+    "as_path_len": 10,
+    "is_interior": 1,
+    "next_hop": "4,10,0,8,2",
+    "nlri_len": 4,
+    "protocol_name": "savnet_hf",
+    "sav_nlri": "24,192,168,7",
+    "sav_origin": "0,0,255,227",
+    "sav_scope": "1,2,0,0,255,226,0,0,255,224",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-15 06:37:07.802 <DBG> inserting 0,0
+2023-03-15 06:37:07.802 <DBG> inserting 4,10,0,8,2
+2023-03-15 06:37:07.802 <DBG> inserting 0,0,255,227
+2023-03-15 06:37:07.802 <DBG> inserting 1,2,0,0,255,226,0,0,255,224
+2023-03-15 06:37:07.802 <DBG> inserting 24,192,168,7
+2023-03-15 06:37:07.802 <DBG> inserting 2,2,0,0,255,227,0,0,255,228
+2023-03-15 06:37:07.802 <DBG> savnet update packet assembled
+2023-03-15 06:37:07.802 <DBG> packet len 71
+2023-03-15 06:37:07.802 <DBG> call agent send result, 1
+2023-03-15 06:37:07.804 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 8
+2023-03-15 06:37:07.804 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-15 06:37:07.804 <TRACE> savnet_hg.ipv4 > added [best] 192.168.5.0/24 0L 8G unicast
+2023-03-15 06:37:07.804 <TRACE> savnet_hg.savnet4 < rejected by protocol 192.168.5.0/24 0L 8G unicast
+2023-03-15 06:37:07.804 <TRACE> savnet_hg.ipv4 < rejected by protocol 192.168.5.0/24 0L 8G unicast
+2023-03-15 06:37:07.804 <TRACE> savnet_hj.savnet4 < filtered out 192.168.5.0/24 0L 8G unicast
+2023-03-15 06:37:07.804 <TRACE> savnet_hj.ipv4 < rejected by protocol 192.168.5.0/24 0L 8G unicast
+2023-03-15 06:37:07.804 <TRACE> savnet_hf.savnet4 < filtered out 192.168.5.0/24 0L 8G unicast
+2023-03-15 06:37:07.804 <TRACE> savnet_hf.ipv4 < added 192.168.5.0/24 0L 8G unicast
+2023-03-15 06:37:07.804 <TRACE> savnet_hg.ipv4 > added [best] 10.0.5.0/24 0L 8G unicast
+2023-03-15 06:37:07.804 <TRACE> savnet_hg.savnet4 < rejected by protocol 10.0.5.0/24 0L 8G unicast
+2023-03-15 06:37:07.804 <TRACE> savnet_hg.ipv4 < rejected by protocol 10.0.5.0/24 0L 8G unicast
+2023-03-15 06:37:07.804 <TRACE> savnet_hj.savnet4 < filtered out 10.0.5.0/24 0L 8G unicast
+2023-03-15 06:37:07.804 <TRACE> savnet_hj.ipv4 < rejected by protocol 10.0.5.0/24 0L 8G unicast
+2023-03-15 06:37:07.804 <TRACE> savnet_hf.savnet4 < filtered out 10.0.5.0/24 0L 8G unicast
+2023-03-15 06:37:07.804 <TRACE> savnet_hf.ipv4 < added 10.0.5.0/24 0L 8G unicast
+2023-03-15 06:37:07.804 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.804 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65507"
+    ,"interface_name":"h_g"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_hg"
+    ,"as_path":"65507,65505"
+    ,"sav_origin":""
+    ,"routes":"+192.168.5.0/24,+10.0.5.0/24"
+    ,"sav_scope":""
+    ,"sav_nlri":""    }}
+2023-03-15 06:37:07.808 <DBG> call_agent
+2023-03-15 06:37:07.808 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,2,0,0,255,230,0,0,255,228",
+    "as_path_len": 10,
+    "is_interior": 1,
+    "next_hop": "4,10,0,8,2",
+    "nlri_len": 4,
+    "protocol_name": "savnet_hf",
+    "sav_nlri": "24,192,168,10",
+    "sav_origin": "0,0,255,230",
+    "sav_scope": "1,2,0,0,255,226,0,0,255,224",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-15 06:37:07.808 <DBG> inserting 0,0
+2023-03-15 06:37:07.808 <DBG> inserting 4,10,0,8,2
+2023-03-15 06:37:07.808 <DBG> inserting 0,0,255,230
+2023-03-15 06:37:07.808 <DBG> inserting 1,2,0,0,255,226,0,0,255,224
+2023-03-15 06:37:07.808 <DBG> inserting 24,192,168,10
+2023-03-15 06:37:07.808 <DBG> inserting 2,2,0,0,255,230,0,0,255,228
+2023-03-15 06:37:07.808 <DBG> savnet update packet assembled
+2023-03-15 06:37:07.808 <DBG> packet len 71
+2023-03-15 06:37:07.808 <DBG> call agent send result, 1
+2023-03-15 06:37:07.813 <DBG> call_agent
+2023-03-15 06:37:07.813 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,2,0,0,255,226,0,0,255,228",
+    "as_path_len": 10,
+    "is_interior": 1,
+    "next_hop": "4,10,0,9,1",
+    "nlri_len": 4,
+    "protocol_name": "savnet_hj",
+    "sav_nlri": "24,192,168,6",
+    "sav_origin": "0,0,255,226",
+    "sav_scope": "1,1,0,0,255,230",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-15 06:37:07.813 <DBG> inserting 0,0
+2023-03-15 06:37:07.813 <DBG> inserting 4,10,0,9,1
+2023-03-15 06:37:07.813 <DBG> inserting 0,0,255,226
+2023-03-15 06:37:07.813 <DBG> inserting 1,1,0,0,255,230
+2023-03-15 06:37:07.813 <DBG> inserting 24,192,168,6
+2023-03-15 06:37:07.813 <DBG> inserting 2,2,0,0,255,226,0,0,255,228
+2023-03-15 06:37:07.813 <DBG> savnet update packet assembled
+2023-03-15 06:37:07.813 <DBG> packet len 67
+2023-03-15 06:37:07.813 <DBG> call agent send result, 1
+2023-03-15 06:37:07.816 <DBG> call_agent
+2023-03-15 06:37:07.816 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,1,0,0,255,228",
+    "as_path_len": 6,
+    "is_interior": 1,
+    "next_hop": "4,10,0,13,2",
+    "nlri_len": 4,
+    "protocol_name": "savnet_hg",
+    "sav_nlri": "24,192,168,8",
+    "sav_origin": "0,0,255,228",
+    "sav_scope": "1,2,0,0,255,227,0,0,255,225",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-15 06:37:07.816 <DBG> inserting 0,0
+2023-03-15 06:37:07.816 <DBG> inserting 4,10,0,13,2
+2023-03-15 06:37:07.816 <DBG> inserting 0,0,255,228
+2023-03-15 06:37:07.816 <DBG> inserting 1,2,0,0,255,227,0,0,255,225
+2023-03-15 06:37:07.816 <DBG> inserting 24,192,168,8
+2023-03-15 06:37:07.816 <DBG> inserting 2,1,0,0,255,228
+2023-03-15 06:37:07.816 <DBG> savnet update packet assembled
+2023-03-15 06:37:07.816 <DBG> packet len 67
+2023-03-15 06:37:07.816 <DBG> call agent send result, 1
+2023-03-15 06:37:07.818 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 12
+2023-03-15 06:37:07.818 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-15 06:37:07.818 <TRACE> savnet_hg.ipv4 > added [best] 10.0.3.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hg.savnet4 < rejected by protocol 10.0.3.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hg.ipv4 < rejected by protocol 10.0.3.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hj.savnet4 < filtered out 10.0.3.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hj.ipv4 < rejected by protocol 10.0.3.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hf.savnet4 < filtered out 10.0.3.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hf.ipv4 < added 10.0.3.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hg.ipv4 > added [best] 192.168.3.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hg.savnet4 < rejected by protocol 192.168.3.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hg.ipv4 < rejected by protocol 192.168.3.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hj.savnet4 < filtered out 192.168.3.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hj.ipv4 < rejected by protocol 192.168.3.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hf.savnet4 < filtered out 192.168.3.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hf.ipv4 < added 192.168.3.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hg.ipv4 > added [best] 10.0.2.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hg.savnet4 < rejected by protocol 10.0.2.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hg.ipv4 < rejected by protocol 10.0.2.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hj.savnet4 < filtered out 10.0.2.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hj.ipv4 < rejected by protocol 10.0.2.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hf.savnet4 < filtered out 10.0.2.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hf.ipv4 < added 10.0.2.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.818 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65507"
+    ,"interface_name":"h_g"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_hg"
+    ,"as_path":"65507,65505,65503"
+    ,"sav_origin":""
+    ,"routes":"+10.0.3.0/24,+192.168.3.0/24,+10.0.2.0/24"
+    ,"sav_scope":""
+    ,"sav_nlri":""    }}
+2023-03-15 06:37:07.818 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 8
+2023-03-15 06:37:07.818 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-15 06:37:07.818 <TRACE> savnet_hg.ipv4 > added [best] 192.168.1.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hg.savnet4 < rejected by protocol 192.168.1.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hg.ipv4 < rejected by protocol 192.168.1.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hj.savnet4 < filtered out 192.168.1.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hj.ipv4 < rejected by protocol 192.168.1.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hf.savnet4 < filtered out 192.168.1.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hf.ipv4 < added 192.168.1.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hg.ipv4 > added [best] 10.0.1.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hg.savnet4 < rejected by protocol 10.0.1.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hg.ipv4 < rejected by protocol 10.0.1.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hj.savnet4 < filtered out 10.0.1.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hj.ipv4 < rejected by protocol 10.0.1.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hf.savnet4 < filtered out 10.0.1.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <TRACE> savnet_hf.ipv4 < added 10.0.1.0/24 0L 8G unicast
+2023-03-15 06:37:07.818 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.818 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65507"
+    ,"interface_name":"h_g"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_hg"
+    ,"as_path":"65507,65505,65503,65501"
+    ,"sav_origin":""
+    ,"routes":"+192.168.1.0/24,+10.0.1.0/24"
+    ,"sav_scope":""
+    ,"sav_nlri":""    }}
+2023-03-15 06:37:07.823 <DBG> call_agent
+2023-03-15 06:37:07.823 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,1,0,0,255,228",
+    "as_path_len": 6,
+    "is_interior": 1,
+    "next_hop": "4,10,0,13,2",
+    "nlri_len": 4,
+    "protocol_name": "savnet_hg",
+    "sav_nlri": "24,192,168,8",
+    "sav_origin": "0,0,255,228",
+    "sav_scope": "1,3,0,0,255,227,0,0,255,225,0,0,255,223",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-15 06:37:07.823 <DBG> inserting 0,0
+2023-03-15 06:37:07.823 <DBG> inserting 4,10,0,13,2
+2023-03-15 06:37:07.823 <DBG> inserting 0,0,255,228
+2023-03-15 06:37:07.823 <DBG> inserting 1,3,0,0,255,227,0,0,255,225,0,0,255,223
+2023-03-15 06:37:07.823 <DBG> inserting 24,192,168,8
+2023-03-15 06:37:07.823 <DBG> inserting 2,1,0,0,255,228
+2023-03-15 06:37:07.823 <DBG> savnet update packet assembled
+2023-03-15 06:37:07.823 <DBG> packet len 71
+2023-03-15 06:37:07.823 <DBG> call agent send result, 1
+2023-03-15 06:37:07.828 <DBG> call_agent
+2023-03-15 06:37:07.828 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,1,0,0,255,228",
+    "as_path_len": 6,
+    "is_interior": 1,
+    "next_hop": "4,10,0,13,2",
+    "nlri_len": 4,
+    "protocol_name": "savnet_hg",
+    "sav_nlri": "24,192,168,8",
+    "sav_origin": "0,0,255,228",
+    "sav_scope": "1,4,0,0,255,227,0,0,255,225,0,0,255,223,0,0,255,221",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-15 06:37:07.828 <DBG> inserting 0,0
+2023-03-15 06:37:07.828 <DBG> inserting 4,10,0,13,2
+2023-03-15 06:37:07.828 <DBG> inserting 0,0,255,228
+2023-03-15 06:37:07.828 <DBG> inserting 1,4,0,0,255,227,0,0,255,225,0,0,255,223,0,0,255,221
+2023-03-15 06:37:07.828 <DBG> inserting 24,192,168,8
+2023-03-15 06:37:07.828 <DBG> inserting 2,1,0,0,255,228
+2023-03-15 06:37:07.828 <DBG> savnet update packet assembled
+2023-03-15 06:37:07.828 <DBG> packet len 75
+2023-03-15 06:37:07.828 <DBG> call agent send result, 1
+2023-03-15 06:37:07.842 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.842 <DBG> 
+mp_reach_len: 18
+mp_unreach_len: 0
+2023-03-15 06:37:07.842 <DBG> bgp_decode_nlri_savnet4 len: 18
+2023-03-15 06:37:07.842 <DBG> s->sav_origin: [65504]
+2023-03-15 06:37:07.842 <DBG> s->sav_scope: [1,2,65508,65507]
+2023-03-15 06:37:07.842 <DBG> s->sav_nlri: [24,192,168,4]
+2023-03-15 06:37:07.842 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.842 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65506"
+    ,"interface_name":"h_f"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_hf"
+    ,"as_path":"65504,65506"
+    ,"sav_origin":"65504"
+    ,"routes":""
+    ,"sav_scope":"1,2,65508,65507"
+    ,"sav_nlri":"24,192,168,4"    }}
+2023-03-15 06:37:07.859 <DBG> call_agent
+2023-03-15 06:37:07.859 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,3,0,0,255,224,0,0,255,226,0,0,255,228",
+    "as_path_len": 14,
+    "is_interior": 1,
+    "next_hop": "4,10,0,13,2",
+    "nlri_len": 4,
+    "protocol_name": "savnet_hg",
+    "sav_nlri": "24,192,168,4",
+    "sav_origin": "0,0,255,224",
+    "sav_scope": "1,1,0,0,255,227",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-15 06:37:07.859 <DBG> inserting 0,0
+2023-03-15 06:37:07.859 <DBG> inserting 4,10,0,13,2
+2023-03-15 06:37:07.859 <DBG> inserting 0,0,255,224
+2023-03-15 06:37:07.859 <DBG> inserting 1,1,0,0,255,227
+2023-03-15 06:37:07.859 <DBG> inserting 24,192,168,4
+2023-03-15 06:37:07.859 <DBG> inserting 2,3,0,0,255,224,0,0,255,226,0,0,255,228
+2023-03-15 06:37:07.859 <DBG> savnet update packet assembled
+2023-03-15 06:37:07.859 <DBG> packet len 71
+2023-03-15 06:37:07.859 <DBG> call agent send result, 1
+2023-03-15 06:37:07.875 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.875 <DBG> 
+mp_reach_len: 14
+mp_unreach_len: 0
+2023-03-15 06:37:07.875 <DBG> bgp_decode_nlri_savnet4 len: 14
+2023-03-15 06:37:07.875 <DBG> s->sav_origin: [65505]
+2023-03-15 06:37:07.875 <DBG> s->sav_scope: [1,1,65508]
+2023-03-15 06:37:07.875 <DBG> s->sav_nlri: [24,192,168,5]
+2023-03-15 06:37:07.875 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.875 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65507"
+    ,"interface_name":"h_g"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_hg"
+    ,"as_path":"65505,65507"
+    ,"sav_origin":"65505"
+    ,"routes":""
+    ,"sav_scope":"1,1,65508"
+    ,"sav_nlri":"24,192,168,5"    }}
+2023-03-15 06:37:07.884 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.884 <DBG> 
+mp_reach_len: 18
+mp_unreach_len: 0
+2023-03-15 06:37:07.884 <DBG> bgp_decode_nlri_savnet4 len: 18
+2023-03-15 06:37:07.884 <DBG> s->sav_origin: [65504]
+2023-03-15 06:37:07.884 <DBG> s->sav_scope: [1,2,65508,65510]
+2023-03-15 06:37:07.884 <DBG> s->sav_nlri: [24,192,168,4]
+2023-03-15 06:37:07.884 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.884 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65506"
+    ,"interface_name":"h_f"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_hf"
+    ,"as_path":"65504,65506"
+    ,"sav_origin":"65504"
+    ,"routes":""
+    ,"sav_scope":"1,2,65508,65510"
+    ,"sav_nlri":"24,192,168,4"    }}
+2023-03-15 06:37:07.884 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.884 <DBG> 
+mp_reach_len: 22
+mp_unreach_len: 0
+2023-03-15 06:37:07.884 <DBG> bgp_decode_nlri_savnet4 len: 22
+2023-03-15 06:37:07.884 <DBG> s->sav_origin: [65506]
+2023-03-15 06:37:07.884 <DBG> s->sav_scope: [1,3,65508,65507,65505]
+2023-03-15 06:37:07.884 <DBG> s->sav_nlri: [24,192,168,6]
+2023-03-15 06:37:07.884 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.884 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65506"
+    ,"interface_name":"h_f"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_hf"
+    ,"as_path":"65506"
+    ,"sav_origin":"65506"
+    ,"routes":""
+    ,"sav_scope":"1,3,65508,65507,65505"
+    ,"sav_nlri":"24,192,168,6"    }}
+2023-03-15 06:37:07.889 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.889 <DBG> 
+mp_reach_len: 22
+mp_unreach_len: 0
+2023-03-15 06:37:07.889 <DBG> bgp_decode_nlri_savnet4 len: 22
+2023-03-15 06:37:07.889 <DBG> s->sav_origin: [65504]
+2023-03-15 06:37:07.889 <DBG> s->sav_scope: [1,3,65508,65507,65505]
+2023-03-15 06:37:07.889 <DBG> s->sav_nlri: [24,192,168,4]
+2023-03-15 06:37:07.889 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.889 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65506"
+    ,"interface_name":"h_f"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_hf"
+    ,"as_path":"65504,65506"
+    ,"sav_origin":"65504"
+    ,"routes":""
+    ,"sav_scope":"1,3,65508,65507,65505"
+    ,"sav_nlri":"24,192,168,4"    }}
+2023-03-15 06:37:07.891 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.891 <DBG> 
+mp_reach_len: 26
+mp_unreach_len: 0
+2023-03-15 06:37:07.891 <DBG> bgp_decode_nlri_savnet4 len: 26
+2023-03-15 06:37:07.891 <DBG> s->sav_origin: [65506]
+2023-03-15 06:37:07.891 <DBG> s->sav_scope: [1,4,65508,65507,65505,65503]
+2023-03-15 06:37:07.891 <DBG> s->sav_nlri: [24,192,168,6]
+2023-03-15 06:37:07.891 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.891 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65506"
+    ,"interface_name":"h_f"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_hf"
+    ,"as_path":"65506"
+    ,"sav_origin":"65506"
+    ,"routes":""
+    ,"sav_scope":"1,4,65508,65507,65505,65503"
+    ,"sav_nlri":"24,192,168,6"    }}
+2023-03-15 06:37:07.894 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.894 <DBG> 
+mp_reach_len: 30
+mp_unreach_len: 0
+2023-03-15 06:37:07.894 <DBG> bgp_decode_nlri_savnet4 len: 30
+2023-03-15 06:37:07.894 <DBG> s->sav_origin: [65506]
+2023-03-15 06:37:07.894 <DBG> s->sav_scope: [1,5,65508,65507,65505,65503,65501]
+2023-03-15 06:37:07.894 <DBG> s->sav_nlri: [24,192,168,6]
+2023-03-15 06:37:07.894 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.894 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65506"
+    ,"interface_name":"h_f"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_hf"
+    ,"as_path":"65506"
+    ,"sav_origin":"65506"
+    ,"routes":""
+    ,"sav_scope":"1,5,65508,65507,65505,65503,65501"
+    ,"sav_nlri":"24,192,168,6"    }}
+2023-03-15 06:37:07.898 <DBG> call_agent
+2023-03-15 06:37:07.898 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,3,0,0,255,224,0,0,255,226,0,0,255,228",
+    "as_path_len": 14,
+    "is_interior": 1,
+    "next_hop": "4,10,0,9,1",
+    "nlri_len": 4,
+    "protocol_name": "savnet_hj",
+    "sav_nlri": "24,192,168,4",
+    "sav_origin": "0,0,255,224",
+    "sav_scope": "1,1,0,0,255,230",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-15 06:37:07.898 <DBG> inserting 0,0
+2023-03-15 06:37:07.898 <DBG> inserting 4,10,0,9,1
+2023-03-15 06:37:07.898 <DBG> inserting 0,0,255,224
+2023-03-15 06:37:07.898 <DBG> inserting 1,1,0,0,255,230
+2023-03-15 06:37:07.898 <DBG> inserting 24,192,168,4
+2023-03-15 06:37:07.898 <DBG> inserting 2,3,0,0,255,224,0,0,255,226,0,0,255,228
+2023-03-15 06:37:07.898 <DBG> savnet update packet assembled
+2023-03-15 06:37:07.898 <DBG> packet len 71
+2023-03-15 06:37:07.898 <DBG> call agent send result, 1
+2023-03-15 06:37:07.904 <DBG> call_agent
+2023-03-15 06:37:07.904 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,2,0,0,255,226,0,0,255,228",
+    "as_path_len": 10,
+    "is_interior": 1,
+    "next_hop": "4,10,0,13,2",
+    "nlri_len": 4,
+    "protocol_name": "savnet_hg",
+    "sav_nlri": "24,192,168,6",
+    "sav_origin": "0,0,255,226",
+    "sav_scope": "1,2,0,0,255,227,0,0,255,225",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-15 06:37:07.904 <DBG> inserting 0,0
+2023-03-15 06:37:07.904 <DBG> inserting 4,10,0,13,2
+2023-03-15 06:37:07.904 <DBG> inserting 0,0,255,226
+2023-03-15 06:37:07.904 <DBG> inserting 1,2,0,0,255,227,0,0,255,225
+2023-03-15 06:37:07.904 <DBG> inserting 24,192,168,6
+2023-03-15 06:37:07.904 <DBG> inserting 2,2,0,0,255,226,0,0,255,228
+2023-03-15 06:37:07.904 <DBG> savnet update packet assembled
+2023-03-15 06:37:07.904 <DBG> packet len 71
+2023-03-15 06:37:07.904 <DBG> call agent send result, 1
+2023-03-15 06:37:07.906 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.906 <DBG> 
+mp_reach_len: 18
+mp_unreach_len: 0
+2023-03-15 06:37:07.906 <DBG> bgp_decode_nlri_savnet4 len: 18
+2023-03-15 06:37:07.906 <DBG> s->sav_origin: [65505]
+2023-03-15 06:37:07.906 <DBG> s->sav_scope: [1,2,65508,65506]
+2023-03-15 06:37:07.906 <DBG> s->sav_nlri: [24,192,168,5]
+2023-03-15 06:37:07.906 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.906 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65507"
+    ,"interface_name":"h_g"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_hg"
+    ,"as_path":"65505,65507"
+    ,"sav_origin":"65505"
+    ,"routes":""
+    ,"sav_scope":"1,2,65508,65506"
+    ,"sav_nlri":"24,192,168,5"    }}
+2023-03-15 06:37:07.906 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.906 <DBG> 
+mp_reach_len: 30
+mp_unreach_len: 0
+2023-03-15 06:37:07.906 <DBG> bgp_decode_nlri_savnet4 len: 30
+2023-03-15 06:37:07.906 <DBG> s->sav_origin: [65504]
+2023-03-15 06:37:07.906 <DBG> s->sav_scope: [1,5,65508,65507,65505,65503,65501]
+2023-03-15 06:37:07.906 <DBG> s->sav_nlri: [24,192,168,4]
+2023-03-15 06:37:07.906 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.906 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65506"
+    ,"interface_name":"h_f"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_hf"
+    ,"as_path":"65504,65506"
+    ,"sav_origin":"65504"
+    ,"routes":""
+    ,"sav_scope":"1,5,65508,65507,65505,65503,65501"
+    ,"sav_nlri":"24,192,168,4"    }}
+2023-03-15 06:37:07.912 <DBG> call_agent
+2023-03-15 06:37:07.912 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,3,0,0,255,224,0,0,255,226,0,0,255,228",
+    "as_path_len": 14,
+    "is_interior": 1,
+    "next_hop": "4,10,0,13,2",
+    "nlri_len": 4,
+    "protocol_name": "savnet_hg",
+    "sav_nlri": "24,192,168,4",
+    "sav_origin": "0,0,255,224",
+    "sav_scope": "1,2,0,0,255,227,0,0,255,225",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-15 06:37:07.912 <DBG> inserting 0,0
+2023-03-15 06:37:07.912 <DBG> inserting 4,10,0,13,2
+2023-03-15 06:37:07.912 <DBG> inserting 0,0,255,224
+2023-03-15 06:37:07.912 <DBG> inserting 1,2,0,0,255,227,0,0,255,225
+2023-03-15 06:37:07.912 <DBG> inserting 24,192,168,4
+2023-03-15 06:37:07.912 <DBG> inserting 2,3,0,0,255,224,0,0,255,226,0,0,255,228
+2023-03-15 06:37:07.912 <DBG> savnet update packet assembled
+2023-03-15 06:37:07.912 <DBG> packet len 75
+2023-03-15 06:37:07.912 <DBG> call agent send result, 1
+2023-03-15 06:37:07.917 <DBG> call_agent
+2023-03-15 06:37:07.917 <DBG> error code: 1
+2023-03-15 06:37:07.917 <DBG> req_msg: {"msg_type":"request_cmd","msg":""}
+2023-03-15 06:37:07.917 <DBG> rep_msg {
+  "code": "2000",
+  "data": {
+    "as_path": "2,2,0,0,255,226,0,0,255,228",
+    "as_path_len": 10,
+    "is_interior": 1,
+    "next_hop": "4,10,0,13,2",
+    "nlri_len": 4,
+    "protocol_name": "savnet_hg",
+    "sav_nlri": "24,192,168,6",
+    "sav_origin": "0,0,255,226",
+    "sav_scope": "1,3,0,0,255,227,0,0,255,225,0,0,255,223",
+    "withdraws": "0,0"
+  },
+  "mesPOST /bird_bgp_upload/ HTTP/1.1
+Host: localhost
+Content-Type: application/json
+Content-Length: 35
+
+{"msg_type":"request_cmd","msg":""}sage": "success"
+}
+
+2023-03-15 06:37:07.922 <DBG> call_agent
+2023-03-15 06:37:07.922 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,2,0,0,255,226,0,0,255,228",
+    "as_path_len": 10,
+    "is_interior": 1,
+    "next_hop": "4,10,0,13,2",
+    "nlri_len": 4,
+    "protocol_name": "savnet_hg",
+    "sav_nlri": "24,192,168,6",
+    "sav_origin": "0,0,255,226",
+    "sav_scope": "1,4,0,0,255,227,0,0,255,225,0,0,255,223,0,0,255,221",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-15 06:37:07.922 <DBG> inserting 0,0
+2023-03-15 06:37:07.922 <DBG> inserting 4,10,0,13,2
+2023-03-15 06:37:07.922 <DBG> inserting 0,0,255,226
+2023-03-15 06:37:07.922 <DBG> inserting 1,4,0,0,255,227,0,0,255,225,0,0,255,223,0,0,255,221
+2023-03-15 06:37:07.922 <DBG> inserting 24,192,168,6
+2023-03-15 06:37:07.922 <DBG> inserting 2,2,0,0,255,226,0,0,255,228
+2023-03-15 06:37:07.922 <DBG> savnet update packet assembled
+2023-03-15 06:37:07.922 <DBG> packet len 79
+2023-03-15 06:37:07.922 <DBG> call agent send result, 1
+2023-03-15 06:37:07.927 <DBG> call_agent
+2023-03-15 06:37:07.927 <DBG> error code: 1
+2023-03-15 06:37:07.927 <DBG> req_msg: {"msg_type":"request_cmd","msg":""}
+2023-03-15 06:37:07.927 <DBG> rep_msg {
+  "code": "2000",
+  "data": {
+    "as_path": "2,3,0,0,255,225,0,0,255,227,0,0,255,228",
+    "as_path_len": 14,
+    "is_interior": 1,
+    "next_hop": "4,10,0,8,2",
+    "nlri_len": 4,
+    "protocol_name": "savnet_hf",
+    "sav_nlri": "24,192,168,5",
+    "sav_origin": "0,0,255,225",
+    "sav_scope": "1,1,0,0,255,226",
+    "withdraws": "0,0"
+  },
+  "message": "succePOST /bird_bgp_upload/ HTTP/1.1
+Host: localhost
+Content-Type: application/json
+Content-Length: 35
+
+{"msg_type":"request_cmd","msg":""}ss"
+}
+
+2023-03-15 06:37:07.932 <DBG> call_agent
+2023-03-15 06:37:07.932 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,3,0,0,255,224,0,0,255,226,0,0,255,228",
+    "as_path_len": 14,
+    "is_interior": 1,
+    "next_hop": "4,10,0,13,2",
+    "nlri_len": 4,
+    "protocol_name": "savnet_hg",
+    "sav_nlri": "24,192,168,4",
+    "sav_origin": "0,0,255,224",
+    "sav_scope": "1,4,0,0,255,227,0,0,255,225,0,0,255,223,0,0,255,221",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-15 06:37:07.932 <DBG> inserting 0,0
+2023-03-15 06:37:07.932 <DBG> inserting 4,10,0,13,2
+2023-03-15 06:37:07.932 <DBG> inserting 0,0,255,224
+2023-03-15 06:37:07.932 <DBG> inserting 1,4,0,0,255,227,0,0,255,225,0,0,255,223,0,0,255,221
+2023-03-15 06:37:07.932 <DBG> inserting 24,192,168,4
+2023-03-15 06:37:07.932 <DBG> inserting 2,3,0,0,255,224,0,0,255,226,0,0,255,228
+2023-03-15 06:37:07.932 <DBG> savnet update packet assembled
+2023-03-15 06:37:07.932 <DBG> packet len 83
+2023-03-15 06:37:07.932 <DBG> call agent send result, 1
+2023-03-15 06:37:07.952 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.952 <DBG> 
+mp_reach_len: 14
+mp_unreach_len: 0
+2023-03-15 06:37:07.952 <DBG> bgp_decode_nlri_savnet4 len: 14
+2023-03-15 06:37:07.952 <DBG> s->sav_origin: [65503]
+2023-03-15 06:37:07.952 <DBG> s->sav_scope: [1,1,65508]
+2023-03-15 06:37:07.952 <DBG> s->sav_nlri: [24,192,168,3]
+2023-03-15 06:37:07.952 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.952 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65507"
+    ,"interface_name":"h_g"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_hg"
+    ,"as_path":"65503,65505,65507"
+    ,"sav_origin":"65503"
+    ,"routes":""
+    ,"sav_scope":"1,1,65508"
+    ,"sav_nlri":"24,192,168,3"    }}
+2023-03-15 06:37:07.992 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.992 <DBG> 
+mp_reach_len: 18
+mp_unreach_len: 0
+2023-03-15 06:37:07.992 <DBG> bgp_decode_nlri_savnet4 len: 18
+2023-03-15 06:37:07.992 <DBG> s->sav_origin: [65503]
+2023-03-15 06:37:07.992 <DBG> s->sav_scope: [1,2,65508,65506]
+2023-03-15 06:37:07.992 <DBG> s->sav_nlri: [24,192,168,3]
+2023-03-15 06:37:07.992 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.992 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65507"
+    ,"interface_name":"h_g"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_hg"
+    ,"as_path":"65503,65505,65507"
+    ,"sav_origin":"65503"
+    ,"routes":""
+    ,"sav_scope":"1,2,65508,65506"
+    ,"sav_nlri":"24,192,168,3"    }}
+2023-03-15 06:37:07.992 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.992 <DBG> 
+mp_reach_len: 14
+mp_unreach_len: 0
+2023-03-15 06:37:07.992 <DBG> bgp_decode_nlri_savnet4 len: 14
+2023-03-15 06:37:07.992 <DBG> s->sav_origin: [65501]
+2023-03-15 06:37:07.992 <DBG> s->sav_scope: [1,1,65508]
+2023-03-15 06:37:07.992 <DBG> s->sav_nlri: [24,192,168,1]
+2023-03-15 06:37:07.992 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.992 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65507"
+    ,"interface_name":"h_g"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_hg"
+    ,"as_path":"65501,65503,65505,65507"
+    ,"sav_origin":"65501"
+    ,"routes":""
+    ,"sav_scope":"1,1,65508"
+    ,"sav_nlri":"24,192,168,1"    }}
+2023-03-15 06:37:07.992 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.992 <DBG> 
+mp_reach_len: 22
+mp_unreach_len: 0
+2023-03-15 06:37:07.992 <DBG> bgp_decode_nlri_savnet4 len: 22
+2023-03-15 06:37:07.992 <DBG> s->sav_origin: [65501]
+2023-03-15 06:37:07.992 <DBG> s->sav_scope: [1,3,65508,65506,65504]
+2023-03-15 06:37:07.992 <DBG> s->sav_nlri: [24,192,168,1]
+2023-03-15 06:37:07.992 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.992 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65507"
+    ,"interface_name":"h_g"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_hg"
+    ,"as_path":"65501,65503,65505,65507"
+    ,"sav_origin":"65501"
+    ,"routes":""
+    ,"sav_scope":"1,3,65508,65506,65504"
+    ,"sav_nlri":"24,192,168,1"    }}
+2023-03-15 06:37:08.002 <DBG> call_agent
+2023-03-15 06:37:08.002 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,4,0,0,255,223,0,0,255,225,0,0,255,227,0,0,255,228",
+    "as_path_len": 18,
+    "is_interior": 1,
+    "next_hop": "4,10,0,8,2",
+    "nlri_len": 4,
+    "protocol_name": "savnet_hf",
+    "sav_nlri": "24,192,168,3",
+    "sav_origin": "0,0,255,223",
+    "sav_scope": "1,1,0,0,255,226",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-15 06:37:08.002 <DBG> inserting 0,0
+2023-03-15 06:37:08.002 <DBG> inserting 4,10,0,8,2
+2023-03-15 06:37:08.002 <DBG> inserting 0,0,255,223
+2023-03-15 06:37:08.002 <DBG> inserting 1,1,0,0,255,226
+2023-03-15 06:37:08.002 <DBG> inserting 24,192,168,3
+2023-03-15 06:37:08.002 <DBG> inserting 2,4,0,0,255,223,0,0,255,225,0,0,255,227,0,0,255,228
+2023-03-15 06:37:08.002 <DBG> savnet update packet assembled
+2023-03-15 06:37:08.002 <DBG> packet len 75
+2023-03-15 06:37:08.002 <DBG> call agent send result, 1
+2023-03-15 06:37:08.018 <DBG> call_agent
+2023-03-15 06:37:08.018 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,5,0,0,255,221,0,0,255,223,0,0,255,225,0,0,255,227,0,0,255,228",
+    "as_path_len": 22,
+    "is_interior": 1,
+    "next_hop": "4,10,0,8,2",
+    "nlri_len": 4,
+    "protocol_name": "savnet_hf",
+    "sav_nlri": "24,192,168,1",
+    "sav_origin": "0,0,255,221",
+    "sav_scope": "1,2,0,0,255,226,0,0,255,224",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-15 06:37:08.018 <DBG> inserting 0,0
+2023-03-15 06:37:08.018 <DBG> inserting 4,10,0,8,2
+2023-03-15 06:37:08.018 <DBG> inserting 0,0,255,221
+2023-03-15 06:37:08.018 <DBG> inserting 1,2,0,0,255,226,0,0,255,224
+2023-03-15 06:37:08.018 <DBG> inserting 24,192,168,1
+2023-03-15 06:37:08.018 <DBG> inserting 2,5,0,0,255,221,0,0,255,223,0,0,255,225,0,0,255,227,0,0,255,228
+2023-03-15 06:37:08.018 <DBG> savnet update packet assembled
+2023-03-15 06:37:08.018 <DBG> packet len 83
+2023-03-15 06:37:08.018 <DBG> call agent send result, 1
+2023-03-15 06:38:03.423 <ERR> from interface 1:lo
+2023-03-15 06:38:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:38:03.423 <ERR> from interface 2227:h_f
+2023-03-15 06:38:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:38:03.423 <ERR> from interface 2230:h_j
+2023-03-15 06:38:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:38:03.423 <ERR> from interface 2237:h_g
+2023-03-15 06:38:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:38:12.387 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 06:38:12.850 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:38:12.946 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 06:38:16.691 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:38:23.369 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:38:24.652 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 06:39:03.424 <ERR> from interface 1:lo
+2023-03-15 06:39:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:39:03.424 <ERR> from interface 2227:h_f
+2023-03-15 06:39:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:39:03.424 <ERR> from interface 2230:h_j
+2023-03-15 06:39:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:39:03.424 <ERR> from interface 2237:h_g
+2023-03-15 06:39:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:39:14.134 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:39:24.227 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 06:39:26.153 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 06:39:29.396 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:39:30.062 <TRACE> savnet_hj: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:39:36.748 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 06:40:03.424 <ERR> from interface 1:lo
+2023-03-15 06:40:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:40:03.424 <ERR> from interface 2227:h_f
+2023-03-15 06:40:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:40:03.424 <ERR> from interface 2230:h_j
+2023-03-15 06:40:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:40:03.424 <ERR> from interface 2237:h_g
+2023-03-15 06:40:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:40:17.536 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:40:33.296 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:40:44.272 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:40:44.760 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 06:40:45.105 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 06:40:45.457 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 06:41:03.424 <ERR> from interface 1:lo
+2023-03-15 06:41:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:41:03.424 <ERR> from interface 2227:h_f
+2023-03-15 06:41:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:41:03.424 <ERR> from interface 2230:h_j
+2023-03-15 06:41:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:41:03.424 <ERR> from interface 2237:h_g
+2023-03-15 06:41:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:41:31.034 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:41:33.468 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:41:54.160 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 06:42:00.435 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 06:42:03.424 <ERR> from interface 1:lo
+2023-03-15 06:42:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:42:03.424 <ERR> from interface 2227:h_f
+2023-03-15 06:42:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:42:03.424 <ERR> from interface 2230:h_j
+2023-03-15 06:42:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:42:03.424 <ERR> from interface 2237:h_g
+2023-03-15 06:42:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:42:04.111 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:42:04.268 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 06:42:37.327 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:42:41.236 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:42:54.919 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 06:43:03.424 <ERR> from interface 1:lo
+2023-03-15 06:43:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:43:03.424 <ERR> from interface 2227:h_f
+2023-03-15 06:43:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:43:03.424 <ERR> from interface 2230:h_j
+2023-03-15 06:43:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:43:03.424 <ERR> from interface 2237:h_g
+2023-03-15 06:43:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:43:05.596 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:43:18.240 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 06:43:19.081 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:43:50.840 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 06:43:54.216 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 06:44:03.421 <ERR> from interface 1:lo
+2023-03-15 06:44:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:44:03.421 <ERR> from interface 2227:h_f
+2023-03-15 06:44:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:44:03.421 <ERR> from interface 2230:h_j
+2023-03-15 06:44:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:44:03.421 <ERR> from interface 2237:h_g
+2023-03-15 06:44:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 06:44:09.901 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 06:44:18.375 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 06:44:23.020 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:44:35.395 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:44:51.592 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 06:45:03.424 <ERR> from interface 1:lo
+2023-03-15 06:45:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:45:03.424 <ERR> from interface 2227:h_f
+2023-03-15 06:45:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:45:03.424 <ERR> from interface 2230:h_j
+2023-03-15 06:45:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:45:03.424 <ERR> from interface 2237:h_g
+2023-03-15 06:45:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:45:06.714 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:45:24.352 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 06:45:37.924 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 06:45:41.632 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:45:50.705 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:45:56.516 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 06:46:03.422 <ERR> from interface 1:lo
+2023-03-15 06:46:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:46:03.422 <ERR> from interface 2227:h_f
+2023-03-15 06:46:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:46:03.422 <ERR> from interface 2230:h_j
+2023-03-15 06:46:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:46:03.422 <ERR> from interface 2237:h_g
+2023-03-15 06:46:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:46:08.318 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:46:28.732 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 06:46:50.826 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 06:46:56.056 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 06:47:03.423 <ERR> from interface 1:lo
+2023-03-15 06:47:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:47:03.423 <ERR> from interface 2227:h_f
+2023-03-15 06:47:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:47:03.423 <ERR> from interface 2230:h_j
+2023-03-15 06:47:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:47:03.423 <ERR> from interface 2237:h_g
+2023-03-15 06:47:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 06:47:09.780 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:47:09.859 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 06:47:26.444 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:47:35.460 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 06:48:03.422 <ERR> from interface 1:lo
+2023-03-15 06:48:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:48:03.422 <ERR> from interface 2227:h_f
+2023-03-15 06:48:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:48:03.422 <ERR> from interface 2230:h_j
+2023-03-15 06:48:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:48:03.422 <ERR> from interface 2237:h_g
+2023-03-15 06:48:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:48:07.958 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:48:10.728 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 06:48:12.604 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:48:20.404 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 06:48:41.890 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:48:44.176 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 06:49:03.422 <ERR> from interface 1:lo
+2023-03-15 06:49:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:49:03.422 <ERR> from interface 2227:h_f
+2023-03-15 06:49:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:49:03.422 <ERR> from interface 2230:h_j
+2023-03-15 06:49:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:49:03.422 <ERR> from interface 2237:h_g
+2023-03-15 06:49:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 06:49:12.272 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 06:49:19.748 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 06:49:32.120 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:49:33.160 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 06:49:50.752 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:49:59.974 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 06:50:03.422 <ERR> from interface 1:lo
+2023-03-15 06:50:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:50:03.422 <ERR> from interface 2227:h_f
+2023-03-15 06:50:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:50:03.422 <ERR> from interface 2230:h_j
+2023-03-15 06:50:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:50:03.422 <ERR> from interface 2237:h_g
+2023-03-15 06:50:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 06:50:27.492 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 06:50:30.786 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 06:50:38.724 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:50:51.399 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 06:51:00.006 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:51:01.203 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 06:51:03.424 <ERR> from interface 1:lo
+2023-03-15 06:51:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:51:03.424 <ERR> from interface 2227:h_f
+2023-03-15 06:51:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:51:03.424 <ERR> from interface 2230:h_j
+2023-03-15 06:51:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:51:03.424 <ERR> from interface 2237:h_g
+2023-03-15 06:51:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:51:39.222 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 06:51:40.010 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:51:40.180 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:51:59.396 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 06:52:03.422 <ERR> from interface 1:lo
+2023-03-15 06:52:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:52:03.422 <ERR> from interface 2227:h_f
+2023-03-15 06:52:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:52:03.422 <ERR> from interface 2230:h_j
+2023-03-15 06:52:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:52:03.422 <ERR> from interface 2237:h_g
+2023-03-15 06:52:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 06:52:07.179 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 06:52:09.063 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:52:41.592 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 06:52:42.388 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 06:52:48.944 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 06:53:03.424 <ERR> from interface 1:lo
+2023-03-15 06:53:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:53:03.424 <ERR> from interface 2227:h_f
+2023-03-15 06:53:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:53:03.424 <ERR> from interface 2230:h_j
+2023-03-15 06:53:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:53:03.424 <ERR> from interface 2237:h_g
+2023-03-15 06:53:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 06:53:18.331 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:53:18.934 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 06:53:27.418 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:53:47.252 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 06:53:56.555 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 06:54:03.422 <ERR> from interface 1:lo
+2023-03-15 06:54:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:54:03.422 <ERR> from interface 2227:h_f
+2023-03-15 06:54:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:54:03.422 <ERR> from interface 2230:h_j
+2023-03-15 06:54:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:54:03.422 <ERR> from interface 2237:h_g
+2023-03-15 06:54:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:54:03.749 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:54:29.538 <TRACE> savnet_hj: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:54:32.420 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 06:54:34.992 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:54:57.540 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 06:55:03.424 <ERR> from interface 1:lo
+2023-03-15 06:55:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:55:03.424 <ERR> from interface 2227:h_f
+2023-03-15 06:55:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:55:03.424 <ERR> from interface 2230:h_j
+2023-03-15 06:55:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:55:03.424 <ERR> from interface 2237:h_g
+2023-03-15 06:55:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:55:10.952 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 06:55:18.593 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:55:42.048 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 06:55:43.775 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:55:46.020 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 06:56:03.422 <ERR> from interface 1:lo
+2023-03-15 06:56:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:56:03.422 <ERR> from interface 2227:h_f
+2023-03-15 06:56:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:56:03.422 <ERR> from interface 2230:h_j
+2023-03-15 06:56:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:56:03.422 <ERR> from interface 2237:h_g
+2023-03-15 06:56:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 06:56:17.306 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 06:56:26.529 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 06:56:29.514 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:56:49.732 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 06:56:59.080 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:57:02.663 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 06:57:03.422 <ERR> from interface 1:lo
+2023-03-15 06:57:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:57:03.422 <ERR> from interface 2227:h_f
+2023-03-15 06:57:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:57:03.422 <ERR> from interface 2230:h_j
+2023-03-15 06:57:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:57:03.422 <ERR> from interface 2237:h_g
+2023-03-15 06:57:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 06:57:26.218 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 06:57:32.502 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 06:57:41.028 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:57:52.523 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 06:57:59.698 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 06:58:03.422 <ERR> from interface 1:lo
+2023-03-15 06:58:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:58:03.422 <ERR> from interface 2227:h_f
+2023-03-15 06:58:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:58:03.422 <ERR> from interface 2230:h_j
+2023-03-15 06:58:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:58:03.422 <ERR> from interface 2237:h_g
+2023-03-15 06:58:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 06:58:12.084 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 06:58:37.900 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:58:42.467 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 06:58:43.262 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 06:59:03.423 <ERR> from interface 1:lo
+2023-03-15 06:59:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:59:03.423 <ERR> from interface 2227:h_f
+2023-03-15 06:59:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:59:03.423 <ERR> from interface 2230:h_j
+2023-03-15 06:59:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:59:03.423 <ERR> from interface 2237:h_g
+2023-03-15 06:59:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:59:03.940 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:59:10.180 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:59:31.671 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 06:59:53.114 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 06:59:53.696 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:00:00.615 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:00:03.424 <ERR> from interface 1:lo
+2023-03-15 07:00:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:00:03.424 <ERR> from interface 2227:h_f
+2023-03-15 07:00:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:00:03.424 <ERR> from interface 2230:h_j
+2023-03-15 07:00:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:00:03.424 <ERR> from interface 2237:h_g
+2023-03-15 07:00:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:00:06.079 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:00:22.418 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:00:49.404 <TRACE> savnet_hj: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:01:02.700 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:01:03.422 <ERR> from interface 1:lo
+2023-03-15 07:01:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:01:03.422 <ERR> from interface 2227:h_f
+2023-03-15 07:01:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:01:03.422 <ERR> from interface 2230:h_j
+2023-03-15 07:01:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:01:03.422 <ERR> from interface 2237:h_g
+2023-03-15 07:01:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:01:04.530 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:01:04.628 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 07:01:09.016 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:01:36.389 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:02:01.114 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:02:03.423 <ERR> from interface 1:lo
+2023-03-15 07:02:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:02:03.423 <ERR> from interface 2227:h_f
+2023-03-15 07:02:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:02:03.423 <ERR> from interface 2230:h_j
+2023-03-15 07:02:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:02:03.423 <ERR> from interface 2237:h_g
+2023-03-15 07:02:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:02:18.675 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 07:02:20.007 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:02:21.644 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:02:23.688 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:02:45.290 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:03:03.200 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:03:03.422 <ERR> from interface 1:lo
+2023-03-15 07:03:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:03:03.422 <ERR> from interface 2227:h_f
+2023-03-15 07:03:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:03:03.422 <ERR> from interface 2230:h_j
+2023-03-15 07:03:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:03:03.422 <ERR> from interface 2237:h_g
+2023-03-15 07:03:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:03:34.465 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:03:35.008 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 07:03:35.812 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 07:03:42.164 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:03:53.374 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 07:04:03.422 <ERR> from interface 1:lo
+2023-03-15 07:04:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:04:03.422 <ERR> from interface 2227:h_f
+2023-03-15 07:04:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:04:03.422 <ERR> from interface 2230:h_j
+2023-03-15 07:04:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:04:03.422 <ERR> from interface 2237:h_g
+2023-03-15 07:04:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:04:14.756 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:04:43.720 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:04:47.233 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:04:49.444 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:04:51.311 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:05:02.844 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 07:05:03.422 <ERR> from interface 1:lo
+2023-03-15 07:05:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:05:03.422 <ERR> from interface 2227:h_f
+2023-03-15 07:05:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:05:03.422 <ERR> from interface 2230:h_j
+2023-03-15 07:05:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:05:03.422 <ERR> from interface 2237:h_g
+2023-03-15 07:05:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:05:17.388 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:05:50.027 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:05:54.520 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:06:00.368 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 07:06:03.421 <ERR> from interface 1:lo
+2023-03-15 07:06:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:06:03.421 <ERR> from interface 2227:h_f
+2023-03-15 07:06:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:06:03.421 <ERR> from interface 2230:h_j
+2023-03-15 07:06:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:06:03.421 <ERR> from interface 2237:h_g
+2023-03-15 07:06:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:06:06.957 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:06:08.772 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:06:17.885 <TRACE> savnet_hj: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:06:56.704 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:07:03.422 <ERR> from interface 1:lo
+2023-03-15 07:07:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:07:03.422 <ERR> from interface 2227:h_f
+2023-03-15 07:07:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:07:03.422 <ERR> from interface 2230:h_j
+2023-03-15 07:07:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:07:03.422 <ERR> from interface 2237:h_g
+2023-03-15 07:07:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:07:04.363 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:07:11.828 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:07:13.852 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:07:22.359 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:07:22.516 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 07:08:03.423 <ERR> from interface 1:lo
+2023-03-15 07:08:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:08:03.423 <ERR> from interface 2227:h_f
+2023-03-15 07:08:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:08:03.423 <ERR> from interface 2230:h_j
+2023-03-15 07:08:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:08:03.423 <ERR> from interface 2237:h_g
+2023-03-15 07:08:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:08:10.507 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:08:14.464 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 07:08:14.799 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:08:19.175 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 07:08:23.236 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:08:36.258 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:09:03.421 <ERR> from interface 1:lo
+2023-03-15 07:09:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:09:03.421 <ERR> from interface 2227:h_f
+2023-03-15 07:09:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:09:03.421 <ERR> from interface 2230:h_j
+2023-03-15 07:09:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:09:03.421 <ERR> from interface 2237:h_g
+2023-03-15 07:09:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:09:17.915 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:09:19.400 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 07:09:22.368 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 07:09:22.387 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:09:26.064 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:09:46.672 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:10:03.423 <ERR> from interface 1:lo
+2023-03-15 07:10:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:10:03.423 <ERR> from interface 2227:h_f
+2023-03-15 07:10:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:10:03.423 <ERR> from interface 2230:h_j
+2023-03-15 07:10:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:10:03.423 <ERR> from interface 2237:h_g
+2023-03-15 07:10:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:10:27.780 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 07:10:35.524 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:10:35.930 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:10:37.176 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:10:39.672 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:10:58.365 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:11:03.423 <ERR> from interface 1:lo
+2023-03-15 07:11:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:11:03.423 <ERR> from interface 2227:h_f
+2023-03-15 07:11:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:11:03.423 <ERR> from interface 2230:h_j
+2023-03-15 07:11:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:11:03.423 <ERR> from interface 2237:h_g
+2023-03-15 07:11:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:11:39.268 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:11:42.391 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:11:44.956 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:11:47.620 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 07:11:57.408 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 07:12:03.421 <ERR> from interface 1:lo
+2023-03-15 07:12:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:12:03.421 <ERR> from interface 2227:h_f
+2023-03-15 07:12:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:12:03.421 <ERR> from interface 2230:h_j
+2023-03-15 07:12:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:12:03.421 <ERR> from interface 2237:h_g
+2023-03-15 07:12:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:12:18.239 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:12:42.546 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:12:54.312 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:12:54.493 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:12:54.512 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 07:12:58.015 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 07:13:03.424 <ERR> from interface 1:lo
+2023-03-15 07:13:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:13:03.424 <ERR> from interface 2227:h_f
+2023-03-15 07:13:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:13:03.424 <ERR> from interface 2230:h_j
+2023-03-15 07:13:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:13:03.424 <ERR> from interface 2237:h_g
+2023-03-15 07:13:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:13:32.856 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:13:54.205 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:13:54.830 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:14:00.616 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:14:03.424 <ERR> from interface 1:lo
+2023-03-15 07:14:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:14:03.424 <ERR> from interface 2227:h_f
+2023-03-15 07:14:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:14:03.424 <ERR> from interface 2230:h_j
+2023-03-15 07:14:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:14:03.424 <ERR> from interface 2237:h_g
+2023-03-15 07:14:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:14:03.788 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:14:05.899 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:14:40.359 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:14:57.872 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:15:03.424 <ERR> from interface 1:lo
+2023-03-15 07:15:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:15:03.424 <ERR> from interface 2227:h_f
+2023-03-15 07:15:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:15:03.424 <ERR> from interface 2230:h_j
+2023-03-15 07:15:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:15:03.424 <ERR> from interface 2237:h_g
+2023-03-15 07:15:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:15:08.535 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:15:09.356 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 07:15:11.452 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:15:21.832 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:15:52.038 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:16:03.424 <ERR> from interface 1:lo
+2023-03-15 07:16:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:16:03.424 <ERR> from interface 2227:h_f
+2023-03-15 07:16:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:16:03.424 <ERR> from interface 2230:h_j
+2023-03-15 07:16:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:16:03.424 <ERR> from interface 2237:h_g
+2023-03-15 07:16:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:16:11.212 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:16:13.304 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:16:18.903 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 07:16:24.031 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:16:41.396 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:16:57.375 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:17:03.421 <ERR> from interface 1:lo
+2023-03-15 07:17:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:17:03.421 <ERR> from interface 2227:h_f
+2023-03-15 07:17:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:17:03.421 <ERR> from interface 2230:h_j
+2023-03-15 07:17:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:17:03.421 <ERR> from interface 2237:h_g
+2023-03-15 07:17:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:17:20.473 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 07:17:25.282 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:17:26.295 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:17:43.220 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 07:17:43.354 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 07:18:03.423 <ERR> from interface 1:lo
+2023-03-15 07:18:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:18:03.423 <ERR> from interface 2227:h_f
+2023-03-15 07:18:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:18:03.423 <ERR> from interface 2230:h_j
+2023-03-15 07:18:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:18:03.423 <ERR> from interface 2237:h_g
+2023-03-15 07:18:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:18:07.102 <TRACE> savnet_hj: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:18:28.141 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:18:37.309 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:18:37.428 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 07:18:47.843 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:19:01.655 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 07:19:03.423 <ERR> from interface 1:lo
+2023-03-15 07:19:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:19:03.423 <ERR> from interface 2227:h_f
+2023-03-15 07:19:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:19:03.423 <ERR> from interface 2230:h_j
+2023-03-15 07:19:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:19:03.423 <ERR> from interface 2237:h_g
+2023-03-15 07:19:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:19:23.163 <TRACE> savnet_hj: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:19:28.676 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:19:49.556 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:19:51.511 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 07:19:54.129 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:20:02.579 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 07:20:03.422 <ERR> from interface 1:lo
+2023-03-15 07:20:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:20:03.422 <ERR> from interface 2227:h_f
+2023-03-15 07:20:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:20:03.422 <ERR> from interface 2230:h_j
+2023-03-15 07:20:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:20:03.422 <ERR> from interface 2237:h_g
+2023-03-15 07:20:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:20:30.312 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:20:35.543 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:21:02.348 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 07:21:03.422 <ERR> from interface 1:lo
+2023-03-15 07:21:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:21:03.422 <ERR> from interface 2227:h_f
+2023-03-15 07:21:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:21:03.422 <ERR> from interface 2230:h_j
+2023-03-15 07:21:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:21:03.422 <ERR> from interface 2237:h_g
+2023-03-15 07:21:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:21:05.836 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:21:05.876 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:21:07.710 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:21:34.331 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:21:44.258 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:22:03.421 <ERR> from interface 1:lo
+2023-03-15 07:22:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:22:03.421 <ERR> from interface 2227:h_f
+2023-03-15 07:22:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:22:03.421 <ERR> from interface 2230:h_j
+2023-03-15 07:22:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:22:03.421 <ERR> from interface 2237:h_g
+2023-03-15 07:22:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:22:10.171 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:22:12.296 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 07:22:21.841 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:22:22.428 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:22:48.070 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:22:54.000 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:23:03.422 <ERR> from interface 1:lo
+2023-03-15 07:23:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:23:03.422 <ERR> from interface 2227:h_f
+2023-03-15 07:23:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:23:03.422 <ERR> from interface 2230:h_j
+2023-03-15 07:23:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:23:03.422 <ERR> from interface 2237:h_g
+2023-03-15 07:23:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:23:12.193 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:23:26.023 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 07:23:28.294 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:23:41.253 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:23:57.676 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:23:58.567 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:24:03.423 <ERR> from interface 1:lo
+2023-03-15 07:24:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:24:03.423 <ERR> from interface 2227:h_f
+2023-03-15 07:24:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:24:03.423 <ERR> from interface 2230:h_j
+2023-03-15 07:24:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:24:03.423 <ERR> from interface 2237:h_g
+2023-03-15 07:24:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:24:21.016 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:24:31.520 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 07:24:43.030 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:24:54.892 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 07:25:03.424 <ERR> from interface 1:lo
+2023-03-15 07:25:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:25:03.424 <ERR> from interface 2227:h_f
+2023-03-15 07:25:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:25:03.424 <ERR> from interface 2230:h_j
+2023-03-15 07:25:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:25:03.424 <ERR> from interface 2237:h_g
+2023-03-15 07:25:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:25:08.524 <TRACE> savnet_hj: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:25:16.187 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:25:38.960 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:25:44.466 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 07:25:53.268 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:26:03.195 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 07:26:03.421 <ERR> from interface 1:lo
+2023-03-15 07:26:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:26:03.421 <ERR> from interface 2227:h_f
+2023-03-15 07:26:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:26:03.421 <ERR> from interface 2230:h_j
+2023-03-15 07:26:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:26:03.421 <ERR> from interface 2237:h_g
+2023-03-15 07:26:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:26:17.492 <TRACE> savnet_hj: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:26:17.560 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:26:50.884 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:26:56.140 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 07:27:03.423 <ERR> from interface 1:lo
+2023-03-15 07:27:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:27:03.423 <ERR> from interface 2227:h_f
+2023-03-15 07:27:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:27:03.423 <ERR> from interface 2230:h_j
+2023-03-15 07:27:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:27:03.423 <ERR> from interface 2237:h_g
+2023-03-15 07:27:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:27:10.168 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 07:27:12.240 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:27:28.416 <TRACE> savnet_hj: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:27:31.036 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:27:56.780 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:28:03.422 <ERR> from interface 1:lo
+2023-03-15 07:28:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:28:03.422 <ERR> from interface 2227:h_f
+2023-03-15 07:28:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:28:03.422 <ERR> from interface 2230:h_j
+2023-03-15 07:28:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:28:03.422 <ERR> from interface 2237:h_g
+2023-03-15 07:28:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:28:12.215 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 07:28:16.948 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:28:17.816 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:28:39.905 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:28:40.351 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:28:59.967 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:29:03.422 <ERR> from interface 1:lo
+2023-03-15 07:29:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:29:03.422 <ERR> from interface 2227:h_f
+2023-03-15 07:29:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:29:03.422 <ERR> from interface 2230:h_j
+2023-03-15 07:29:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:29:03.422 <ERR> from interface 2237:h_g
+2023-03-15 07:29:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:29:22.490 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 07:29:23.255 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 07:29:23.622 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:29:47.945 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:29:54.089 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:30:03.422 <ERR> from interface 1:lo
+2023-03-15 07:30:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:30:03.422 <ERR> from interface 2227:h_f
+2023-03-15 07:30:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:30:03.422 <ERR> from interface 2230:h_j
+2023-03-15 07:30:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:30:03.422 <ERR> from interface 2237:h_g
+2023-03-15 07:30:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:30:17.332 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:30:25.735 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 07:30:29.412 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 07:30:29.764 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:30:52.308 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:31:01.007 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:31:03.423 <ERR> from interface 1:lo
+2023-03-15 07:31:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:31:03.423 <ERR> from interface 2227:h_f
+2023-03-15 07:31:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:31:03.423 <ERR> from interface 2230:h_j
+2023-03-15 07:31:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:31:03.423 <ERR> from interface 2237:h_g
+2023-03-15 07:31:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:31:25.651 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:31:32.367 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 07:31:40.168 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:31:44.264 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 07:32:03.422 <ERR> from interface 1:lo
+2023-03-15 07:32:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:32:03.422 <ERR> from interface 2227:h_f
+2023-03-15 07:32:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:32:03.422 <ERR> from interface 2230:h_j
+2023-03-15 07:32:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:32:03.422 <ERR> from interface 2237:h_g
+2023-03-15 07:32:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:32:06.621 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:32:12.420 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:32:27.264 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:32:35.744 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:32:44.663 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 07:32:44.846 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 07:33:03.422 <ERR> from interface 1:lo
+2023-03-15 07:33:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:33:03.422 <ERR> from interface 2227:h_f
+2023-03-15 07:33:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:33:03.422 <ERR> from interface 2230:h_j
+2023-03-15 07:33:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:33:03.422 <ERR> from interface 2237:h_g
+2023-03-15 07:33:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:33:20.547 <TRACE> savnet_hj: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:33:25.328 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:33:29.929 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:33:43.610 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:33:50.006 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 07:33:55.432 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 07:34:03.423 <ERR> from interface 1:lo
+2023-03-15 07:34:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:34:03.423 <ERR> from interface 2227:h_f
+2023-03-15 07:34:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:34:03.423 <ERR> from interface 2230:h_j
+2023-03-15 07:34:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:34:03.423 <ERR> from interface 2237:h_g
+2023-03-15 07:34:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:34:35.031 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:34:39.563 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:34:42.604 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:34:47.616 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:34:56.499 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 07:35:03.422 <ERR> from interface 1:lo
+2023-03-15 07:35:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:35:03.422 <ERR> from interface 2227:h_f
+2023-03-15 07:35:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:35:03.422 <ERR> from interface 2230:h_j
+2023-03-15 07:35:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:35:03.422 <ERR> from interface 2237:h_g
+2023-03-15 07:35:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:35:09.543 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 07:35:44.996 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:35:51.501 <TRACE> savnet_hj: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:35:58.342 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:36:03.423 <ERR> from interface 1:lo
+2023-03-15 07:36:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:36:03.423 <ERR> from interface 2227:h_f
+2023-03-15 07:36:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:36:03.423 <ERR> from interface 2230:h_j
+2023-03-15 07:36:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:36:03.423 <ERR> from interface 2237:h_g
+2023-03-15 07:36:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:36:05.200 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:36:09.239 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 07:36:15.159 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 07:36:57.092 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:37:03.422 <ERR> from interface 1:lo
+2023-03-15 07:37:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:37:03.422 <ERR> from interface 2227:h_f
+2023-03-15 07:37:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:37:03.422 <ERR> from interface 2230:h_j
+2023-03-15 07:37:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:37:03.422 <ERR> from interface 2237:h_g
+2023-03-15 07:37:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:37:08.600 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:37:09.288 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:37:12.350 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:37:16.888 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:37:18.652 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 07:38:03.424 <ERR> from interface 1:lo
+2023-03-15 07:38:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:38:03.424 <ERR> from interface 2227:h_f
+2023-03-15 07:38:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:38:03.424 <ERR> from interface 2230:h_j
+2023-03-15 07:38:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:38:03.424 <ERR> from interface 2237:h_g
+2023-03-15 07:38:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:38:09.748 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 07:38:11.437 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:38:13.508 <TRACE> savnet_hj: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:38:22.268 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:38:33.530 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:38:33.572 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 07:39:03.424 <ERR> from interface 1:lo
+2023-03-15 07:39:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:39:03.424 <ERR> from interface 2227:h_f
+2023-03-15 07:39:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:39:03.424 <ERR> from interface 2230:h_j
+2023-03-15 07:39:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:39:03.424 <ERR> from interface 2237:h_g
+2023-03-15 07:39:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:39:21.581 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:39:26.199 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:39:28.150 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:39:41.415 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 07:39:46.005 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:39:50.751 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:40:03.422 <ERR> from interface 1:lo
+2023-03-15 07:40:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:40:03.422 <ERR> from interface 2227:h_f
+2023-03-15 07:40:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:40:03.422 <ERR> from interface 2230:h_j
+2023-03-15 07:40:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:40:03.422 <ERR> from interface 2237:h_g
+2023-03-15 07:40:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:40:24.646 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:40:37.900 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:40:42.539 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:40:54.910 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:41:00.032 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:41:03.422 <ERR> from interface 1:lo
+2023-03-15 07:41:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:41:03.422 <ERR> from interface 2227:h_f
+2023-03-15 07:41:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:41:03.422 <ERR> from interface 2230:h_j
+2023-03-15 07:41:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:41:03.422 <ERR> from interface 2237:h_g
+2023-03-15 07:41:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:41:03.690 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 07:41:29.135 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:41:43.743 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:41:52.833 <TRACE> savnet_hj: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:42:01.107 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 07:42:03.424 <ERR> from interface 1:lo
+2023-03-15 07:42:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:42:03.424 <ERR> from interface 2227:h_f
+2023-03-15 07:42:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:42:03.424 <ERR> from interface 2230:h_j
+2023-03-15 07:42:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:42:03.424 <ERR> from interface 2237:h_g
+2023-03-15 07:42:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:42:08.158 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:42:10.325 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 07:42:35.058 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:43:01.404 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:43:01.447 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:43:03.423 <ERR> from interface 1:lo
+2023-03-15 07:43:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:43:03.423 <ERR> from interface 2227:h_f
+2023-03-15 07:43:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:43:03.423 <ERR> from interface 2230:h_j
+2023-03-15 07:43:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:43:03.423 <ERR> from interface 2237:h_g
+2023-03-15 07:43:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:43:16.984 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:43:17.471 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 07:43:17.537 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 07:43:53.900 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:44:03.422 <ERR> from interface 1:lo
+2023-03-15 07:44:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:44:03.422 <ERR> from interface 2227:h_f
+2023-03-15 07:44:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:44:03.422 <ERR> from interface 2230:h_j
+2023-03-15 07:44:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:44:03.422 <ERR> from interface 2237:h_g
+2023-03-15 07:44:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:44:07.680 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:44:18.079 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:44:21.768 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:44:30.158 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:44:34.209 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:44:57.657 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:45:03.424 <ERR> from interface 1:lo
+2023-03-15 07:45:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:45:03.424 <ERR> from interface 2227:h_f
+2023-03-15 07:45:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:45:03.424 <ERR> from interface 2230:h_j
+2023-03-15 07:45:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:45:03.424 <ERR> from interface 2237:h_g
+2023-03-15 07:45:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:45:18.897 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 07:45:32.544 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:45:34.176 <TRACE> savnet_hj: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:45:39.787 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:45:47.526 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:46:03.422 <ERR> from interface 1:lo
+2023-03-15 07:46:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:46:03.422 <ERR> from interface 2227:h_f
+2023-03-15 07:46:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:46:03.422 <ERR> from interface 2230:h_j
+2023-03-15 07:46:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:46:03.422 <ERR> from interface 2237:h_g
+2023-03-15 07:46:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:46:05.480 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:46:31.580 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:46:36.956 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:46:44.443 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:46:46.020 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:46:51.004 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:47:03.422 <ERR> from interface 1:lo
+2023-03-15 07:47:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:47:03.422 <ERR> from interface 2227:h_f
+2023-03-15 07:47:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:47:03.422 <ERR> from interface 2230:h_j
+2023-03-15 07:47:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:47:03.422 <ERR> from interface 2237:h_g
+2023-03-15 07:47:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:47:06.016 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:47:36.004 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 07:47:48.412 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:47:55.368 <TRACE> savnet_hj: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:47:57.540 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:48:01.423 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 07:48:03.423 <ERR> from interface 1:lo
+2023-03-15 07:48:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:48:03.423 <ERR> from interface 2227:h_f
+2023-03-15 07:48:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:48:03.423 <ERR> from interface 2230:h_j
+2023-03-15 07:48:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:48:03.423 <ERR> from interface 2237:h_g
+2023-03-15 07:48:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:48:08.556 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:48:48.655 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:48:58.848 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:49:03.423 <ERR> from interface 1:lo
+2023-03-15 07:49:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:49:03.423 <ERR> from interface 2227:h_f
+2023-03-15 07:49:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:49:03.423 <ERR> from interface 2230:h_j
+2023-03-15 07:49:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:49:03.423 <ERR> from interface 2237:h_g
+2023-03-15 07:49:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:49:04.671 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:49:07.128 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:49:08.715 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 07:49:16.559 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:50:03.423 <ERR> from interface 1:lo
+2023-03-15 07:50:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:50:03.423 <ERR> from interface 2227:h_f
+2023-03-15 07:50:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:50:03.423 <ERR> from interface 2230:h_j
+2023-03-15 07:50:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:50:03.423 <ERR> from interface 2237:h_g
+2023-03-15 07:50:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:50:05.732 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:50:08.908 <TRACE> savnet_hj: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:50:11.463 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 07:50:15.900 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 07:50:18.359 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:50:26.252 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:51:03.422 <ERR> from interface 1:lo
+2023-03-15 07:51:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:51:03.422 <ERR> from interface 2227:h_f
+2023-03-15 07:51:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:51:03.422 <ERR> from interface 2230:h_j
+2023-03-15 07:51:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:51:03.422 <ERR> from interface 2237:h_g
+2023-03-15 07:51:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:51:14.366 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 07:51:19.287 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:51:22.136 <TRACE> savnet_hj: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:51:22.595 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 07:51:28.623 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:51:38.182 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:52:03.423 <ERR> from interface 1:lo
+2023-03-15 07:52:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:52:03.423 <ERR> from interface 2227:h_f
+2023-03-15 07:52:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:52:03.423 <ERR> from interface 2230:h_j
+2023-03-15 07:52:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:52:03.423 <ERR> from interface 2237:h_g
+2023-03-15 07:52:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:52:23.202 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:52:26.563 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:52:29.578 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:52:32.084 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 07:52:34.100 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:52:53.570 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:53:03.422 <ERR> from interface 1:lo
+2023-03-15 07:53:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:53:03.422 <ERR> from interface 2227:h_f
+2023-03-15 07:53:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:53:03.422 <ERR> from interface 2230:h_j
+2023-03-15 07:53:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:53:03.422 <ERR> from interface 2237:h_g
+2023-03-15 07:53:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:53:35.868 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:53:37.592 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:53:40.904 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:53:46.226 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 07:53:46.683 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:54:01.387 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:54:03.423 <ERR> from interface 1:lo
+2023-03-15 07:54:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:54:03.423 <ERR> from interface 2227:h_f
+2023-03-15 07:54:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:54:03.423 <ERR> from interface 2230:h_j
+2023-03-15 07:54:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:54:03.423 <ERR> from interface 2237:h_g
+2023-03-15 07:54:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:54:41.716 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:54:44.728 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:54:48.244 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 07:54:54.284 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 07:54:59.120 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:55:03.423 <ERR> from interface 1:lo
+2023-03-15 07:55:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:55:03.423 <ERR> from interface 2227:h_f
+2023-03-15 07:55:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:55:03.423 <ERR> from interface 2230:h_j
+2023-03-15 07:55:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:55:03.423 <ERR> from interface 2237:h_g
+2023-03-15 07:55:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:55:09.923 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:55:48.696 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 07:55:56.716 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 07:56:02.087 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:56:03.351 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:56:03.421 <ERR> from interface 1:lo
+2023-03-15 07:56:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:56:03.421 <ERR> from interface 2227:h_f
+2023-03-15 07:56:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:56:03.421 <ERR> from interface 2230:h_j
+2023-03-15 07:56:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:56:03.421 <ERR> from interface 2237:h_g
+2023-03-15 07:56:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:56:11.264 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:56:12.352 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:56:57.508 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 07:57:00.712 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 07:57:03.424 <ERR> from interface 1:lo
+2023-03-15 07:57:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:57:03.424 <ERR> from interface 2227:h_f
+2023-03-15 07:57:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:57:03.424 <ERR> from interface 2230:h_j
+2023-03-15 07:57:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:57:03.424 <ERR> from interface 2237:h_g
+2023-03-15 07:57:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:57:07.286 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:57:15.156 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:57:23.295 <TRACE> savnet_hj: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:57:27.755 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 07:58:03.422 <ERR> from interface 1:lo
+2023-03-15 07:58:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:58:03.422 <ERR> from interface 2227:h_f
+2023-03-15 07:58:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:58:03.422 <ERR> from interface 2230:h_j
+2023-03-15 07:58:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:58:03.422 <ERR> from interface 2237:h_g
+2023-03-15 07:58:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:58:13.391 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:58:16.863 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 07:58:17.960 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 07:58:20.171 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:58:30.064 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:58:38.216 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 07:59:03.422 <ERR> from interface 1:lo
+2023-03-15 07:59:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:59:03.422 <ERR> from interface 2227:h_f
+2023-03-15 07:59:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:59:03.422 <ERR> from interface 2230:h_j
+2023-03-15 07:59:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:59:03.422 <ERR> from interface 2237:h_g
+2023-03-15 07:59:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:59:15.112 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 07:59:19.900 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 07:59:21.096 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:59:24.446 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:59:45.465 <TRACE> savnet_hj: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:59:48.629 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 08:00:03.424 <ERR> from interface 1:lo
+2023-03-15 08:00:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:00:03.424 <ERR> from interface 2227:h_f
+2023-03-15 08:00:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:00:03.424 <ERR> from interface 2230:h_j
+2023-03-15 08:00:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:00:03.424 <ERR> from interface 2237:h_g
+2023-03-15 08:00:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:00:15.973 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 08:00:23.755 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:00:33.952 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 08:00:35.900 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:00:54.169 <TRACE> savnet_hj: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:00:54.704 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 08:01:03.424 <ERR> from interface 1:lo
+2023-03-15 08:01:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:01:03.424 <ERR> from interface 2227:h_f
+2023-03-15 08:01:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:01:03.424 <ERR> from interface 2230:h_j
+2023-03-15 08:01:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:01:03.424 <ERR> from interface 2237:h_g
+2023-03-15 08:01:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:01:28.143 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 08:01:28.788 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:01:38.648 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 08:01:52.825 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 08:02:03.423 <ERR> from interface 1:lo
+2023-03-15 08:02:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:02:03.423 <ERR> from interface 2227:h_f
+2023-03-15 08:02:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:02:03.423 <ERR> from interface 2230:h_j
+2023-03-15 08:02:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:02:03.423 <ERR> from interface 2237:h_g
+2023-03-15 08:02:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 08:02:03.626 <TRACE> savnet_hj: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:02:04.626 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 08:02:34.416 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 08:02:34.668 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:02:54.707 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 08:03:01.363 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 08:03:03.424 <ERR> from interface 1:lo
+2023-03-15 08:03:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:03:03.424 <ERR> from interface 2227:h_f
+2023-03-15 08:03:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:03:03.424 <ERR> from interface 2230:h_j
+2023-03-15 08:03:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:03:03.424 <ERR> from interface 2237:h_g
+2023-03-15 08:03:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 08:03:04.657 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:03:16.802 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 08:03:35.401 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 08:03:40.064 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 08:04:03.424 <ERR> from interface 1:lo
+2023-03-15 08:04:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:04:03.424 <ERR> from interface 2227:h_f
+2023-03-15 08:04:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:04:03.424 <ERR> from interface 2230:h_j
+2023-03-15 08:04:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:04:03.424 <ERR> from interface 2237:h_g
+2023-03-15 08:04:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 08:04:09.052 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 08:04:12.572 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:04:20.968 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:04:26.066 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 08:04:47.741 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 08:04:53.736 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 08:05:03.422 <ERR> from interface 1:lo
+2023-03-15 08:05:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:05:03.422 <ERR> from interface 2227:h_f
+2023-03-15 08:05:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:05:03.422 <ERR> from interface 2230:h_j
+2023-03-15 08:05:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:05:03.422 <ERR> from interface 2237:h_g
+2023-03-15 08:05:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:05:13.166 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:05:24.372 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:05:25.898 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:05:28.958 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 08:05:52.492 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 08:06:03.421 <ERR> from interface 1:lo
+2023-03-15 08:06:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:06:03.421 <ERR> from interface 2227:h_f
+2023-03-15 08:06:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:06:03.421 <ERR> from interface 2230:h_j
+2023-03-15 08:06:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:06:03.421 <ERR> from interface 2237:h_g
+2023-03-15 08:06:03.421 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:06:13.715 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 08:06:14.096 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:06:31.961 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:06:42.033 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:06:44.967 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 08:07:03.422 <ERR> from interface 1:lo
+2023-03-15 08:07:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:07:03.422 <ERR> from interface 2227:h_f
+2023-03-15 08:07:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:07:03.422 <ERR> from interface 2230:h_j
+2023-03-15 08:07:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:07:03.422 <ERR> from interface 2237:h_g
+2023-03-15 08:07:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:07:05.580 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 08:07:15.415 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 08:07:21.284 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:07:37.802 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:07:47.809 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:07:53.596 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 08:08:03.422 <ERR> from interface 1:lo
+2023-03-15 08:08:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:08:03.422 <ERR> from interface 2227:h_f
+2023-03-15 08:08:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:08:03.422 <ERR> from interface 2230:h_j
+2023-03-15 08:08:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:08:03.422 <ERR> from interface 2237:h_g
+2023-03-15 08:08:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:08:18.298 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 08:08:21.767 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 08:08:37.368 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:08:57.103 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:09:01.514 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 08:09:03.423 <ERR> from interface 1:lo
+2023-03-15 08:09:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:09:03.423 <ERR> from interface 2227:h_f
+2023-03-15 08:09:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:09:03.423 <ERR> from interface 2230:h_j
+2023-03-15 08:09:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:09:03.423 <ERR> from interface 2237:h_g
+2023-03-15 08:09:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 08:09:08.632 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 08:09:26.971 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 08:09:36.771 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 08:09:46.656 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:09:58.260 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 08:10:03.423 <ERR> from interface 1:lo
+2023-03-15 08:10:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:10:03.423 <ERR> from interface 2227:h_f
+2023-03-15 08:10:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:10:03.423 <ERR> from interface 2230:h_j
+2023-03-15 08:10:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:10:03.423 <ERR> from interface 2237:h_g
+2023-03-15 08:10:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 08:10:17.932 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:10:27.473 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 08:10:41.996 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 08:10:52.168 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 08:10:52.756 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 08:11:03.423 <ERR> from interface 1:lo
+2023-03-15 08:11:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:11:03.423 <ERR> from interface 2227:h_f
+2023-03-15 08:11:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:11:03.423 <ERR> from interface 2230:h_j
+2023-03-15 08:11:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:11:03.423 <ERR> from interface 2237:h_g
+2023-03-15 08:11:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 08:11:13.004 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:11:22.988 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:11:40.158 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 08:11:47.759 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 08:11:53.931 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 08:12:03.422 <ERR> from interface 1:lo
+2023-03-15 08:12:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:12:03.422 <ERR> from interface 2227:h_f
+2023-03-15 08:12:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:12:03.422 <ERR> from interface 2230:h_j
+2023-03-15 08:12:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:12:03.422 <ERR> from interface 2237:h_g
+2023-03-15 08:12:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:12:03.535 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:12:25.425 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:12:41.351 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:12:55.606 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 08:13:02.446 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 08:13:03.088 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 08:13:03.422 <ERR> from interface 1:lo
+2023-03-15 08:13:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:13:03.422 <ERR> from interface 2227:h_f
+2023-03-15 08:13:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:13:03.422 <ERR> from interface 2230:h_j
+2023-03-15 08:13:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:13:03.422 <ERR> from interface 2237:h_g
+2023-03-15 08:13:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:13:20.312 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:13:40.506 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:13:54.182 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:13:58.484 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 08:14:03.423 <ERR> from interface 1:lo
+2023-03-15 08:14:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:14:03.423 <ERR> from interface 2227:h_f
+2023-03-15 08:14:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:14:03.423 <ERR> from interface 2230:h_j
+2023-03-15 08:14:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:14:03.423 <ERR> from interface 2237:h_g
+2023-03-15 08:14:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:14:04.556 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 08:14:13.159 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 08:14:33.644 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:14:53.555 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:14:57.037 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 08:15:03.422 <ERR> from interface 1:lo
+2023-03-15 08:15:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:15:03.422 <ERR> from interface 2227:h_f
+2023-03-15 08:15:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:15:03.422 <ERR> from interface 2230:h_j
+2023-03-15 08:15:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:15:03.422 <ERR> from interface 2237:h_g
+2023-03-15 08:15:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 08:15:08.747 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 08:15:11.732 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 08:15:19.144 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 08:15:44.103 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 08:16:03.423 <ERR> from interface 1:lo
+2023-03-15 08:16:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:16:03.423 <ERR> from interface 2227:h_f
+2023-03-15 08:16:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:16:03.423 <ERR> from interface 2230:h_j
+2023-03-15 08:16:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:16:03.423 <ERR> from interface 2237:h_g
+2023-03-15 08:16:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 08:16:07.858 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:16:11.653 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 08:16:21.347 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:16:23.980 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 08:16:31.750 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 08:16:47.030 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 08:17:03.423 <ERR> from interface 1:lo
+2023-03-15 08:17:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:17:03.423 <ERR> from interface 2227:h_f
+2023-03-15 08:17:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:17:03.423 <ERR> from interface 2230:h_j
+2023-03-15 08:17:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:17:03.423 <ERR> from interface 2237:h_g
+2023-03-15 08:17:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 08:17:14.076 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:17:15.115 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:17:30.363 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 08:17:35.482 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 08:17:39.746 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 08:17:51.891 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 08:18:03.424 <ERR> from interface 1:lo
+2023-03-15 08:18:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:18:03.424 <ERR> from interface 2227:h_f
+2023-03-15 08:18:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:18:03.424 <ERR> from interface 2230:h_j
+2023-03-15 08:18:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:18:03.424 <ERR> from interface 2237:h_g
+2023-03-15 08:18:03.424 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 08:18:16.114 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:18:19.772 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 08:18:37.734 <TRACE> savnet_hj: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:18:41.338 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 08:18:45.211 <TRACE> savnet_hg: Got KEEPALIVE
+2023-03-15 08:18:56.324 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 08:19:03.422 <ERR> from interface 1:lo
+2023-03-15 08:19:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:19:03.422 <ERR> from interface 2227:h_f
+2023-03-15 08:19:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:19:03.422 <ERR> from interface 2230:h_j
+2023-03-15 08:19:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:19:03.422 <ERR> from interface 2237:h_g
+2023-03-15 08:19:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 08:19:21.840 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:19:39.242 <TRACE> savnet_hg: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:19:57.423 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 08:19:57.729 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 08:19:58.743 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 08:20:03.423 <ERR> from interface 1:lo
+2023-03-15 08:20:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:20:03.423 <ERR> from interface 2227:h_f
+2023-03-15 08:20:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:20:03.423 <ERR> from interface 2230:h_j
+2023-03-15 08:20:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:20:03.423 <ERR> from interface 2237:h_g
+2023-03-15 08:20:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:20:04.407 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:20:27.000 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:20:50.432 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 08:20:58.897 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 08:21:03.422 <ERR> from interface 1:lo
+2023-03-15 08:21:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:21:03.422 <ERR> from interface 2227:h_f
+2023-03-15 08:21:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:21:03.422 <ERR> from interface 2230:h_j
+2023-03-15 08:21:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:21:03.422 <ERR> from interface 2237:h_g
+2023-03-15 08:21:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 08:21:14.626 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 08:21:15.988 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 08:21:17.112 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:21:28.720 <TRACE> savnet_hf: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:22:02.765 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 08:22:03.422 <ERR> from interface 1:lo
+2023-03-15 08:22:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:22:03.422 <ERR> from interface 2227:h_f
+2023-03-15 08:22:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:22:03.422 <ERR> from interface 2230:h_j
+2023-03-15 08:22:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:22:03.422 <ERR> from interface 2237:h_g
+2023-03-15 08:22:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:22:12.151 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 08:22:30.292 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:22:31.578 <TRACE> savnet_hj: Sending KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:22:34.969 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 08:22:35.306 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 08:23:03.422 <ERR> from interface 1:lo
+2023-03-15 08:23:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:23:03.422 <ERR> from interface 2227:h_f
+2023-03-15 08:23:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:23:03.422 <ERR> from interface 2230:h_j
+2023-03-15 08:23:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:23:03.422 <ERR> from interface 2237:h_g
+2023-03-15 08:23:03.422 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 08:23:05.736 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 08:23:22.976 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 08:23:30.839 <TRACE> savnet_hg: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:23:35.862 <TRACE> savnet_hf: Sending KEEPALIVE
+2023-03-15 08:23:38.583 <TRACE> savnet_hf: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:23:48.413 <TRACE> savnet_hj: Sending KEEPALIVE
+2023-03-15 08:24:03.423 <ERR> from interface 1:lo
+2023-03-15 08:24:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:24:03.423 <ERR> from interface 2227:h_f
+2023-03-15 08:24:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:24:03.423 <ERR> from interface 2230:h_j
+2023-03-15 08:24:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:24:03.423 <ERR> from interface 2237:h_g
+2023-03-15 08:24:03.423 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 08:24:15.750 <TRACE> savnet_hg: Sending KEEPALIVE
+2023-03-15 08:24:24.761 <TRACE> savnet_hj: Got KEEPALIVE
+2023-03-15 08:24:42.454 <TRACE> savnet_hf: Got KEEPALIVE
+2023-03-15 08:24:43.540 <TRACE> savnet_hg: Got KEEPALIVE

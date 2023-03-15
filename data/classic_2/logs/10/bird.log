@@ -1,0 +1,2739 @@
+2023-03-15 06:37:03.412 <TRACE> savnet_jh: Initializing
+2023-03-15 06:37:03.412 <TRACE> savnet_jk: Initializing
+2023-03-15 06:37:03.412 <ERR> from interface 1:lo
+2023-03-15 06:37:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:37:03.412 <ERR> from interface 2229:j_h
+2023-03-15 06:37:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:37:03.412 <ERR> from interface 2232:j_k
+2023-03-15 06:37:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:37:03.412 <TRACE> savnet_jh: Starting
+2023-03-15 06:37:03.412 <DBG> link [savnet_jh] meta sent
+2023-03-15 06:37:03.412 <TRACE> savnet_jh: Protocol state changed to start
+2023-03-15 06:37:03.412 <TRACE> savnet_jk: Starting
+2023-03-15 06:37:03.412 <DBG> link [savnet_jk] meta sent
+2023-03-15 06:37:03.412 <TRACE> savnet_jk: Protocol state changed to start
+2023-03-15 06:37:03.412 <INFO> Started
+BGP: Got lock
+2023-03-15 06:37:03.420 <TRACE> savnet_jk: Started
+2023-03-15 06:37:03.420 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: Got lock
+2023-03-15 06:37:03.420 <TRACE> savnet_jh: Started
+2023-03-15 06:37:03.420 <TRACE> savnet_jh: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 06:37:07.278 <TRACE> savnet_jh: Connecting to 10.0.9.1 from local address 10.0.9.2
+BGP: Waiting for connect success
+2023-03-15 06:37:07.278 <TRACE> savnet_jh: Connected
+BGP: Sending open
+2023-03-15 06:37:07.278 <TRACE> savnet_jh: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 06:37:07.278 <TRACE> savnet_jh: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 06:37:07.278 <TRACE> savnet_jh: Got OPEN(as=65508,hold=240,id=10.0.8.2)
+2023-03-15 06:37:07.278 <TRACE> savnet_jh: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+2023-03-15 06:37:07.278 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 06:37:07.280 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 06:37:07.280 <TRACE> savnet_jh: BGP session established
+2023-03-15 06:37:07.280 <TRACE> savnet_jh: Protocol state changed to up
+2023-03-15 06:37:07.280 <DBG> link [savnet_jh] up sent
+2023-03-15 06:37:07.280 <TRACE> savnet_jh: Got UPDATE
+2023-03-15 06:37:07.280 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.280 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-15 06:37:07.280 <TRACE> savnet_jh: Got END-OF-RIB
+2023-03-15 06:37:07.280 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.280 <TRACE> savnet_jh: Got UPDATE
+2023-03-15 06:37:07.280 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 16
+2023-03-15 06:37:07.280 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-15 06:37:07.280 <TRACE> savnet_jh.ipv4 > added [best] 10.0.13.0/24 0L 7G unicast
+2023-03-15 06:37:07.280 <TRACE> savnet_jh.savnet4 < rejected by protocol 10.0.13.0/24 0L 7G unicast
+2023-03-15 06:37:07.280 <TRACE> savnet_jh.ipv4 < rejected by protocol 10.0.13.0/24 0L 7G unicast
+2023-03-15 06:37:07.280 <TRACE> savnet_jh.ipv4 > added [best] 10.0.8.0/24 0L 7G unicast
+2023-03-15 06:37:07.280 <TRACE> savnet_jh.savnet4 < rejected by protocol 10.0.8.0/24 0L 7G unicast
+2023-03-15 06:37:07.280 <TRACE> savnet_jh.ipv4 < rejected by protocol 10.0.8.0/24 0L 7G unicast
+2023-03-15 06:37:07.280 <TRACE> savnet_jh.ipv4 > added 10.0.9.0/24 0L 7G unicast
+2023-03-15 06:37:07.280 <TRACE> savnet_jh.ipv4 > added [best] 192.168.8.0/24 0L 7G unicast
+2023-03-15 06:37:07.280 <TRACE> savnet_jh.savnet4 < rejected by protocol 192.168.8.0/24 0L 7G unicast
+2023-03-15 06:37:07.280 <TRACE> savnet_jh.ipv4 < rejected by protocol 192.168.8.0/24 0L 7G unicast
+2023-03-15 06:37:07.280 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.280 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65508"
+    ,"interface_name":"j_h"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_jh"
+    ,"as_path":"65508"
+    ,"sav_origin":""
+    ,"routes":"+10.0.13.0/24,+10.0.8.0/24,+10.0.9.0/24,+192.168.8.0/24"
+    ,"sav_scope":""
+    ,"sav_nlri":""    }}
+2023-03-15 06:37:07.280 <TRACE> savnet_jh: Got UPDATE
+2023-03-15 06:37:07.280 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.280 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-15 06:37:07.280 <TRACE> savnet_jh: Got END-OF-RIB
+2023-03-15 06:37:07.280 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.284 <TRACE> savnet_jh.savnet4 < rejected by protocol 10.0.13.0/24 0L 7G unicast
+2023-03-15 06:37:07.284 <TRACE> savnet_jh.savnet4 < filtered out 192.168.10.0/24 0L 4G blackhole
+2023-03-15 06:37:07.284 <TRACE> savnet_jh.savnet4 < rejected by protocol 10.0.8.0/24 0L 7G unicast
+2023-03-15 06:37:07.284 <TRACE> savnet_jh.savnet4 < filtered out 10.0.9.0/24 2229L 5G unicast
+2023-03-15 06:37:07.284 <TRACE> savnet_jh.savnet4 < filtered out 10.0.10.0/24 2232L 6G unicast
+2023-03-15 06:37:07.284 <TRACE> savnet_jh.savnet4 < rejected by protocol 192.168.8.0/24 0L 7G unicast
+2023-03-15 06:37:07.284 <TRACE> savnet_jh.ipv4 < rejected by protocol 10.0.13.0/24 0L 7G unicast
+2023-03-15 06:37:07.284 <TRACE> savnet_jh.ipv4 < added 192.168.10.0/24 0L 4G blackhole
+2023-03-15 06:37:07.284 <TRACE> savnet_jh.ipv4 < rejected by protocol 10.0.8.0/24 0L 7G unicast
+2023-03-15 06:37:07.284 <TRACE> savnet_jh.ipv4 < added 10.0.9.0/24 2229L 5G unicast
+2023-03-15 06:37:07.284 <TRACE> savnet_jh.ipv4 < added 10.0.10.0/24 2232L 6G unicast
+2023-03-15 06:37:07.284 <TRACE> savnet_jh.ipv4 < rejected by protocol 192.168.8.0/24 0L 7G unicast
+2023-03-15 06:37:07.284 <TRACE> savnet_jh: Sending END-OF-RIB
+2023-03-15 06:37:07.284 <TRACE> savnet_jh: Sending UPDATE
+2023-03-15 06:37:07.284 <TRACE> savnet_jh: Sending END-OF-RIB
+2023-03-15 06:37:07.287 <DBG> call_agent
+2023-03-15 06:37:07.287 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,1,0,0,255,230",
+    "as_path_len": 6,
+    "is_interior": 1,
+    "next_hop": "4,10,0,9,2",
+    "nlri_len": 4,
+    "protocol_name": "savnet_jh",
+    "sav_nlri": "24,192,168,10",
+    "sav_origin": "0,0,255,230",
+    "sav_scope": "1,1,0,0,255,228",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-15 06:37:07.287 <DBG> inserting 0,0
+2023-03-15 06:37:07.287 <DBG> inserting 4,10,0,9,2
+2023-03-15 06:37:07.287 <DBG> inserting 0,0,255,230
+2023-03-15 06:37:07.287 <DBG> inserting 1,1,0,0,255,228
+2023-03-15 06:37:07.287 <DBG> inserting 24,192,168,10
+2023-03-15 06:37:07.287 <DBG> inserting 2,1,0,0,255,230
+2023-03-15 06:37:07.287 <DBG> savnet update packet assembled
+2023-03-15 06:37:07.287 <DBG> packet len 63
+2023-03-15 06:37:07.287 <DBG> call agent send result, 1
+2023-03-15 06:37:07.316 <TRACE> savnet_jh: Got UPDATE
+2023-03-15 06:37:07.316 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.316 <DBG> 
+mp_reach_len: 14
+mp_unreach_len: 0
+2023-03-15 06:37:07.316 <DBG> bgp_decode_nlri_savnet4 len: 14
+2023-03-15 06:37:07.316 <DBG> s->sav_origin: [65508]
+2023-03-15 06:37:07.316 <DBG> s->sav_scope: [1,1,65510]
+2023-03-15 06:37:07.316 <DBG> s->sav_nlri: [24,192,168,8]
+2023-03-15 06:37:07.316 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.316 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65508"
+    ,"interface_name":"j_h"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_jh"
+    ,"as_path":"65508"
+    ,"sav_origin":"65508"
+    ,"routes":""
+    ,"sav_scope":"1,1,65510"
+    ,"sav_nlri":"24,192,168,8"    }}
+2023-03-15 06:37:07.757 <TRACE> savnet_jh: Got UPDATE
+2023-03-15 06:37:07.757 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 8
+2023-03-15 06:37:07.757 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-15 06:37:07.757 <TRACE> savnet_jh.ipv4 > added [best] 192.168.6.0/24 0L 7G unicast
+2023-03-15 06:37:07.757 <TRACE> savnet_jh.savnet4 < rejected by protocol 192.168.6.0/24 0L 7G unicast
+2023-03-15 06:37:07.757 <TRACE> savnet_jh.ipv4 < rejected by protocol 192.168.6.0/24 0L 7G unicast
+2023-03-15 06:37:07.757 <TRACE> savnet_jh.ipv4 > added [best] 10.0.6.0/24 0L 7G unicast
+2023-03-15 06:37:07.757 <TRACE> savnet_jh.savnet4 < rejected by protocol 10.0.6.0/24 0L 7G unicast
+2023-03-15 06:37:07.757 <TRACE> savnet_jh.ipv4 < rejected by protocol 10.0.6.0/24 0L 7G unicast
+2023-03-15 06:37:07.757 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.757 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65508"
+    ,"interface_name":"j_h"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_jh"
+    ,"as_path":"65508,65506"
+    ,"sav_origin":""
+    ,"routes":"+192.168.6.0/24,+10.0.6.0/24"
+    ,"sav_scope":""
+    ,"sav_nlri":""    }}
+2023-03-15 06:37:07.762 <DBG> call_agent
+2023-03-15 06:37:07.762 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,1,0,0,255,230",
+    "as_path_len": 6,
+    "is_interior": 1,
+    "next_hop": "4,10,0,9,2",
+    "nlri_len": 4,
+    "protocol_name": "savnet_jh",
+    "sav_nlri": "24,192,168,10",
+    "sav_origin": "0,0,255,230",
+    "sav_scope": "1,2,0,0,255,228,0,0,255,226",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-15 06:37:07.762 <DBG> inserting 0,0
+2023-03-15 06:37:07.762 <DBG> inserting 4,10,0,9,2
+2023-03-15 06:37:07.762 <DBG> inserting 0,0,255,230
+2023-03-15 06:37:07.762 <DBG> inserting 1,2,0,0,255,228,0,0,255,226
+2023-03-15 06:37:07.762 <DBG> inserting 24,192,168,10
+2023-03-15 06:37:07.762 <DBG> inserting 2,1,0,0,255,230
+2023-03-15 06:37:07.762 <DBG> savnet update packet assembled
+2023-03-15 06:37:07.762 <DBG> packet len 67
+2023-03-15 06:37:07.762 <DBG> call agent send result, 1
+2023-03-15 06:37:07.772 <TRACE> ...
+2023-03-15 06:37:07.772 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 8
+2023-03-15 06:37:07.772 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-15 06:37:07.772 <TRACE> savnet_jh.ipv4 > added [best] 10.0.4.0/24 0L 7G unicast
+2023-03-15 06:37:07.772 <TRACE> savnet_jh.savnet4 < rejected by protocol 10.0.4.0/24 0L 7G unicast
+2023-03-15 06:37:07.772 <TRACE> savnet_jh.ipv4 < rejected by protocol 10.0.4.0/24 0L 7G unicast
+2023-03-15 06:37:07.772 <TRACE> savnet_jh.ipv4 > added [best] 192.168.4.0/24 0L 7G unicast
+2023-03-15 06:37:07.772 <TRACE> savnet_jh.savnet4 < rejected by protocol 192.168.4.0/24 0L 7G unicast
+2023-03-15 06:37:07.772 <TRACE> savnet_jh.ipv4 < rejected by protocol 192.168.4.0/24 0L 7G unicast
+2023-03-15 06:37:07.772 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.772 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65508"
+    ,"interface_name":"j_h"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_jh"
+    ,"as_path":"65508,65506,65504"
+    ,"sav_origin":""
+    ,"routes":"+10.0.4.0/24,+192.168.4.0/24"
+    ,"sav_scope":""
+    ,"sav_nlri":""    }}
+2023-03-15 06:37:07.777 <DBG> call_agent
+2023-03-15 06:37:07.777 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,1,0,0,255,230",
+    "as_path_len": 6,
+    "is_interior": 1,
+    "next_hop": "4,10,0,9,2",
+    "nlri_len": 4,
+    "protocol_name": "savnet_jh",
+    "sav_nlri": "24,192,168,10",
+    "sav_origin": "0,0,255,230",
+    "sav_scope": "1,3,0,0,255,228,0,0,255,226,0,0,255,224",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-15 06:37:07.777 <DBG> inserting 0,0
+2023-03-15 06:37:07.777 <DBG> inserting 4,10,0,9,2
+2023-03-15 06:37:07.777 <DBG> inserting 0,0,255,230
+2023-03-15 06:37:07.777 <DBG> inserting 1,3,0,0,255,228,0,0,255,226,0,0,255,224
+2023-03-15 06:37:07.777 <DBG> inserting 24,192,168,10
+2023-03-15 06:37:07.777 <DBG> inserting 2,1,0,0,255,230
+2023-03-15 06:37:07.777 <DBG> savnet update packet assembled
+2023-03-15 06:37:07.777 <DBG> packet len 71
+2023-03-15 06:37:07.777 <DBG> call agent send result, 1
+2023-03-15 06:37:07.814 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.814 <DBG> 
+mp_reach_len: 14
+mp_unreach_len: 0
+2023-03-15 06:37:07.814 <DBG> bgp_decode_nlri_savnet4 len: 14
+2023-03-15 06:37:07.814 <DBG> s->sav_origin: [65506]
+2023-03-15 06:37:07.814 <DBG> s->sav_scope: [1,1,65510]
+2023-03-15 06:37:07.814 <DBG> s->sav_nlri: [24,192,168,6]
+2023-03-15 06:37:07.814 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.814 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65508"
+    ,"interface_name":"j_h"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_jh"
+    ,"as_path":"65506,65508"
+    ,"sav_origin":"65506"
+    ,"routes":""
+    ,"sav_scope":"1,1,65510"
+    ,"sav_nlri":"24,192,168,6"    }}
+2023-03-15 06:37:07.900 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-15 06:37:07.900 <DBG> 
+mp_reach_len: 14
+mp_unreach_len: 0
+2023-03-15 06:37:07.900 <DBG> bgp_decode_nlri_savnet4 len: 14
+2023-03-15 06:37:07.900 <DBG> s->sav_origin: [65504]
+2023-03-15 06:37:07.900 <DBG> s->sav_scope: [1,1,65510]
+2023-03-15 06:37:07.900 <DBG> s->sav_nlri: [24,192,168,4]
+2023-03-15 06:37:07.900 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-15 06:37:07.900 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65508"
+    ,"interface_name":"j_h"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_jh"
+    ,"as_path":"65504,65506,65508"
+    ,"sav_origin":"65504"
+    ,"routes":""
+    ,"sav_scope":"1,1,65510"
+    ,"sav_nlri":"24,192,168,4"    }}
+BGP: Incoming connection from 10.0.10.2 port 55765
+2023-03-15 06:37:08.039 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 55765) accepted
+BGP: Sending open
+2023-03-15 06:37:08.039 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 06:37:08.039 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 06:37:08.039 <TRACE> savnet_jk: Got OPEN(as=65511,hold=240,id=10.0.10.2)
+2023-03-15 06:37:08.039 <TRACE> savnet_jk: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+2023-03-15 06:37:08.039 <RMT> savnet_jk: Error: Role mismatch
+BGP: Updating startup delay
+2023-03-15 06:37:08.039 <TRACE> savnet_jk: Protocol state changed to stop
+BGP: Closing connection
+2023-03-15 06:37:08.039 <TRACE> savnet_jk: Sending NOTIFICATION(code=2.11)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 06:37:08.039 <TRACE> savnet_jk: Down
+2023-03-15 06:37:08.039 <TRACE> savnet_jk: Protocol state changed to flush
+2023-03-15 06:37:08.039 <TRACE> savnet_jk: Protocol state changed to down
+2023-03-15 06:37:08.039 <DBG> link [savnet_jk] down sent
+2023-03-15 06:37:08.039 <TRACE> savnet_jk: Starting
+2023-03-15 06:37:08.039 <DBG> link [savnet_jk] meta sent
+2023-03-15 06:37:08.039 <TRACE> savnet_jk: Protocol state changed to start
+BGP: Got lock
+2023-03-15 06:37:08.042 <TRACE> savnet_jk: Startup delayed by 60 seconds due to errors
+2023-03-15 06:37:57.241 <TRACE> savnet_jk: Started
+2023-03-15 06:37:57.241 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: Incoming connection from 10.0.10.2 port 44659
+2023-03-15 06:37:57.604 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 44659) accepted
+BGP: Sending open
+2023-03-15 06:37:57.604 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 06:37:57.604 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 06:37:57.604 <TRACE> savnet_jk: Got OPEN(as=65511,hold=240,id=10.0.10.2)
+2023-03-15 06:37:57.604 <TRACE> savnet_jk: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+2023-03-15 06:37:57.604 <RMT> savnet_jk: Error: Role mismatch
+BGP: Updating startup delay
+2023-03-15 06:37:57.604 <TRACE> savnet_jk: Protocol state changed to stop
+BGP: Closing connection
+2023-03-15 06:37:57.604 <TRACE> savnet_jk: Sending NOTIFICATION(code=2.11)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 06:37:57.604 <TRACE> savnet_jk: Down
+2023-03-15 06:37:57.604 <TRACE> savnet_jk: Protocol state changed to flush
+2023-03-15 06:37:57.604 <TRACE> savnet_jk: Protocol state changed to down
+2023-03-15 06:37:57.604 <DBG> link [savnet_jk] down sent
+2023-03-15 06:37:57.604 <TRACE> savnet_jk: Starting
+2023-03-15 06:37:57.604 <DBG> link [savnet_jk] meta sent
+2023-03-15 06:37:57.604 <TRACE> savnet_jk: Protocol state changed to start
+BGP: Got lock
+2023-03-15 06:37:57.607 <TRACE> savnet_jk: Startup delayed by 120 seconds due to errors
+2023-03-15 06:38:03.415 <ERR> from interface 1:lo
+2023-03-15 06:38:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:38:03.415 <ERR> from interface 2229:j_h
+2023-03-15 06:38:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:38:03.415 <ERR> from interface 2232:j_k
+2023-03-15 06:38:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 06:38:12.850 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 06:38:24.652 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 06:39:03.415 <ERR> from interface 1:lo
+2023-03-15 06:39:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:39:03.415 <ERR> from interface 2229:j_h
+2023-03-15 06:39:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:39:03.415 <ERR> from interface 2232:j_k
+2023-03-15 06:39:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 06:39:29.396 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 06:39:30.062 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 06:39:30.915 <TRACE> savnet_jk: Started
+2023-03-15 06:39:30.915 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 06:39:34.793 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 06:39:34.793 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 06:39:34.793 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 06:39:34.793 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 06:39:34.793 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 06:39:34.793 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 06:39:39.404 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 06:39:39.404 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 06:39:39.404 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 06:39:39.404 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 06:39:39.404 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 06:39:39.404 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 06:39:44.123 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 06:39:44.123 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 06:39:44.123 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 06:39:44.123 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 06:39:44.123 <TRACE> savnet_jk: Got OPEN(as=65511,hold=240,id=10.0.10.2)
+2023-03-15 06:39:44.123 <TRACE> savnet_jk: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+2023-03-15 06:39:44.123 <RMT> savnet_jk: Error: Role mismatch
+BGP: Updating startup delay
+2023-03-15 06:39:44.123 <TRACE> savnet_jk: Protocol state changed to stop
+2023-03-15 06:39:44.123 <TRACE> savnet_jk: Sending NOTIFICATION(code=2.11)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 06:39:44.123 <TRACE> savnet_jk: Down
+2023-03-15 06:39:44.123 <TRACE> savnet_jk: Protocol state changed to flush
+2023-03-15 06:39:44.123 <TRACE> savnet_jk: Protocol state changed to down
+2023-03-15 06:39:44.123 <DBG> link [savnet_jk] down sent
+2023-03-15 06:39:44.123 <TRACE> savnet_jk: Starting
+2023-03-15 06:39:44.123 <DBG> link [savnet_jk] meta sent
+2023-03-15 06:39:44.123 <TRACE> savnet_jk: Protocol state changed to start
+BGP: Got lock
+2023-03-15 06:39:44.126 <TRACE> savnet_jk: Startup delayed by 240 seconds due to errors
+2023-03-15 06:40:03.414 <ERR> from interface 1:lo
+2023-03-15 06:40:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:40:03.414 <ERR> from interface 2229:j_h
+2023-03-15 06:40:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:40:03.414 <ERR> from interface 2232:j_k
+2023-03-15 06:40:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:40:44.760 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:40:45.105 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 06:41:03.413 <ERR> from interface 1:lo
+2023-03-15 06:41:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:41:03.413 <ERR> from interface 2229:j_h
+2023-03-15 06:41:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:41:03.413 <ERR> from interface 2232:j_k
+2023-03-15 06:41:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:41:54.160 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:42:00.435 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 06:42:03.416 <ERR> from interface 1:lo
+2023-03-15 06:42:03.416 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:42:03.416 <ERR> from interface 2229:j_h
+2023-03-15 06:42:03.416 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:42:03.416 <ERR> from interface 2232:j_k
+2023-03-15 06:42:03.416 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:42:54.919 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 06:43:03.415 <ERR> from interface 1:lo
+2023-03-15 06:43:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:43:03.415 <ERR> from interface 2229:j_h
+2023-03-15 06:43:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:43:03.415 <ERR> from interface 2232:j_k
+2023-03-15 06:43:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 06:43:19.081 <TRACE> savnet_jh: Sending KEEPALIVE
+BGP: Incoming connection from 10.0.10.2 port 45201
+2023-03-15 06:43:22.812 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 45201) rejected
+BGP: Incoming connection from 10.0.10.2 port 44423
+2023-03-15 06:43:27.800 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 44423) rejected
+BGP: Incoming connection from 10.0.10.2 port 33697
+2023-03-15 06:43:31.682 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 33697) rejected
+BGP: Incoming connection from 10.0.10.2 port 47579
+2023-03-15 06:43:35.832 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 47579) rejected
+2023-03-15 06:43:39.679 <TRACE> savnet_jk: Started
+2023-03-15 06:43:39.679 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: Incoming connection from 10.0.10.2 port 42775
+2023-03-15 06:43:39.685 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 42775) accepted
+BGP: Sending open
+2023-03-15 06:43:39.685 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 06:43:39.685 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 06:43:39.685 <TRACE> savnet_jk: Got OPEN(as=65511,hold=240,id=10.0.10.2)
+2023-03-15 06:43:39.685 <TRACE> savnet_jk: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+2023-03-15 06:43:39.685 <RMT> savnet_jk: Error: Role mismatch
+BGP: Updating startup delay
+2023-03-15 06:43:39.685 <TRACE> savnet_jk: Protocol state changed to stop
+BGP: Closing connection
+2023-03-15 06:43:39.685 <TRACE> savnet_jk: Sending NOTIFICATION(code=2.11)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 06:43:39.685 <TRACE> savnet_jk: Down
+2023-03-15 06:43:39.685 <TRACE> savnet_jk: Protocol state changed to flush
+2023-03-15 06:43:39.685 <TRACE> savnet_jk: Protocol state changed to down
+2023-03-15 06:43:39.685 <DBG> link [savnet_jk] down sent
+2023-03-15 06:43:39.685 <TRACE> savnet_jk: Starting
+2023-03-15 06:43:39.685 <DBG> link [savnet_jk] meta sent
+2023-03-15 06:43:39.685 <TRACE> savnet_jk: Protocol state changed to start
+BGP: Got lock
+2023-03-15 06:43:39.689 <TRACE> savnet_jk: Startup delayed by 300 seconds due to errors
+2023-03-15 06:44:03.415 <ERR> from interface 1:lo
+2023-03-15 06:44:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:44:03.415 <ERR> from interface 2229:j_h
+2023-03-15 06:44:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:44:03.415 <ERR> from interface 2232:j_k
+2023-03-15 06:44:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:44:09.901 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:44:23.020 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 06:45:03.414 <ERR> from interface 1:lo
+2023-03-15 06:45:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:45:03.414 <ERR> from interface 2229:j_h
+2023-03-15 06:45:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:45:03.414 <ERR> from interface 2232:j_k
+2023-03-15 06:45:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:45:24.352 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:45:41.632 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 06:46:03.413 <ERR> from interface 1:lo
+2023-03-15 06:46:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:46:03.413 <ERR> from interface 2229:j_h
+2023-03-15 06:46:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:46:03.413 <ERR> from interface 2232:j_k
+2023-03-15 06:46:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:46:28.732 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:46:50.826 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 06:47:03.413 <ERR> from interface 1:lo
+2023-03-15 06:47:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:47:03.413 <ERR> from interface 2229:j_h
+2023-03-15 06:47:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:47:03.413 <ERR> from interface 2232:j_k
+2023-03-15 06:47:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:47:24.866 <TRACE> savnet_jk: Started
+2023-03-15 06:47:24.866 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 06:47:29.356 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 06:47:29.356 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 06:47:29.356 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 06:47:29.356 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 06:47:29.356 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 06:47:29.356 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 06:47:33.210 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 06:47:33.210 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 06:47:33.210 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 06:47:33.210 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 06:47:33.210 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 06:47:33.211 <TRACE> savnet_jk: Connect delayed by 5 seconds
+2023-03-15 06:47:35.460 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 06:47:38.072 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 06:47:38.072 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 06:47:38.072 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 06:47:38.072 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 06:47:38.072 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 06:47:38.072 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 06:47:43.043 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 06:47:43.043 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 06:47:43.043 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 06:47:43.043 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 06:47:43.044 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 06:47:43.044 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 06:47:46.850 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 06:47:46.850 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 06:47:46.850 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 06:47:46.850 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 06:47:46.850 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 06:47:46.850 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 06:47:50.969 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 06:47:50.969 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 06:47:50.969 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 06:47:50.969 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 06:47:50.970 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 06:47:50.970 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 06:47:55.406 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 06:47:55.406 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 06:47:55.406 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 06:47:55.406 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 06:47:55.406 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 06:47:55.406 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 06:47:59.338 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 06:47:59.338 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 06:47:59.338 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 06:47:59.338 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 06:47:59.338 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 06:47:59.338 <TRACE> savnet_jk: Connect delayed by 5 seconds
+2023-03-15 06:48:03.413 <ERR> from interface 1:lo
+2023-03-15 06:48:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:48:03.413 <ERR> from interface 2229:j_h
+2023-03-15 06:48:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:48:03.413 <ERR> from interface 2232:j_k
+2023-03-15 06:48:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 06:48:03.991 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 06:48:03.991 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 06:48:03.991 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 06:48:03.991 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 06:48:03.991 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 06:48:03.991 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 06:48:07.819 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 06:48:07.819 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 06:48:07.819 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 06:48:07.819 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 06:48:07.819 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 06:48:07.819 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-15 06:48:07.958 <TRACE> savnet_jh: Sending KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 06:48:12.387 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 06:48:12.387 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 06:48:12.387 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 06:48:12.387 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 06:48:12.387 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 06:48:12.387 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 06:48:17.320 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 06:48:17.320 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 06:48:17.320 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 06:48:17.320 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 06:48:17.320 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 06:48:17.320 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 06:48:21.255 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 06:48:21.255 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 06:48:21.255 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 06:48:21.255 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 06:48:21.256 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 06:48:21.256 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 06:48:25.141 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 06:48:25.141 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 06:48:25.141 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 06:48:25.141 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 06:48:25.141 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 06:48:25.141 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 06:48:29.082 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 06:48:29.082 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 06:48:29.082 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 06:48:29.082 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 06:48:29.082 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 06:48:29.082 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 06:48:33.371 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 06:48:33.372 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 06:48:33.372 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 06:48:33.372 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 06:48:33.372 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 06:48:33.372 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 06:48:38.346 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 06:48:38.346 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 06:48:38.346 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 06:48:38.346 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 06:48:38.346 <TRACE> savnet_jk: Got OPEN(as=65511,hold=240,id=10.0.10.2)
+2023-03-15 06:48:38.346 <TRACE> savnet_jk: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+2023-03-15 06:48:38.346 <RMT> savnet_jk: Error: Role mismatch
+BGP: Updating startup delay
+2023-03-15 06:48:38.346 <TRACE> savnet_jk: Protocol state changed to stop
+2023-03-15 06:48:38.346 <TRACE> savnet_jk: Sending NOTIFICATION(code=2.11)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 06:48:38.346 <TRACE> savnet_jk: Down
+2023-03-15 06:48:38.346 <TRACE> savnet_jk: Protocol state changed to flush
+2023-03-15 06:48:38.346 <TRACE> savnet_jk: Protocol state changed to down
+2023-03-15 06:48:38.346 <DBG> link [savnet_jk] down sent
+2023-03-15 06:48:38.346 <TRACE> savnet_jk: Starting
+2023-03-15 06:48:38.346 <DBG> link [savnet_jk] meta sent
+2023-03-15 06:48:38.346 <TRACE> savnet_jk: Protocol state changed to start
+BGP: Got lock
+2023-03-15 06:48:38.350 <TRACE> savnet_jk: Startup delayed by 300 seconds due to errors
+2023-03-15 06:48:44.176 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 06:49:03.413 <ERR> from interface 1:lo
+2023-03-15 06:49:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:49:03.413 <ERR> from interface 2229:j_h
+2023-03-15 06:49:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:49:03.413 <ERR> from interface 2232:j_k
+2023-03-15 06:49:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 06:49:19.748 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 06:49:59.975 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 06:50:03.413 <ERR> from interface 1:lo
+2023-03-15 06:50:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:50:03.413 <ERR> from interface 2229:j_h
+2023-03-15 06:50:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:50:03.413 <ERR> from interface 2232:j_k
+2023-03-15 06:50:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 06:50:30.786 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 06:51:01.204 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 06:51:03.414 <ERR> from interface 1:lo
+2023-03-15 06:51:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:51:03.414 <ERR> from interface 2229:j_h
+2023-03-15 06:51:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:51:03.414 <ERR> from interface 2232:j_k
+2023-03-15 06:51:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 06:51:40.010 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 06:52:03.415 <ERR> from interface 1:lo
+2023-03-15 06:52:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:52:03.415 <ERR> from interface 2229:j_h
+2023-03-15 06:52:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:52:03.415 <ERR> from interface 2232:j_k
+2023-03-15 06:52:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:52:07.179 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 06:52:40.972 <TRACE> savnet_jk: Started
+2023-03-15 06:52:40.972 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-15 06:52:42.388 <TRACE> savnet_jh: Sending KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 06:52:45.385 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 06:52:45.385 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 06:52:45.385 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 06:52:45.385 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 06:52:45.386 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 06:52:45.386 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 06:52:49.484 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 06:52:49.484 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 06:52:49.484 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 06:52:49.484 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 06:52:49.484 <TRACE> savnet_jk: Got OPEN(as=65511,hold=240,id=10.0.10.2)
+2023-03-15 06:52:49.484 <TRACE> savnet_jk: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+2023-03-15 06:52:49.484 <RMT> savnet_jk: Error: Role mismatch
+BGP: Updating startup delay
+2023-03-15 06:52:49.484 <TRACE> savnet_jk: Protocol state changed to stop
+2023-03-15 06:52:49.484 <TRACE> savnet_jk: Sending NOTIFICATION(code=2.11)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 06:52:49.484 <TRACE> savnet_jk: Down
+2023-03-15 06:52:49.484 <TRACE> savnet_jk: Protocol state changed to flush
+2023-03-15 06:52:49.484 <TRACE> savnet_jk: Protocol state changed to down
+2023-03-15 06:52:49.484 <DBG> link [savnet_jk] down sent
+2023-03-15 06:52:49.484 <TRACE> savnet_jk: Starting
+2023-03-15 06:52:49.484 <DBG> link [savnet_jk] meta sent
+2023-03-15 06:52:49.484 <TRACE> savnet_jk: Protocol state changed to start
+BGP: Got lock
+2023-03-15 06:52:49.488 <TRACE> savnet_jk: Startup delayed by 300 seconds due to errors
+2023-03-15 06:53:03.414 <ERR> from interface 1:lo
+2023-03-15 06:53:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:53:03.414 <ERR> from interface 2229:j_h
+2023-03-15 06:53:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:53:03.414 <ERR> from interface 2232:j_k
+2023-03-15 06:53:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:53:18.934 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:53:56.555 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 06:54:03.413 <ERR> from interface 1:lo
+2023-03-15 06:54:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:54:03.413 <ERR> from interface 2229:j_h
+2023-03-15 06:54:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:54:03.413 <ERR> from interface 2232:j_k
+2023-03-15 06:54:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:54:29.538 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 06:55:03.413 <ERR> from interface 1:lo
+2023-03-15 06:55:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:55:03.413 <ERR> from interface 2229:j_h
+2023-03-15 06:55:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:55:03.413 <ERR> from interface 2232:j_k
+2023-03-15 06:55:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 06:55:10.952 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 06:55:46.020 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 06:56:03.415 <ERR> from interface 1:lo
+2023-03-15 06:56:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:56:03.415 <ERR> from interface 2229:j_h
+2023-03-15 06:56:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:56:03.415 <ERR> from interface 2232:j_k
+2023-03-15 06:56:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 06:56:29.514 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 06:57:02.663 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 06:57:03.412 <ERR> from interface 1:lo
+2023-03-15 06:57:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:57:03.412 <ERR> from interface 2229:j_h
+2023-03-15 06:57:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:57:03.412 <ERR> from interface 2232:j_k
+2023-03-15 06:57:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Incoming connection from 10.0.10.2 port 50565
+2023-03-15 06:57:16.338 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 50565) rejected
+BGP: Incoming connection from 10.0.10.2 port 56827
+2023-03-15 06:57:20.980 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 56827) rejected
+2023-03-15 06:57:24.664 <TRACE> savnet_jk: Started
+2023-03-15 06:57:24.664 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: Incoming connection from 10.0.10.2 port 45589
+2023-03-15 06:57:25.556 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 45589) accepted
+BGP: Sending open
+2023-03-15 06:57:25.556 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 06:57:25.556 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 06:57:25.556 <TRACE> savnet_jk: Got OPEN(as=65511,hold=240,id=10.0.10.2)
+2023-03-15 06:57:25.556 <TRACE> savnet_jk: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+2023-03-15 06:57:25.556 <RMT> savnet_jk: Error: Role mismatch
+BGP: Updating startup delay
+2023-03-15 06:57:25.556 <TRACE> savnet_jk: Protocol state changed to stop
+BGP: Closing connection
+2023-03-15 06:57:25.556 <TRACE> savnet_jk: Sending NOTIFICATION(code=2.11)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 06:57:25.556 <TRACE> savnet_jk: Down
+2023-03-15 06:57:25.556 <TRACE> savnet_jk: Protocol state changed to flush
+2023-03-15 06:57:25.556 <TRACE> savnet_jk: Protocol state changed to down
+2023-03-15 06:57:25.556 <DBG> link [savnet_jk] down sent
+2023-03-15 06:57:25.556 <TRACE> savnet_jk: Starting
+2023-03-15 06:57:25.556 <DBG> link [savnet_jk] meta sent
+2023-03-15 06:57:25.556 <TRACE> savnet_jk: Protocol state changed to start
+BGP: Got lock
+2023-03-15 06:57:25.560 <TRACE> savnet_jk: Startup delayed by 300 seconds due to errors
+BGP: Keepalive timer
+2023-03-15 06:57:32.502 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 06:58:03.413 <ERR> from interface 1:lo
+2023-03-15 06:58:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:58:03.413 <ERR> from interface 2229:j_h
+2023-03-15 06:58:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:58:03.413 <ERR> from interface 2232:j_k
+2023-03-15 06:58:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:58:12.084 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:58:37.900 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 06:59:03.413 <ERR> from interface 1:lo
+2023-03-15 06:59:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:59:03.413 <ERR> from interface 2229:j_h
+2023-03-15 06:59:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:59:03.413 <ERR> from interface 2232:j_k
+2023-03-15 06:59:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 06:59:31.671 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 06:59:53.114 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:00:03.414 <ERR> from interface 1:lo
+2023-03-15 07:00:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:00:03.414 <ERR> from interface 2229:j_h
+2023-03-15 07:00:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:00:03.414 <ERR> from interface 2232:j_k
+2023-03-15 07:00:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:00:49.404 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:01:03.414 <ERR> from interface 1:lo
+2023-03-15 07:01:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:01:03.414 <ERR> from interface 2229:j_h
+2023-03-15 07:01:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:01:03.414 <ERR> from interface 2232:j_k
+2023-03-15 07:01:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:01:04.530 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:01:23.138 <TRACE> savnet_jk: Started
+2023-03-15 07:01:23.138 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:01:27.530 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:01:27.530 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:01:27.530 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:01:27.530 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:01:27.530 <TRACE> savnet_jk: Got OPEN(as=65511,hold=240,id=10.0.10.2)
+2023-03-15 07:01:27.530 <TRACE> savnet_jk: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+2023-03-15 07:01:27.530 <RMT> savnet_jk: Error: Role mismatch
+BGP: Updating startup delay
+2023-03-15 07:01:27.530 <TRACE> savnet_jk: Protocol state changed to stop
+2023-03-15 07:01:27.530 <TRACE> savnet_jk: Sending NOTIFICATION(code=2.11)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:01:27.530 <TRACE> savnet_jk: Down
+2023-03-15 07:01:27.530 <TRACE> savnet_jk: Protocol state changed to flush
+2023-03-15 07:01:27.530 <TRACE> savnet_jk: Protocol state changed to down
+2023-03-15 07:01:27.530 <DBG> link [savnet_jk] down sent
+2023-03-15 07:01:27.530 <TRACE> savnet_jk: Starting
+2023-03-15 07:01:27.530 <DBG> link [savnet_jk] meta sent
+2023-03-15 07:01:27.530 <TRACE> savnet_jk: Protocol state changed to start
+BGP: Got lock
+2023-03-15 07:01:27.533 <TRACE> savnet_jk: Startup delayed by 300 seconds due to errors
+2023-03-15 07:02:01.114 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:02:03.412 <ERR> from interface 1:lo
+2023-03-15 07:02:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:02:03.412 <ERR> from interface 2229:j_h
+2023-03-15 07:02:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:02:03.412 <ERR> from interface 2232:j_k
+2023-03-15 07:02:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:02:23.688 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:03:03.200 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:03:03.413 <ERR> from interface 1:lo
+2023-03-15 07:03:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:03:03.413 <ERR> from interface 2229:j_h
+2023-03-15 07:03:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:03:03.413 <ERR> from interface 2232:j_k
+2023-03-15 07:03:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:03:42.164 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:04:03.412 <ERR> from interface 1:lo
+2023-03-15 07:04:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:04:03.412 <ERR> from interface 2229:j_h
+2023-03-15 07:04:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:04:03.412 <ERR> from interface 2232:j_k
+2023-03-15 07:04:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:04:14.756 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:04:49.444 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:05:03.414 <ERR> from interface 1:lo
+2023-03-15 07:05:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:05:03.414 <ERR> from interface 2229:j_h
+2023-03-15 07:05:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:05:03.414 <ERR> from interface 2232:j_k
+2023-03-15 07:05:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:05:17.388 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:05:46.792 <TRACE> savnet_jk: Started
+2023-03-15 07:05:46.792 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-15 07:05:50.026 <TRACE> savnet_jh: Sending KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:05:51.396 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:05:51.396 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:05:51.396 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:05:51.396 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:05:51.396 <TRACE> savnet_jk: Got OPEN(as=65511,hold=240,id=10.0.10.2)
+2023-03-15 07:05:51.396 <TRACE> savnet_jk: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+2023-03-15 07:05:51.396 <RMT> savnet_jk: Error: Role mismatch
+BGP: Updating startup delay
+2023-03-15 07:05:51.396 <TRACE> savnet_jk: Protocol state changed to stop
+2023-03-15 07:05:51.396 <TRACE> savnet_jk: Sending NOTIFICATION(code=2.11)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:05:51.396 <TRACE> savnet_jk: Down
+2023-03-15 07:05:51.396 <TRACE> savnet_jk: Protocol state changed to flush
+2023-03-15 07:05:51.396 <TRACE> savnet_jk: Protocol state changed to down
+2023-03-15 07:05:51.396 <DBG> link [savnet_jk] down sent
+2023-03-15 07:05:51.396 <TRACE> savnet_jk: Starting
+2023-03-15 07:05:51.396 <DBG> link [savnet_jk] meta sent
+2023-03-15 07:05:51.396 <TRACE> savnet_jk: Protocol state changed to start
+BGP: Got lock
+2023-03-15 07:05:51.399 <TRACE> savnet_jk: Startup delayed by 300 seconds due to errors
+2023-03-15 07:06:03.412 <ERR> from interface 1:lo
+2023-03-15 07:06:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:06:03.412 <ERR> from interface 2229:j_h
+2023-03-15 07:06:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:06:03.412 <ERR> from interface 2232:j_k
+2023-03-15 07:06:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:06:17.885 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:07:03.413 <ERR> from interface 1:lo
+2023-03-15 07:07:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:07:03.413 <ERR> from interface 2229:j_h
+2023-03-15 07:07:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:07:03.413 <ERR> from interface 2232:j_k
+2023-03-15 07:07:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:07:04.363 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:07:22.359 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:08:03.414 <ERR> from interface 1:lo
+2023-03-15 07:08:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:08:03.414 <ERR> from interface 2229:j_h
+2023-03-15 07:08:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:08:03.414 <ERR> from interface 2232:j_k
+2023-03-15 07:08:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:08:14.799 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:08:36.258 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:09:03.412 <ERR> from interface 1:lo
+2023-03-15 07:09:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:09:03.412 <ERR> from interface 2229:j_h
+2023-03-15 07:09:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:09:03.412 <ERR> from interface 2232:j_k
+2023-03-15 07:09:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:09:22.387 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:09:46.672 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:10:03.414 <ERR> from interface 1:lo
+2023-03-15 07:10:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:10:03.414 <ERR> from interface 2229:j_h
+2023-03-15 07:10:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:10:03.414 <ERR> from interface 2232:j_k
+2023-03-15 07:10:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Incoming connection from 10.0.10.2 port 40931
+2023-03-15 07:10:33.972 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 40931) rejected
+BGP: Keepalive timer
+2023-03-15 07:10:35.524 <TRACE> savnet_jh: Sending KEEPALIVE
+BGP: Incoming connection from 10.0.10.2 port 34415
+2023-03-15 07:10:37.813 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 34415) rejected
+2023-03-15 07:10:41.871 <TRACE> savnet_jk: Started
+2023-03-15 07:10:41.871 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: Incoming connection from 10.0.10.2 port 51993
+2023-03-15 07:10:42.257 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 51993) accepted
+BGP: Sending open
+2023-03-15 07:10:42.257 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:10:42.257 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:10:42.257 <TRACE> savnet_jk: Got OPEN(as=65511,hold=240,id=10.0.10.2)
+2023-03-15 07:10:42.257 <TRACE> savnet_jk: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+2023-03-15 07:10:42.257 <RMT> savnet_jk: Error: Role mismatch
+BGP: Updating startup delay
+2023-03-15 07:10:42.257 <TRACE> savnet_jk: Protocol state changed to stop
+BGP: Closing connection
+2023-03-15 07:10:42.257 <TRACE> savnet_jk: Sending NOTIFICATION(code=2.11)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:10:42.257 <TRACE> savnet_jk: Down
+2023-03-15 07:10:42.257 <TRACE> savnet_jk: Protocol state changed to flush
+2023-03-15 07:10:42.257 <TRACE> savnet_jk: Protocol state changed to down
+2023-03-15 07:10:42.257 <DBG> link [savnet_jk] down sent
+2023-03-15 07:10:42.257 <TRACE> savnet_jk: Starting
+2023-03-15 07:10:42.257 <DBG> link [savnet_jk] meta sent
+2023-03-15 07:10:42.257 <TRACE> savnet_jk: Protocol state changed to start
+BGP: Got lock
+2023-03-15 07:10:42.260 <TRACE> savnet_jk: Startup delayed by 300 seconds due to errors
+2023-03-15 07:10:58.365 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:11:03.414 <ERR> from interface 1:lo
+2023-03-15 07:11:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:11:03.414 <ERR> from interface 2229:j_h
+2023-03-15 07:11:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:11:03.414 <ERR> from interface 2232:j_k
+2023-03-15 07:11:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:11:39.268 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:12:03.412 <ERR> from interface 1:lo
+2023-03-15 07:12:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:12:03.412 <ERR> from interface 2229:j_h
+2023-03-15 07:12:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:12:03.412 <ERR> from interface 2232:j_k
+2023-03-15 07:12:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:12:18.239 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:12:42.546 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:13:03.415 <ERR> from interface 1:lo
+2023-03-15 07:13:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:13:03.415 <ERR> from interface 2229:j_h
+2023-03-15 07:13:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:13:03.415 <ERR> from interface 2232:j_k
+2023-03-15 07:13:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:13:32.856 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:13:54.205 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:14:03.412 <ERR> from interface 1:lo
+2023-03-15 07:14:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:14:03.412 <ERR> from interface 2229:j_h
+2023-03-15 07:14:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:14:03.412 <ERR> from interface 2232:j_k
+2023-03-15 07:14:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:14:40.359 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:14:57.872 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:15:03.415 <ERR> from interface 1:lo
+2023-03-15 07:15:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:15:03.415 <ERR> from interface 2229:j_h
+2023-03-15 07:15:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:15:03.415 <ERR> from interface 2232:j_k
+2023-03-15 07:15:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Incoming connection from 10.0.10.2 port 34511
+2023-03-15 07:15:09.676 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 34511) rejected
+BGP: Incoming connection from 10.0.10.2 port 60679
+2023-03-15 07:15:14.495 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 60679) rejected
+BGP: Incoming connection from 10.0.10.2 port 42965
+2023-03-15 07:15:19.495 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 42965) rejected
+BGP: Incoming connection from 10.0.10.2 port 35891
+2023-03-15 07:15:24.179 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 35891) rejected
+BGP: Incoming connection from 10.0.10.2 port 42231
+2023-03-15 07:15:29.066 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 42231) rejected
+BGP: Incoming connection from 10.0.10.2 port 59709
+2023-03-15 07:15:33.735 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 59709) rejected
+BGP: Incoming connection from 10.0.10.2 port 52521
+2023-03-15 07:15:37.805 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 52521) rejected
+2023-03-15 07:15:41.824 <TRACE> savnet_jk: Started
+2023-03-15 07:15:41.824 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: Incoming connection from 10.0.10.2 port 56575
+2023-03-15 07:15:42.103 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 56575) accepted
+BGP: Sending open
+2023-03-15 07:15:42.103 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:15:42.103 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:15:42.103 <TRACE> savnet_jk: Got OPEN(as=65511,hold=240,id=10.0.10.2)
+2023-03-15 07:15:42.103 <TRACE> savnet_jk: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+2023-03-15 07:15:42.103 <RMT> savnet_jk: Error: Role mismatch
+BGP: Updating startup delay
+2023-03-15 07:15:42.103 <TRACE> savnet_jk: Protocol state changed to stop
+BGP: Closing connection
+2023-03-15 07:15:42.103 <TRACE> savnet_jk: Sending NOTIFICATION(code=2.11)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:15:42.103 <TRACE> savnet_jk: Down
+2023-03-15 07:15:42.103 <TRACE> savnet_jk: Protocol state changed to flush
+2023-03-15 07:15:42.103 <TRACE> savnet_jk: Protocol state changed to down
+2023-03-15 07:15:42.103 <DBG> link [savnet_jk] down sent
+2023-03-15 07:15:42.103 <TRACE> savnet_jk: Starting
+2023-03-15 07:15:42.103 <DBG> link [savnet_jk] meta sent
+2023-03-15 07:15:42.103 <TRACE> savnet_jk: Protocol state changed to start
+BGP: Got lock
+2023-03-15 07:15:42.107 <TRACE> savnet_jk: Startup delayed by 300 seconds due to errors
+2023-03-15 07:15:52.039 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:16:03.415 <ERR> from interface 1:lo
+2023-03-15 07:16:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:16:03.415 <ERR> from interface 2229:j_h
+2023-03-15 07:16:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:16:03.415 <ERR> from interface 2232:j_k
+2023-03-15 07:16:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:16:13.304 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:16:57.375 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:17:03.412 <ERR> from interface 1:lo
+2023-03-15 07:17:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:17:03.412 <ERR> from interface 2229:j_h
+2023-03-15 07:17:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:17:03.412 <ERR> from interface 2232:j_k
+2023-03-15 07:17:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:17:25.282 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:18:03.414 <ERR> from interface 1:lo
+2023-03-15 07:18:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:18:03.414 <ERR> from interface 2229:j_h
+2023-03-15 07:18:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:18:03.414 <ERR> from interface 2232:j_k
+2023-03-15 07:18:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:18:07.102 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:18:37.309 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:19:03.414 <ERR> from interface 1:lo
+2023-03-15 07:19:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:19:03.414 <ERR> from interface 2229:j_h
+2023-03-15 07:19:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:19:03.414 <ERR> from interface 2232:j_k
+2023-03-15 07:19:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:19:23.163 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:19:49.556 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:20:03.414 <ERR> from interface 1:lo
+2023-03-15 07:20:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:20:03.414 <ERR> from interface 2229:j_h
+2023-03-15 07:20:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:20:03.414 <ERR> from interface 2232:j_k
+2023-03-15 07:20:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:20:09.638 <TRACE> savnet_jk: Started
+2023-03-15 07:20:09.638 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: Incoming connection from 10.0.10.2 port 51937
+2023-03-15 07:20:12.263 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 51937) accepted
+BGP: Sending open
+2023-03-15 07:20:12.263 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:20:12.263 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:20:12.263 <TRACE> savnet_jk: Got OPEN(as=65511,hold=240,id=10.0.10.2)
+2023-03-15 07:20:12.263 <TRACE> savnet_jk: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+2023-03-15 07:20:12.263 <RMT> savnet_jk: Error: Role mismatch
+BGP: Updating startup delay
+2023-03-15 07:20:12.263 <TRACE> savnet_jk: Protocol state changed to stop
+BGP: Closing connection
+2023-03-15 07:20:12.263 <TRACE> savnet_jk: Sending NOTIFICATION(code=2.11)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:20:12.263 <TRACE> savnet_jk: Down
+2023-03-15 07:20:12.263 <TRACE> savnet_jk: Protocol state changed to flush
+2023-03-15 07:20:12.263 <TRACE> savnet_jk: Protocol state changed to down
+2023-03-15 07:20:12.263 <DBG> link [savnet_jk] down sent
+2023-03-15 07:20:12.263 <TRACE> savnet_jk: Starting
+2023-03-15 07:20:12.263 <DBG> link [savnet_jk] meta sent
+2023-03-15 07:20:12.263 <TRACE> savnet_jk: Protocol state changed to start
+BGP: Got lock
+2023-03-15 07:20:12.266 <TRACE> savnet_jk: Startup delayed by 300 seconds due to errors
+2023-03-15 07:20:35.543 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:21:03.412 <ERR> from interface 1:lo
+2023-03-15 07:21:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:21:03.412 <ERR> from interface 2229:j_h
+2023-03-15 07:21:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:21:03.412 <ERR> from interface 2232:j_k
+2023-03-15 07:21:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:21:05.836 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:21:44.258 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:22:03.413 <ERR> from interface 1:lo
+2023-03-15 07:22:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:22:03.413 <ERR> from interface 2229:j_h
+2023-03-15 07:22:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:22:03.413 <ERR> from interface 2232:j_k
+2023-03-15 07:22:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:22:10.171 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:22:54.000 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:23:03.413 <ERR> from interface 1:lo
+2023-03-15 07:23:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:23:03.413 <ERR> from interface 2229:j_h
+2023-03-15 07:23:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:23:03.413 <ERR> from interface 2232:j_k
+2023-03-15 07:23:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:23:12.193 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:23:58.567 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:24:03.414 <ERR> from interface 1:lo
+2023-03-15 07:24:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:24:03.414 <ERR> from interface 2229:j_h
+2023-03-15 07:24:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:24:03.414 <ERR> from interface 2232:j_k
+2023-03-15 07:24:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:24:21.016 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:24:22.224 <TRACE> savnet_jk: Started
+2023-03-15 07:24:22.224 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:24:26.808 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:24:26.808 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:24:26.808 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:24:26.808 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:24:26.808 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:24:26.808 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:24:30.846 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:24:30.846 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:24:30.846 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:24:30.846 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:24:30.846 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:24:30.846 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:24:35.316 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:24:35.316 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:24:35.316 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:24:35.316 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:24:35.316 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:24:35.316 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:24:39.660 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:24:39.660 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:24:39.660 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:24:39.660 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:24:39.660 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:24:39.660 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:24:43.479 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:24:43.479 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:24:43.479 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:24:43.479 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:24:43.479 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:24:43.479 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:24:47.424 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:24:47.424 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:24:47.424 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:24:47.424 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:24:47.424 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:24:47.424 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:24:51.397 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:24:51.397 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:24:51.397 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:24:51.397 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:24:51.398 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:24:51.398 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:24:55.470 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:24:55.470 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:24:55.470 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:24:55.470 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:24:55.470 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:24:55.470 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:25:00.128 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:25:00.128 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:25:00.128 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:25:00.128 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:25:00.128 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:25:00.128 <TRACE> savnet_jk: Connect delayed by 5 seconds
+2023-03-15 07:25:03.413 <ERR> from interface 1:lo
+2023-03-15 07:25:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:25:03.413 <ERR> from interface 2229:j_h
+2023-03-15 07:25:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:25:03.413 <ERR> from interface 2232:j_k
+2023-03-15 07:25:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:25:05.089 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:25:05.089 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:25:05.089 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:25:05.089 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:25:05.089 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:25:05.089 <TRACE> savnet_jk: Connect delayed by 5 seconds
+2023-03-15 07:25:08.524 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:25:09.239 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:25:09.239 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:25:09.239 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:25:09.239 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:25:09.239 <TRACE> savnet_jk: Got OPEN(as=65511,hold=240,id=10.0.10.2)
+2023-03-15 07:25:09.239 <TRACE> savnet_jk: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+2023-03-15 07:25:09.239 <RMT> savnet_jk: Error: Role mismatch
+BGP: Updating startup delay
+2023-03-15 07:25:09.239 <TRACE> savnet_jk: Protocol state changed to stop
+2023-03-15 07:25:09.239 <TRACE> savnet_jk: Sending NOTIFICATION(code=2.11)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:25:09.239 <TRACE> savnet_jk: Down
+2023-03-15 07:25:09.239 <TRACE> savnet_jk: Protocol state changed to flush
+2023-03-15 07:25:09.239 <TRACE> savnet_jk: Protocol state changed to down
+2023-03-15 07:25:09.239 <DBG> link [savnet_jk] down sent
+2023-03-15 07:25:09.239 <TRACE> savnet_jk: Starting
+2023-03-15 07:25:09.239 <DBG> link [savnet_jk] meta sent
+2023-03-15 07:25:09.239 <TRACE> savnet_jk: Protocol state changed to start
+BGP: Got lock
+2023-03-15 07:25:09.243 <TRACE> savnet_jk: Startup delayed by 300 seconds due to errors
+BGP: Keepalive timer
+2023-03-15 07:25:38.960 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:26:03.413 <ERR> from interface 1:lo
+2023-03-15 07:26:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:26:03.413 <ERR> from interface 2229:j_h
+2023-03-15 07:26:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:26:03.413 <ERR> from interface 2232:j_k
+2023-03-15 07:26:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:26:17.492 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:26:50.883 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:27:03.413 <ERR> from interface 1:lo
+2023-03-15 07:27:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:27:03.413 <ERR> from interface 2229:j_h
+2023-03-15 07:27:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:27:03.413 <ERR> from interface 2232:j_k
+2023-03-15 07:27:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:27:28.416 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:27:56.780 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:28:03.413 <ERR> from interface 1:lo
+2023-03-15 07:28:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:28:03.413 <ERR> from interface 2229:j_h
+2023-03-15 07:28:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:28:03.413 <ERR> from interface 2232:j_k
+2023-03-15 07:28:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:28:40.351 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:28:59.967 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:29:03.413 <ERR> from interface 1:lo
+2023-03-15 07:29:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:29:03.413 <ERR> from interface 2229:j_h
+2023-03-15 07:29:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:29:03.413 <ERR> from interface 2232:j_k
+2023-03-15 07:29:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:29:08.568 <TRACE> savnet_jk: Started
+2023-03-15 07:29:08.568 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:29:13.056 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:29:13.056 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:29:13.056 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:29:13.056 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:29:13.056 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:29:13.056 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:29:17.736 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:29:17.736 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:29:17.736 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:29:17.736 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:29:17.736 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:29:17.736 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:29:22.639 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:29:22.639 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:29:22.639 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:29:22.639 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:29:22.640 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:29:22.640 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:29:26.595 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:29:26.595 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:29:26.595 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:29:26.595 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:29:26.595 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:29:26.595 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:29:31.458 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:29:31.458 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:29:31.458 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:29:31.458 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:29:31.458 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:29:31.458 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:29:36.259 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:29:36.259 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:29:36.259 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:29:36.259 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:29:36.259 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:29:36.259 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:29:40.190 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:29:40.190 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:29:40.190 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:29:40.190 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:29:40.190 <TRACE> savnet_jk: Got OPEN(as=65511,hold=240,id=10.0.10.2)
+2023-03-15 07:29:40.190 <TRACE> savnet_jk: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+2023-03-15 07:29:40.190 <RMT> savnet_jk: Error: Role mismatch
+BGP: Updating startup delay
+2023-03-15 07:29:40.190 <TRACE> savnet_jk: Protocol state changed to stop
+2023-03-15 07:29:40.190 <TRACE> savnet_jk: Sending NOTIFICATION(code=2.11)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:29:40.190 <TRACE> savnet_jk: Down
+2023-03-15 07:29:40.190 <TRACE> savnet_jk: Protocol state changed to flush
+2023-03-15 07:29:40.190 <TRACE> savnet_jk: Protocol state changed to down
+2023-03-15 07:29:40.190 <DBG> link [savnet_jk] down sent
+2023-03-15 07:29:40.190 <TRACE> savnet_jk: Starting
+2023-03-15 07:29:40.190 <DBG> link [savnet_jk] meta sent
+2023-03-15 07:29:40.190 <TRACE> savnet_jk: Protocol state changed to start
+BGP: Got lock
+2023-03-15 07:29:40.193 <TRACE> savnet_jk: Startup delayed by 300 seconds due to errors
+2023-03-15 07:29:54.089 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:30:03.413 <ERR> from interface 1:lo
+2023-03-15 07:30:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:30:03.413 <ERR> from interface 2229:j_h
+2023-03-15 07:30:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:30:03.413 <ERR> from interface 2232:j_k
+2023-03-15 07:30:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:30:17.332 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:31:01.007 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:31:03.412 <ERR> from interface 1:lo
+2023-03-15 07:31:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:31:03.412 <ERR> from interface 2229:j_h
+2023-03-15 07:31:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:31:03.412 <ERR> from interface 2232:j_k
+2023-03-15 07:31:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:31:25.650 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:32:03.414 <ERR> from interface 1:lo
+2023-03-15 07:32:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:32:03.414 <ERR> from interface 2229:j_h
+2023-03-15 07:32:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:32:03.414 <ERR> from interface 2232:j_k
+2023-03-15 07:32:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:32:12.420 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:32:27.264 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:33:03.412 <ERR> from interface 1:lo
+2023-03-15 07:33:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:33:03.412 <ERR> from interface 2229:j_h
+2023-03-15 07:33:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:33:03.412 <ERR> from interface 2232:j_k
+2023-03-15 07:33:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:33:20.547 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:33:25.846 <TRACE> savnet_jk: Started
+2023-03-15 07:33:25.846 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-15 07:33:29.929 <TRACE> savnet_jh: Sending KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:33:29.976 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:33:29.977 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:33:29.977 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:33:29.977 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:33:29.977 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:33:29.977 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:33:34.272 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:33:34.272 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:33:34.272 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:33:34.272 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:33:34.272 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:33:34.272 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:33:38.468 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:33:38.468 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:33:38.468 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:33:38.468 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:33:38.468 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:33:38.468 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:33:42.851 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:33:42.851 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:33:42.851 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:33:42.851 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:33:42.851 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:33:42.851 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:33:47.093 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:33:47.094 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:33:47.094 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:33:47.094 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:33:47.094 <TRACE> savnet_jk: Got OPEN(as=65511,hold=240,id=10.0.10.2)
+2023-03-15 07:33:47.094 <TRACE> savnet_jk: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+2023-03-15 07:33:47.094 <RMT> savnet_jk: Error: Role mismatch
+BGP: Updating startup delay
+2023-03-15 07:33:47.094 <TRACE> savnet_jk: Protocol state changed to stop
+2023-03-15 07:33:47.094 <TRACE> savnet_jk: Sending NOTIFICATION(code=2.11)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:33:47.094 <TRACE> savnet_jk: Down
+2023-03-15 07:33:47.094 <TRACE> savnet_jk: Protocol state changed to flush
+2023-03-15 07:33:47.094 <TRACE> savnet_jk: Protocol state changed to down
+2023-03-15 07:33:47.094 <DBG> link [savnet_jk] down sent
+2023-03-15 07:33:47.094 <TRACE> savnet_jk: Starting
+2023-03-15 07:33:47.094 <DBG> link [savnet_jk] meta sent
+2023-03-15 07:33:47.094 <TRACE> savnet_jk: Protocol state changed to start
+BGP: Got lock
+2023-03-15 07:33:47.097 <TRACE> savnet_jk: Startup delayed by 300 seconds due to errors
+2023-03-15 07:34:03.414 <ERR> from interface 1:lo
+2023-03-15 07:34:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:34:03.414 <ERR> from interface 2229:j_h
+2023-03-15 07:34:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:34:03.414 <ERR> from interface 2232:j_k
+2023-03-15 07:34:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:34:35.031 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:34:39.563 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:35:03.415 <ERR> from interface 1:lo
+2023-03-15 07:35:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:35:03.415 <ERR> from interface 2229:j_h
+2023-03-15 07:35:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:35:03.415 <ERR> from interface 2232:j_k
+2023-03-15 07:35:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:35:44.996 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:35:51.501 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:36:03.415 <ERR> from interface 1:lo
+2023-03-15 07:36:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:36:03.415 <ERR> from interface 2229:j_h
+2023-03-15 07:36:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:36:03.415 <ERR> from interface 2232:j_k
+2023-03-15 07:36:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:36:57.092 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:37:03.413 <ERR> from interface 1:lo
+2023-03-15 07:37:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:37:03.413 <ERR> from interface 2229:j_h
+2023-03-15 07:37:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:37:03.413 <ERR> from interface 2232:j_k
+2023-03-15 07:37:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:37:08.600 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:38:03.413 <ERR> from interface 1:lo
+2023-03-15 07:38:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:38:03.413 <ERR> from interface 2229:j_h
+2023-03-15 07:38:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:38:03.413 <ERR> from interface 2232:j_k
+2023-03-15 07:38:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:38:10.434 <TRACE> savnet_jk: Started
+2023-03-15 07:38:10.434 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-15 07:38:11.437 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:38:13.508 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Incoming connection from 10.0.10.2 port 44463
+2023-03-15 07:38:15.239 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 44463) accepted
+BGP: Sending open
+2023-03-15 07:38:15.239 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:38:15.239 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:38:15.239 <TRACE> savnet_jk: Got OPEN(as=65511,hold=240,id=10.0.10.2)
+2023-03-15 07:38:15.239 <TRACE> savnet_jk: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+2023-03-15 07:38:15.239 <RMT> savnet_jk: Error: Role mismatch
+BGP: Updating startup delay
+2023-03-15 07:38:15.239 <TRACE> savnet_jk: Protocol state changed to stop
+BGP: Closing connection
+2023-03-15 07:38:15.239 <TRACE> savnet_jk: Sending NOTIFICATION(code=2.11)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:38:15.239 <TRACE> savnet_jk: Down
+2023-03-15 07:38:15.239 <TRACE> savnet_jk: Protocol state changed to flush
+2023-03-15 07:38:15.239 <TRACE> savnet_jk: Protocol state changed to down
+2023-03-15 07:38:15.239 <DBG> link [savnet_jk] down sent
+2023-03-15 07:38:15.239 <TRACE> savnet_jk: Starting
+2023-03-15 07:38:15.239 <DBG> link [savnet_jk] meta sent
+2023-03-15 07:38:15.239 <TRACE> savnet_jk: Protocol state changed to start
+BGP: Got lock
+2023-03-15 07:38:15.242 <TRACE> savnet_jk: Startup delayed by 300 seconds due to errors
+2023-03-15 07:39:03.412 <ERR> from interface 1:lo
+2023-03-15 07:39:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:39:03.412 <ERR> from interface 2229:j_h
+2023-03-15 07:39:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:39:03.412 <ERR> from interface 2232:j_k
+2023-03-15 07:39:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:39:21.581 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:39:26.199 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:40:03.413 <ERR> from interface 1:lo
+2023-03-15 07:40:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:40:03.413 <ERR> from interface 2229:j_h
+2023-03-15 07:40:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:40:03.413 <ERR> from interface 2232:j_k
+2023-03-15 07:40:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:40:24.646 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:40:37.900 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:41:03.414 <ERR> from interface 1:lo
+2023-03-15 07:41:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:41:03.414 <ERR> from interface 2229:j_h
+2023-03-15 07:41:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:41:03.414 <ERR> from interface 2232:j_k
+2023-03-15 07:41:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:41:29.135 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:41:52.833 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:42:03.414 <ERR> from interface 1:lo
+2023-03-15 07:42:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:42:03.414 <ERR> from interface 2229:j_h
+2023-03-15 07:42:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:42:03.414 <ERR> from interface 2232:j_k
+2023-03-15 07:42:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:42:20.100 <TRACE> savnet_jk: Started
+2023-03-15 07:42:20.100 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:42:24.774 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:42:24.774 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:42:24.774 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:42:24.774 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:42:24.774 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:42:24.774 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:42:29.738 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:42:29.739 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:42:29.739 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:42:29.739 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:42:29.739 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:42:29.739 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:42:34.448 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:42:34.448 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:42:34.448 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:42:34.448 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:42:34.448 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:42:34.448 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-15 07:42:35.058 <TRACE> savnet_jh: Sending KEEPALIVE
+BGP: Incoming connection from 10.0.10.2 port 59889
+2023-03-15 07:42:38.739 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 59889) accepted
+BGP: Sending open
+2023-03-15 07:42:38.739 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:42:38.739 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:42:38.739 <TRACE> savnet_jk: Got OPEN(as=65511,hold=240,id=10.0.10.2)
+2023-03-15 07:42:38.739 <TRACE> savnet_jk: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+2023-03-15 07:42:38.739 <RMT> savnet_jk: Error: Role mismatch
+BGP: Updating startup delay
+2023-03-15 07:42:38.739 <TRACE> savnet_jk: Protocol state changed to stop
+BGP: Closing connection
+2023-03-15 07:42:38.739 <TRACE> savnet_jk: Sending NOTIFICATION(code=2.11)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:42:38.739 <TRACE> savnet_jk: Down
+2023-03-15 07:42:38.739 <TRACE> savnet_jk: Protocol state changed to flush
+2023-03-15 07:42:38.739 <TRACE> savnet_jk: Protocol state changed to down
+2023-03-15 07:42:38.739 <DBG> link [savnet_jk] down sent
+2023-03-15 07:42:38.739 <TRACE> savnet_jk: Starting
+2023-03-15 07:42:38.739 <DBG> link [savnet_jk] meta sent
+2023-03-15 07:42:38.739 <TRACE> savnet_jk: Protocol state changed to start
+BGP: Got lock
+2023-03-15 07:42:38.743 <TRACE> savnet_jk: Startup delayed by 300 seconds due to errors
+2023-03-15 07:43:01.447 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:43:03.412 <ERR> from interface 1:lo
+2023-03-15 07:43:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:43:03.412 <ERR> from interface 2229:j_h
+2023-03-15 07:43:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:43:03.412 <ERR> from interface 2232:j_k
+2023-03-15 07:43:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:43:53.900 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:44:03.413 <ERR> from interface 1:lo
+2023-03-15 07:44:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:44:03.413 <ERR> from interface 2229:j_h
+2023-03-15 07:44:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:44:03.413 <ERR> from interface 2232:j_k
+2023-03-15 07:44:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:44:18.079 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:44:57.657 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:45:03.412 <ERR> from interface 1:lo
+2023-03-15 07:45:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:45:03.412 <ERR> from interface 2229:j_h
+2023-03-15 07:45:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:45:03.412 <ERR> from interface 2232:j_k
+2023-03-15 07:45:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:45:34.176 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:46:03.414 <ERR> from interface 1:lo
+2023-03-15 07:46:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:46:03.414 <ERR> from interface 2229:j_h
+2023-03-15 07:46:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:46:03.414 <ERR> from interface 2232:j_k
+2023-03-15 07:46:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:46:05.480 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:46:36.956 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:46:40.314 <TRACE> savnet_jk: Started
+2023-03-15 07:46:40.314 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: Incoming connection from 10.0.10.2 port 36965
+2023-03-15 07:46:41.472 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 36965) accepted
+BGP: Sending open
+2023-03-15 07:46:41.472 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:46:41.472 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:46:41.472 <TRACE> savnet_jk: Got OPEN(as=65511,hold=240,id=10.0.10.2)
+2023-03-15 07:46:41.472 <TRACE> savnet_jk: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+2023-03-15 07:46:41.472 <RMT> savnet_jk: Error: Role mismatch
+BGP: Updating startup delay
+2023-03-15 07:46:41.472 <TRACE> savnet_jk: Protocol state changed to stop
+BGP: Closing connection
+2023-03-15 07:46:41.472 <TRACE> savnet_jk: Sending NOTIFICATION(code=2.11)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:46:41.472 <TRACE> savnet_jk: Down
+2023-03-15 07:46:41.472 <TRACE> savnet_jk: Protocol state changed to flush
+2023-03-15 07:46:41.472 <TRACE> savnet_jk: Protocol state changed to down
+2023-03-15 07:46:41.472 <DBG> link [savnet_jk] down sent
+2023-03-15 07:46:41.472 <TRACE> savnet_jk: Starting
+2023-03-15 07:46:41.472 <DBG> link [savnet_jk] meta sent
+2023-03-15 07:46:41.472 <TRACE> savnet_jk: Protocol state changed to start
+BGP: Got lock
+2023-03-15 07:46:41.476 <TRACE> savnet_jk: Startup delayed by 300 seconds due to errors
+2023-03-15 07:47:03.413 <ERR> from interface 1:lo
+2023-03-15 07:47:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:47:03.413 <ERR> from interface 2229:j_h
+2023-03-15 07:47:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:47:03.413 <ERR> from interface 2232:j_k
+2023-03-15 07:47:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:47:06.016 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:47:55.368 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:48:03.414 <ERR> from interface 1:lo
+2023-03-15 07:48:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:48:03.414 <ERR> from interface 2229:j_h
+2023-03-15 07:48:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:48:03.414 <ERR> from interface 2232:j_k
+2023-03-15 07:48:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:48:08.556 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:48:58.848 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:49:03.414 <ERR> from interface 1:lo
+2023-03-15 07:49:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:49:03.414 <ERR> from interface 2229:j_h
+2023-03-15 07:49:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:49:03.414 <ERR> from interface 2232:j_k
+2023-03-15 07:49:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:49:16.559 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:50:03.413 <ERR> from interface 1:lo
+2023-03-15 07:50:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:50:03.413 <ERR> from interface 2229:j_h
+2023-03-15 07:50:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:50:03.413 <ERR> from interface 2232:j_k
+2023-03-15 07:50:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:50:08.909 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:50:18.359 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:50:27.509 <TRACE> savnet_jk: Started
+2023-03-15 07:50:27.509 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:50:31.798 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:50:31.799 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:50:31.799 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:50:31.799 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:50:31.799 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:50:31.799 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:50:35.835 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:50:35.835 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:50:35.835 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:50:35.835 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:50:35.835 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:50:35.835 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:50:40.190 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:50:40.190 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:50:40.190 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:50:40.190 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:50:40.190 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:50:40.190 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:50:44.615 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:50:44.615 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:50:44.615 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:50:44.615 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:50:44.615 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:50:44.615 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:50:49.360 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:50:49.360 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:50:49.360 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:50:49.360 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:50:49.360 <TRACE> savnet_jk: Got OPEN(as=65511,hold=240,id=10.0.10.2)
+2023-03-15 07:50:49.360 <TRACE> savnet_jk: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+2023-03-15 07:50:49.360 <RMT> savnet_jk: Error: Role mismatch
+BGP: Updating startup delay
+2023-03-15 07:50:49.360 <TRACE> savnet_jk: Protocol state changed to stop
+2023-03-15 07:50:49.360 <TRACE> savnet_jk: Sending NOTIFICATION(code=2.11)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:50:49.360 <TRACE> savnet_jk: Down
+2023-03-15 07:50:49.360 <TRACE> savnet_jk: Protocol state changed to flush
+2023-03-15 07:50:49.360 <TRACE> savnet_jk: Protocol state changed to down
+2023-03-15 07:50:49.360 <DBG> link [savnet_jk] down sent
+2023-03-15 07:50:49.360 <TRACE> savnet_jk: Starting
+2023-03-15 07:50:49.360 <DBG> link [savnet_jk] meta sent
+2023-03-15 07:50:49.360 <TRACE> savnet_jk: Protocol state changed to start
+BGP: Got lock
+2023-03-15 07:50:49.364 <TRACE> savnet_jk: Startup delayed by 300 seconds due to errors
+2023-03-15 07:51:03.413 <ERR> from interface 1:lo
+2023-03-15 07:51:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:51:03.413 <ERR> from interface 2229:j_h
+2023-03-15 07:51:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:51:03.413 <ERR> from interface 2232:j_k
+2023-03-15 07:51:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:51:22.136 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:51:28.623 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:52:03.414 <ERR> from interface 1:lo
+2023-03-15 07:52:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:52:03.414 <ERR> from interface 2229:j_h
+2023-03-15 07:52:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:52:03.414 <ERR> from interface 2232:j_k
+2023-03-15 07:52:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:52:26.563 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:52:29.578 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:53:03.413 <ERR> from interface 1:lo
+2023-03-15 07:53:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:53:03.413 <ERR> from interface 2229:j_h
+2023-03-15 07:53:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:53:03.413 <ERR> from interface 2232:j_k
+2023-03-15 07:53:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:53:37.592 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:53:40.904 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:54:03.414 <ERR> from interface 1:lo
+2023-03-15 07:54:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:54:03.414 <ERR> from interface 2229:j_h
+2023-03-15 07:54:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:54:03.414 <ERR> from interface 2232:j_k
+2023-03-15 07:54:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:54:44.728 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 07:54:59.120 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:55:03.414 <ERR> from interface 1:lo
+2023-03-15 07:55:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:55:03.414 <ERR> from interface 2229:j_h
+2023-03-15 07:55:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:55:03.414 <ERR> from interface 2232:j_k
+2023-03-15 07:55:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:55:12.260 <TRACE> savnet_jk: Started
+2023-03-15 07:55:12.260 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:55:16.353 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:55:16.353 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:55:16.353 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:55:16.353 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:55:16.354 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:55:16.354 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:55:20.996 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:55:20.996 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:55:20.996 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:55:20.996 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:55:20.996 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:55:20.996 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 07:55:24.926 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 07:55:24.926 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 07:55:24.926 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 07:55:24.926 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 07:55:24.927 <TRACE> savnet_jk: Got OPEN(as=65511,hold=240,id=10.0.10.2)
+2023-03-15 07:55:24.927 <TRACE> savnet_jk: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+2023-03-15 07:55:24.927 <RMT> savnet_jk: Error: Role mismatch
+BGP: Updating startup delay
+2023-03-15 07:55:24.927 <TRACE> savnet_jk: Protocol state changed to stop
+2023-03-15 07:55:24.927 <TRACE> savnet_jk: Sending NOTIFICATION(code=2.11)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 07:55:24.927 <TRACE> savnet_jk: Down
+2023-03-15 07:55:24.927 <TRACE> savnet_jk: Protocol state changed to flush
+2023-03-15 07:55:24.927 <TRACE> savnet_jk: Protocol state changed to down
+2023-03-15 07:55:24.927 <DBG> link [savnet_jk] down sent
+2023-03-15 07:55:24.927 <TRACE> savnet_jk: Starting
+2023-03-15 07:55:24.927 <DBG> link [savnet_jk] meta sent
+2023-03-15 07:55:24.927 <TRACE> savnet_jk: Protocol state changed to start
+BGP: Got lock
+2023-03-15 07:55:24.930 <TRACE> savnet_jk: Startup delayed by 300 seconds due to errors
+BGP: Keepalive timer
+2023-03-15 07:56:02.087 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:56:03.351 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:56:03.412 <ERR> from interface 1:lo
+2023-03-15 07:56:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:56:03.412 <ERR> from interface 2229:j_h
+2023-03-15 07:56:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:56:03.412 <ERR> from interface 2232:j_k
+2023-03-15 07:56:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:57:03.415 <ERR> from interface 1:lo
+2023-03-15 07:57:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:57:03.415 <ERR> from interface 2229:j_h
+2023-03-15 07:57:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:57:03.415 <ERR> from interface 2232:j_k
+2023-03-15 07:57:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:57:07.286 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:57:23.295 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:58:03.413 <ERR> from interface 1:lo
+2023-03-15 07:58:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:58:03.413 <ERR> from interface 2229:j_h
+2023-03-15 07:58:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:58:03.413 <ERR> from interface 2232:j_k
+2023-03-15 07:58:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:58:13.391 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:58:38.216 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 07:59:03.413 <ERR> from interface 1:lo
+2023-03-15 07:59:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:59:03.413 <ERR> from interface 2229:j_h
+2023-03-15 07:59:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 07:59:03.413 <ERR> from interface 2232:j_k
+2023-03-15 07:59:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 07:59:15.112 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 07:59:45.465 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Incoming connection from 10.0.10.2 port 47393
+2023-03-15 07:59:55.316 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 47393) rejected
+BGP: Incoming connection from 10.0.10.2 port 58533
+2023-03-15 07:59:59.106 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 58533) rejected
+2023-03-15 08:00:03.414 <ERR> from interface 1:lo
+2023-03-15 08:00:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:00:03.414 <ERR> from interface 2229:j_h
+2023-03-15 08:00:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:00:03.414 <ERR> from interface 2232:j_k
+2023-03-15 08:00:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Incoming connection from 10.0.10.2 port 39565
+2023-03-15 08:00:03.562 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 39565) rejected
+BGP: Incoming connection from 10.0.10.2 port 56279
+2023-03-15 08:00:08.351 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 56279) rejected
+2023-03-15 08:00:12.486 <TRACE> savnet_jk: Started
+2023-03-15 08:00:12.486 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: Incoming connection from 10.0.10.2 port 57719
+2023-03-15 08:00:12.799 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 57719) accepted
+BGP: Sending open
+2023-03-15 08:00:12.799 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 08:00:12.799 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 08:00:12.799 <TRACE> savnet_jk: Got OPEN(as=65511,hold=240,id=10.0.10.2)
+2023-03-15 08:00:12.799 <TRACE> savnet_jk: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+2023-03-15 08:00:12.799 <RMT> savnet_jk: Error: Role mismatch
+BGP: Updating startup delay
+2023-03-15 08:00:12.799 <TRACE> savnet_jk: Protocol state changed to stop
+BGP: Closing connection
+2023-03-15 08:00:12.799 <TRACE> savnet_jk: Sending NOTIFICATION(code=2.11)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 08:00:12.799 <TRACE> savnet_jk: Down
+2023-03-15 08:00:12.799 <TRACE> savnet_jk: Protocol state changed to flush
+2023-03-15 08:00:12.799 <TRACE> savnet_jk: Protocol state changed to down
+2023-03-15 08:00:12.799 <DBG> link [savnet_jk] down sent
+2023-03-15 08:00:12.799 <TRACE> savnet_jk: Starting
+2023-03-15 08:00:12.799 <DBG> link [savnet_jk] meta sent
+2023-03-15 08:00:12.799 <TRACE> savnet_jk: Protocol state changed to start
+BGP: Got lock
+2023-03-15 08:00:12.802 <TRACE> savnet_jk: Startup delayed by 300 seconds due to errors
+BGP: Keepalive timer
+2023-03-15 08:00:15.973 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 08:00:54.170 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 08:01:03.412 <ERR> from interface 1:lo
+2023-03-15 08:01:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:01:03.412 <ERR> from interface 2229:j_h
+2023-03-15 08:01:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:01:03.412 <ERR> from interface 2232:j_k
+2023-03-15 08:01:03.412 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 08:01:28.143 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 08:02:03.414 <ERR> from interface 1:lo
+2023-03-15 08:02:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:02:03.414 <ERR> from interface 2229:j_h
+2023-03-15 08:02:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:02:03.414 <ERR> from interface 2232:j_k
+2023-03-15 08:02:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:02:03.626 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:02:34.668 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 08:03:03.414 <ERR> from interface 1:lo
+2023-03-15 08:03:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:03:03.414 <ERR> from interface 2229:j_h
+2023-03-15 08:03:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:03:03.414 <ERR> from interface 2232:j_k
+2023-03-15 08:03:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:03:16.802 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:03:35.401 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 08:04:03.413 <ERR> from interface 1:lo
+2023-03-15 08:04:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:04:03.413 <ERR> from interface 2229:j_h
+2023-03-15 08:04:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:04:03.413 <ERR> from interface 2232:j_k
+2023-03-15 08:04:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:04:20.987 <TRACE> savnet_jk: Started
+2023-03-15 08:04:20.987 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 08:04:25.936 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 08:04:25.936 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 08:04:25.936 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 08:04:25.936 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 08:04:25.936 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 08:04:25.936 <TRACE> savnet_jk: Connect delayed by 5 seconds
+2023-03-15 08:04:26.066 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 08:04:30.694 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 08:04:30.694 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 08:04:30.694 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 08:04:30.694 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 08:04:30.694 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 08:04:30.694 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 08:04:35.559 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 08:04:35.559 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 08:04:35.559 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 08:04:35.559 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 08:04:35.559 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 08:04:35.559 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 08:04:39.618 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 08:04:39.618 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 08:04:39.618 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 08:04:39.618 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 08:04:39.619 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 08:04:39.619 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 08:04:43.456 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 08:04:43.456 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 08:04:43.456 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 08:04:43.456 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 08:04:43.456 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 08:04:43.456 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 08:04:47.747 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 08:04:47.747 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 08:04:47.747 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 08:04:47.747 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 08:04:47.747 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 08:04:47.747 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 08:04:52.215 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 08:04:52.215 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 08:04:52.215 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 08:04:52.215 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 08:04:52.215 <TRACE> savnet_jk: Got OPEN(as=65511,hold=240,id=10.0.10.2)
+2023-03-15 08:04:52.215 <TRACE> savnet_jk: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+2023-03-15 08:04:52.215 <RMT> savnet_jk: Error: Role mismatch
+BGP: Updating startup delay
+2023-03-15 08:04:52.215 <TRACE> savnet_jk: Protocol state changed to stop
+2023-03-15 08:04:52.215 <TRACE> savnet_jk: Sending NOTIFICATION(code=2.11)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 08:04:52.215 <TRACE> savnet_jk: Down
+2023-03-15 08:04:52.215 <TRACE> savnet_jk: Protocol state changed to flush
+2023-03-15 08:04:52.215 <TRACE> savnet_jk: Protocol state changed to down
+2023-03-15 08:04:52.215 <DBG> link [savnet_jk] down sent
+2023-03-15 08:04:52.215 <TRACE> savnet_jk: Starting
+2023-03-15 08:04:52.215 <DBG> link [savnet_jk] meta sent
+2023-03-15 08:04:52.215 <TRACE> savnet_jk: Protocol state changed to start
+BGP: Got lock
+2023-03-15 08:04:52.219 <TRACE> savnet_jk: Startup delayed by 300 seconds due to errors
+BGP: Keepalive timer
+2023-03-15 08:04:53.736 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 08:05:03.413 <ERR> from interface 1:lo
+2023-03-15 08:05:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:05:03.413 <ERR> from interface 2229:j_h
+2023-03-15 08:05:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:05:03.413 <ERR> from interface 2232:j_k
+2023-03-15 08:05:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:05:28.958 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 08:06:03.414 <ERR> from interface 1:lo
+2023-03-15 08:06:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:06:03.414 <ERR> from interface 2229:j_h
+2023-03-15 08:06:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:06:03.414 <ERR> from interface 2232:j_k
+2023-03-15 08:06:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 08:06:13.715 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 08:06:44.967 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 08:07:03.413 <ERR> from interface 1:lo
+2023-03-15 08:07:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:07:03.413 <ERR> from interface 2229:j_h
+2023-03-15 08:07:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:07:03.413 <ERR> from interface 2232:j_k
+2023-03-15 08:07:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 08:07:21.284 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 08:07:53.596 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 08:08:03.413 <ERR> from interface 1:lo
+2023-03-15 08:08:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:08:03.413 <ERR> from interface 2229:j_h
+2023-03-15 08:08:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:08:03.413 <ERR> from interface 2232:j_k
+2023-03-15 08:08:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 08:08:37.368 <TRACE> savnet_jh: Sending KEEPALIVE
+BGP: Incoming connection from 10.0.10.2 port 42659
+2023-03-15 08:08:47.172 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 42659) rejected
+BGP: Incoming connection from 10.0.10.2 port 37281
+2023-03-15 08:08:51.668 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 37281) rejected
+BGP: Incoming connection from 10.0.10.2 port 34355
+2023-03-15 08:08:56.130 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 34355) rejected
+BGP: Incoming connection from 10.0.10.2 port 46687
+2023-03-15 08:09:00.102 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 46687) rejected
+2023-03-15 08:09:03.413 <ERR> from interface 1:lo
+2023-03-15 08:09:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:09:03.413 <ERR> from interface 2229:j_h
+2023-03-15 08:09:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:09:03.413 <ERR> from interface 2232:j_k
+2023-03-15 08:09:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Incoming connection from 10.0.10.2 port 43251
+2023-03-15 08:09:04.926 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 43251) rejected
+2023-03-15 08:09:08.632 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Incoming connection from 10.0.10.2 port 38919
+2023-03-15 08:09:09.480 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 38919) rejected
+BGP: Incoming connection from 10.0.10.2 port 47203
+2023-03-15 08:09:13.560 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 47203) rejected
+BGP: Incoming connection from 10.0.10.2 port 40771
+2023-03-15 08:09:18.332 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 40771) rejected
+BGP: Incoming connection from 10.0.10.2 port 44491
+2023-03-15 08:09:22.739 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 44491) rejected
+BGP: Incoming connection from 10.0.10.2 port 56507
+2023-03-15 08:09:27.455 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 56507) rejected
+BGP: Incoming connection from 10.0.10.2 port 48527
+2023-03-15 08:09:31.646 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 48527) rejected
+BGP: Incoming connection from 10.0.10.2 port 34057
+2023-03-15 08:09:35.536 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 34057) rejected
+BGP: Incoming connection from 10.0.10.2 port 42219
+2023-03-15 08:09:39.903 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 42219) rejected
+BGP: Incoming connection from 10.0.10.2 port 50915
+2023-03-15 08:09:44.638 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 50915) rejected
+BGP: Keepalive timer
+2023-03-15 08:09:46.656 <TRACE> savnet_jh: Sending KEEPALIVE
+BGP: Incoming connection from 10.0.10.2 port 56311
+2023-03-15 08:09:48.911 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 56311) rejected
+2023-03-15 08:09:50.780 <TRACE> savnet_jk: Started
+2023-03-15 08:09:50.780 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: Incoming connection from 10.0.10.2 port 55015
+2023-03-15 08:09:53.672 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 55015) accepted
+BGP: Sending open
+2023-03-15 08:09:53.672 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 08:09:53.672 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 08:09:53.672 <TRACE> savnet_jk: Got OPEN(as=65511,hold=240,id=10.0.10.2)
+2023-03-15 08:09:53.672 <TRACE> savnet_jk: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+2023-03-15 08:09:53.672 <RMT> savnet_jk: Error: Role mismatch
+BGP: Updating startup delay
+2023-03-15 08:09:53.672 <TRACE> savnet_jk: Protocol state changed to stop
+BGP: Closing connection
+2023-03-15 08:09:53.672 <TRACE> savnet_jk: Sending NOTIFICATION(code=2.11)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 08:09:53.672 <TRACE> savnet_jk: Down
+2023-03-15 08:09:53.672 <TRACE> savnet_jk: Protocol state changed to flush
+2023-03-15 08:09:53.672 <TRACE> savnet_jk: Protocol state changed to down
+2023-03-15 08:09:53.672 <DBG> link [savnet_jk] down sent
+2023-03-15 08:09:53.672 <TRACE> savnet_jk: Starting
+2023-03-15 08:09:53.672 <DBG> link [savnet_jk] meta sent
+2023-03-15 08:09:53.672 <TRACE> savnet_jk: Protocol state changed to start
+BGP: Got lock
+2023-03-15 08:09:53.676 <TRACE> savnet_jk: Startup delayed by 60 seconds due to errors
+2023-03-15 08:10:03.413 <ERR> from interface 1:lo
+2023-03-15 08:10:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:10:03.413 <ERR> from interface 2229:j_h
+2023-03-15 08:10:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:10:03.413 <ERR> from interface 2232:j_k
+2023-03-15 08:10:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:10:27.473 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 08:10:39.857 <TRACE> savnet_jk: Started
+2023-03-15 08:10:39.857 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 08:10:44.255 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 08:10:44.255 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 08:10:44.255 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 08:10:44.255 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 08:10:44.255 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 08:10:44.255 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 08:10:48.944 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 08:10:48.944 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 08:10:48.944 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 08:10:48.944 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 08:10:48.944 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 08:10:48.944 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-15 08:10:52.756 <TRACE> savnet_jh: Sending KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 08:10:53.700 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 08:10:53.700 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 08:10:53.700 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 08:10:53.700 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 08:10:53.700 <TRACE> savnet_jk: Got OPEN(as=65511,hold=240,id=10.0.10.2)
+2023-03-15 08:10:53.700 <TRACE> savnet_jk: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+2023-03-15 08:10:53.700 <RMT> savnet_jk: Error: Role mismatch
+BGP: Updating startup delay
+2023-03-15 08:10:53.700 <TRACE> savnet_jk: Protocol state changed to stop
+2023-03-15 08:10:53.700 <TRACE> savnet_jk: Sending NOTIFICATION(code=2.11)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 08:10:53.700 <TRACE> savnet_jk: Down
+2023-03-15 08:10:53.700 <TRACE> savnet_jk: Protocol state changed to flush
+2023-03-15 08:10:53.700 <TRACE> savnet_jk: Protocol state changed to down
+2023-03-15 08:10:53.700 <DBG> link [savnet_jk] down sent
+2023-03-15 08:10:53.700 <TRACE> savnet_jk: Starting
+2023-03-15 08:10:53.700 <DBG> link [savnet_jk] meta sent
+2023-03-15 08:10:53.700 <TRACE> savnet_jk: Protocol state changed to start
+BGP: Got lock
+2023-03-15 08:10:53.703 <TRACE> savnet_jk: Startup delayed by 120 seconds due to errors
+2023-03-15 08:11:03.413 <ERR> from interface 1:lo
+2023-03-15 08:11:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:11:03.413 <ERR> from interface 2229:j_h
+2023-03-15 08:11:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:11:03.413 <ERR> from interface 2232:j_k
+2023-03-15 08:11:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:11:40.158 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:11:53.931 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 08:12:03.413 <ERR> from interface 1:lo
+2023-03-15 08:12:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:12:03.413 <ERR> from interface 2229:j_h
+2023-03-15 08:12:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:12:03.413 <ERR> from interface 2232:j_k
+2023-03-15 08:12:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:12:25.369 <TRACE> savnet_jk: Started
+2023-03-15 08:12:25.369 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-15 08:12:29.846 <TRACE> savnet_jk: Connecting to 10.0.10.2 from local address 10.0.10.1
+BGP: Waiting for connect success
+2023-03-15 08:12:29.846 <TRACE> savnet_jk: Connected
+BGP: Sending open
+2023-03-15 08:12:29.846 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 08:12:29.846 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 08:12:29.846 <TRACE> savnet_jk: Connection lost (Connection reset by peer)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 08:12:29.846 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: Incoming connection from 10.0.10.2 port 43589
+2023-03-15 08:12:34.236 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 43589) accepted
+BGP: Sending open
+2023-03-15 08:12:34.236 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 08:12:34.236 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 08:12:34.236 <TRACE> savnet_jk: Got OPEN(as=65511,hold=240,id=10.0.10.2)
+2023-03-15 08:12:34.236 <TRACE> savnet_jk: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+2023-03-15 08:12:34.236 <RMT> savnet_jk: Error: Role mismatch
+BGP: Updating startup delay
+2023-03-15 08:12:34.236 <TRACE> savnet_jk: Protocol state changed to stop
+BGP: Closing connection
+2023-03-15 08:12:34.236 <TRACE> savnet_jk: Sending NOTIFICATION(code=2.11)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 08:12:34.236 <TRACE> savnet_jk: Down
+2023-03-15 08:12:34.236 <TRACE> savnet_jk: Protocol state changed to flush
+2023-03-15 08:12:34.236 <TRACE> savnet_jk: Protocol state changed to down
+2023-03-15 08:12:34.236 <DBG> link [savnet_jk] down sent
+2023-03-15 08:12:34.236 <TRACE> savnet_jk: Starting
+2023-03-15 08:12:34.236 <DBG> link [savnet_jk] meta sent
+2023-03-15 08:12:34.236 <TRACE> savnet_jk: Protocol state changed to start
+BGP: Got lock
+2023-03-15 08:12:34.240 <TRACE> savnet_jk: Startup delayed by 240 seconds due to errors
+2023-03-15 08:12:55.607 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:13:03.088 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 08:13:03.413 <ERR> from interface 1:lo
+2023-03-15 08:13:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:13:03.413 <ERR> from interface 2229:j_h
+2023-03-15 08:13:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:13:03.413 <ERR> from interface 2232:j_k
+2023-03-15 08:13:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:13:58.484 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 08:14:03.414 <ERR> from interface 1:lo
+2023-03-15 08:14:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:14:03.414 <ERR> from interface 2229:j_h
+2023-03-15 08:14:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:14:03.414 <ERR> from interface 2232:j_k
+2023-03-15 08:14:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 08:14:13.159 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 08:15:03.414 <ERR> from interface 1:lo
+2023-03-15 08:15:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:15:03.414 <ERR> from interface 2229:j_h
+2023-03-15 08:15:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:15:03.414 <ERR> from interface 2232:j_k
+2023-03-15 08:15:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:15:08.747 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:15:19.144 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 08:16:03.415 <ERR> from interface 1:lo
+2023-03-15 08:16:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:16:03.415 <ERR> from interface 2229:j_h
+2023-03-15 08:16:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:16:03.415 <ERR> from interface 2232:j_k
+2023-03-15 08:16:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:16:12.132 <TRACE> savnet_jk: Started
+2023-03-15 08:16:12.132 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: Incoming connection from 10.0.10.2 port 33985
+2023-03-15 08:16:16.166 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 33985) accepted
+BGP: Sending open
+2023-03-15 08:16:16.166 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 08:16:16.166 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 08:16:16.166 <TRACE> savnet_jk: Got OPEN(as=65511,hold=240,id=10.0.10.2)
+2023-03-15 08:16:16.166 <TRACE> savnet_jk: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+2023-03-15 08:16:16.166 <RMT> savnet_jk: Error: Role mismatch
+BGP: Updating startup delay
+2023-03-15 08:16:16.166 <TRACE> savnet_jk: Protocol state changed to stop
+BGP: Closing connection
+2023-03-15 08:16:16.166 <TRACE> savnet_jk: Sending NOTIFICATION(code=2.11)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 08:16:16.166 <TRACE> savnet_jk: Down
+2023-03-15 08:16:16.166 <TRACE> savnet_jk: Protocol state changed to flush
+2023-03-15 08:16:16.166 <TRACE> savnet_jk: Protocol state changed to down
+2023-03-15 08:16:16.166 <DBG> link [savnet_jk] down sent
+2023-03-15 08:16:16.166 <TRACE> savnet_jk: Starting
+2023-03-15 08:16:16.166 <DBG> link [savnet_jk] meta sent
+2023-03-15 08:16:16.166 <TRACE> savnet_jk: Protocol state changed to start
+BGP: Got lock
+2023-03-15 08:16:16.169 <TRACE> savnet_jk: Startup delayed by 300 seconds due to errors
+2023-03-15 08:16:23.980 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:16:31.750 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 08:17:03.414 <ERR> from interface 1:lo
+2023-03-15 08:17:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:17:03.414 <ERR> from interface 2229:j_h
+2023-03-15 08:17:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:17:03.414 <ERR> from interface 2232:j_k
+2023-03-15 08:17:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:17:30.364 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:17:35.482 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 08:18:03.414 <ERR> from interface 1:lo
+2023-03-15 08:18:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:18:03.414 <ERR> from interface 2229:j_h
+2023-03-15 08:18:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:18:03.414 <ERR> from interface 2232:j_k
+2023-03-15 08:18:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 08:18:37.733 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 08:18:41.338 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 08:19:03.413 <ERR> from interface 1:lo
+2023-03-15 08:19:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:19:03.413 <ERR> from interface 2229:j_h
+2023-03-15 08:19:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:19:03.413 <ERR> from interface 2232:j_k
+2023-03-15 08:19:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:19:57.423 <TRACE> savnet_jh: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-15 08:19:57.729 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 08:20:03.415 <ERR> from interface 1:lo
+2023-03-15 08:20:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:20:03.415 <ERR> from interface 2229:j_h
+2023-03-15 08:20:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:20:03.415 <ERR> from interface 2232:j_k
+2023-03-15 08:20:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Incoming connection from 10.0.10.2 port 38069
+2023-03-15 08:20:22.764 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 38069) rejected
+BGP: Incoming connection from 10.0.10.2 port 52095
+2023-03-15 08:20:27.058 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 52095) rejected
+2023-03-15 08:20:29.712 <TRACE> savnet_jk: Started
+2023-03-15 08:20:29.712 <TRACE> savnet_jk: Connect delayed by 5 seconds
+BGP: Incoming connection from 10.0.10.2 port 49289
+2023-03-15 08:20:31.550 <TRACE> savnet_jk: Incoming connection from 10.0.10.2 (port 49289) accepted
+BGP: Sending open
+2023-03-15 08:20:31.550 <TRACE> savnet_jk: Sending OPEN(ver=4,as=65510,hold=240,id=0a000902)
+2023-03-15 08:20:31.550 <TRACE> savnet_jk: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-15 08:20:31.550 <TRACE> savnet_jk: Got OPEN(as=65511,hold=240,id=10.0.10.2)
+2023-03-15 08:20:31.550 <TRACE> savnet_jk: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+2023-03-15 08:20:31.550 <RMT> savnet_jk: Error: Role mismatch
+BGP: Updating startup delay
+2023-03-15 08:20:31.550 <TRACE> savnet_jk: Protocol state changed to stop
+BGP: Closing connection
+2023-03-15 08:20:31.550 <TRACE> savnet_jk: Sending NOTIFICATION(code=2.11)
+BGP: Closing connection
+BGP: Decision start
+2023-03-15 08:20:31.550 <TRACE> savnet_jk: Down
+2023-03-15 08:20:31.550 <TRACE> savnet_jk: Protocol state changed to flush
+2023-03-15 08:20:31.550 <TRACE> savnet_jk: Protocol state changed to down
+2023-03-15 08:20:31.550 <DBG> link [savnet_jk] down sent
+2023-03-15 08:20:31.550 <TRACE> savnet_jk: Starting
+2023-03-15 08:20:31.550 <DBG> link [savnet_jk] meta sent
+2023-03-15 08:20:31.550 <TRACE> savnet_jk: Protocol state changed to start
+BGP: Got lock
+2023-03-15 08:20:31.553 <TRACE> savnet_jk: Startup delayed by 300 seconds due to errors
+BGP: Keepalive timer
+2023-03-15 08:20:58.897 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 08:21:03.414 <ERR> from interface 1:lo
+2023-03-15 08:21:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:21:03.414 <ERR> from interface 2229:j_h
+2023-03-15 08:21:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:21:03.414 <ERR> from interface 2232:j_k
+2023-03-15 08:21:03.414 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:21:14.626 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 08:22:03.413 <ERR> from interface 1:lo
+2023-03-15 08:22:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:22:03.413 <ERR> from interface 2229:j_h
+2023-03-15 08:22:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:22:03.413 <ERR> from interface 2232:j_k
+2023-03-15 08:22:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 08:22:12.151 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 08:22:31.578 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 08:23:03.413 <ERR> from interface 1:lo
+2023-03-15 08:23:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:23:03.413 <ERR> from interface 2229:j_h
+2023-03-15 08:23:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:23:03.413 <ERR> from interface 2232:j_k
+2023-03-15 08:23:03.413 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 08:23:22.976 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 08:23:48.413 <TRACE> savnet_jh: Got KEEPALIVE
+2023-03-15 08:24:03.415 <ERR> from interface 1:lo
+2023-03-15 08:24:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:24:03.415 <ERR> from interface 2229:j_h
+2023-03-15 08:24:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-15 08:24:03.415 <ERR> from interface 2232:j_k
+2023-03-15 08:24:03.415 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: Keepalive timer
+2023-03-15 08:24:24.761 <TRACE> savnet_jh: Sending KEEPALIVE
+2023-03-15 08:24:45.420 <TRACE> savnet_jk: Started
+2023-03-15 08:24:45.420 <TRACE> savnet_jk: Connect delayed by 5 seconds
