@@ -1,0 +1,4449 @@
+2023-03-09 07:43:00.226 <TRACE> savnet_ec: Initializing
+2023-03-09 07:43:00.226 <TRACE> savnet_ed: Initializing
+2023-03-09 07:43:00.226 <ERR> from interface 1:lo
+2023-03-09 07:43:00.226 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:43:00.226 <ERR> from interface 192:e_b
+2023-03-09 07:43:00.226 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:43:00.226 <ERR> from interface 196:e_d
+2023-03-09 07:43:00.226 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:43:00.226 <TRACE> savnet_ec: Starting
+2023-03-09 07:43:00.226 <DBG> link [savnet_ec] meta sent
+2023-03-09 07:43:00.226 <TRACE> savnet_ec: Protocol state changed to start
+2023-03-09 07:43:00.226 <TRACE> savnet_ed: Starting
+2023-03-09 07:43:00.226 <DBG> link [savnet_ed] meta sent
+2023-03-09 07:43:00.226 <TRACE> savnet_ed: Protocol state changed to start
+2023-03-09 07:43:00.226 <INFO> Started
+BGP: Got lock
+2023-03-09 07:43:00.236 <TRACE> savnet_ed: Started
+2023-03-09 07:43:00.236 <TRACE> savnet_ed: Connect delayed by 5 seconds
+BGP: Got lock
+2023-03-09 07:43:00.236 <TRACE> savnet_ec: Started
+2023-03-09 07:43:00.236 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: Incoming connection from 10.0.7.1 port 55659
+2023-03-09 07:43:04.452 <TRACE> savnet_ed: Incoming connection from 10.0.7.1 (port 55659) accepted
+BGP: Sending open
+2023-03-09 07:43:04.452 <TRACE> savnet_ed: Sending OPEN(ver=4,as=65503,hold=240,id=0a000502)
+2023-03-09 07:43:04.452 <TRACE> savnet_ed: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-09 07:43:04.455 <TRACE> savnet_ed: Got OPEN(as=65502,hold=240,id=10.0.4.2)
+2023-03-09 07:43:04.455 <TRACE> savnet_ed: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+BGP: Closing connection
+2023-03-09 07:43:04.455 <TRACE> savnet_ed: Got KEEPALIVE
+2023-03-09 07:43:04.455 <TRACE> savnet_ed: BGP session established
+2023-03-09 07:43:04.455 <TRACE> savnet_ed: Protocol state changed to up
+2023-03-09 07:43:04.455 <DBG> link [savnet_ed] up sent
+BGP: Decision start
+2023-03-09 07:43:04.456 <TRACE> savnet_ed: Sending KEEPALIVE
+2023-03-09 07:43:04.456 <TRACE> savnet_ed.savnet4 < filtered out 10.0.7.0/24 196L 6G unicast
+2023-03-09 07:43:04.456 <TRACE> savnet_ed.savnet4 < filtered out 10.0.5.0/24 192L 5G unicast
+2023-03-09 07:43:04.456 <TRACE> savnet_ed.savnet4 < filtered out 192.168.4.0/24 0L 4G blackhole
+2023-03-09 07:43:04.456 <TRACE> savnet_ed.ipv4 < added 10.0.7.0/24 196L 6G unicast
+2023-03-09 07:43:04.456 <TRACE> savnet_ed.ipv4 < added 10.0.5.0/24 192L 5G unicast
+2023-03-09 07:43:04.456 <TRACE> savnet_ed.ipv4 < added 192.168.4.0/24 0L 4G blackhole
+2023-03-09 07:43:04.459 <TRACE> savnet_ed: Got UPDATE
+2023-03-09 07:43:04.459 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-09 07:43:04.459 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-09 07:43:04.459 <TRACE> savnet_ed: Got END-OF-RIB
+2023-03-09 07:43:04.459 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-09 07:43:04.459 <DBG> pool
+2023-03-09 07:43:04.459 <DBG> cached_rta
+2023-03-09 07:43:04.459 <TRACE> savnet_ed: Sending END-OF-RIB
+2023-03-09 07:43:04.459 <TRACE> savnet_ed: Sending UPDATE
+2023-03-09 07:43:04.459 <TRACE> savnet_ed: Sending END-OF-RIB
+2023-03-09 07:43:04.459 <TRACE> savnet_ed: Got UPDATE
+2023-03-09 07:43:04.459 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 16
+2023-03-09 07:43:04.459 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-09 07:43:04.459 <TRACE> savnet_ed.ipv4 > added 10.0.7.0/24 0L 7G unicast
+2023-03-09 07:43:04.459 <TRACE> savnet_ed.ipv4 > added [best] 10.0.4.0/24 0L 7G unicast
+2023-03-09 07:43:04.459 <TRACE> savnet_ed.savnet4 < rejected by protocol 10.0.4.0/24 0L 7G unicast
+2023-03-09 07:43:04.459 <TRACE> savnet_ed.ipv4 < rejected by protocol 10.0.4.0/24 0L 7G unicast
+2023-03-09 07:43:04.459 <TRACE> savnet_ed.ipv4 > added [best] 192.168.2.0/24 0L 7G unicast
+2023-03-09 07:43:04.459 <TRACE> savnet_ed.savnet4 < rejected by protocol 192.168.2.0/24 0L 7G unicast
+2023-03-09 07:43:04.459 <TRACE> savnet_ed.ipv4 < rejected by protocol 192.168.2.0/24 0L 7G unicast
+2023-03-09 07:43:04.459 <TRACE> savnet_ed.ipv4 > added [best] 192.168.3.0/24 0L 7G unicast
+2023-03-09 07:43:04.459 <TRACE> savnet_ed.savnet4 < rejected by protocol 192.168.3.0/24 0L 7G unicast
+2023-03-09 07:43:04.459 <TRACE> savnet_ed.ipv4 < rejected by protocol 192.168.3.0/24 0L 7G unicast
+2023-03-09 07:43:04.459 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-09 07:43:04.459 <DBG> pool
+2023-03-09 07:43:04.459 <DBG> cached_rta
+2023-03-09 07:43:04.459 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65502"
+    ,"interface_name":"e_d"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_ed"
+    ,"as_path":"65502"
+    ,"sav_origin":""
+    ,"routes":"+10.0.7.0/24,+10.0.4.0/24,+192.168.2.0/24,+192.168.3.0/24"
+    ,"sav_scope":""
+    ,"sav_nlri":""    }}
+2023-03-09 07:43:04.459 <TRACE> savnet_ed: Got UPDATE
+2023-03-09 07:43:04.459 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 8
+2023-03-09 07:43:04.459 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-09 07:43:04.459 <TRACE> savnet_ed.ipv4 > added [best] 192.168.5.0/24 0L 7G unicast
+2023-03-09 07:43:04.459 <TRACE> savnet_ed.savnet4 < rejected by protocol 192.168.5.0/24 0L 7G unicast
+2023-03-09 07:43:04.459 <TRACE> savnet_ed.ipv4 < rejected by protocol 192.168.5.0/24 0L 7G unicast
+2023-03-09 07:43:04.459 <TRACE> savnet_ed.ipv4 > added [best] 10.0.1.0/24 0L 7G unicast
+2023-03-09 07:43:04.459 <TRACE> savnet_ed.savnet4 < rejected by protocol 10.0.1.0/24 0L 7G unicast
+2023-03-09 07:43:04.459 <TRACE> savnet_ed.ipv4 < rejected by protocol 10.0.1.0/24 0L 7G unicast
+2023-03-09 07:43:04.459 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-09 07:43:04.459 <DBG> pool
+2023-03-09 07:43:04.459 <DBG> cached_rta
+2023-03-09 07:43:04.459 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65502"
+    ,"interface_name":"e_d"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_ed"
+    ,"as_path":"65502,65504"
+    ,"sav_origin":""
+    ,"routes":"+192.168.5.0/24,+10.0.1.0/24"
+    ,"sav_scope":""
+    ,"sav_nlri":""    }}
+2023-03-09 07:43:04.459 <TRACE> savnet_ed: Got UPDATE
+2023-03-09 07:43:04.459 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-09 07:43:04.459 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-09 07:43:04.459 <TRACE> savnet_ed: Got END-OF-RIB
+2023-03-09 07:43:04.459 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-09 07:43:04.459 <DBG> pool
+2023-03-09 07:43:04.459 <DBG> cached_rta
+2023-03-09 07:43:04.465 <DBG> call_agent
+2023-03-09 07:43:04.465 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,1,0,0,255,223",
+    "as_path_len": 6,
+    "is_interior": 1,
+    "next_hop": "4,10,0,7,2",
+    "nlri_len": 4,
+    "protocol_name": "savnet_ed",
+    "sav_nlri": "24,192,168,4",
+    "sav_origin": "0,0,255,223",
+    "sav_scope": "1,1,0,0,255,222",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-09 07:43:04.465 <DBG> inserting 0,0
+2023-03-09 07:43:04.465 <DBG> inserting 4,10,0,7,2
+2023-03-09 07:43:04.465 <DBG> inserting 0,0,255,223
+2023-03-09 07:43:04.465 <DBG> inserting 1,1,0,0,255,222
+2023-03-09 07:43:04.465 <DBG> inserting 24,192,168,4
+2023-03-09 07:43:04.465 <DBG> inserting 2,1,0,0,255,223
+2023-03-09 07:43:04.465 <DBG> savnet update packet assembled
+2023-03-09 07:43:04.465 <DBG> packet len 63
+2023-03-09 07:43:04.465 <DBG> call agent send result, 1
+2023-03-09 07:43:04.469 <DBG> call_agent
+2023-03-09 07:43:04.469 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,1,0,0,255,223",
+    "as_path_len": 6,
+    "is_interior": 1,
+    "next_hop": "4,10,0,7,2",
+    "nlri_len": 4,
+    "protocol_name": "savnet_ed",
+    "sav_nlri": "24,192,168,4",
+    "sav_origin": "0,0,255,223",
+    "sav_scope": "1,2,0,0,255,222,0,0,255,224",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-09 07:43:04.469 <DBG> inserting 0,0
+2023-03-09 07:43:04.469 <DBG> inserting 4,10,0,7,2
+2023-03-09 07:43:04.469 <DBG> inserting 0,0,255,223
+2023-03-09 07:43:04.469 <DBG> inserting 1,2,0,0,255,222,0,0,255,224
+2023-03-09 07:43:04.469 <DBG> inserting 24,192,168,4
+2023-03-09 07:43:04.469 <DBG> inserting 2,1,0,0,255,223
+2023-03-09 07:43:04.469 <DBG> savnet update packet assembled
+2023-03-09 07:43:04.469 <DBG> packet len 67
+2023-03-09 07:43:04.469 <DBG> call agent send result, 1
+2023-03-09 07:43:04.492 <TRACE> savnet_ed: Got UPDATE
+2023-03-09 07:43:04.492 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-09 07:43:04.492 <DBG> 
+mp_reach_len: 18
+mp_unreach_len: 0
+2023-03-09 07:43:04.492 <DBG> bgp_decode_nlri_savnet4 len: 18
+2023-03-09 07:43:04.492 <DBG> s->sav_origin: [65502]
+2023-03-09 07:43:04.492 <DBG> s->sav_scope: [1,1,65503]
+2023-03-09 07:43:04.492 <DBG> s->sav_nlri: [24,192,168,2,24,192,168,3]
+2023-03-09 07:43:04.492 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-09 07:43:04.492 <DBG> pool
+2023-03-09 07:43:04.492 <DBG> cached_rta
+2023-03-09 07:43:04.492 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65502"
+    ,"interface_name":"e_d"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_ed"
+    ,"as_path":"65502"
+    ,"sav_origin":"65502"
+    ,"routes":""
+    ,"sav_scope":"1,1,65503"
+    ,"sav_nlri":"24,192,168,2,24,192,168,3"    }}
+2023-03-09 07:43:04.516 <TRACE> ...
+2023-03-09 07:43:04.516 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-09 07:43:04.516 <DBG> 
+mp_reach_len: 14
+mp_unreach_len: 0
+2023-03-09 07:43:04.516 <DBG> bgp_decode_nlri_savnet4 len: 14
+2023-03-09 07:43:04.516 <DBG> s->sav_origin: [65504]
+2023-03-09 07:43:04.516 <DBG> s->sav_scope: [1,1,65503]
+2023-03-09 07:43:04.516 <DBG> s->sav_nlri: [24,192,168,5]
+2023-03-09 07:43:04.516 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-09 07:43:04.516 <DBG> pool
+2023-03-09 07:43:04.516 <DBG> cached_rta
+2023-03-09 07:43:04.516 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65502"
+    ,"interface_name":"e_d"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_ed"
+    ,"as_path":"65504,65502"
+    ,"sav_origin":"65504"
+    ,"routes":""
+    ,"sav_scope":"1,1,65503"
+    ,"sav_nlri":"24,192,168,5"    }}
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:43:04.618 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:43:04.618 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:43:04.618 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 07:43:04.843 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 8
+2023-03-09 07:43:04.843 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-09 07:43:04.843 <TRACE> savnet_ed.ipv4 > added [best] 192.168.1.0/24 0L 7G unicast
+2023-03-09 07:43:04.843 <TRACE> savnet_ed.savnet4 < rejected by protocol 192.168.1.0/24 0L 7G unicast
+2023-03-09 07:43:04.843 <TRACE> savnet_ed.ipv4 < rejected by protocol 192.168.1.0/24 0L 7G unicast
+2023-03-09 07:43:04.843 <TRACE> savnet_ed.ipv4 > added [best] 10.0.2.0/24 0L 7G unicast
+2023-03-09 07:43:04.843 <TRACE> savnet_ed.savnet4 < rejected by protocol 10.0.2.0/24 0L 7G unicast
+2023-03-09 07:43:04.843 <TRACE> savnet_ed.ipv4 < rejected by protocol 10.0.2.0/24 0L 7G unicast
+2023-03-09 07:43:04.843 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-09 07:43:04.843 <DBG> pool
+2023-03-09 07:43:04.843 <DBG> cached_rta
+2023-03-09 07:43:04.843 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65502"
+    ,"interface_name":"e_d"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_ed"
+    ,"as_path":"65502,65504,65501"
+    ,"sav_origin":""
+    ,"routes":"+192.168.1.0/24,+10.0.2.0/24"
+    ,"sav_scope":""
+    ,"sav_nlri":""    }}
+2023-03-09 07:43:04.848 <DBG> call_agent
+2023-03-09 07:43:04.848 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,1,0,0,255,223",
+    "as_path_len": 6,
+    "is_interior": 1,
+    "next_hop": "4,10,0,7,2",
+    "nlri_len": 4,
+    "protocol_name": "savnet_ed",
+    "sav_nlri": "24,192,168,4",
+    "sav_origin": "0,0,255,223",
+    "sav_scope": "1,3,0,0,255,222,0,0,255,224,0,0,255,221",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-09 07:43:04.848 <DBG> inserting 0,0
+2023-03-09 07:43:04.848 <DBG> inserting 4,10,0,7,2
+2023-03-09 07:43:04.848 <DBG> inserting 0,0,255,223
+2023-03-09 07:43:04.848 <DBG> inserting 1,3,0,0,255,222,0,0,255,224,0,0,255,221
+2023-03-09 07:43:04.848 <DBG> inserting 24,192,168,4
+2023-03-09 07:43:04.848 <DBG> inserting 2,1,0,0,255,223
+2023-03-09 07:43:04.848 <DBG> savnet update packet assembled
+2023-03-09 07:43:04.848 <DBG> packet len 71
+2023-03-09 07:43:04.848 <DBG> call agent send result, 1
+2023-03-09 07:43:04.920 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-09 07:43:04.920 <DBG> 
+mp_reach_len: 14
+mp_unreach_len: 0
+2023-03-09 07:43:04.920 <DBG> bgp_decode_nlri_savnet4 len: 14
+2023-03-09 07:43:04.920 <DBG> s->sav_origin: [65501]
+2023-03-09 07:43:04.920 <DBG> s->sav_scope: [1,1,65503]
+2023-03-09 07:43:04.920 <DBG> s->sav_nlri: [24,192,168,1]
+2023-03-09 07:43:04.920 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-09 07:43:04.920 <DBG> pool
+2023-03-09 07:43:04.920 <DBG> cached_rta
+2023-03-09 07:43:04.920 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65502"
+    ,"interface_name":"e_d"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_ed"
+    ,"as_path":"65501,65504,65502"
+    ,"sav_origin":"65501"
+    ,"routes":""
+    ,"sav_scope":"1,1,65503"
+    ,"sav_nlri":"24,192,168,1"    }}
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:43:08.496 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:43:08.496 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:43:08.496 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:43:13.404 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:43:13.404 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:43:13.404 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:43:17.720 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:43:17.720 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:43:17.720 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:43:22.040 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:43:22.040 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:43:22.040 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:43:26.891 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:43:26.891 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:43:26.891 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:43:31.368 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:43:31.368 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:43:31.368 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:43:35.704 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:43:35.704 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:43:35.704 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:43:39.971 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:43:39.972 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:43:39.972 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:43:44.392 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:43:44.392 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:43:44.392 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:43:48.426 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:43:48.426 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:43:48.426 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:43:52.698 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:43:52.699 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:43:52.699 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:43:57.444 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:43:57.444 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:43:57.444 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 07:44:00.228 <ERR> from interface 1:lo
+2023-03-09 07:44:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:44:00.228 <ERR> from interface 192:e_b
+2023-03-09 07:44:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:44:00.228 <ERR> from interface 196:e_d
+2023-03-09 07:44:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:44:02.267 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:44:02.267 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:44:02.267 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 07:44:04.800 <TRACE> savnet_ed: Got KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:44:06.102 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:44:06.102 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:44:06.102 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:44:10.045 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:44:10.045 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:44:10.045 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:44:14.569 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:44:14.569 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:44:14.569 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-09 07:44:18.954 <TRACE> savnet_ed: Sending KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:44:19.134 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:44:19.134 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:44:19.134 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:44:23.580 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:44:23.580 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:44:23.580 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:44:27.599 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:44:27.599 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:44:27.599 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:44:31.355 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:44:31.355 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:44:31.355 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:44:35.320 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:44:35.320 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:44:35.320 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:44:39.520 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:44:39.520 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:44:39.520 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:44:44.044 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:44:44.044 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:44:44.044 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:44:48.386 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:44:48.386 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:44:48.386 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:44:52.554 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:44:52.554 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:44:52.554 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:44:57.122 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:44:57.122 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:44:57.122 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 07:45:00.226 <ERR> from interface 1:lo
+2023-03-09 07:45:00.226 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:45:00.226 <ERR> from interface 192:e_b
+2023-03-09 07:45:00.226 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:45:00.226 <ERR> from interface 196:e_d
+2023-03-09 07:45:00.226 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:45:01.698 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:45:01.698 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:45:01.698 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 07:45:05.052 <TRACE> savnet_ed: Got KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:45:06.228 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:45:06.228 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:45:06.228 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:45:10.800 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:45:10.800 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:45:10.800 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:45:14.991 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:45:14.991 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:45:14.991 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:45:19.684 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:45:19.684 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:45:19.684 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:45:24.016 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:45:24.016 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:45:24.016 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-09 07:45:24.212 <TRACE> savnet_ed: Sending KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:45:28.467 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:45:28.468 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:45:28.468 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:45:33.444 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:45:33.444 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:45:33.444 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:45:37.301 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:45:37.301 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:45:37.301 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:45:41.746 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:45:41.746 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:45:41.746 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:45:46.380 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:45:46.380 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:45:46.380 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:45:50.531 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:45:50.531 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:45:50.531 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:45:54.283 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:45:54.283 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:45:54.283 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:45:58.062 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:45:58.062 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:45:58.062 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 07:46:00.229 <ERR> from interface 1:lo
+2023-03-09 07:46:00.229 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:46:00.229 <ERR> from interface 192:e_b
+2023-03-09 07:46:00.229 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:46:00.229 <ERR> from interface 196:e_d
+2023-03-09 07:46:00.229 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:46:02.756 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:46:02.756 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:46:02.756 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 07:46:05.098 <TRACE> savnet_ed: Got KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:46:06.692 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:46:06.692 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:46:06.692 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:46:11.411 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:46:11.411 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:46:11.411 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:46:15.446 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:46:15.446 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:46:15.446 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:46:19.525 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:46:19.525 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:46:19.525 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:46:23.418 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:46:23.418 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:46:23.418 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:46:27.240 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:46:27.240 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:46:27.240 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-09 07:46:30.616 <TRACE> savnet_ed: Sending KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:46:32.018 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:46:32.018 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:46:32.018 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:46:36.919 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:46:36.919 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:46:36.919 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:46:41.624 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:46:41.624 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:46:41.624 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:46:46.468 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:46:46.468 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:46:46.468 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:46:51.007 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:46:51.007 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:46:51.007 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:46:55.528 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:46:55.528 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:46:55.528 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 07:47:00.228 <ERR> from interface 1:lo
+2023-03-09 07:47:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:47:00.228 <ERR> from interface 192:e_b
+2023-03-09 07:47:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:47:00.228 <ERR> from interface 196:e_d
+2023-03-09 07:47:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:47:00.301 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:47:00.302 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:47:00.302 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:47:04.406 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:47:04.406 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:47:04.406 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:47:08.538 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:47:08.538 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:47:08.538 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:47:13.440 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:47:13.440 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:47:13.440 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:47:17.426 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:47:17.426 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:47:17.426 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 07:47:21.087 <TRACE> savnet_ed: Got KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:47:22.276 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:47:22.276 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:47:22.276 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:47:27.083 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:47:27.083 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:47:27.083 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:47:31.939 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:47:31.939 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:47:31.939 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-09 07:47:34.819 <TRACE> savnet_ed: Sending KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:47:35.779 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:47:35.779 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:47:35.779 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:47:40.401 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:47:40.401 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:47:40.401 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:47:45.001 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:47:45.001 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:47:45.001 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:47:48.835 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:47:48.835 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:47:48.835 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:47:53.724 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:47:53.724 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:47:53.724 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:47:58.388 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:47:58.388 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:47:58.388 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 07:48:00.228 <ERR> from interface 1:lo
+2023-03-09 07:48:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:48:00.228 <ERR> from interface 192:e_b
+2023-03-09 07:48:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:48:00.228 <ERR> from interface 196:e_d
+2023-03-09 07:48:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:48:02.527 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:48:02.527 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:48:02.527 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:48:06.446 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:48:06.446 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:48:06.446 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:48:10.330 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:48:10.330 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:48:10.330 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:48:15.324 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:48:15.324 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:48:15.324 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:48:19.190 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:48:19.190 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:48:19.190 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:48:24.111 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:48:24.111 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:48:24.111 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:48:28.462 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:48:28.462 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:48:28.462 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:48:33.215 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:48:33.215 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:48:33.215 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 07:48:35.256 <TRACE> savnet_ed: Got KEEPALIVE
+BGP: Keepalive timer
+2023-03-09 07:48:36.932 <TRACE> savnet_ed: Sending KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:48:38.186 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:48:38.186 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:48:38.186 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:48:43.103 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:48:43.103 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:48:43.103 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:48:47.177 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:48:47.177 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:48:47.177 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:48:51.017 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:48:51.017 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:48:51.017 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:48:54.952 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:48:54.952 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:48:54.952 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:48:58.710 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:48:58.710 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:48:58.710 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 07:49:00.227 <ERR> from interface 1:lo
+2023-03-09 07:49:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:49:00.227 <ERR> from interface 192:e_b
+2023-03-09 07:49:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:49:00.227 <ERR> from interface 196:e_d
+2023-03-09 07:49:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:49:03.060 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:49:03.060 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:49:03.060 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:49:07.307 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:49:07.308 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:49:07.308 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:49:12.176 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:49:12.176 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:49:12.176 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:49:15.971 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:49:15.971 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:49:15.971 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:49:20.366 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:49:20.366 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:49:20.366 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:49:24.182 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:49:24.182 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:49:24.182 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:49:28.019 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:49:28.019 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:49:28.019 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:49:32.447 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:49:32.447 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:49:32.447 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 07:49:35.912 <TRACE> savnet_ed: Got KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:49:36.708 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:49:36.708 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:49:36.708 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:49:40.885 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:49:40.886 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:49:40.886 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:49:45.211 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:49:45.211 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:49:45.211 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:49:49.455 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:49:49.456 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:49:49.456 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-09 07:49:51.868 <TRACE> savnet_ed: Sending KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:49:53.238 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:49:53.239 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:49:53.239 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:49:58.230 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:49:58.230 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:49:58.230 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 07:50:00.228 <ERR> from interface 1:lo
+2023-03-09 07:50:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:50:00.228 <ERR> from interface 192:e_b
+2023-03-09 07:50:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:50:00.228 <ERR> from interface 196:e_d
+2023-03-09 07:50:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:50:02.044 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:50:02.044 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:50:02.044 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:50:05.808 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:50:05.808 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:50:05.808 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:50:09.659 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:50:09.659 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:50:09.659 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:50:14.580 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:50:14.580 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:50:14.580 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:50:19.284 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:50:19.284 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:50:19.284 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:50:23.301 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:50:23.301 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:50:23.301 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:50:28.140 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:50:28.140 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:50:28.140 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:50:32.304 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:50:32.304 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:50:32.304 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:50:36.188 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:50:36.188 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:50:36.188 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:50:41.060 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:50:41.060 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:50:41.060 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:50:44.910 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:50:44.910 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:50:44.910 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 07:50:45.980 <TRACE> savnet_ed: Got KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:50:48.776 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:50:48.776 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:50:48.776 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:50:52.691 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:50:52.691 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:50:52.691 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:50:56.624 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:50:56.624 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:50:56.624 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 07:51:00.227 <ERR> from interface 1:lo
+2023-03-09 07:51:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:51:00.227 <ERR> from interface 192:e_b
+2023-03-09 07:51:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:51:00.227 <ERR> from interface 196:e_d
+2023-03-09 07:51:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:51:00.437 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:51:00.437 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:51:00.437 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:51:04.648 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:51:04.648 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:51:04.648 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:51:09.463 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:51:09.463 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:51:09.463 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-09 07:51:11.500 <TRACE> savnet_ed: Sending KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:51:13.927 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:51:13.927 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:51:13.927 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:51:18.515 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:51:18.515 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:51:18.515 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:51:22.479 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:51:22.479 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:51:22.479 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:51:26.606 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:51:26.606 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:51:26.606 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:51:30.504 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:51:30.504 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:51:30.504 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:51:34.800 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:51:34.800 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:51:34.800 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:51:38.994 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:51:38.994 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:51:38.994 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:51:43.817 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:51:43.817 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:51:43.817 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:51:48.024 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:51:48.024 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:51:48.024 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:51:52.342 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:51:52.342 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:51:52.342 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 07:51:54.648 <TRACE> savnet_ed: Got KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:51:56.191 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:51:56.191 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:51:56.191 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 07:52:00.227 <ERR> from interface 1:lo
+2023-03-09 07:52:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:52:00.227 <ERR> from interface 192:e_b
+2023-03-09 07:52:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:52:00.227 <ERR> from interface 196:e_d
+2023-03-09 07:52:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:52:00.435 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:52:00.435 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:52:00.435 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:52:05.140 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:52:05.140 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:52:05.140 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:52:08.936 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:52:08.936 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:52:08.936 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:52:13.372 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:52:13.372 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:52:13.372 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:52:17.527 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:52:17.527 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:52:17.527 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:52:21.620 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:52:21.620 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:52:21.620 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:52:25.900 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:52:25.900 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:52:25.900 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-09 07:52:27.425 <TRACE> savnet_ed: Sending KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:52:29.788 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:52:29.788 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:52:29.788 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:52:34.464 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:52:34.464 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:52:34.464 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:52:38.800 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:52:38.800 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:52:38.800 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:52:42.802 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:52:42.802 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:52:42.802 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:52:47.175 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:52:47.175 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:52:47.175 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:52:51.247 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:52:51.247 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:52:51.247 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:52:55.427 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:52:55.427 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:52:55.427 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:52:59.717 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:52:59.717 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:52:59.717 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 07:53:00.227 <ERR> from interface 1:lo
+2023-03-09 07:53:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:53:00.227 <ERR> from interface 192:e_b
+2023-03-09 07:53:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:53:00.227 <ERR> from interface 196:e_d
+2023-03-09 07:53:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:53:03.040 <TRACE> savnet_ed: Got KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:53:04.363 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:53:04.363 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:53:04.363 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:53:08.692 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:53:08.692 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:53:08.692 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:53:13.207 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:53:13.207 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:53:13.207 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:53:17.712 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:53:17.712 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:53:17.712 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:53:21.792 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:53:21.792 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:53:21.792 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:53:26.473 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:53:26.473 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:53:26.473 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:53:31.458 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:53:31.458 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:53:31.458 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:53:35.377 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:53:35.377 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:53:35.377 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:53:39.831 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:53:39.831 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:53:39.831 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-09 07:53:44.252 <TRACE> savnet_ed: Sending KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:53:44.433 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:53:44.434 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:53:44.434 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:53:49.424 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:53:49.424 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:53:49.424 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:53:54.100 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:53:54.100 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:53:54.100 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:53:57.939 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:53:57.939 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:53:57.939 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 07:54:00.228 <ERR> from interface 1:lo
+2023-03-09 07:54:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:54:00.228 <ERR> from interface 192:e_b
+2023-03-09 07:54:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:54:00.228 <ERR> from interface 196:e_d
+2023-03-09 07:54:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:54:02.400 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:54:02.400 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:54:02.400 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:54:06.564 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:54:06.564 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:54:06.564 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 07:54:09.341 <TRACE> savnet_ed: Got KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:54:10.895 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:54:10.895 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:54:10.895 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:54:15.224 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:54:15.224 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:54:15.224 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:54:19.882 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:54:19.882 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:54:19.882 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:54:24.723 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:54:24.723 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:54:24.723 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:54:29.614 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:54:29.614 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:54:29.614 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:54:34.172 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:54:34.172 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:54:34.172 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:54:38.469 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:54:38.469 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:54:38.469 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:54:42.342 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:54:42.342 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:54:42.342 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:54:47.032 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:54:47.032 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:54:47.032 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-09 07:54:47.552 <TRACE> savnet_ed: Sending KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:54:51.561 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:54:51.561 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:54:51.561 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:54:56.260 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:54:56.260 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:54:56.260 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:55:00.014 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:55:00.014 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:55:00.014 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 07:55:00.227 <ERR> from interface 1:lo
+2023-03-09 07:55:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:55:00.227 <ERR> from interface 192:e_b
+2023-03-09 07:55:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:55:00.227 <ERR> from interface 196:e_d
+2023-03-09 07:55:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:55:04.660 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:55:04.660 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:55:04.660 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:55:08.822 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:55:08.822 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:55:08.822 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:55:13.620 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:55:13.620 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:55:13.620 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:55:17.819 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:55:17.819 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:55:17.820 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:55:21.869 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:55:21.869 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:55:21.869 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 07:55:23.172 <TRACE> savnet_ed: Got KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:55:25.968 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:55:25.968 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:55:25.968 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:55:30.013 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:55:30.013 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:55:30.013 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:55:34.704 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:55:34.704 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:55:34.704 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:55:38.558 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:55:38.558 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:55:38.558 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:55:43.095 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:55:43.095 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:55:43.095 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:55:47.039 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:55:47.039 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:55:47.039 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:55:51.970 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:55:51.970 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:55:51.970 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:55:56.101 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:55:56.101 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:55:56.101 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 07:56:00.227 <ERR> from interface 1:lo
+2023-03-09 07:56:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:56:00.227 <ERR> from interface 192:e_b
+2023-03-09 07:56:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:56:00.227 <ERR> from interface 196:e_d
+2023-03-09 07:56:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:56:00.520 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:56:00.520 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:56:00.520 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:56:05.128 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:56:05.128 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:56:05.128 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-09 07:56:07.477 <TRACE> savnet_ed: Sending KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:56:09.715 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:56:09.715 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:56:09.715 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:56:14.339 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:56:14.339 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:56:14.339 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:56:18.640 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:56:18.640 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:56:18.640 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:56:23.175 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:56:23.175 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:56:23.175 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:56:27.348 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:56:27.348 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:56:27.348 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:56:32.308 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:56:32.308 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:56:32.308 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:56:36.232 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:56:36.232 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:56:36.232 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:56:40.264 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:56:40.264 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:56:40.264 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 07:56:42.956 <TRACE> savnet_ed: Got KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:56:44.324 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:56:44.324 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:56:44.324 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:56:48.589 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:56:48.589 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:56:48.589 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:56:53.567 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:56:53.567 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:56:53.567 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:56:57.709 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:56:57.709 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:56:57.709 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 07:57:00.228 <ERR> from interface 1:lo
+2023-03-09 07:57:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:57:00.228 <ERR> from interface 192:e_b
+2023-03-09 07:57:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:57:00.228 <ERR> from interface 196:e_d
+2023-03-09 07:57:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:57:01.524 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:57:01.524 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:57:01.524 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:57:05.534 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:57:05.534 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:57:05.534 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:57:09.510 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:57:09.510 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:57:09.510 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-09 07:57:12.776 <TRACE> savnet_ed: Sending KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:57:14.460 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:57:14.460 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:57:14.460 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:57:18.255 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:57:18.255 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:57:18.255 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:57:22.738 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:57:22.738 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:57:22.738 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:57:27.668 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:57:27.668 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:57:27.668 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:57:32.108 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:57:32.108 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:57:32.108 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:57:36.354 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:57:36.354 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:57:36.354 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:57:40.181 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:57:40.181 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:57:40.181 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:57:44.762 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:57:44.762 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:57:44.762 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:57:48.534 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:57:48.534 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:57:48.534 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:57:53.164 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:57:53.164 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:57:53.164 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:57:57.221 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:57:57.222 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:57:57.222 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 07:57:59.816 <TRACE> savnet_ed: Got KEEPALIVE
+2023-03-09 07:58:00.227 <ERR> from interface 1:lo
+2023-03-09 07:58:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:58:00.227 <ERR> from interface 192:e_b
+2023-03-09 07:58:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:58:00.227 <ERR> from interface 196:e_d
+2023-03-09 07:58:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:58:02.055 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:58:02.055 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:58:02.055 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:58:06.678 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:58:06.678 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:58:06.678 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:58:11.447 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:58:11.447 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:58:11.447 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-09 07:58:13.828 <TRACE> savnet_ed: Sending KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:58:15.907 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:58:15.907 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:58:15.907 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:58:19.795 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:58:19.796 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:58:19.796 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:58:24.740 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:58:24.740 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:58:24.740 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:58:29.060 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:58:29.060 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:58:29.060 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:58:33.563 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:58:33.563 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:58:33.563 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:58:38.305 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:58:38.305 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:58:38.305 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:58:42.887 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:58:42.887 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:58:42.887 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:58:47.392 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:58:47.392 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:58:47.392 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:58:51.324 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:58:51.324 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:58:51.324 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:58:55.814 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:58:55.814 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:58:55.814 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:58:59.779 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:58:59.779 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:58:59.779 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 07:59:00.227 <ERR> from interface 1:lo
+2023-03-09 07:59:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:59:00.227 <ERR> from interface 192:e_b
+2023-03-09 07:59:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 07:59:00.227 <ERR> from interface 196:e_d
+2023-03-09 07:59:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:59:04.644 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:59:04.644 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:59:04.644 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:59:08.812 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:59:08.812 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:59:08.812 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 07:59:10.524 <TRACE> savnet_ed: Got KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:59:13.464 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:59:13.464 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:59:13.464 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:59:17.941 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:59:17.941 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:59:17.942 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:59:22.385 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:59:22.385 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:59:22.385 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:59:26.995 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:59:26.995 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:59:26.996 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:59:31.026 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:59:31.026 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:59:31.026 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-09 07:59:31.044 <TRACE> savnet_ed: Sending KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:59:35.778 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:59:35.778 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:59:35.778 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:59:40.517 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:59:40.517 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:59:40.517 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:59:45.438 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:59:45.438 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:59:45.438 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:59:50.110 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:59:50.110 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:59:50.110 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:59:54.835 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:59:54.835 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:59:54.835 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 07:59:58.762 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 07:59:58.762 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 07:59:58.762 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 08:00:00.227 <ERR> from interface 1:lo
+2023-03-09 08:00:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 08:00:00.227 <ERR> from interface 192:e_b
+2023-03-09 08:00:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 08:00:00.227 <ERR> from interface 196:e_d
+2023-03-09 08:00:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:00:03.387 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:00:03.387 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:00:03.387 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:00:07.374 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:00:07.374 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:00:07.374 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:00:11.524 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:00:11.524 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:00:11.524 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:00:15.973 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:00:15.973 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:00:15.973 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:00:20.392 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:00:20.393 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:00:20.393 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 08:00:23.042 <TRACE> savnet_ed: Got KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:00:24.900 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:00:24.900 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:00:24.900 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:00:29.743 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:00:29.743 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:00:29.743 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:00:33.793 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:00:33.793 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:00:33.793 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:00:37.714 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:00:37.714 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:00:37.714 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:00:41.699 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:00:41.699 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:00:41.699 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:00:46.468 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:00:46.468 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:00:46.468 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-09 08:00:48.676 <TRACE> savnet_ed: Sending KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:00:50.230 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:00:50.230 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:00:50.230 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:00:54.662 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:00:54.663 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:00:54.663 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:00:59.236 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:00:59.236 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:00:59.236 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 08:01:00.228 <ERR> from interface 1:lo
+2023-03-09 08:01:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 08:01:00.228 <ERR> from interface 192:e_b
+2023-03-09 08:01:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 08:01:00.228 <ERR> from interface 196:e_d
+2023-03-09 08:01:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:01:03.466 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:01:03.467 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:01:03.467 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:01:08.428 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:01:08.428 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:01:08.428 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:01:13.344 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:01:13.344 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:01:13.344 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:01:17.177 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:01:17.177 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:01:17.177 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:01:21.317 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:01:21.317 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:01:21.317 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 08:01:25.392 <TRACE> savnet_ed: Got KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:01:26.085 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:01:26.085 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:01:26.085 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:01:30.701 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:01:30.701 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:01:30.701 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:01:35.016 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:01:35.016 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:01:35.016 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:01:39.816 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:01:39.816 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:01:39.816 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:01:44.760 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:01:44.760 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:01:44.760 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:01:49.336 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:01:49.336 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:01:49.336 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:01:53.206 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:01:53.206 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:01:53.206 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:01:56.981 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:01:56.981 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:01:56.981 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-09 08:01:59.008 <TRACE> savnet_ed: Sending KEEPALIVE
+2023-03-09 08:02:00.228 <ERR> from interface 1:lo
+2023-03-09 08:02:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 08:02:00.228 <ERR> from interface 192:e_b
+2023-03-09 08:02:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 08:02:00.228 <ERR> from interface 196:e_d
+2023-03-09 08:02:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:02:00.979 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:02:00.979 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:02:00.979 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:02:05.816 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:02:05.816 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:02:05.816 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:02:10.676 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:02:10.676 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:02:10.676 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:02:15.630 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:02:15.630 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:02:15.630 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:02:19.535 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:02:19.535 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:02:19.535 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:02:23.633 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:02:23.633 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:02:23.633 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:02:28.132 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:02:28.132 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:02:28.132 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:02:32.299 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:02:32.299 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:02:32.299 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:02:37.010 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:02:37.010 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:02:37.010 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:02:41.657 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:02:41.657 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:02:41.657 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 08:02:43.668 <TRACE> savnet_ed: Got KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:02:46.571 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:02:46.571 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:02:46.571 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:02:51.515 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:02:51.515 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:02:51.515 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:02:55.770 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:02:55.771 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:02:55.771 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 08:03:00.227 <ERR> from interface 1:lo
+2023-03-09 08:03:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 08:03:00.227 <ERR> from interface 192:e_b
+2023-03-09 08:03:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 08:03:00.227 <ERR> from interface 196:e_d
+2023-03-09 08:03:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:03:00.290 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:03:00.290 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:03:00.290 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:03:05.173 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:03:05.173 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:03:05.173 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:03:09.477 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:03:09.477 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:03:09.477 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:03:14.042 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:03:14.042 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:03:14.042 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-09 08:03:15.319 <TRACE> savnet_ed: Sending KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:03:18.193 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:03:18.193 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:03:18.193 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:03:22.098 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:03:22.098 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:03:22.098 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:03:26.891 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:03:26.891 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:03:26.891 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:03:30.660 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:03:30.660 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:03:30.660 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:03:35.025 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:03:35.025 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:03:35.025 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:03:39.626 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:03:39.626 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:03:39.626 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:03:43.904 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:03:43.904 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:03:43.904 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:03:48.812 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:03:48.812 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:03:48.812 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 08:03:52.476 <TRACE> savnet_ed: Got KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:03:53.416 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:03:53.416 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:03:53.416 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:03:57.955 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:03:57.955 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:03:57.955 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 08:04:00.228 <ERR> from interface 1:lo
+2023-03-09 08:04:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 08:04:00.228 <ERR> from interface 192:e_b
+2023-03-09 08:04:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 08:04:00.228 <ERR> from interface 196:e_d
+2023-03-09 08:04:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:04:02.091 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:04:02.092 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:04:02.092 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:04:06.288 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:04:06.288 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:04:06.289 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:04:10.055 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:04:10.055 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:04:10.055 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:04:14.598 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:04:14.598 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:04:14.598 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:04:19.152 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:04:19.152 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:04:19.152 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:04:23.072 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:04:23.072 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:04:23.072 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:04:26.917 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:04:26.917 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:04:26.917 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-09 08:04:30.927 <TRACE> savnet_ed: Sending KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:04:31.001 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:04:31.001 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:04:31.001 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:04:35.604 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:04:35.604 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:04:35.604 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:04:39.413 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:04:39.413 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:04:39.413 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:04:43.406 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:04:43.406 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:04:43.406 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:04:48.066 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:04:48.066 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:04:48.066 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:04:52.804 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:04:52.804 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:04:52.804 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:04:57.387 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:04:57.387 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:04:57.387 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 08:05:00.228 <ERR> from interface 1:lo
+2023-03-09 08:05:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 08:05:00.228 <ERR> from interface 192:e_b
+2023-03-09 08:05:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 08:05:00.228 <ERR> from interface 196:e_d
+2023-03-09 08:05:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:05:01.149 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:05:01.150 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:05:01.150 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:05:05.364 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:05:05.364 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:05:05.364 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 08:05:07.175 <TRACE> savnet_ed: Got KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:05:10.326 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:05:10.327 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:05:10.327 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:05:15.020 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:05:15.020 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:05:15.020 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:05:19.878 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:05:19.878 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:05:19.878 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:05:23.803 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:05:23.803 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:05:23.803 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:05:28.591 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:05:28.591 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:05:28.591 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-09 08:05:32.771 <TRACE> savnet_ed: Sending KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:05:33.242 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:05:33.242 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:05:33.242 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:05:37.537 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:05:37.538 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:05:37.538 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:05:42.052 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:05:42.052 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:05:42.052 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:05:45.936 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:05:45.936 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:05:45.936 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:05:50.838 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:05:50.838 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:05:50.838 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:05:55.724 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:05:55.724 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:05:55.724 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:05:59.740 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:05:59.740 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:05:59.740 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 08:06:00.227 <ERR> from interface 1:lo
+2023-03-09 08:06:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 08:06:00.227 <ERR> from interface 192:e_b
+2023-03-09 08:06:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 08:06:00.227 <ERR> from interface 196:e_d
+2023-03-09 08:06:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:06:04.438 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:06:04.438 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:06:04.438 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:06:08.403 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:06:08.403 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:06:08.403 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 08:06:08.439 <TRACE> savnet_ed: Got KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:06:12.692 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:06:12.692 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:06:12.692 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:06:17.258 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:06:17.258 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:06:17.258 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:06:22.095 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:06:22.095 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:06:22.095 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:06:26.169 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:06:26.169 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:06:26.169 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:06:30.578 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:06:30.578 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:06:30.578 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:06:34.568 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:06:34.568 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:06:34.568 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:06:38.527 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:06:38.527 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:06:38.527 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:06:43.112 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:06:43.112 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:06:43.112 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:06:47.457 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:06:47.457 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:06:47.457 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-09 08:06:50.391 <TRACE> savnet_ed: Sending KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:06:51.249 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:06:51.249 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:06:51.249 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:06:56.064 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:06:56.064 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:06:56.064 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 08:07:00.227 <ERR> from interface 1:lo
+2023-03-09 08:07:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 08:07:00.227 <ERR> from interface 192:e_b
+2023-03-09 08:07:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 08:07:00.227 <ERR> from interface 196:e_d
+2023-03-09 08:07:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:07:00.728 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:07:00.728 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:07:00.728 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:07:05.371 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:07:05.371 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:07:05.371 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:07:09.439 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:07:09.439 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:07:09.439 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:07:13.942 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:07:13.942 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:07:13.942 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:07:17.703 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:07:17.703 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:07:17.703 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 08:07:18.844 <TRACE> savnet_ed: Got KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:07:21.852 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:07:21.852 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:07:21.852 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:07:26.655 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:07:26.655 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:07:26.655 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:07:30.547 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:07:30.547 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:07:30.547 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:07:34.533 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:07:34.533 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:07:34.533 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:07:39.031 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:07:39.031 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:07:39.031 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:07:42.975 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:07:42.975 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:07:42.975 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:07:47.075 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:07:47.075 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:07:47.075 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:07:51.300 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:07:51.300 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:07:51.300 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-09 08:07:54.471 <TRACE> savnet_ed: Sending KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:07:56.150 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:07:56.150 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:07:56.150 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:07:59.926 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:07:59.926 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:07:59.926 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 08:08:00.227 <ERR> from interface 1:lo
+2023-03-09 08:08:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 08:08:00.227 <ERR> from interface 192:e_b
+2023-03-09 08:08:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 08:08:00.227 <ERR> from interface 196:e_d
+2023-03-09 08:08:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:08:03.902 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:08:03.902 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:08:03.902 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:08:08.410 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:08:08.410 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:08:08.410 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:08:12.931 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:08:12.931 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:08:12.931 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:08:16.790 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:08:16.790 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:08:16.790 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:08:21.132 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:08:21.132 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:08:21.132 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:08:25.467 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:08:25.467 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:08:25.467 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:08:29.507 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:08:29.507 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:08:29.507 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 08:08:32.537 <TRACE> savnet_ed: Got KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:08:34.124 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:08:34.124 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:08:34.124 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:08:39.120 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:08:39.120 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:08:39.120 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:08:43.005 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:08:43.005 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:08:43.005 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:08:47.289 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:08:47.290 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:08:47.290 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:08:51.996 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:08:51.996 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:08:51.996 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-09 08:08:56.223 <TRACE> savnet_ed: Sending KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:08:56.600 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:08:56.600 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:08:56.600 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 08:09:00.227 <ERR> from interface 1:lo
+2023-03-09 08:09:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 08:09:00.227 <ERR> from interface 192:e_b
+2023-03-09 08:09:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 08:09:00.227 <ERR> from interface 196:e_d
+2023-03-09 08:09:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:09:01.370 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:09:01.370 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:09:01.370 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:09:05.507 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:09:05.507 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:09:05.507 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:09:09.732 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:09:09.732 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:09:09.732 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:09:13.982 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:09:13.982 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:09:13.982 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:09:17.863 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:09:17.863 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:09:17.863 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:09:22.332 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:09:22.332 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:09:22.332 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:09:27.161 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:09:27.161 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:09:27.161 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:09:31.088 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:09:31.088 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:09:31.088 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 08:09:33.220 <TRACE> savnet_ed: Got KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:09:35.580 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:09:35.580 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:09:35.580 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:09:39.764 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:09:39.764 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:09:39.764 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:09:44.547 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:09:44.547 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:09:44.547 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:09:49.500 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:09:49.500 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:09:49.500 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:09:54.282 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:09:54.282 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:09:54.282 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:09:58.048 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:09:58.048 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:09:58.048 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 08:10:00.228 <ERR> from interface 1:lo
+2023-03-09 08:10:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 08:10:00.228 <ERR> from interface 192:e_b
+2023-03-09 08:10:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 08:10:00.228 <ERR> from interface 196:e_d
+2023-03-09 08:10:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:10:02.223 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:10:02.223 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:10:02.223 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:10:06.340 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:10:06.340 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:10:06.340 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:10:10.712 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:10:10.712 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:10:10.712 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-09 08:10:12.008 <TRACE> savnet_ed: Sending KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:10:14.883 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:10:14.883 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:10:14.883 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:10:19.026 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:10:19.026 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:10:19.026 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:10:22.935 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:10:22.935 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:10:22.935 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:10:26.763 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:10:26.763 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:10:26.763 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:10:31.637 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:10:31.637 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:10:31.637 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:10:35.471 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:10:35.471 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:10:35.471 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 08:10:36.169 <TRACE> savnet_ed: Got KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:10:39.264 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:10:39.264 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:10:39.264 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:10:44.072 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:10:44.072 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:10:44.072 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:10:48.163 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:10:48.164 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:10:48.164 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:10:52.864 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:10:52.864 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:10:52.864 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:10:57.264 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:10:57.264 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:10:57.264 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 08:11:00.228 <ERR> from interface 1:lo
+2023-03-09 08:11:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 08:11:00.228 <ERR> from interface 192:e_b
+2023-03-09 08:11:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 08:11:00.228 <ERR> from interface 196:e_d
+2023-03-09 08:11:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:11:01.714 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:11:01.714 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:11:01.714 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:11:06.664 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:11:06.664 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:11:06.664 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:11:11.430 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:11:11.430 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:11:11.430 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:11:15.300 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:11:15.300 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:11:15.300 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:11:20.114 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:11:20.114 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:11:20.114 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:11:24.421 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:11:24.421 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:11:24.421 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:11:29.268 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:11:29.268 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:11:29.268 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-09 08:11:30.020 <TRACE> savnet_ed: Sending KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:11:33.513 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:11:33.513 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:11:33.513 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:11:37.992 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:11:37.992 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:11:37.992 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 08:11:42.480 <TRACE> savnet_ed: Got KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:11:42.583 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:11:42.583 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:11:42.583 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:11:46.950 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:11:46.950 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:11:46.950 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:11:50.907 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:11:50.907 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:11:50.907 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:11:54.958 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:11:54.959 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:11:54.959 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:11:59.730 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:11:59.731 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:11:59.731 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 08:12:00.227 <ERR> from interface 1:lo
+2023-03-09 08:12:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 08:12:00.227 <ERR> from interface 192:e_b
+2023-03-09 08:12:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 08:12:00.227 <ERR> from interface 196:e_d
+2023-03-09 08:12:00.227 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:12:04.330 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:12:04.331 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:12:04.331 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:12:08.812 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:12:08.812 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:12:08.812 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:12:12.810 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:12:12.810 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:12:12.811 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:12:16.658 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:12:16.658 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:12:16.658 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:12:21.084 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:12:21.084 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:12:21.084 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:12:24.888 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:12:24.888 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:12:24.888 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:12:28.947 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:12:28.947 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:12:28.948 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:12:33.054 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:12:33.054 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:12:33.054 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:12:37.768 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:12:37.768 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:12:37.768 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:12:41.761 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:12:41.761 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:12:41.761 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:12:45.687 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:12:45.687 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:12:45.687 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:12:49.813 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:12:49.813 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:12:49.813 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-09 08:12:49.850 <TRACE> savnet_ed: Sending KEEPALIVE
+2023-03-09 08:12:50.972 <TRACE> savnet_ed: Got KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:12:53.868 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:12:53.868 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:12:53.868 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:12:58.088 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:12:58.088 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:12:58.088 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 08:13:00.228 <ERR> from interface 1:lo
+2023-03-09 08:13:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 08:13:00.228 <ERR> from interface 192:e_b
+2023-03-09 08:13:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 08:13:00.228 <ERR> from interface 196:e_d
+2023-03-09 08:13:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:13:02.120 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:13:02.120 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:13:02.120 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:13:06.566 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:13:06.566 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:13:06.566 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:13:11.162 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:13:11.162 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:13:11.162 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:13:15.151 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:13:15.151 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:13:15.151 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:13:18.939 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:13:18.939 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:13:18.939 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:13:23.504 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:13:23.504 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:13:23.504 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:13:28.128 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:13:28.128 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:13:28.128 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:13:33.082 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:13:33.082 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:13:33.082 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:13:37.468 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:13:37.468 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:13:37.468 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:13:41.780 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:13:41.780 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:13:41.780 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:13:46.017 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:13:46.017 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:13:46.017 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:13:50.370 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:13:50.370 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:13:50.370 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:13:54.376 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:13:54.376 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:13:54.376 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:13:58.316 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:13:58.316 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:13:58.316 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 08:14:00.228 <ERR> from interface 1:lo
+2023-03-09 08:14:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 08:14:00.228 <ERR> from interface 192:e_b
+2023-03-09 08:14:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-09 08:14:00.228 <ERR> from interface 196:e_d
+2023-03-09 08:14:00.228 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:14:02.288 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:14:02.288 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:14:02.288 <TRACE> savnet_ec: Connect delayed by 5 seconds
+2023-03-09 08:14:04.628 <TRACE> savnet_ed: Got KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:14:06.978 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:14:06.978 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:14:06.978 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: Keepalive timer
+2023-03-09 08:14:09.182 <TRACE> savnet_ed: Sending KEEPALIVE
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:14:11.093 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:14:11.094 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:14:11.094 <TRACE> savnet_ec: Connect delayed by 5 seconds
+BGP: connect_timeout
+BGP: Closing connection
+BGP: Connecting
+2023-03-09 08:14:14.880 <TRACE> savnet_ec: Connecting to 10.0.5.1 from local address 10.0.5.2
+BGP: Waiting for connect success
+2023-03-09 08:14:14.880 <TRACE> savnet_ec: Connection lost (Connection refused)
+BGP: Closing connection
+BGP: Decision start
+2023-03-09 08:14:14.880 <TRACE> savnet_ec: Connect delayed by 5 seconds
