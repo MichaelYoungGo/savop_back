@@ -10,6 +10,17 @@ from savnet.utils.http_utils import response_data
 class CollectSavnetTopologyProgressData(APIView):
     def get(self, request, *args, **kwargs):
         topo_name = kwargs.get("topo")
+        if topo_name == "classic_2":
+            routers_info = SavnetContrller.get_routers_info(path="/root/yhb_savnet_bird/configs")
+            links_info = SavnetContrller.get_links_info(file="/root/yhb_savnet_bird/host_run.sh")
+            prefixs_info = SavnetContrller.get_prefixs_info(path="/root/yhb_savnet_bird/configs")
+            msg_info = SavnetContrller.get_msg_data(path="/root/yhb_savnet_bird/logs")
+            data = {}
+            data.update(routers_info)
+            data.update(links_info)
+            data.update(prefixs_info)
+            data.update(msg_info)
+            return response_data(data=data)
         if topo_name is not None and topo_name != "now":
             with open("/root/savnet_back/data/topology.txt",'r', encoding='utf-8')as f:
                 lines = f.readlines()
@@ -18,10 +29,10 @@ class CollectSavnetTopologyProgressData(APIView):
                         topo_data = eval(l.split("\t")[1])
             return response_data(data=topo_data)
         if topo_name == "now":
-            routers_info = SavnetContrller.get_routers_info()
-            links_info = SavnetContrller.get_links_info()
-            prefixs_info = SavnetContrller.get_prefixs_info()
-            msg_info = SavnetContrller.get_msg_data()
+            routers_info = SavnetContrller.get_routers_info(path="/root/yhb_savnet_bird/configs")
+            links_info = SavnetContrller.get_links_info(file="/root/yhb_savnet_bird/host_run.sh")
+            prefixs_info = SavnetContrller.get_prefixs_info(path="/root/yhb_savnet_bird/configs")
+            msg_info = SavnetContrller.get_msg_data(path="/root/yhb_savnet_bird/logs")
             data = {}
             data.update(routers_info)
             data.update(links_info)
