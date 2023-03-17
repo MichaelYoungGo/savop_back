@@ -1,10 +1,9 @@
-from django.forms import model_to_dict
 from rest_framework.views import APIView
-from rest_framework.response import Response
-
 from constants.error_code import ErrorCode
 from savnet.log.service import SavnetContrller
 from savnet.utils.http_utils import response_data
+from savnet.log.mongo import MongoDBClient
+
 
 
 class CollectSavnetTopologyProgressData(APIView):
@@ -40,6 +39,19 @@ class CollectSavnetTopologyProgressData(APIView):
             data.update(msg_info)
             return response_data(data=data)
         return response_data(data="Please write the topolopy name, /api/netinfo/<topo_name>/")
+
+
+class RefreshSavnetTopologyProgressData(APIView):  
+    def get(self, request, *args, **kwargs):
+        topo_name = kwargs.get("topo")
+        if topo_name is None:
+            return response_data(code=ErrorCode.E_PARAM_ERROR, message="Please write the topolopy name, /api/netinfo/refresh/<topo_name>/")
+        data = SavnetContrller.get_info_now()
+        if MongoDBClient.exists_by_name(topo_name):
+            MongoDBClient.update_by_name(name=topo_name, data=data)
+        else:
+            MongoDBClient.insert(name=topo_name, data=data)
+        return response_data(data="success")
 
 
 class FPathInfoView(APIView):

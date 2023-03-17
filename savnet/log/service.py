@@ -23,6 +23,7 @@ class SavnetContrller:
         file_num = len(file_name_list)
         routers_info = []
         as_info_list = []
+        routers_tables = []
         for i in range(1, int(file_num/2)+1):
             info = { "route_id": str(i), "route_name": NAME_MAPPING.get(i)}
             as_info = {"route_id": str(i), "route_name": NAME_MAPPING.get(i)}
@@ -34,7 +35,21 @@ class SavnetContrller:
                         continue
                     router_NO = li.split(" ")[-1].split(";")[0]
             info.update({"router_NO": router_NO})
-
+            # router_table
+            router_table = []
+            command = "docker exec -it node_{} route -n -F|grep -E 'Destination|192.168'".format(str(i))
+            command_result = subprocess.run(command, shell=True, capture_output=True, encoding='utf-8')
+            return_code, std_out = command_result.returncode, command_result.stdout
+            router_table_list = std_out.split("\n")[:-1]
+            clum_name_list = [ i for i in router_table_list[0].split(" ") if i !=""]
+            clum_list_length = len(clum_name_list)
+            for router_info in router_table_list[1:]:
+                clum = {}
+                clum_content = [ i for i in router_info.split(" ") if i !=""]
+                for index in range(0, clum_list_length):
+                    clum.update({clum_name_list[index]: clum_content[index]})
+                router_table.append(clum)
+            info.update({"router_table": router_table})
             with open(os.path.join(path, file_conf_name), mode="r") as f:
                 lines = f.readlines()
                 for li in lines:
@@ -194,3 +209,15 @@ class SavnetContrller:
         msg_rx.pop("link")
         msg_rx.pop("protocol_name")
         return msg_rx
+    
+    def get_info_now():
+        routers_info = SavnetContrller.get_routers_info()
+        links_info = SavnetContrller.get_links_info()
+        prefixs_info = SavnetContrller.get_prefixs_info()
+        msg_info = SavnetContrller.get_msg_data()
+        data = {}
+        data.update(routers_info)
+        data.update(links_info)
+        data.update(prefixs_info)
+        data.update(msg_info)
+        return data
