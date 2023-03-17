@@ -1,0 +1,6 @@
+[2023-03-15 06:37:03,441] [16] [SavAgent.py] [_send_init_broadcast_on_link] [DEBUG] sending initial broadcast on link savnet_ki
+[2023-03-15 06:37:03,441] [16] [SavAgent.py] [log_local_asn_table] [INFO] UPDATED LOCAL PREFIX-AS_PATH TABLE {}
+[2023-03-15 06:37:03,442] [16] [SavAgent.py] [send_origin] [DEBUG] no inter link or inter path, not sending inter origin
+[2023-03-15 06:37:03,442] [16] [SavAgent.py] [_send_init_broadcast_on_link] [DEBUG] sending initial broadcast on link savnet_kj
+[2023-03-15 06:37:03,442] [16] [SavAgent.py] [log_local_asn_table] [INFO] UPDATED LOCAL PREFIX-AS_PATH TABLE {}
+[2023-03-15 06:37:03,442] [16] [SavAgent.py] [send_origin] [DEBUG] no inter link or inter path, not sending inter origin
