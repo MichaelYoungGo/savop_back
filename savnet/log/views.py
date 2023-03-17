@@ -29,10 +29,10 @@ class CollectSavnetTopologyProgressData(APIView):
                         topo_data = eval(l.split("\t")[1])
             return response_data(data=topo_data)
         if topo_name == "now":
-            routers_info = SavnetContrller.get_routers_info(path="/root/yhb_savnet_bird/configs")
-            links_info = SavnetContrller.get_links_info(file="/root/yhb_savnet_bird/host_run.sh")
-            prefixs_info = SavnetContrller.get_prefixs_info(path="/root/yhb_savnet_bird/configs")
-            msg_info = SavnetContrller.get_msg_data(path="/root/yhb_savnet_bird/logs")
+            routers_info = SavnetContrller.get_routers_info(path="/root/savnet_bird/configs")
+            links_info = SavnetContrller.get_links_info(file="/root/savnet_bird/host_run.sh")
+            prefixs_info = SavnetContrller.get_prefixs_info(path="/root/savnet_bird/configs")
+            msg_info = SavnetContrller.get_msg_data(path="/root/savnet_bird/logs")
             data = {}
             data.update(routers_info)
             data.update(links_info)

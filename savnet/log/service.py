@@ -114,10 +114,10 @@ class SavnetContrller:
         else:
             path_ = os.path.join(path, str(ord(entry)-ord("a") + 1))
             sav_scope_list = msg_rx.get("sav_scope")[0]
-            sav_scope_str = "'"+sav_scope_list[0]+"'"
+            sav_scope_str = "'"+str(sav_scope_list[0])+"'"
             if len(sav_scope_list) > 1:
                  for index in range(1, len(sav_scope_list)):
-                     sav_scope_str =  sav_scope_str + ", '" + sav_scope_list[index] + "'"
+                     sav_scope_str =  sav_scope_str + ", '" + str(sav_scope_list[index]) + "'"
             command = "grep INFO {}/server.log |grep -v -E 'SAV GRAPH LINK ADDED|SAV GRAPH|UPDATED LOCAL'|grep -A 2 -E \"GOT MSG ON.*'sav_origin': '{}'\"|grep -A 2  \"'sav_scope': \\\[\\\[{}\\\]\\\]\"".format(path_, msg_rx.get("sav_origin"), sav_scope_str)
             command_result = subprocess.run(command, shell=True, capture_output=True, encoding='utf-8')
             return_code, std_out, std_err = command_result.returncode, command_result.stdout, command_result.stderr
