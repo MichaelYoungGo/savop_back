@@ -1,0 +1,65 @@
+[
+  {
+    "createtime": "Mon, 20 Mar 2023 02:21:42 GMT",
+    "direction": null,
+    "id": 1,
+    "interface": "b_a",
+    "neighbor_as": 65501,
+    "prefix": "192.168.1.0/24",
+    "source": null
+  },
+  {
+    "createtime": "Mon, 20 Mar 2023 02:21:43 GMT",
+    "direction": null,
+    "id": 2,
+    "interface": "b_f",
+    "neighbor_as": 65505,
+    "prefix": "192.168.6.0/24",
+    "source": null
+  },
+  {
+    "createtime": "Mon, 20 Mar 2023 02:21:43 GMT",
+    "direction": null,
+    "id": 3,
+    "interface": "b_f",
+    "neighbor_as": 65505,
+    "prefix": "192.168.7.0/24",
+    "source": null
+  },
+  {
+    "createtime": "Mon, 20 Mar 2023 02:21:43 GMT",
+    "direction": null,
+    "id": 4,
+    "interface": "b_d",
+    "neighbor_as": 65502,
+    "prefix": "192.168.2.0/24",
+    "source": null
+  },
+  {
+    "createtime": "Mon, 20 Mar 2023 02:21:43 GMT",
+    "direction": null,
+    "id": 5,
+    "interface": "b_d",
+    "neighbor_as": 65502,
+    "prefix": "192.168.3.0/24",
+    "source": null
+  },
+  {
+    "createtime": "Mon, 20 Mar 2023 02:21:43 GMT",
+    "direction": null,
+    "id": 6,
+    "interface": "b_f",
+    "neighbor_as": 65505,
+    "prefix": "192.168.1.0/24",
+    "source": null
+  },
+  {
+    "createtime": "Mon, 20 Mar 2023 02:21:43 GMT",
+    "direction": null,
+    "id": 7,
+    "interface": "b_d",
+    "neighbor_as": 65502,
+    "prefix": "192.168.4.0/24",
+    "source": null
+  }
+]

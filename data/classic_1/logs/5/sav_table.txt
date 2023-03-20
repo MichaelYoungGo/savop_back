@@ -1,0 +1,56 @@
+[
+  {
+    "createtime": "Mon, 20 Mar 2023 02:21:43 GMT",
+    "direction": null,
+    "id": 1,
+    "interface": "e_d",
+    "neighbor_as": 65502,
+    "prefix": "192.168.2.0/24",
+    "source": null
+  },
+  {
+    "createtime": "Mon, 20 Mar 2023 02:21:43 GMT",
+    "direction": null,
+    "id": 2,
+    "interface": "e_d",
+    "neighbor_as": 65502,
+    "prefix": "192.168.3.0/24",
+    "source": null
+  },
+  {
+    "createtime": "Mon, 20 Mar 2023 02:21:43 GMT",
+    "direction": null,
+    "id": 3,
+    "interface": "e_d",
+    "neighbor_as": 65502,
+    "prefix": "192.168.5.0/24",
+    "source": null
+  },
+  {
+    "createtime": "Mon, 20 Mar 2023 02:21:43 GMT",
+    "direction": null,
+    "id": 4,
+    "interface": "e_d",
+    "neighbor_as": 65502,
+    "prefix": "192.168.1.0/24",
+    "source": null
+  },
+  {
+    "createtime": "Mon, 20 Mar 2023 02:21:43 GMT",
+    "direction": null,
+    "id": 5,
+    "interface": "e_d",
+    "neighbor_as": 65502,
+    "prefix": "192.168.6.0/24",
+    "source": null
+  },
+  {
+    "createtime": "Mon, 20 Mar 2023 02:21:43 GMT",
+    "direction": null,
+    "id": 6,
+    "interface": "e_d",
+    "neighbor_as": 65502,
+    "prefix": "192.168.7.0/24",
+    "source": null
+  }
+]

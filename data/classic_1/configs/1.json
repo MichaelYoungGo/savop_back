@@ -1,0 +1,8 @@
+{
+	"valid_prefixes": [],
+	"invalid_prefixes": [],
+	"required_clients": [
+		"bird","strict-uRPF","loose-uRPF","EFP-uRPF"
+	]
+
+}

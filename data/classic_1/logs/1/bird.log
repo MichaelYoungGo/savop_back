@@ -1,0 +1,711 @@
+2023-03-20 02:21:38.515 <TRACE> savnet_ab: Initializing
+2023-03-20 02:21:38.515 <TRACE> savnet_af: Initializing
+2023-03-20 02:21:38.515 <ERR> from interface 1:lo
+2023-03-20 02:21:38.515 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-20 02:21:38.515 <ERR> from interface 479:a_b
+2023-03-20 02:21:38.515 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-20 02:21:38.515 <ERR> from interface 481:a_f
+2023-03-20 02:21:38.515 <ERR> KIF: Malformed message received (IPV6/missing IFA_ADDRESS)
+2023-03-20 02:21:38.515 <TRACE> savnet_ab: Starting
+2023-03-20 02:21:38.515 <DBG> link [savnet_ab] meta sent
+2023-03-20 02:21:38.515 <TRACE> savnet_ab: Protocol state changed to start
+2023-03-20 02:21:38.515 <TRACE> savnet_af: Starting
+2023-03-20 02:21:38.515 <DBG> link [savnet_af] meta sent
+2023-03-20 02:21:38.515 <TRACE> savnet_af: Protocol state changed to start
+2023-03-20 02:21:38.515 <INFO> Started
+BGP: Got lock
+2023-03-20 02:21:38.521 <TRACE> savnet_af: Started
+2023-03-20 02:21:38.521 <TRACE> savnet_af: Connect delayed by 5 seconds
+BGP: Got lock
+2023-03-20 02:21:38.521 <TRACE> savnet_ab: Started
+2023-03-20 02:21:38.521 <TRACE> savnet_ab: Connect delayed by 5 seconds
+BGP: Incoming connection from 10.0.2.2 port 34273
+2023-03-20 02:21:42.424 <TRACE> savnet_af: Incoming connection from 10.0.2.2 (port 34273) accepted
+BGP: Sending open
+2023-03-20 02:21:42.424 <TRACE> savnet_af: Sending OPEN(ver=4,as=65501,hold=240,id=0a000101)
+2023-03-20 02:21:42.424 <TRACE> savnet_af: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-20 02:21:42.424 <TRACE> savnet_af: Got OPEN(as=65505,hold=240,id=10.0.2.2)
+2023-03-20 02:21:42.424 <TRACE> savnet_af: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+BGP: Closing connection
+BGP: Decision start
+2023-03-20 02:21:42.424 <TRACE> savnet_af: Sending KEEPALIVE
+2023-03-20 02:21:42.424 <TRACE> savnet_af: Got KEEPALIVE
+2023-03-20 02:21:42.424 <TRACE> savnet_af: BGP session established
+2023-03-20 02:21:42.424 <TRACE> savnet_af: Protocol state changed to up
+2023-03-20 02:21:42.424 <DBG> link [savnet_af] up sent
+2023-03-20 02:21:42.426 <TRACE> savnet_af.savnet4 < filtered out 192.168.1.0/24 0L 4G blackhole
+2023-03-20 02:21:42.426 <TRACE> savnet_af.savnet4 < filtered out 10.0.1.0/24 479L 5G unicast
+2023-03-20 02:21:42.426 <TRACE> savnet_af.savnet4 < filtered out 10.0.2.0/24 481L 6G unicast
+2023-03-20 02:21:42.426 <TRACE> savnet_af.ipv4 < added 192.168.1.0/24 0L 4G blackhole
+2023-03-20 02:21:42.426 <TRACE> savnet_af.ipv4 < added 10.0.1.0/24 479L 5G unicast
+2023-03-20 02:21:42.426 <TRACE> savnet_af.ipv4 < added 10.0.2.0/24 481L 6G unicast
+BGP: Incoming connection from 10.0.1.2 port 40045
+2023-03-20 02:21:42.603 <TRACE> savnet_ab: Incoming connection from 10.0.1.2 (port 40045) accepted
+BGP: Sending open
+2023-03-20 02:21:42.603 <TRACE> savnet_af: Sending END-OF-RIB
+2023-03-20 02:21:42.603 <TRACE> savnet_af: Sending UPDATE
+2023-03-20 02:21:42.603 <TRACE> savnet_af: Sending END-OF-RIB
+2023-03-20 02:21:42.603 <TRACE> savnet_ab: Sending OPEN(ver=4,as=65501,hold=240,id=0a000101)
+2023-03-20 02:21:42.603 <TRACE> savnet_ab: Sending OPEN content Capability Code: 1, AFI: 1,SAFI: 1
+2023-03-20 02:21:42.604 <TRACE> savnet_ab: Got OPEN(as=65504,hold=240,id=10.0.1.2)
+2023-03-20 02:21:42.604 <TRACE> savnet_ab: Got OPEN content Capability Code: 1, AFI: 1, SAFI: 1
+BGP: Closing connection
+BGP: Decision start
+2023-03-20 02:21:42.604 <TRACE> savnet_ab: Sending KEEPALIVE
+2023-03-20 02:21:42.604 <TRACE> savnet_ab: Got KEEPALIVE
+2023-03-20 02:21:42.604 <TRACE> savnet_ab: BGP session established
+2023-03-20 02:21:42.604 <TRACE> savnet_ab: Protocol state changed to up
+2023-03-20 02:21:42.604 <DBG> link [savnet_ab] up sent
+2023-03-20 02:21:42.605 <TRACE> savnet_ab.savnet4 < filtered out 192.168.1.0/24 0L 4G blackhole
+2023-03-20 02:21:42.605 <TRACE> savnet_ab.savnet4 < filtered out 10.0.1.0/24 479L 5G unicast
+2023-03-20 02:21:42.605 <TRACE> savnet_ab.savnet4 < filtered out 10.0.2.0/24 481L 6G unicast
+2023-03-20 02:21:42.605 <TRACE> savnet_ab.ipv4 < added 192.168.1.0/24 0L 4G blackhole
+2023-03-20 02:21:42.605 <TRACE> savnet_ab.ipv4 < added 10.0.1.0/24 479L 5G unicast
+2023-03-20 02:21:42.605 <TRACE> savnet_ab.ipv4 < added 10.0.2.0/24 481L 6G unicast
+2023-03-20 02:21:42.605 <TRACE> savnet_af: Got UPDATE
+2023-03-20 02:21:42.605 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-20 02:21:42.605 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-20 02:21:42.605 <TRACE> savnet_af: Got END-OF-RIB
+2023-03-20 02:21:42.605 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-20 02:21:42.605 <TRACE> savnet_ab: Sending END-OF-RIB
+2023-03-20 02:21:42.605 <TRACE> savnet_ab: Sending UPDATE
+2023-03-20 02:21:42.605 <TRACE> savnet_ab: Sending END-OF-RIB
+2023-03-20 02:21:42.605 <TRACE> savnet_af: Got UPDATE
+2023-03-20 02:21:42.605 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 16
+2023-03-20 02:21:42.605 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-20 02:21:42.605 <TRACE> savnet_af.ipv4 > added [best] 192.168.6.0/24 0L 7G unicast
+2023-03-20 02:21:42.605 <TRACE> savnet_af.savnet4 < rejected by protocol 192.168.6.0/24 0L 7G unicast
+2023-03-20 02:21:42.605 <TRACE> savnet_af.ipv4 < rejected by protocol 192.168.6.0/24 0L 7G unicast
+2023-03-20 02:21:42.605 <TRACE> savnet_ab.savnet4 < filtered out 192.168.6.0/24 0L 7G unicast
+2023-03-20 02:21:42.605 <TRACE> savnet_ab.ipv4 < rejected by protocol 192.168.6.0/24 0L 7G unicast
+2023-03-20 02:21:42.605 <TRACE> savnet_af.ipv4 > added [best] 192.168.7.0/24 0L 7G unicast
+2023-03-20 02:21:42.605 <TRACE> savnet_af.savnet4 < rejected by protocol 192.168.7.0/24 0L 7G unicast
+2023-03-20 02:21:42.605 <TRACE> savnet_af.ipv4 < rejected by protocol 192.168.7.0/24 0L 7G unicast
+2023-03-20 02:21:42.605 <TRACE> savnet_ab.savnet4 < filtered out 192.168.7.0/24 0L 7G unicast
+2023-03-20 02:21:42.605 <TRACE> savnet_ab.ipv4 < rejected by protocol 192.168.7.0/24 0L 7G unicast
+2023-03-20 02:21:42.605 <TRACE> savnet_af.ipv4 > added [best] 10.0.6.0/24 0L 7G unicast
+2023-03-20 02:21:42.605 <TRACE> savnet_af.savnet4 < rejected by protocol 10.0.6.0/24 0L 7G unicast
+2023-03-20 02:21:42.605 <TRACE> savnet_af.ipv4 < rejected by protocol 10.0.6.0/24 0L 7G unicast
+2023-03-20 02:21:42.605 <TRACE> savnet_ab.savnet4 < filtered out 10.0.6.0/24 0L 7G unicast
+2023-03-20 02:21:42.605 <TRACE> savnet_ab.ipv4 < rejected by protocol 10.0.6.0/24 0L 7G unicast
+2023-03-20 02:21:42.605 <TRACE> savnet_af.ipv4 > added 10.0.2.0/24 0L 7G unicast
+2023-03-20 02:21:42.605 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-20 02:21:42.605 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65505"
+    ,"interface_name":"a_f"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_af"
+    ,"as_path":"65505"
+    ,"sav_origin":""
+    ,"routes":""
+    ,"sav_scope":""
+    ,"sav_nlri":""    }}
+2023-03-20 02:21:42.605 <TRACE> savnet_af: Got UPDATE
+2023-03-20 02:21:42.605 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-20 02:21:42.605 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-20 02:21:42.605 <TRACE> savnet_af: Got END-OF-RIB
+2023-03-20 02:21:42.605 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-20 02:21:42.607 <TRACE> savnet_ab: Got UPDATE
+2023-03-20 02:21:42.607 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-20 02:21:42.607 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-20 02:21:42.607 <TRACE> savnet_ab: Got END-OF-RIB
+2023-03-20 02:21:42.607 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-20 02:21:42.607 <TRACE> savnet_ab: Got UPDATE
+2023-03-20 02:21:42.607 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 20
+2023-03-20 02:21:42.607 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-20 02:21:42.607 <TRACE> savnet_ab.ipv4 > added [best] 192.168.5.0/24 0L 8G unicast
+2023-03-20 02:21:42.607 <TRACE> savnet_af.savnet4 < filtered out 192.168.5.0/24 0L 8G unicast
+2023-03-20 02:21:42.607 <TRACE> savnet_af.ipv4 < rejected by protocol 192.168.5.0/24 0L 8G unicast
+2023-03-20 02:21:42.607 <TRACE> savnet_ab.savnet4 < rejected by protocol 192.168.5.0/24 0L 8G unicast
+2023-03-20 02:21:42.607 <TRACE> savnet_ab.ipv4 < rejected by protocol 192.168.5.0/24 0L 8G unicast
+2023-03-20 02:21:42.607 <TRACE> savnet_ab.ipv4 > added [best] 10.0.4.0/24 0L 8G unicast
+2023-03-20 02:21:42.607 <TRACE> savnet_af.savnet4 < filtered out 10.0.4.0/24 0L 8G unicast
+2023-03-20 02:21:42.607 <TRACE> savnet_af.ipv4 < rejected by protocol 10.0.4.0/24 0L 8G unicast
+2023-03-20 02:21:42.607 <TRACE> savnet_ab.savnet4 < rejected by protocol 10.0.4.0/24 0L 8G unicast
+2023-03-20 02:21:42.607 <TRACE> savnet_ab.ipv4 < rejected by protocol 10.0.4.0/24 0L 8G unicast
+2023-03-20 02:21:42.607 <TRACE> savnet_ab.ipv4 > added [best] 10.0.5.0/24 0L 8G unicast
+2023-03-20 02:21:42.607 <TRACE> savnet_af.savnet4 < filtered out 10.0.5.0/24 0L 8G unicast
+2023-03-20 02:21:42.607 <TRACE> savnet_af.ipv4 < rejected by protocol 10.0.5.0/24 0L 8G unicast
+2023-03-20 02:21:42.607 <TRACE> savnet_ab.savnet4 < rejected by protocol 10.0.5.0/24 0L 8G unicast
+2023-03-20 02:21:42.607 <TRACE> savnet_ab.ipv4 < rejected by protocol 10.0.5.0/24 0L 8G unicast
+2023-03-20 02:21:42.607 <TRACE> savnet_ab.ipv4 > added [best] 10.0.6.0/24 0L 8G unicast
+2023-03-20 02:21:42.607 <TRACE> savnet_af.savnet4 < filtered out 10.0.6.0/24 0L 8G unicast
+2023-03-20 02:21:42.607 <TRACE> savnet_af.ipv4 < rejected by protocol 10.0.6.0/24 0L 8G unicast
+2023-03-20 02:21:42.607 <TRACE> savnet_ab.savnet4 < rejected by protocol 10.0.6.0/24 0L 8G unicast
+2023-03-20 02:21:42.607 <TRACE> savnet_ab.ipv4 < rejected by protocol 10.0.6.0/24 0L 8G unicast
+2023-03-20 02:21:42.607 <TRACE> savnet_ab.ipv4 > added 10.0.1.0/24 0L 8G unicast
+2023-03-20 02:21:42.607 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-20 02:21:42.607 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65504"
+    ,"interface_name":"a_b"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_ab"
+    ,"as_path":"65504"
+    ,"sav_origin":""
+    ,"routes":""
+    ,"sav_scope":""
+    ,"sav_nlri":""    }}
+2023-03-20 02:21:42.609 <TRACE> ...
+2023-03-20 02:21:42.609 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-20 02:21:42.609 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-20 02:21:42.609 <TRACE> savnet_ab: Got END-OF-RIB
+2023-03-20 02:21:42.609 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-20 02:21:42.611 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-20 02:21:42.611 <DBG> 
+mp_reach_len: 18
+mp_unreach_len: 0
+2023-03-20 02:21:42.611 <DBG> bgp_decode_nlri_savnet4 len: 18
+2023-03-20 02:21:42.611 <DBG> s->sav_origin: [65505]
+2023-03-20 02:21:42.611 <DBG> s->sav_scope: [1,1,65501]
+2023-03-20 02:21:42.611 <DBG> s->sav_nlri: [24,192,168,6,24,192,168,7]
+2023-03-20 02:21:42.611 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-20 02:21:42.611 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65505"
+    ,"interface_name":"a_f"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_af"
+    ,"as_path":"65505"
+    ,"sav_origin":"65505"
+    ,"routes":""
+    ,"sav_scope":"1,1,65501"
+    ,"sav_nlri":"24,192,168,6,24,192,168,7"    }}
+2023-03-20 02:21:42.612 <DBG> call_agent
+2023-03-20 02:21:42.612 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,1,0,0,255,221",
+    "as_path_len": 6,
+    "is_interior": 1,
+    "next_hop": "4,10,0,1,1",
+    "nlri_len": 4,
+    "protocol_name": "savnet_ab",
+    "sav_nlri": "24,192,168,1",
+    "sav_origin": "0,0,255,221",
+    "sav_scope": "1,1,0,0,255,224",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-20 02:21:42.612 <DBG> inserting 0,0
+2023-03-20 02:21:42.612 <DBG> inserting 4,10,0,1,1
+2023-03-20 02:21:42.612 <DBG> inserting 0,0,255,221
+2023-03-20 02:21:42.612 <DBG> inserting 1,1,0,0,255,224
+2023-03-20 02:21:42.612 <DBG> inserting 24,192,168,1
+2023-03-20 02:21:42.612 <DBG> inserting 2,1,0,0,255,221
+2023-03-20 02:21:42.612 <DBG> savnet update packet assembled
+2023-03-20 02:21:42.612 <DBG> packet len 63
+2023-03-20 02:21:42.612 <DBG> call agent send result, 1
+2023-03-20 02:21:42.614 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-20 02:21:42.614 <DBG> 
+mp_reach_len: 14
+mp_unreach_len: 0
+2023-03-20 02:21:42.614 <DBG> bgp_decode_nlri_savnet4 len: 14
+2023-03-20 02:21:42.614 <DBG> s->sav_origin: [65504]
+2023-03-20 02:21:42.614 <DBG> s->sav_scope: [1,1,65501]
+2023-03-20 02:21:42.614 <DBG> s->sav_nlri: [24,192,168,5]
+2023-03-20 02:21:42.614 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-20 02:21:42.614 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65504"
+    ,"interface_name":"a_b"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_ab"
+    ,"as_path":"65504"
+    ,"sav_origin":"65504"
+    ,"routes":""
+    ,"sav_scope":"1,1,65501"
+    ,"sav_nlri":"24,192,168,5"    }}
+2023-03-20 02:21:42.616 <DBG> call_agent
+2023-03-20 02:21:42.616 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,1,0,0,255,221",
+    "as_path_len": 6,
+    "is_interior": 1,
+    "next_hop": "4,10,0,2,1",
+    "nlri_len": 4,
+    "protocol_name": "savnet_af",
+    "sav_nlri": "24,192,168,1",
+    "sav_origin": "0,0,255,221",
+    "sav_scope": "1,1,0,0,255,225",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-20 02:21:42.616 <DBG> inserting 0,0
+2023-03-20 02:21:42.616 <DBG> inserting 4,10,0,2,1
+2023-03-20 02:21:42.616 <DBG> inserting 0,0,255,221
+2023-03-20 02:21:42.616 <DBG> inserting 1,1,0,0,255,225
+2023-03-20 02:21:42.616 <DBG> inserting 24,192,168,1
+2023-03-20 02:21:42.616 <DBG> inserting 2,1,0,0,255,221
+2023-03-20 02:21:42.616 <DBG> savnet update packet assembled
+2023-03-20 02:21:42.616 <DBG> packet len 63
+2023-03-20 02:21:42.616 <DBG> call agent send result, 1
+2023-03-20 02:21:43.245 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 8
+2023-03-20 02:21:43.245 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-20 02:21:43.245 <TRACE> savnet_ab.ipv4 > added 192.168.6.0/24 0L 8G unicast
+2023-03-20 02:21:43.245 <TRACE> savnet_ab.ipv4 > added 192.168.7.0/24 0L 8G unicast
+2023-03-20 02:21:43.245 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-20 02:21:43.245 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65504"
+    ,"interface_name":"a_b"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_ab"
+    ,"as_path":"65504,65505"
+    ,"sav_origin":""
+    ,"routes":""
+    ,"sav_scope":""
+    ,"sav_nlri":""    }}
+2023-03-20 02:21:43.247 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 12
+2023-03-20 02:21:43.247 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-20 02:21:43.247 <TRACE> savnet_af.ipv4 > added 192.168.5.0/24 0L 7G unicast
+2023-03-20 02:21:43.247 <TRACE> savnet_af.ipv4 > added 10.0.4.0/24 0L 7G unicast
+2023-03-20 02:21:43.247 <TRACE> savnet_af.ipv4 > added 10.0.5.0/24 0L 7G unicast
+2023-03-20 02:21:43.247 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-20 02:21:43.247 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65505"
+    ,"interface_name":"a_f"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_af"
+    ,"as_path":"65505,65504"
+    ,"sav_origin":""
+    ,"routes":""
+    ,"sav_scope":""
+    ,"sav_nlri":""    }}
+2023-03-20 02:21:43.251 <DBG> call_agent
+2023-03-20 02:21:43.251 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,1,0,0,255,221",
+    "as_path_len": 6,
+    "is_interior": 1,
+    "next_hop": "4,10,0,1,1",
+    "nlri_len": 4,
+    "protocol_name": "savnet_ab",
+    "sav_nlri": "24,192,168,1",
+    "sav_origin": "0,0,255,221",
+    "sav_scope": "1,2,0,0,255,224,0,0,255,225",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-20 02:21:43.251 <DBG> inserting 0,0
+2023-03-20 02:21:43.251 <DBG> inserting 4,10,0,1,1
+2023-03-20 02:21:43.251 <DBG> inserting 0,0,255,221
+2023-03-20 02:21:43.251 <DBG> inserting 1,2,0,0,255,224,0,0,255,225
+2023-03-20 02:21:43.251 <DBG> inserting 24,192,168,1
+2023-03-20 02:21:43.251 <DBG> inserting 2,1,0,0,255,221
+2023-03-20 02:21:43.251 <DBG> savnet update packet assembled
+2023-03-20 02:21:43.251 <DBG> packet len 67
+2023-03-20 02:21:43.251 <DBG> call agent send result, 1
+2023-03-20 02:21:43.255 <DBG> call_agent
+2023-03-20 02:21:43.255 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,1,0,0,255,221",
+    "as_path_len": 6,
+    "is_interior": 1,
+    "next_hop": "4,10,0,2,1",
+    "nlri_len": 4,
+    "protocol_name": "savnet_af",
+    "sav_nlri": "24,192,168,1",
+    "sav_origin": "0,0,255,221",
+    "sav_scope": "1,2,0,0,255,225,0,0,255,224",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-20 02:21:43.255 <DBG> inserting 0,0
+2023-03-20 02:21:43.255 <DBG> inserting 4,10,0,2,1
+2023-03-20 02:21:43.255 <DBG> inserting 0,0,255,221
+2023-03-20 02:21:43.255 <DBG> inserting 1,2,0,0,255,225,0,0,255,224
+2023-03-20 02:21:43.255 <DBG> inserting 24,192,168,1
+2023-03-20 02:21:43.255 <DBG> inserting 2,1,0,0,255,221
+2023-03-20 02:21:43.255 <DBG> savnet update packet assembled
+2023-03-20 02:21:43.255 <DBG> packet len 67
+2023-03-20 02:21:43.255 <DBG> call agent send result, 1
+2023-03-20 02:21:43.257 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 12
+2023-03-20 02:21:43.257 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-20 02:21:43.257 <TRACE> savnet_ab.ipv4 > added [best] 10.0.7.0/24 0L 8G unicast
+2023-03-20 02:21:43.257 <TRACE> savnet_af.savnet4 < filtered out 10.0.7.0/24 0L 8G unicast
+2023-03-20 02:21:43.257 <TRACE> savnet_af.ipv4 < rejected by protocol 10.0.7.0/24 0L 8G unicast
+2023-03-20 02:21:43.257 <TRACE> savnet_ab.savnet4 < rejected by protocol 10.0.7.0/24 0L 8G unicast
+2023-03-20 02:21:43.257 <TRACE> savnet_ab.ipv4 < rejected by protocol 10.0.7.0/24 0L 8G unicast
+2023-03-20 02:21:43.257 <TRACE> savnet_ab.ipv4 > added [best] 192.168.2.0/24 0L 8G unicast
+2023-03-20 02:21:43.257 <TRACE> savnet_af.savnet4 < filtered out 192.168.2.0/24 0L 8G unicast
+2023-03-20 02:21:43.257 <TRACE> savnet_af.ipv4 < rejected by protocol 192.168.2.0/24 0L 8G unicast
+2023-03-20 02:21:43.257 <TRACE> savnet_ab.savnet4 < rejected by protocol 192.168.2.0/24 0L 8G unicast
+2023-03-20 02:21:43.257 <TRACE> savnet_ab.ipv4 < rejected by protocol 192.168.2.0/24 0L 8G unicast
+2023-03-20 02:21:43.257 <TRACE> savnet_ab.ipv4 > added [best] 192.168.3.0/24 0L 8G unicast
+2023-03-20 02:21:43.257 <TRACE> savnet_af.savnet4 < filtered out 192.168.3.0/24 0L 8G unicast
+2023-03-20 02:21:43.257 <TRACE> savnet_af.ipv4 < rejected by protocol 192.168.3.0/24 0L 8G unicast
+2023-03-20 02:21:43.257 <TRACE> savnet_ab.savnet4 < rejected by protocol 192.168.3.0/24 0L 8G unicast
+2023-03-20 02:21:43.257 <TRACE> savnet_ab.ipv4 < rejected by protocol 192.168.3.0/24 0L 8G unicast
+2023-03-20 02:21:43.257 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-20 02:21:43.257 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65504"
+    ,"interface_name":"a_b"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_ab"
+    ,"as_path":"65504,65502"
+    ,"sav_origin":""
+    ,"routes":""
+    ,"sav_scope":""
+    ,"sav_nlri":""    }}
+2023-03-20 02:21:43.257 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 4
+2023-03-20 02:21:43.257 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-20 02:21:43.257 <TRACE> savnet_ab.ipv4 > added [best] 192.168.4.0/24 0L 8G unicast
+2023-03-20 02:21:43.257 <TRACE> savnet_af.savnet4 < filtered out 192.168.4.0/24 0L 8G unicast
+2023-03-20 02:21:43.257 <TRACE> savnet_af.ipv4 < rejected by protocol 192.168.4.0/24 0L 8G unicast
+2023-03-20 02:21:43.257 <TRACE> savnet_ab.savnet4 < rejected by protocol 192.168.4.0/24 0L 8G unicast
+2023-03-20 02:21:43.257 <TRACE> savnet_ab.ipv4 < rejected by protocol 192.168.4.0/24 0L 8G unicast
+2023-03-20 02:21:43.257 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-20 02:21:43.257 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65504"
+    ,"interface_name":"a_b"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_ab"
+    ,"as_path":"65504,65502,65503"
+    ,"sav_origin":""
+    ,"routes":""
+    ,"sav_scope":""
+    ,"sav_nlri":""    }}
+2023-03-20 02:21:43.261 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 12
+2023-03-20 02:21:43.261 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-20 02:21:43.261 <TRACE> savnet_af.ipv4 > added 10.0.7.0/24 0L 7G unicast
+2023-03-20 02:21:43.261 <TRACE> savnet_af.ipv4 > added 192.168.2.0/24 0L 7G unicast
+2023-03-20 02:21:43.261 <TRACE> savnet_af.ipv4 > added 192.168.3.0/24 0L 7G unicast
+2023-03-20 02:21:43.261 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-20 02:21:43.261 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65505"
+    ,"interface_name":"a_f"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_af"
+    ,"as_path":"65505,65504,65502"
+    ,"sav_origin":""
+    ,"routes":""
+    ,"sav_scope":""
+    ,"sav_nlri":""    }}
+2023-03-20 02:21:43.263 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 4
+2023-03-20 02:21:43.263 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-20 02:21:43.263 <TRACE> savnet_af.ipv4 > added 192.168.4.0/24 0L 7G unicast
+2023-03-20 02:21:43.263 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-20 02:21:43.263 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65505"
+    ,"interface_name":"a_f"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_af"
+    ,"as_path":"65505,65504,65502,65503"
+    ,"sav_origin":""
+    ,"routes":""
+    ,"sav_scope":""
+    ,"sav_nlri":""    }}
+2023-03-20 02:21:43.264 <DBG> call_agent
+2023-03-20 02:21:43.264 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,1,0,0,255,221",
+    "as_path_len": 6,
+    "is_interior": 1,
+    "next_hop": "4,10,0,1,1",
+    "nlri_len": 4,
+    "protocol_name": "savnet_ab",
+    "sav_nlri": "24,192,168,1",
+    "sav_origin": "0,0,255,221",
+    "sav_scope": "1,3,0,0,255,224,0,0,255,222,0,0,255,223",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-20 02:21:43.264 <DBG> inserting 0,0
+2023-03-20 02:21:43.264 <DBG> inserting 4,10,0,1,1
+2023-03-20 02:21:43.264 <DBG> inserting 0,0,255,221
+2023-03-20 02:21:43.264 <DBG> inserting 1,3,0,0,255,224,0,0,255,222,0,0,255,223
+2023-03-20 02:21:43.264 <DBG> inserting 24,192,168,1
+2023-03-20 02:21:43.264 <DBG> inserting 2,1,0,0,255,221
+2023-03-20 02:21:43.264 <DBG> savnet update packet assembled
+2023-03-20 02:21:43.264 <DBG> packet len 71
+2023-03-20 02:21:43.264 <DBG> call agent send result, 1
+2023-03-20 02:21:43.269 <DBG> call_agent
+2023-03-20 02:21:43.269 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,1,0,0,255,221",
+    "as_path_len": 6,
+    "is_interior": 1,
+    "next_hop": "4,10,0,2,1",
+    "nlri_len": 4,
+    "protocol_name": "savnet_af",
+    "sav_nlri": "24,192,168,1",
+    "sav_origin": "0,0,255,221",
+    "sav_scope": "1,4,0,0,255,225,0,0,255,224,0,0,255,222,0,0,255,223",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-20 02:21:43.269 <DBG> inserting 0,0
+2023-03-20 02:21:43.269 <DBG> inserting 4,10,0,2,1
+2023-03-20 02:21:43.269 <DBG> inserting 0,0,255,221
+2023-03-20 02:21:43.269 <DBG> inserting 1,4,0,0,255,225,0,0,255,224,0,0,255,222,0,0,255,223
+2023-03-20 02:21:43.269 <DBG> inserting 24,192,168,1
+2023-03-20 02:21:43.269 <DBG> inserting 2,1,0,0,255,221
+2023-03-20 02:21:43.269 <DBG> savnet update packet assembled
+2023-03-20 02:21:43.269 <DBG> packet len 75
+2023-03-20 02:21:43.269 <DBG> call agent send result, 1
+2023-03-20 02:21:43.270 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-20 02:21:43.270 <DBG> 
+mp_reach_len: 14
+mp_unreach_len: 0
+2023-03-20 02:21:43.270 <DBG> bgp_decode_nlri_savnet4 len: 14
+2023-03-20 02:21:43.270 <DBG> s->sav_origin: [65504]
+2023-03-20 02:21:43.270 <DBG> s->sav_scope: [1,1,65501]
+2023-03-20 02:21:43.270 <DBG> s->sav_nlri: [24,192,168,5]
+2023-03-20 02:21:43.270 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-20 02:21:43.270 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65505"
+    ,"interface_name":"a_f"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_af"
+    ,"as_path":"65504,65505"
+    ,"sav_origin":"65504"
+    ,"routes":""
+    ,"sav_scope":"1,1,65501"
+    ,"sav_nlri":"24,192,168,5"    }}
+2023-03-20 02:21:43.291 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-20 02:21:43.291 <DBG> 
+mp_reach_len: 18
+mp_unreach_len: 0
+2023-03-20 02:21:43.291 <DBG> bgp_decode_nlri_savnet4 len: 18
+2023-03-20 02:21:43.291 <DBG> s->sav_origin: [65505]
+2023-03-20 02:21:43.291 <DBG> s->sav_scope: [1,1,65501]
+2023-03-20 02:21:43.291 <DBG> s->sav_nlri: [24,192,168,6,24,192,168,7]
+2023-03-20 02:21:43.291 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-20 02:21:43.291 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65504"
+    ,"interface_name":"a_b"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_ab"
+    ,"as_path":"65505,65504"
+    ,"sav_origin":"65505"
+    ,"routes":""
+    ,"sav_scope":"1,1,65501"
+    ,"sav_nlri":"24,192,168,6,24,192,168,7"    }}
+2023-03-20 02:21:43.336 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-20 02:21:43.336 <DBG> 
+mp_reach_len: 18
+mp_unreach_len: 0
+2023-03-20 02:21:43.336 <DBG> bgp_decode_nlri_savnet4 len: 18
+2023-03-20 02:21:43.336 <DBG> s->sav_origin: [65502]
+2023-03-20 02:21:43.336 <DBG> s->sav_scope: [1,1,65501]
+2023-03-20 02:21:43.336 <DBG> s->sav_nlri: [24,192,168,2,24,192,168,3]
+2023-03-20 02:21:43.336 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-20 02:21:43.336 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65504"
+    ,"interface_name":"a_b"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_ab"
+    ,"as_path":"65502,65504,65504"
+    ,"sav_origin":"65502"
+    ,"routes":""
+    ,"sav_scope":"1,1,65501"
+    ,"sav_nlri":"24,192,168,2,24,192,168,3"    }}
+2023-03-20 02:21:43.375 <TRACE> savnet_ab: Got UPDATE
+2023-03-20 02:21:43.375 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-20 02:21:43.375 <DBG> 
+mp_reach_len: 14
+mp_unreach_len: 0
+2023-03-20 02:21:43.375 <DBG> bgp_decode_nlri_savnet4 len: 14
+2023-03-20 02:21:43.375 <DBG> s->sav_origin: [65503]
+2023-03-20 02:21:43.375 <DBG> s->sav_scope: [1,1,65501]
+2023-03-20 02:21:43.375 <DBG> s->sav_nlri: [24,192,168,4]
+2023-03-20 02:21:43.375 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-20 02:21:43.375 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65504"
+    ,"interface_name":"a_b"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_ab"
+    ,"as_path":"65503,65502,65504,65504"
+    ,"sav_origin":"65503"
+    ,"routes":""
+    ,"sav_scope":"1,1,65501"
+    ,"sav_nlri":"24,192,168,4"    }}
+2023-03-20 02:21:46.462 <TRACE> savnet_ab: Got UPDATE
+2023-03-20 02:21:46.462 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 4
+2023-03-20 02:21:46.462 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-20 02:21:46.462 <TRACE> savnet_ab.ipv4 > added [best] 192.168.4.0/24 0L 8G unicast
+2023-03-20 02:21:46.462 <TRACE> savnet_af.savnet4 < filtered out 192.168.4.0/24 0L 8G unicast
+2023-03-20 02:21:46.462 <TRACE> savnet_af.ipv4 < rejected by protocol 192.168.4.0/24 0L 8G unicast
+2023-03-20 02:21:46.462 <TRACE> savnet_ab.savnet4 < rejected by protocol 192.168.4.0/24 0L 8G unicast
+2023-03-20 02:21:46.462 <TRACE> savnet_ab.ipv4 < rejected by protocol 192.168.4.0/24 0L 8G unicast
+2023-03-20 02:21:46.462 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-20 02:21:46.462 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65504"
+    ,"interface_name":"a_b"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_ab"
+    ,"as_path":"65504,65503"
+    ,"sav_origin":""
+    ,"routes":""
+    ,"sav_scope":""
+    ,"sav_nlri":""    }}
+2023-03-20 02:21:46.464 <TRACE> savnet_af: Got UPDATE
+2023-03-20 02:21:46.464 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 4
+2023-03-20 02:21:46.464 <DBG> 
+mp_reach_len: 0
+mp_unreach_len: 0
+2023-03-20 02:21:46.464 <TRACE> savnet_af.ipv4 > added 192.168.4.0/24 0L 7G unicast
+2023-03-20 02:21:46.464 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-20 02:21:46.464 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65505"
+    ,"interface_name":"a_f"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_af"
+    ,"as_path":"65505,65504,65503"
+    ,"sav_origin":""
+    ,"routes":""
+    ,"sav_scope":""
+    ,"sav_nlri":""    }}
+2023-03-20 02:21:46.469 <DBG> call_agent
+2023-03-20 02:21:46.469 <DBG> SavAgent reply {
+  "code": "2000",
+  "data": {
+    "as_path": "2,1,0,0,255,221",
+    "as_path_len": 6,
+    "is_interior": 1,
+    "next_hop": "4,10,0,2,1",
+    "nlri_len": 4,
+    "protocol_name": "savnet_af",
+    "sav_nlri": "24,192,168,1",
+    "sav_origin": "0,0,255,221",
+    "sav_scope": "1,3,0,0,255,225,0,0,255,224,0,0,255,223",
+    "withdraws": "0,0"
+  },
+  "message": "success"
+}
+
+2023-03-20 02:21:46.469 <DBG> inserting 0,0
+2023-03-20 02:21:46.469 <DBG> inserting 4,10,0,2,1
+2023-03-20 02:21:46.469 <DBG> inserting 0,0,255,221
+2023-03-20 02:21:46.469 <DBG> inserting 1,3,0,0,255,225,0,0,255,224,0,0,255,223
+2023-03-20 02:21:46.469 <DBG> inserting 24,192,168,1
+2023-03-20 02:21:46.469 <DBG> inserting 2,1,0,0,255,221
+2023-03-20 02:21:46.469 <DBG> savnet update packet assembled
+2023-03-20 02:21:46.469 <DBG> packet len 71
+2023-03-20 02:21:46.469 <DBG> call agent send result, 1
+2023-03-20 02:21:46.518 <TRACE> savnet_ab: Got UPDATE
+2023-03-20 02:21:46.518 <DBG> 
+ip_unreach_len: 0
+ip_reach_len: 0
+2023-03-20 02:21:46.518 <DBG> 
+mp_reach_len: 18
+mp_unreach_len: 0
+2023-03-20 02:21:46.518 <DBG> bgp_decode_nlri_savnet4 len: 18
+2023-03-20 02:21:46.518 <DBG> s->sav_origin: [65502]
+2023-03-20 02:21:46.518 <DBG> s->sav_scope: [1,1,65501]
+2023-03-20 02:21:46.518 <DBG> s->sav_nlri: [24,192,168,2,24,192,168,3]
+2023-03-20 02:21:46.518 <DBG> BGP UPDATE PROCESSING FINISHED
+2023-03-20 02:21:46.518 <DBG> Sent to SavAgent:{"msg_type":"bgp_update"
+,"msg":{
+      "neighbor_as":"65504"
+    ,"interface_name":"a_b"
+    ,"interface_index":"0"
+    ,"protocol_name":"savnet_ab"
+    ,"as_path":"65502,65503,65504,65504"
+    ,"sav_origin":"65502"
+    ,"routes":""
+    ,"sav_scope":"1,1,65501"
+    ,"sav_nlri":"24,192,168,2,24,192,168,3"    }}
+2023-03-20 02:21:55.650 <TRACE> savnet_af: Connection closed
+2023-03-20 02:21:55.650 <TRACE> savnet_af: Neighbor graceful restart detected
+2023-03-20 02:21:55.650 <TRACE> savnet_af: Protocol state changed to start
+BGP: Closing connection
+2023-03-20 02:21:55.650 <TRACE> savnet_af: BGP session closed
+BGP: Decision start
+2023-03-20 02:21:55.651 <TRACE> savnet_af: Connect delayed by 5 seconds
