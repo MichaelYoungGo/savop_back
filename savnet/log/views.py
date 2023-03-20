@@ -7,19 +7,13 @@ from savnet.log.mongo import MongoDBClient
 class CollectSavnetTopologyProgressData(APIView):
     def get(self, request, *args, **kwargs):
         topo_name = kwargs.get("topo")
-        if topo_name == "classic_2":
-            data = SavnetContrller.get_info_now(project_direct="/root/yhb_savnet_bird/")
-            return response_data(data=data)
         if topo_name is not None and topo_name != "now":
-            with open("/root/savnet_back/data/topology.txt",'r', encoding='utf-8')as f:
-                lines = f.readlines()
-                topo_data = None
-                for l in lines:
-                    if l.split("\t")[0] == topo_name:
-                        topo_data = eval(l.split("\t")[1])
-                if topo_data is None:
-                    response_data(data=topo_data)
-            return response_data(data="Please the topolopy doesn't exit!!")
+            if MongoDBClient.exists_by_name(topo_name):
+                data = MongoDBClient.find_one_by_name(name=topo_name)
+                topo_data = data[0].get("data")
+                return response_data(data=topo_data)
+            else:
+                return response_data(data="Please the topolopy doesn't exit!!")
         if topo_name == "now":
             data = SavnetContrller.get_info_now()
             return response_data(data=data)
