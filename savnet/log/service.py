@@ -46,18 +46,22 @@ class SavnetContrller:
             clum_list_length = len(clum_name_list)
             for router_info in router_table_list[1:]:
                 clum = {}
-                clum_content = [ i for i in router_info.split(" ") if i !=""]
+                clum_content = [ i for i in router_info.split(" ") if i !="" ]
                 for index in range(0, clum_list_length):
                     clum.update({clum_name_list[index]: clum_content[index]})
                 router_table.append(clum)
             info.update({"router_table": router_table})
             #sav_table
+            sav_table = []
             with open(os.path.join(project_direct+"logs/"+str(i), "sav_table.txt"), mode="r") as f:
                 lines = f.readlines()
                 content = ""
                 for l in lines:
                     content = content + l
-                sav_table = json.loads(content)
+                try:
+                    sav_table = json.loads(content)
+                except:
+                    pass
             info.update({"sav_table": sav_table})
             with open(os.path.join(path, file_conf_name), mode="r") as f:
                 lines = f.readlines()
