@@ -130,7 +130,6 @@ class SavnetContrller:
         return {"msg_step": msg_step}
 
     def sort_msg(msg_name):
-        print(msg_name)
         return msg_name
 
     def depth_first_search(path, file_name, entry, depth, msg_rx=None):
