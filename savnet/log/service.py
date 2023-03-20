@@ -126,7 +126,12 @@ class SavnetContrller:
         SavnetContrller.depth_first_search(path=path, file_name=file_name, entry="a", depth="0")
         # for step in msg_step:
         #     SavnetContrller.remove_redundant_variables(step)
+        sorted(msg_step, key=lambda x: SavnetContrller.sort_msg(x["msg_name"]))
         return {"msg_step": msg_step}
+
+    def sort_msg(msg_name):
+        print(msg_name)
+        return msg_name
 
     def depth_first_search(path, file_name, entry, depth, msg_rx=None):
         if depth == "0":
