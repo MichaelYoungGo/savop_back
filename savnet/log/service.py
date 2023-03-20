@@ -18,7 +18,8 @@ def test():
     return resp_data
 
 class SavnetContrller:
-    def get_routers_info(path="/root/savnet_bird/configs"):
+    def get_routers_info(project_direct="/root/savnet_bird/"):
+        path=project_direct + "configs"
         file_name_list = os.listdir(path)
         file_num = len(file_name_list)
         routers_info = []
@@ -37,7 +38,7 @@ class SavnetContrller:
             info.update({"router_NO": router_NO})
             # router_table
             router_table = []
-            command = "docker exec -it node_{} route -n -F|grep -E 'Destination|192.168'".format(str(i))
+            command = "cat {}logs/{}/router_table.txt".format(project_direct,str(i))
             command_result = subprocess.run(command, shell=True, capture_output=True, encoding='utf-8')
             return_code, std_out = command_result.returncode, command_result.stdout
             router_table_list = std_out.split("\n")[:-1]
@@ -50,6 +51,14 @@ class SavnetContrller:
                     clum.update({clum_name_list[index]: clum_content[index]})
                 router_table.append(clum)
             info.update({"router_table": router_table})
+            #sav_table
+            with open(os.path.join(project_direct+"logs/"+str(i), "sav_table.txt"), mode="r") as f:
+                lines = f.readlines()
+                content = ""
+                for l in lines:
+                    content = content + l
+                sav_table = json.loads(content)
+            info.update({"sav_table": sav_table})
             with open(os.path.join(path, file_conf_name), mode="r") as f:
                 lines = f.readlines()
                 for li in lines:
@@ -64,7 +73,8 @@ class SavnetContrller:
             as_info_list.append(as_info)
         return {"routers_info": routers_info, "as_info": as_info_list}
     
-    def get_links_info(file="/root/savnet_bird/host_run.sh"):
+    def get_links_info(project_direct="/root/savnet_bird/"):
+        file = project_direct + "host_run.sh"
         command = "cat {0}|grep funCreateV|grep -v '()'|grep -v '#'".format(file)
         command_result = subprocess.run(command, shell=True, capture_output=True, encoding='utf-8')
         return_code, std_out = command_result.returncode, command_result.stdout
@@ -86,7 +96,8 @@ class SavnetContrller:
             links_info.append(info)
         return {"links_info": links_info}
     
-    def get_prefixs_info(path="/root/savnet_bird/configs"):
+    def get_prefixs_info(project_direct="/root/savnet_bird/"):
+        path = project_direct + "configs"
         file_name_list = os.listdir(path)
         file_num = len(file_name_list)
         prefixs_info = []
@@ -107,7 +118,8 @@ class SavnetContrller:
                 lines = f.readlines()
         return {"prefixs_info": prefixs_info}
 
-    def get_msg_data(path="/root/savnet_bird/logs", file_name = "server.log"):
+    def get_msg_data(project_direct="/root/savnet_bird/", file_name = "server.log"):
+        path = project_direct + "logs"
         global msg_step
         msg_step = []
         #Depth First Search, DFS
@@ -199,9 +211,6 @@ class SavnetContrller:
             msg.update({"link": link})
             msg_list.append(msg)
         return msg_list
-    
-    def get_as_info(path="/root/savnet_bird/configs"):
-        pass
 
     def remove_redundant_variables(msg_rx):
         msg_rx.pop("as4_session")
@@ -210,11 +219,11 @@ class SavnetContrller:
         msg_rx.pop("protocol_name")
         return msg_rx
     
-    def get_info_now():
-        routers_info = SavnetContrller.get_routers_info()
-        links_info = SavnetContrller.get_links_info()
-        prefixs_info = SavnetContrller.get_prefixs_info()
-        msg_info = SavnetContrller.get_msg_data()
+    def get_info_now(project_direct="/root/savnet_bird/"):
+        routers_info = SavnetContrller.get_routers_info(project_direct)
+        links_info = SavnetContrller.get_links_info(project_direct)
+        prefixs_info = SavnetContrller.get_prefixs_info(project_direct)
+        msg_info = SavnetContrller.get_msg_data(project_direct)
         data = {}
         data.update(routers_info)
         data.update(links_info)
