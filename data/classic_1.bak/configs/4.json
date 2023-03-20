@@ -1,8 +1,0 @@
-{
-	"valid_prefixes": [],
-	"invalid_prefixes": [],
-	"required_clients": [
-		"bird"
-	]
-
-}
