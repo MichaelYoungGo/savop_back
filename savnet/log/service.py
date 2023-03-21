@@ -151,14 +151,12 @@ class SavnetContrller:
                 start = start + 1
         else:
             path_ = os.path.join(path, str(ord(entry)-ord("a") + 1))
-            sav_scope_list = msg_rx.get("sav_scope")[0]
-            sav_scope_str = "'"+str(sav_scope_list[0])+"'"
-            if len(sav_scope_list) > 1:
-                 for index in range(1, len(sav_scope_list)):
-                     sav_scope_str =  sav_scope_str + ", '" + str(sav_scope_list[index]) + "'"
+            sav_scope_list = msg_rx.get("sav_scope")
+            sav_scope_str = str(sav_scope_list)
+            sav_scope_str= sav_scope_str.replace("[", '\\\[').replace("]", "\\\]")
             previous_protocol_name = msg_rx.get("protocol_name")
             protocol_name = "savnet_" + previous_protocol_name[-1] + previous_protocol_name[-2]
-            command = "grep INFO {}/server.log|grep -v -E 'SAV GRAPH LINK ADDED|SAV GRAPH|UPDATED LOCAL'|grep -A 2 -E \"GOT MSG ON.*'protocol_name': '{}'.*'sav_origin': '{}'\"|grep -A 2  \"'sav_scope': \\\[\\\[{}\\\]\\\]\"".format(path_, protocol_name,msg_rx.get("sav_origin"), sav_scope_str)
+            command = "grep INFO {}/server.log|grep -v -E 'SAV GRAPH LINK ADDED|SAV GRAPH|UPDATED LOCAL'|grep -A 2 -E \"GOT MSG ON.*'protocol_name': '{}'.*'sav_origin': '{}'\"|grep -A 2  \"'sav_scope': {}\"".format(path_, protocol_name,msg_rx.get("sav_origin"), sav_scope_str)
             command_result = subprocess.run(command, shell=True, capture_output=True, encoding='utf-8')
             return_code, std_out, std_err = command_result.returncode, command_result.stdout, command_result.stderr
             msg_list = std_out.split("\n")[:-1]
@@ -166,11 +164,6 @@ class SavnetContrller:
             length, index = len(msg_list), 0
             while index < length:
                 msg_str = msg_list[index]
-                # if "GOT MSG ON" in msg_str:
-                #     sav_scope = msg_rx.get("sav_scope")[0][0]
-                #     start = msg_str.find("{")
-                #     end = msg_str.find("}")
-                #     msg = eval(msg_str[start: end + 1])
                 if "SAV RULE ADDED" in msg_str:
                     start = msg_str.find("{")
                     end = msg_str.find("}")
