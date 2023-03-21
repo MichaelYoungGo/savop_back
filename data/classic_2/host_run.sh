@@ -111,6 +111,10 @@ funCreateV 'i' 'k' 9 11 '10.0.12.1/24' '10.0.12.2/24'
 echo "adding edge G-H"
 funCreateV 'g' 'h' 7 8 '10.0.13.1/24' '10.0.13.2/24'
 
+#14 E-F
+echo "adding edge E-H"
+funCreateV 'e' 'f' 5 6 '10.0.14.1/24' '10.0.14.2/24'
+
 sleep 1
 echo '========================node A log========================'
 docker logs node_1
@@ -136,7 +140,7 @@ echo '========================node K log========================'
 docker logs node_11
 # wait for the containers to perform, you can change the value based 
 # on your hardware and configurations
-sleep 10
+sleep 30
 echo '========================node A route========================'
 docker exec -it node_1 route -n -F
 echo '========================node B route========================'
@@ -160,4 +164,11 @@ docker exec -it node_10 route -n -F
 echo '========================node K route========================'
 docker exec -it node_11 route -n -F
 
-# docker-compose down
+FOLDER=$(cd "$(dirname "$0")";pwd)
+for node_num in ${node_array[*]}
+do
+    docker exec -it node_${node_num} route -n -F >${FOLDER}/logs/${node_num}/router_table.txt 2>&1
+    docker exec -it node_${node_num} curl http://localhost:8888/sib_table/ >${FOLDER}/logs/${node_num}/sav_table.txt 2>&1
+done
+
+docker-compose down

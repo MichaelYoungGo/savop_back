@@ -41,15 +41,18 @@ class SavnetContrller:
             command = "cat {}logs/{}/router_table.txt".format(project_direct,str(i))
             command_result = subprocess.run(command, shell=True, capture_output=True, encoding='utf-8')
             return_code, std_out = command_result.returncode, command_result.stdout
-            router_table_list = std_out.split("\n")[:-1]
-            clum_name_list = [ i for i in router_table_list[0].split(" ") if i !=""]
-            clum_list_length = len(clum_name_list)
-            for router_info in router_table_list[1:]:
-                clum = {}
-                clum_content = [ i for i in router_info.split(" ") if i !="" ]
-                for index in range(0, clum_list_length):
-                    clum.update({clum_name_list[index]: clum_content[index]})
-                router_table.append(clum)
+            try:
+                router_table_list = std_out.split("\n")[1:-1]
+                clum_name_list = [ i for i in router_table_list[0].split(" ") if i !=""]
+                clum_list_length = len(clum_name_list)
+                for router_info in router_table_list[1:]:
+                    clum = {}
+                    clum_content = [ i for i in router_info.split(" ") if i !="" ]
+                    for index in range(0, clum_list_length):
+                        clum.update({clum_name_list[index]: clum_content[index]})
+                    router_table.append(clum)
+            except:
+                pass
             info.update({"router_table": router_table})
             #sav_table
             sav_table = []
@@ -153,7 +156,9 @@ class SavnetContrller:
             if len(sav_scope_list) > 1:
                  for index in range(1, len(sav_scope_list)):
                      sav_scope_str =  sav_scope_str + ", '" + str(sav_scope_list[index]) + "'"
-            command = "grep INFO {}/server.log |grep -v -E 'SAV GRAPH LINK ADDED|SAV GRAPH|UPDATED LOCAL'|grep -A 2 -E \"GOT MSG ON.*'sav_origin': '{}'\"|grep -A 2  \"'sav_scope': \\\[\\\[{}\\\]\\\]\"".format(path_, msg_rx.get("sav_origin"), sav_scope_str)
+            previous_protocol_name = msg_rx.get("protocol_name")
+            protocol_name = "savnet_" + previous_protocol_name[-1] + previous_protocol_name[-2]
+            command = "grep INFO {}/server.log|grep -v -E 'SAV GRAPH LINK ADDED|SAV GRAPH|UPDATED LOCAL'|grep -A 2 -E \"GOT MSG ON.*'protocol_name': '{}'.*'sav_origin': '{}'\"|grep -A 2  \"'sav_scope': \\\[\\\[{}\\\]\\\]\"".format(path_, protocol_name,msg_rx.get("sav_origin"), sav_scope_str)
             command_result = subprocess.run(command, shell=True, capture_output=True, encoding='utf-8')
             return_code, std_out, std_err = command_result.returncode, command_result.stdout, command_result.stderr
             msg_list = std_out.split("\n")[:-1]
