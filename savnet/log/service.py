@@ -156,37 +156,47 @@ class SavnetContrller:
             sav_scope_str= sav_scope_str.replace("[", '\\\[').replace("]", "\\\]")
             previous_protocol_name = msg_rx.get("protocol_name")
             protocol_name = "savnet_" + previous_protocol_name[-1] + previous_protocol_name[-2]
-            command = "grep INFO {}/server.log|grep -v -E 'SAV GRAPH LINK ADDED|SAV GRAPH|UPDATED LOCAL'|grep -A 2 -E \"GOT MSG ON.*'protocol_name': '{}'.*'sav_origin': '{}'\"|grep -A 2  \"'sav_scope': {}\"".format(path_, protocol_name,msg_rx.get("sav_origin"), sav_scope_str)
+            as_path_str = str(msg_rx.get("sav_path"))
+            as_path_str = as_path_str.replace("[", '\\\[').replace("]", "\\\]")
+            # command = "grep INFO {}/server.log|grep -v -E 'SAV GRAPH LINK ADDED|SAV GRAPH|UPDATED LOCAL'|grep -A 2 -E \"GOT MSG ON.*'protocol_name': '{}'.*'sav_origin': '{}'\"|grep -A 2  \"'sav_scope': {}\"".format(path_, protocol_name,msg_rx.get("sav_origin"), sav_scope_str)
+            command = "grep INFO {}/server.log|grep -v -E 'SAV GRAPH LINK ADDED|SAV GRAPH|UPDATED LOCAL'|grep -A 6 -E \"GOT MSG ON.*'protocol_name': '{}'.*as_path': {}.*'sav_origin': '{}'\"|grep -A 6  \"'sav_scope': {}\"".format(path_, protocol_name,as_path_str, msg_rx.get("sav_origin"), sav_scope_str)
             command_result = subprocess.run(command, shell=True, capture_output=True, encoding='utf-8')
             return_code, std_out, std_err = command_result.returncode, command_result.stdout, command_result.stderr
             msg_list = std_out.split("\n")[:-1]
             msg_list = [msg for msg in msg_list if len(msg) > 10]
             length, index = len(msg_list), 0
+            sned_msg_index = 0
+            get_msg_add_on = True
             while index < length:
                 msg_str = msg_list[index]
-                if "SAV RULE ADDED" in msg_str:
+                if "GOT MSG ON" in msg_str:
                     start = msg_str.find("{")
                     end = msg_str.find("}")
                     msg = eval(msg_str[start: end + 1])
-                    msg_rx.update({"msg_name": "msg_" + depth, "src_prefix": msg.get("prefix"), "income_interface": msg.get("interface")})
-                    msg_step.append(msg_rx)
-                if "SAV RULE EXISTS" in msg_str:
-                    start = msg_str.find("{")
-                    end = msg_str.find("}")
-                    msg =  eval(msg_str[start: end + 1])
-                    msg_rx.update({"msg_name": "msg_" + depth, "src_prefix": msg.get("prefix"), "income_interface": msg.get("interface")})
-                    msg_step.append(msg_rx)
+                    if get_msg_add_on:
+                        msg_rx.update({"msg_name": "msg_" + depth, "src_prefix": msg.get("sav_nlri"), "income_interface": msg.get("interface_name")})
+                        msg_step.append(msg_rx)
+                        get_msg_add_on = False
+                    else:
+                        break
+                # if "SAV RULE EXISTS" in msg_str:
+                #     start = msg_str.find("{")
+                #     end = msg_str.find("}")
+                #     msg =  eval(msg_str[start: end + 1])
+                #     msg_rx.update({"msg_name": "msg_" + depth, "src_prefix": msg.get("prefix"), "income_interface": msg.get("interface")})
+                #     msg_step.append(msg_rx)
                 if "TERMINATING" in msg_str:
                     send_off = False
                 if "SENT MSG ON LINK" in msg_str:
+                    sned_msg_index = sned_msg_index + 1
                     start = msg_str.find("{")
                     end = msg_str.find("}")
                     msg = eval(msg_str[start: end + 1])
                     eth_out = msg.get("protocol_name")[-1] 
-                    SavnetContrller.depth_first_search(path=path, file_name=file_name, entry=eth_out,depth = depth+".1", msg_rx=msg)
-                    depth = SavnetContrller.depth_auto_increm(depth)
-                    send_off = False
+                    SavnetContrller.depth_first_search(path=path, file_name=file_name, entry=eth_out,depth = depth+f".{sned_msg_index}", msg_rx=msg)
                 index = index + 1
+            if sned_msg_index != 0:
+                depth = SavnetContrller.depth_auto_increm(depth)
 
     def depth_auto_increm(depth_str):
         depth_list = depth_str.split(".")
