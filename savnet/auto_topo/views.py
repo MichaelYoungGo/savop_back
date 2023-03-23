@@ -3,17 +3,17 @@ from savnet.utils.http_utils import response_data
 
 class SavnetAutoBuildTopology(APIView):
     def get(self, request, *args, **kwargs):
-        topo_list = [{"No": 1, "router_name": "A", "as_no": 65501, "links": [{"B": "customer"}, {"C": "customer"}], "prefixs": ["192.168.0.1"]},
-                     {"No": 2, "router_name": "B", "as_no": 65502, "links": [{"A": "provider"}, {"C": "peer"}, {"D": "customer"}], "prefixs": ["192.168.0.2"]},
-                     {"No": 3, "router_name": "C", "as_no": 65503, "links": [{"A": "provider"}, {"B": "peer"}, {"E": "customer"}], "prefixs": ["192.168.0.3"]},
-                     {"No": 4, "router_name": "D", "as_no": 65504, "links": [{"B": "provider"}, {"F": "customer"}], "prefixs": ["192.168.0.4"]},
-                     {"No": 5, "router_name": "E", "as_no": 65505, "links": [{"C": "provider"}, {"F": "peer"}, {"G": "customer"}], "prefixs": ["192.168.0.5"]},
-                     {"No": 6, "router_name": "F", "as_no": 65506, "links": [{"D": "provider"}, {"E": "peer"}, {"H": "customer"}], "prefixs": ["192.168.0.6"]},
-                     {"No": 7, "router_name": "G", "as_no": 65507, "links": [{"E": "provider"}, {"H": "peer"}, {"I": "customer"}], "prefixs": ["192.168.0.7"]},
-                     {"No": 8, "router_name": "H", "as_no": 65508, "links": [{"F": "provider"}, {"G": "peer"}, {"J": "customer"}], "prefixs": ["192.168.0.8"]},
-                     {"No": 9, "router_name": "I", "as_no": 65509, "links": [{"G": "provider"}, {"K": "customer"}], "prefixs": ["192.168.0.9"]},
-                     {"No": 10, "router_name": "J", "as_no": 65510, "links": [{"H": "provider"}, {"K": "customer"}], "prefixs": ["192.168.0.10"]},
-                     {"No": 11, "router_name": "K", "as_no": 65511, "links": [{"I": "provider"}, {"J": "provider"}], "prefixs": ["192.168.0.11"]}]
+        topo_list = [{"No": 1, "router_name": "A", "as_no": 65501, "links": [{"B": "customer"}, {"C": "customer"}], "prefixs": ["192.168.0.1/24"]},
+                     {"No": 2, "router_name": "B", "as_no": 65502, "links": [{"A": "provider"}, {"C": "peer"}, {"D": "customer"}], "prefixs": ["192.168.0.2/24"]},
+                     {"No": 3, "router_name": "C", "as_no": 65503, "links": [{"A": "provider"}, {"B": "peer"}, {"E": "customer"}], "prefixs": ["192.168.0.3/24"]},
+                     {"No": 4, "router_name": "D", "as_no": 65504, "links": [{"B": "provider"}, {"F": "customer"}], "prefixs": ["192.168.0.4/24"]},
+                     {"No": 5, "router_name": "E", "as_no": 65505, "links": [{"C": "provider"}, {"F": "peer"}, {"G": "customer"}], "prefixs": ["192.168.0.5/24"]},
+                     {"No": 6, "router_name": "F", "as_no": 65506, "links": [{"D": "provider"}, {"E": "peer"}, {"H": "customer"}], "prefixs": ["192.168.0.6/24"]},
+                     {"No": 7, "router_name": "G", "as_no": 65507, "links": [{"E": "provider"}, {"H": "peer"}, {"I": "customer"}], "prefixs": ["192.168.0.7/24"]},
+                     {"No": 8, "router_name": "H", "as_no": 65508, "links": [{"F": "provider"}, {"G": "peer"}, {"J": "customer"}], "prefixs": ["192.168.0.8/24"]},
+                     {"No": 9, "router_name": "I", "as_no": 65509, "links": [{"G": "provider"}, {"K": "customer"}], "prefixs": ["192.168.0.9/24"]},
+                     {"No": 10, "router_name": "J", "as_no": 65510, "links": [{"H": "provider"}, {"K": "customer"}], "prefixs": ["192.168.0.10/24"]},
+                     {"No": 11, "router_name": "K", "as_no": 65511, "links": [{"I": "provider"}, {"J": "provider"}], "prefixs": ["192.168.0.11/24"]}]
         # 产生网口、IP、router_id
         # 网口
         for node in topo_list:
@@ -55,7 +55,26 @@ class SavnetAutoBuildTopology(APIView):
         for index in range(0, len(topo_list)):
             router = topo_list[index]
             router_id = router["router_id"]
+            router_name = router["router_name"].lower()
+            as_no = router["as_no"]
             content = f"router id {router_id}\n"
             content +=  "protocol device {\n\tscan time 60;\n};"
             content +=  "protocol kernel {\n\tscan time 60;\n\t\tipv4 {\n\t\t\texport all;\n\t\timport all;\n};\n\t\tlearn;\n\t\t\tpersist;\n};"
+            content += 'protocol direct {\n\tipv4;\n\tinterface "{}_*";\n};'.format(router_name)
+            content += "protocol static {\n\tipv4 {\n\t\texport all;\n\t\timport all;\n\t};"
+            for prefix in router["prefixs"]:
+                content += f"\n\troute {prefix} blackhole;"
+            content += "\n};"
+            content += "template bgp sav_inter{\n\tlocal as {};\n\tlong lived graceful restart on;\n\tdebug all; \
+                \n\tsavnet4{\n\t\timport none;\n\t\texport none;\n\t};\n\tipv4{\n\t\texport all;\n\t\timport all;\n\t}; \
+                \n\tenable extended messages ;\n};".format(as_no)
+            for interface_name, interface_value in router["net_interface"]:
+                role, IP_Addr = interface_value["role"], interface_value["IP_Addr"],
+                peer_router_name = interface_name.split("_")[1].upper()
+                peer_interface = interface_name.split("_")[1] + interface_name.split("_")[0]
+                
+            
+
+
+
         return response_data(data="auto_build")

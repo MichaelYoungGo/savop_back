@@ -25,8 +25,8 @@ class CollectSavnetTopologyProgressData(APIView):
             else:
                 return response_data(data="Please the topolopy doesn't exit!!")
         if topo_name == "now":
-            data = SavnetContrller.get_info_now()
-            #data = SavnetContrller.get_info_now(project_direct="/root/yhb_savnet_bird/")
+            # data = SavnetContrller.get_info_now()
+            data = SavnetContrller.get_info_now(project_direct="/root/yhb_savnet_bird/")
             return response_data(data=data)
         return response_data(data="Please write the topolopy name, /api/netinfo/<topo_name>/")
 
@@ -36,7 +36,8 @@ class RefreshSavnetTopologyProgressData(APIView):
         topo_name = kwargs.get("topo")
         if topo_name is None:
             return response_data(code=ErrorCode.E_PARAM_ERROR, message="Please write the topolopy name, /api/netinfo/refresh/<topo_name>/")
-        data = SavnetContrller.get_info_now()
+        data = SavnetContrller.get_info_now(project_direct="/root/yhb_savnet_bird/")
+        # data = SavnetContrller.get_info_now()
         if MongoDBClient.exists_by_name(topo_name):
             MongoDBClient.update_by_name(name=topo_name, data=data)
         else:

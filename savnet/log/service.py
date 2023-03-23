@@ -66,6 +66,18 @@ class SavnetContrller:
                 except:
                     pass
             info.update({"sav_table": sav_table})
+            # PREFIX-AS_PATH
+            prefix_as_path = []
+            command = 'grep "UPDATED LOCAL PREFIX-AS_PATH TABLE" {}logs/{}/server.log'.format(project_direct,str(i))
+            command_result = subprocess.run(command, shell=True, capture_output=True, encoding='utf-8')
+            return_code, std_out = command_result.returncode, command_result.stdout
+            start = std_out.find("{")
+            prefix_as_path_table = eval(std_out[start:].replace("IPNetwork(", "").replace(")", ""))
+            for prefix, value in prefix_as_path_table.items():
+                value.update({"prefix": prefix})
+                prefix_as_path.append(value)
+            info.update({"prefix_as_path_table": prefix_as_path})
+
             with open(os.path.join(path, file_conf_name), mode="r") as f:
                 lines = f.readlines()
                 for li in lines:
