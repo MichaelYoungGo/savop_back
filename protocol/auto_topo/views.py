@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from protocol.utils.http_utils import response_data
 
-class SavnetAutoBuildTopology(APIView):
+class AutoBuildTopology(APIView):
     def get(self, request, *args, **kwargs):
         topo_list = [{"No": 1, "router_name": "A", "as_no": 65501, "links": [{"B": "customer"}, {"C": "customer"}], "prefixs": ["192.168.0.1/24"]},
                      {"No": 2, "router_name": "B", "as_no": 65502, "links": [{"A": "provider"}, {"C": "peer"}, {"D": "customer"}], "prefixs": ["192.168.0.2/24"]},
@@ -78,9 +78,9 @@ class SavnetAutoBuildTopology(APIView):
                     peer_router_as_No = peer_router["No"]
                     peer_interface_IP_Addr = peer_router["net_interface"][peer_interface]["IP_Addr"]
                     break
-                savnet_name = interface_name.split("_")[0] + interface_name.split("_")[1]
-                content += f'protocol bgp savnet_{savnet_name} from sav_inter{{ \
-                    \n\tdescription "SAVNET between node {router_name} and {peer_router_name}"; \
+                protocol_name = interface_name.split("_")[0] + interface_name.split("_")[1]
+                content += f'protocol bgp savbgp_{protocol_name} from sav_inter{{ \
+                    \n\tdescription "modified BGP between node {router_name} and {peer_router_name}"; \
                     \n\tlocal role {role}; \
                     \n\tsource address {IP_Addr}; \
                     \n\tneighbor {peer_interface_IP_Addr}  as {peer_router_as_No}; \
