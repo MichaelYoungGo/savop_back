@@ -1,4 +1,4 @@
-chdir = '/root/savop_back/savnet'
+chdir = '/root/savop_back/protocol'
 workers = 1
 threads = 1
 bind = '0.0.0.0:5000'
