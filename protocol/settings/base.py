@@ -45,7 +45,7 @@ logging.config.dictConfig({
         },
     },
     'loggers': {
-        'savnet': {
+        'protocol': {
             'level': LOGLEVEL,
             'handlers': ['console'],
             'propagate': False,
@@ -73,8 +73,7 @@ DEFAULT_PERMISSION_CLASSES = {
 
 # Application definition
 INSTALLED_APPS = [
-    'savnet.log',
-    # 'savnet.users',
+    'protocol.log',
     'rest_framework',
     'webpack_loader',
     'django.contrib.admin',
@@ -86,7 +85,7 @@ INSTALLED_APPS = [
     'django_extensions',
 ]
 
-# AUTH_USER_MODEL = 'savnet.user.User'
+# AUTH_USER_MODEL = 'protocol.user.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -98,7 +97,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'savnet.urls'
+ROOT_URLCONF = 'protocol.urls'
 
 TEMPLATES = [
     {
@@ -116,7 +115,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'savnet.wsgi.application'
+WSGI_APPLICATION = 'protocol.wsgi.application'
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators

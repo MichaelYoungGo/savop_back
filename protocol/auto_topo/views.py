@@ -1,5 +1,5 @@
 from rest_framework.views import APIView
-from savnet.utils.http_utils import response_data
+from protocol.utils.http_utils import response_data
 
 class SavnetAutoBuildTopology(APIView):
     def get(self, request, *args, **kwargs):
@@ -58,33 +58,51 @@ class SavnetAutoBuildTopology(APIView):
             router_name = router["router_name"].lower()
             as_no = router["as_no"]
             content = f"router id {router_id}\n"
-            content +=  "protocol device {\n\tscan time 60;\n};"
-            content +=  "protocol kernel {\n\tscan time 60;\n\t\tipv4 {\n\t\t\texport all;\n\t\timport all;\n};\n\t\tlearn;\n\t\t\tpersist;\n};"
-            content += f'protocol direct {{\n\tipv4;\n\tinterface "{router_name}_*";\n}};'
-            content += "protocol static {\n\tipv4 {{\n\t\texport all;\n\t\timport all;\n\t};"
+            content += "protocol device {\n\tscan time 60;\n};\n"
+            content +=  "protocol kernel {\n\tscan time 60;\n\tipv4 {\n\t\texport all;\n\t\timport all;\n};\n\tlearn;\n\tpersist;\n};\n"
+            content += f'protocol direct {{\n\tipv4;\n\tinterface "{router_name}_*";\n}};\n'
+            content += "protocol static {\n\tipv4 {\n\t\texport all;\n\t\timport all;\n\t};"
             for prefix in router["prefixs"]:
                 content += f"\n\troute {prefix} blackhole;"
-            content += "\n};"
+            content += "\n};\n"
             content += f"template bgp sav_inter{{\n\tlocal as {as_no};\n\tlong lived graceful restart on;\n\tdebug all; \
                 \n\tsavnet4{{\n\t\timport none;\n\t\texport none;\n\t}};\n\tipv4{{\n\t\texport all;\n\t\timport all;\n\t}}; \
-                \n\tenable extended messages ;\n}};"
+                \n\tenable extended messages;\n}};\n"
             for interface_name, interface_value in router["net_interface"].items():
-                router_name, role, IP_Addr =interface_value["router_name"], interface_value["role"], interface_value["IP_Addr"],
+                router_name, role, IP_Addr = router_name.upper(), interface_value["role"], interface_value["IP_Addr"],
                 peer_router_name = interface_name.split("_")[1].upper()
-                peer_interface = interface_name.split("_")[1] + interface_name.split("_")[0]
+                peer_interface = interface_name.split("_")[1] + "_" + interface_name.split("_")[0]
                 for peer_router in topo_list:
                     if peer_router["router_name"] != peer_router_name:
                         continue
                     peer_router_as_No = peer_router["No"]
                     peer_interface_IP_Addr = peer_router["net_interface"][peer_interface]["IP_Addr"]
                     break
-                content += 'protocol bgp savnet_ab from sav_inter{\n \
-                    \tdescription "SAVNET between node {0} and {1}";\n \
-                    \tlocal role {2};\n \
-                    \tsource address {3}; \n \
-                    \tneighbor {4}  as {5};\n \
-                    \tinterface "{6}";\n \
-                    \tdirect;};\n'.format(router_name, peer_router_name, role, IP_Addr, peer_interface_IP_Addr, peer_router_as_No, interface_name)
-            with open(f"/root/test/{index}.conf", "w") as f:
+                savnet_name = interface_name.split("_")[0] + interface_name.split("_")[1]
+                content += f'protocol bgp savnet_{savnet_name} from sav_inter{{ \
+                    \n\tdescription "SAVNET between node {router_name} and {peer_router_name}"; \
+                    \n\tlocal role {role}; \
+                    \n\tsource address {IP_Addr}; \
+                    \n\tneighbor {peer_interface_IP_Addr}  as {peer_router_as_No}; \
+                    \n\tinterface "{interface_name}"; \
+                    \n\tdirect;\n}};\n'
+            with open(f"/root/test/configs/{index+1}.conf", "w") as f:
                 f.write(content)
+        # (1) bird.config
+        json_content = '{ \
+                \n\t"valid_prefixes": [], \
+                \n\t"invalid_prefixes": [], \
+                \n\t"required_clients": [ \
+                \n\t\t"bird","strict-uRPF","loose-uRPF" \
+                \n\t] \
+            \n}\n'
+        for index in range(0, len(topo_list)):
+            with open(f"/root/test/configs/{index+1}.json", "w") as f:
+                f.write(json_content)
+        # docker-compose.yml
+        yml_content = '"version: "2"\nservices:"\n'
+        for index in range(0, len(topo_list)):
+            with open(f"/root/test/docker-compose.yml", "w") as f:
+                f.write(yml_content)
+                
         return response_data(data="auto_build")
