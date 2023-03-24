@@ -60,21 +60,31 @@ class SavnetAutoBuildTopology(APIView):
             content = f"router id {router_id}\n"
             content +=  "protocol device {\n\tscan time 60;\n};"
             content +=  "protocol kernel {\n\tscan time 60;\n\t\tipv4 {\n\t\t\texport all;\n\t\timport all;\n};\n\t\tlearn;\n\t\t\tpersist;\n};"
-            content += 'protocol direct {\n\tipv4;\n\tinterface "{}_*";\n};'.format(router_name)
-            content += "protocol static {\n\tipv4 {\n\t\texport all;\n\t\timport all;\n\t};"
+            content += f'protocol direct {{\n\tipv4;\n\tinterface "{router_name}_*";\n}};'
+            content += "protocol static {\n\tipv4 {{\n\t\texport all;\n\t\timport all;\n\t};"
             for prefix in router["prefixs"]:
                 content += f"\n\troute {prefix} blackhole;"
             content += "\n};"
-            content += "template bgp sav_inter{\n\tlocal as {};\n\tlong lived graceful restart on;\n\tdebug all; \
-                \n\tsavnet4{\n\t\timport none;\n\t\texport none;\n\t};\n\tipv4{\n\t\texport all;\n\t\timport all;\n\t}; \
-                \n\tenable extended messages ;\n};".format(as_no)
-            for interface_name, interface_value in router["net_interface"]:
-                role, IP_Addr = interface_value["role"], interface_value["IP_Addr"],
+            content += f"template bgp sav_inter{{\n\tlocal as {as_no};\n\tlong lived graceful restart on;\n\tdebug all; \
+                \n\tsavnet4{{\n\t\timport none;\n\t\texport none;\n\t}};\n\tipv4{{\n\t\texport all;\n\t\timport all;\n\t}}; \
+                \n\tenable extended messages ;\n}};"
+            for interface_name, interface_value in router["net_interface"].items():
+                router_name, role, IP_Addr =interface_value["router_name"], interface_value["role"], interface_value["IP_Addr"],
                 peer_router_name = interface_name.split("_")[1].upper()
                 peer_interface = interface_name.split("_")[1] + interface_name.split("_")[0]
-                
-            
-
-
-
+                for peer_router in topo_list:
+                    if peer_router["router_name"] != peer_router_name:
+                        continue
+                    peer_router_as_No = peer_router["No"]
+                    peer_interface_IP_Addr = peer_router["net_interface"][peer_interface]["IP_Addr"]
+                    break
+                content += 'protocol bgp savnet_ab from sav_inter{\n \
+                    \tdescription "SAVNET between node {0} and {1}";\n \
+                    \tlocal role {2};\n \
+                    \tsource address {3}; \n \
+                    \tneighbor {4}  as {5};\n \
+                    \tinterface "{6}";\n \
+                    \tdirect;};\n'.format(router_name, peer_router_name, role, IP_Addr, peer_interface_IP_Addr, peer_router_as_No, interface_name)
+            with open(f"/root/test/{index}.conf", "w") as f:
+                f.write(content)
         return response_data(data="auto_build")

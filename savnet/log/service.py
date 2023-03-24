@@ -8,6 +8,7 @@ from constants.error_code import ErrorCode
 from savnet.log.models import FPath
 from netaddr import IPAddress
 
+DEFAULT_PROJECT_DIR = "/root/savop/"
 NAME_MAPPING = { 1: "A", 2: "B", 3: "C", 4: "D", 5: "E", 6: "F", 7: "G", 8: "H", 9: "I", 10: "J", 11: "K"}
 
 def test():
@@ -17,8 +18,9 @@ def test():
     }
     return resp_data
 
+
 class SavnetContrller:
-    def get_routers_info(project_direct="/root/savnet_bird/"):
+    def get_routers_info(project_direct=DEFAULT_PROJECT_DIR):
         path=project_direct + "configs"
         file_name_list = os.listdir(path)
         file_num = len(file_name_list)
@@ -68,7 +70,7 @@ class SavnetContrller:
             info.update({"sav_table": sav_table})
             # PREFIX-AS_PATH
             prefix_as_path = []
-            command = 'grep "UPDATED LOCAL PREFIX-AS_PATH TABLE" {}logs/{}/server.log'.format(project_direct,str(i))
+            command = 'grep "UPDATED LOCAL PREFIX-AS_PATH TABLE" {}logs/{}/server.log | head -n 1'.format(project_direct,str(i))
             command_result = subprocess.run(command, shell=True, capture_output=True, encoding='utf-8')
             return_code, std_out = command_result.returncode, command_result.stdout
             start = std_out.find("{")
@@ -92,7 +94,7 @@ class SavnetContrller:
             as_info_list.append(as_info)
         return {"routers_info": routers_info, "as_info": as_info_list}
     
-    def get_links_info(project_direct="/root/savnet_bird/"):
+    def get_links_info(project_direct=DEFAULT_PROJECT_DIR):
         file = project_direct + "host_run.sh"
         command = "cat {0}|grep funCreateV|grep -v '()'|grep -v '#'".format(file)
         command_result = subprocess.run(command, shell=True, capture_output=True, encoding='utf-8')
@@ -115,7 +117,7 @@ class SavnetContrller:
             links_info.append(info)
         return {"links_info": links_info}
     
-    def get_prefixs_info(project_direct="/root/savnet_bird/"):
+    def get_prefixs_info(project_direct=DEFAULT_PROJECT_DIR):
         path = project_direct + "configs"
         file_name_list = os.listdir(path)
         file_num = len(file_name_list)
@@ -137,7 +139,7 @@ class SavnetContrller:
                 lines = f.readlines()
         return {"prefixs_info": prefixs_info}
 
-    def get_msg_data(project_direct="/root/savnet_bird/", file_name = "server.log"):
+    def get_msg_data(project_direct=DEFAULT_PROJECT_DIR, file_name = "server.log"):
         path = project_direct + "logs"
         global msg_step
         msg_step = []
@@ -247,7 +249,7 @@ class SavnetContrller:
         msg_rx.pop("protocol_name")
         return msg_rx
     
-    def get_info_now(project_direct="/root/savnet_bird/"):
+    def get_info_now(project_direct=DEFAULT_PROJECT_DIR):
         routers_info = SavnetContrller.get_routers_info(project_direct)
         links_info = SavnetContrller.get_links_info(project_direct)
         prefixs_info = SavnetContrller.get_prefixs_info(project_direct)
