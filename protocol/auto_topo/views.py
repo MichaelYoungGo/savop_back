@@ -99,10 +99,137 @@ class AutoBuildTopology(APIView):
         for index in range(0, len(topo_list)):
             with open(f"/root/test/configs/{index+1}.json", "w") as f:
                 f.write(json_content)
-        # docker-compose.yml
-        yml_content = '"version: "2"\nservices:"\n'
+        # (2) docker-compose.yml
+        yml_content = 'version: "2"\nservices:\n'
         for index in range(0, len(topo_list)):
-            with open(f"/root/test/docker-compose.yml", "w") as f:
-                f.write(yml_content)
-                
+            pos = index + 1
+            router_name = topo_list[index]["router_name"]
+            content = f"  node_{pos}: \
+            \n  # {router_name} \
+            \n    image: savop_bird_base \
+            \n    container_name: node_{pos} \
+            \n    cap_add: \
+            \n      - NET_ADMIN \
+            \n    volumes: \
+            \n      - ./configs/{pos}.conf:/usr/local/etc/bird.conf \
+            \n      - ./configs/{pos}.json:/root/savnet_bird/SavAgent_config.json \
+            \n      - ./logs/{pos}/:/root/savnet_bird/logs/ \
+            \n    network_mode: none \
+            \n    command: \
+            \n        bash container_run.sh\n"
+            yml_content = yml_content + content
+        with open(f"/root/test/docker-compose.yml", "w") as f:
+            f.write(yml_content)
+        #(3) host_run.sh
+        host_run_content = '#!/usr/bin/bash\
+        \n# set -ex\
+        \n# rm -f  "./bird" "./birdc" "./birdcl"\
+        \n\
+        \n# make\
+        \nif [ -f "./bird" ] && [ -f "./birdc" ] && [ -f "./birdcl" ];then\
+        \n  echo "adding edge the three files, bird birdc birdcl, are all ready"\
+        \nelse \
+        \n  echo "adding edge lack file bird birdc birdcl"\
+        \nexit -1\
+        \nfi\
+        \ndocker-compose down\
+        \ndocker build . -t savop_bird_base\
+        \nnode_array=('
+        for pos in range(1, len(topo_list) + 1):
+            host_run_content += f'"{pos}" '
+        host_run_content += ")"
+        host_run_content += '\
+        \ndocker container rm $(docker container ls -aq)\
+        \n# remove all stopped containers\
+        \ndocker rmi $(docker images --filter "dangling=true" -q --no-trunc)\
+        \n# remove all images taged as <none>\
+        \nfor node_num in ${node_array[*]}\
+        \ndo\
+        \n    rm -rf ./logs/$node_num/*\
+        \ndone\
+        \ndocker-compose up -d --force-recreate  --remove-orphans\
+        \n\n\
+        \n# remove folders created last time\
+        \nrm -r /var/run/netns\
+        \nmkdir /var/run/netns\
+        \n\
+        \n# node_array must be countinus mubers\
+        \npid_array=()\
+        \nfor node_num in ${node_array[*]}\
+        \ndo\
+        \n    temp=$(sudo docker inspect -f \'\{\{.State.Pid\}\}\' node_$node_num)\
+        \n    ln -s /proc/$temp/ns/net /var/run/netns/$temp\
+        \n    pid_array+=($temp)\
+        \ndone\
+        \n\
+        \nfunCreateV(){\
+        \n    # para 1: local node in letter, must be lowercase;a\
+        \n    # para 2: peer node in letter, must be lowercase;b\
+        \n    # para 3: local node in number,;1\
+        \n    # para 4: peer node in number,2\
+        \n    # para 5: the IP addr of the local node interface\
+        \n    # para 6: the IP addr of the peer node interface\
+        \n    PID_L=${pid_array[$3-1]}\
+        \n    PID_P=${pid_array[$4-1]}\
+        \n    NET_L=$1\
+        \n    NET_P=$2\
+        \n    ip link add ${NET_L} type veth peer name ${NET_P}\
+        \n    ip link set ${NET_L}  netns ${PID_L}\
+        \n    ip link set ${NET_P}  netns ${PID_P}\
+        \n    ip netns exec ${PID_L} ip addr add ${5} dev ${NET_L}\
+        \n    ip netns exec ${PID_L} ip link set ${NET_L} up\
+        \n    ip netns exec ${PID_P} ip addr add ${6} dev ${NET_P}\
+        \n    ip netns exec ${PID_P} ip link set ${NET_P} up\
+        \n}\
+        '
+
+        net_interface_name_list = []
+        net_interface_dict = {} 
+        for router in topo_list:
+            net_interface_name_list += router["net_interface"].keys()
+            net_interface_dict.update(router["net_interface"])
+        while len(net_interface_name_list) != 0:
+            local_interface = net_interface_name_list.pop(0)
+            peer_interface = local_interface.split("_")[1] + "_" + local_interface.split("_")[0] 
+            index = net_interface_name_list.index(peer_interface)
+            net_interface_name_list.pop(index)
+            locol_router_name, peer_router_name  = local_interface.split("_")[0].upper(), peer_interface.split("_")[0].upper()
+            for index in range(0, len(topo_list)):
+                if topo_list[index]["router_name"] == locol_router_name:
+                    local_pos = index + 1
+                if topo_list[index]["router_name"] == peer_router_name:
+                    peer_pos = index + 1
+            local_interface_IP_Addr, peer_interface_IP_Addr = net_interface_dict[local_interface]["IP_Addr"], net_interface_dict[peer_interface]["IP_Addr"]
+            host_run_content += f"\
+            \n#1 {locol_router_name}-{peer_router_name}\
+            \necho \"adding edge {locol_router_name}-{peer_router_name}\"\
+            \nfunCreateV {local_interface} {peer_interface} {local_pos} {peer_pos} {local_interface_IP_Addr} {peer_interface_IP_Addr}"
+
+        host_run_content += "\nsleep 1"
+        for index in range(0, len(topo_list)):
+             router_name = topo_list[index]["router_name"]
+             pos = index + 1
+             host_run_content += f"\necho '========================node {router_name} log========================'\
+                \n docker logs node_{pos}"
+        host_run_content += "\n# wait for the containers to perform, you can change the value based \
+        \n # on your hardware and configurations"
+        host_run_content += "\nsleep 30"
+        for index in range(0, len(topo_list)):
+             router_name = topo_list[index]["router_name"]
+             pos = index + 1
+             host_run_content += f"\necho '========================node {router_name} route========================'\
+                \ndocker exec -it node_{pos} route -n -F"
+        
+        host_run_content += "\ndocker exec -it node_1 birdc show route all"
+        host_run_content += "\nsleep 1"
+        host_run_content += "\nFOLDER=$(cd \"$(dirname \"$0\")\";pwd)"
+        host_run_content += "\nfor node_num in $\{node_array[*]\}\
+            \ndo\
+            \n    docker exec -it node_${node_num} route -n -F >${FOLDER}/logs/${node_num}/router_table.txt 2>&1\
+            \n    docker exec -it node_${node_num} curl -s http://localhost:8888/sib_table/ >${FOLDER}/logs/${node_num}/sav_table.txt 2>&1\
+            \ndone\
+            "
+        host_run_content += "\ndocker-compose down"
+        with open(f"/root/test/host_run.sh", "w") as f:
+            f.write(host_run_content)
         return response_data(data="auto_build")

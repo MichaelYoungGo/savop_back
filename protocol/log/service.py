@@ -74,6 +74,7 @@ class RouterContrller:
             command_result = subprocess.run(command, shell=True, capture_output=True, encoding='utf-8')
             return_code, std_out = command_result.returncode, command_result.stdout
             start = std_out.find("{")
+            print(command)
             prefix_as_path_table = eval(std_out[start:].replace("IPNetwork(", "").replace(")", ""))
             for prefix, value in prefix_as_path_table.items():
                 value.update({"prefix": prefix})
