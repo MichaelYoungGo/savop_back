@@ -128,6 +128,7 @@ dmypy.json
 .pyre/
 __pycache__
 .vscode
+.idea
 migrations
 gunicorn.pid
 log/gunicorn_error.log
