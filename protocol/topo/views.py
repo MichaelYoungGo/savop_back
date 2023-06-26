@@ -69,7 +69,7 @@ class TopologySet(ViewSet):
     @action(detail=False, methods=['get'], url_path="list", url_name="list_topo")
     def list_(self, request, *args, **kwargs):
         data = MongoDBClient.get_all()
-        return response_data(data={"data": data})
+        return response_data(data=data)
 
     @action(detail=False, methods=['get'], url_path="search", url_name="search_topo")
     def search(self, request, *args, **kwargs):
@@ -83,7 +83,7 @@ class TopologySet(ViewSet):
 
         data = MongoDBClient.find_one_by_id(id_=params)[0]
         data.pop("_id")
-        return response_data(data={"data": data})
+        return response_data(data=data)
 
     @action(detail=False, methods=['get'], url_path="add", url_name="add_topo")
     def add(self, request, *args, **kwargs):
@@ -106,7 +106,7 @@ class TopologySet(ViewSet):
             return response_data(code=ErrorCode.E_PARAM_ERROR,
                                  message="Topology id have existed. Please checkout your request!")
         MongoDBClient.insert(id_=topo_id, name=topo_name, data=topo_data)
-        return response_data(data={"data": "add successfully"})
+        return response_data(data="add successfully")
 
     @action(detail=False, methods=['get'], url_path="modify", url_name="modify_topo")
     def modify(self, request, *args, **kwargs):
@@ -127,7 +127,7 @@ class TopologySet(ViewSet):
                                  message="Topology name have existed. Please checkout your request!")
         MongoDBClient.delete_by_id(id_=topo_id)
         MongoDBClient.insert(id_=topo_id, name=topo_name, data=topo_data)
-        return response_data(data={"data": "modify, Hello World!"})
+        return response_data(data="modify, successfully!")
 
     @action(detail=False, methods=['get'], url_path="delete", url_name="delete_topo")
     def delete(self, request, *args, **kwargs):
@@ -139,7 +139,7 @@ class TopologySet(ViewSet):
         if MongoDBClient.exists_by_id(id_=params) is False:
             return response_data(code=ErrorCode.E_PARAM_ERROR, message="the delete topology don't existed")
         MongoDBClient.delete_by_id(id_=params)
-        return response_data(data={"data": "delete, successfully!"})
+        return response_data(data="delete, successfully!")
 
 
 
