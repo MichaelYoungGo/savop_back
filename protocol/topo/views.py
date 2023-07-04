@@ -46,6 +46,13 @@ class MongoDBClient:
         return False
 
     @staticmethod
+    def exists_by_name_exclude_by_id(name, id_):
+        count = db.static_topo.count_documents({"$and": [{"name": name}, {"id": { "$ne": id_}}]})
+        if count != 0:
+            return True
+        return False
+
+    @staticmethod
     def exists_by_id(id_):
         count = db.static_topo.count_documents({"id": id_})
         if count != 0:
@@ -77,15 +84,17 @@ class TopologySet(ViewSet):
         if params is None:
             return response_data(code=ErrorCode.E_PARAM_ERROR,
                                  message="Request parameter can not be empty. Please checkout your request!")
-        params = int(params)
+        # params = int(params)
         if MongoDBClient.exists_by_id(id_=params) is False:
             return response_data(code=ErrorCode.E_PARAM_ERROR, message="the query topology don't existed")
 
         data = MongoDBClient.find_one_by_id(id_=params)[0]
         data.pop("_id")
+        data.pop("id")
+        data.pop("name")
         return response_data(data=data)
 
-    @action(detail=False, methods=['get'], url_path="add", url_name="add_topo")
+    @action(detail=False, methods=['post'], url_path="add", url_name="add_topo")
     def add(self, request, *args, **kwargs):
         topo_data = request.data
         if not bool(topo_data):
@@ -108,7 +117,7 @@ class TopologySet(ViewSet):
         MongoDBClient.insert(id_=topo_id, name=topo_name, data=topo_data)
         return response_data(data="add successfully")
 
-    @action(detail=False, methods=['get'], url_path="modify", url_name="modify_topo")
+    @action(detail=False, methods=['post'], url_path="modify", url_name="modify_topo")
     def modify(self, request, *args, **kwargs):
         topo_data = request.data
         if not bool(topo_data):
@@ -122,7 +131,7 @@ class TopologySet(ViewSet):
         if (bool(topo_name) is False) or (bool(topo_id) is False):
             return response_data(code=ErrorCode.E_PARAM_ERROR,
                                  message="Topology name or id can not be empty. Please checkout your request!")
-        if MongoDBClient.exists_by_name(name=topo_name):
+        if MongoDBClient.exists_by_name_exclude_by_id(name=topo_name, id_=topo_id):
             return response_data(code=ErrorCode.E_PARAM_ERROR,
                                  message="Topology name have existed. Please checkout your request!")
         MongoDBClient.delete_by_id(id_=topo_id)
@@ -135,7 +144,7 @@ class TopologySet(ViewSet):
         if params is None:
             return response_data(code=ErrorCode.E_PARAM_ERROR,
                                  message="Request parameter can not be empty. Please checkout your request!")
-        params = int(params)
+        # params = int(params)
         if MongoDBClient.exists_by_id(id_=params) is False:
             return response_data(code=ErrorCode.E_PARAM_ERROR, message="the delete topology don't existed")
         MongoDBClient.delete_by_id(id_=params)
