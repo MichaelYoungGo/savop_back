@@ -7,9 +7,11 @@ from django.urls import path, include
 import protocol.log.views as log_views
 from protocol.auto_topo.views import AutoBuildTopology
 from protocol.topo.views import TopologySet
+from protocol.node_controller.views import NodeControllerSet
 
 router = DefaultRouter()
 router.register('topo', TopologySet, basename="topo")
+router.register('node', NodeControllerSet, basename="node")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
