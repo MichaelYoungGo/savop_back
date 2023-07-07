@@ -8,10 +8,12 @@ import protocol.log.views as log_views
 from protocol.auto_topo.views import AutoBuildTopology
 from protocol.topo.views import TopologySet
 from protocol.node_controller.views import NodeControllerSet
+from protocol.traffic_controller.views import TrafficControllerSet
 
 router = DefaultRouter()
 router.register('topo', TopologySet, basename="topo")
 router.register('node', NodeControllerSet, basename="node")
+router.register('traffic', TrafficControllerSet, basename="traffic")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
