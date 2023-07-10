@@ -30,6 +30,8 @@ class TrafficControllerSet(ViewSet):
         if (send_pos is None) or (receive_pos is None) or (dst is None) or (src is None) or (not isinstance(trans_num, int)):
             return response_data(code=ErrorCode.E_PARAM_ERROR, message="lack parameter")
         # checkout if the dst have exited
+        dst_ip, dst_prefix = parameters.get("dst").split("/")[0], parameters.get("dst").split("/")[1]
+        src_ip, src_prefix = parameters.get("src").split("/")[0], parameters.get("src").split("/")[1]
         receive_link_info_command = f"docker exec -it node_{receive_pos} ip -j a"
         link_info_result = command_executor(command=receive_link_info_command)
         if link_info_result.returncode != 0:
@@ -38,19 +40,19 @@ class TrafficControllerSet(ViewSet):
         ipaddr_not_exited = True
         for info in link_info:
             for addr_info in info["addr_info"]:
-                if addr_info["local"] == dst:
+                if addr_info["local"] == dst_ip:
                     ipaddr_not_exited = False
         if ipaddr_not_exited:
             eth = link_info[1]["ifname"]
-            add_ipaddr_command = f"docker exec -it node_{receive_pos} ip addr add {dst}/24 dev {eth}"
+            add_ipaddr_command = f"docker exec -it node_{receive_pos} ip addr add {dst_ip}/{dst_prefix} dev {eth}"
             add_ipaddr_result = command_executor(command=add_ipaddr_command)
             if add_ipaddr_result.returncode != 0:
                 return response_data(ErrorCode.E_SERVER, message="Docker command execution failed")
         traffic_send_command = f"docker exec -it node_{send_pos} python3 /root/savop/extend_server/trafficTools/traffic_sender.py --dst \
-                                {dst} --src {src} --trans_num {trans_num} "
+                                {dst_ip} --src {src_ip} --trans_num {trans_num} "
         send_result = command_executor(command=traffic_send_command)
         if ipaddr_not_exited:
-            del_ipaddr_command = f"docker exec -it node_{receive_pos} ip addr del {dst}/24 dev {eth}"
+            del_ipaddr_command = f"docker exec -it node_{receive_pos} ip addr del {dst_ip}/{dst_prefix} dev {eth}"
             del_ipaddr_result = command_executor(command=del_ipaddr_command)
             if del_ipaddr_result.returncode != 0:
                 return response_data(ErrorCode.E_SERVER, message="Docker command execution failed")
