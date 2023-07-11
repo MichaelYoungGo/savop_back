@@ -23,11 +23,11 @@ class TrafficControllerSet(ViewSet):
     @action(detail=False, methods=['get', 'post'], url_path="sender", url_name="traffic_sender")
     def sender(self, request, *args, **kwargs):
         parameters = request.data
-        if len(parameters.keys()) < 5:
+        if len(parameters.keys()) < 6:
             return response_data(code=ErrorCode.E_PARAM_ERROR, message="lack parameter")
-        send_pos, receive_pos, dst, src, trans_num = parameters.get("send_pos"), parameters.get("receive_pos"), \
-            parameters.get("dst"), parameters.get("src"), parameters.get("trans_num", 10),
-        if (send_pos is None) or (receive_pos is None) or (dst is None) or (src is None) or (not isinstance(trans_num, int)):
+        send_pos, receive_pos, dst, src, trans_num, iface = parameters.get("send_pos"), parameters.get("receive_pos"), \
+            parameters.get("dst"), parameters.get("src"), parameters.get("trans_num", 10), parameters.get("iface")
+        if (send_pos is None) or (receive_pos is None) or (dst is None) or (src is None) or (not isinstance(trans_num, int)) or (iface is None):
             return response_data(code=ErrorCode.E_PARAM_ERROR, message="lack parameter")
         # checkout if the dst have exited
         dst_ip, dst_prefix = parameters.get("dst").split("/")[0], parameters.get("dst").split("/")[1]
@@ -39,20 +39,21 @@ class TrafficControllerSet(ViewSet):
         link_info = json.loads(link_info_result.stdout)
         ipaddr_not_exited = True
         for info in link_info:
+            if info["ifname"] != iface:
+                continue
             for addr_info in info["addr_info"]:
                 if addr_info["local"] == dst_ip:
                     ipaddr_not_exited = False
         if ipaddr_not_exited:
-            eth = link_info[1]["ifname"]
-            add_ipaddr_command = f"docker exec -i node_{receive_pos} ip addr add {dst_ip}/{dst_prefix} dev {eth}"
+            add_ipaddr_command = f"docker exec -i node_{receive_pos} ip addr add {dst_ip}/{dst_prefix} dev {iface}"
             add_ipaddr_result = command_executor(command=add_ipaddr_command)
             if add_ipaddr_result.returncode != 0:
                 return response_data(ErrorCode.E_SERVER, message="Docker command execution failed")
         traffic_send_command = f"docker exec -i node_{send_pos} python3 /root/savop/extend_server/trafficTools/traffic_sender.py --dst \
-                                {dst_ip} --src {src_ip} --trans_num {trans_num} "
+                                {dst_ip} --src {src_ip} --trans_num {trans_num} --iface {iface}"
         send_result = command_executor(command=traffic_send_command)
         if ipaddr_not_exited:
-            del_ipaddr_command = f"docker exec -i node_{receive_pos} ip addr del {dst_ip}/{dst_prefix} dev {eth}"
+            del_ipaddr_command = f"docker exec -i node_{receive_pos} ip addr del {dst_ip}/{dst_prefix} dev {iface}"
             del_ipaddr_result = command_executor(command=del_ipaddr_command)
             if del_ipaddr_result.returncode != 0:
                 return response_data(code=ErrorCode.E_SERVER, message="Docker command execution failed")
