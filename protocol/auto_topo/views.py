@@ -22,7 +22,7 @@ class AutoBuildTopology(APIView):
             for link in links:
                 net_interface_name = router_name.lower() + "_" + list(link.keys())[0].lower()
                 net_interface.update({net_interface_name: {"role": list(link.values())[0], "IP_Addr": None}})
-                node.update({"net_interface": net_interface})
+            node.update({"net_interface": net_interface})
         # IP
         net_seg = 1
         for node in topo_list:
@@ -193,7 +193,7 @@ class AutoBuildTopology(APIView):
             peer_interface = local_interface.split("_")[1] + "_" + local_interface.split("_")[0] 
             index = net_interface_name_list.index(peer_interface)
             net_interface_name_list.pop(index)
-            locol_router_name, peer_router_name  = local_interface.split("_")[0].upper(), peer_interface.split("_")[0].upper()
+            locol_router_name, peer_router_name = local_interface.split("_")[0].upper(), peer_interface.split("_")[0].upper()
             for index in range(0, len(topo_list)):
                 if topo_list[index]["router_name"] == locol_router_name:
                     local_pos = index + 1
