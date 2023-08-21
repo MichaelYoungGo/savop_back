@@ -24,8 +24,8 @@ class BirdConfigGenerator:
             router_id = router["router_id"]
             router_name = router["router_name"].lower()
             as_no = router["as_no"]
-            content = f"router id {router_id}\n"
-            content += "roa4 table master4{\n\tsorted 1;\n};\n"
+            content = f"router id {router_id};\n"
+            content += "ipv4 table master4{\n\tsorted 1;\n};\n"
             content += "roa4 table r4{\n\tsorted 1;\n};\n"
             content += "protocol device {\n\tscan time 60;\n\tinterface \"eth_*\";\n};\n"
             content += "protocol kernel {" \
@@ -37,7 +37,7 @@ class BirdConfigGenerator:
                        "\n\tlearn;" \
                        "\n\tpersist;" \
                        "\n};\n"
-            content += 'protocol direct {{\n\tipv4;\n\tinterface "eth_*";\n}};\n'
+            content += 'protocol direct {\n\tipv4;\n\tinterface "eth_*";\n};\n'
             content += "protocol static {\n\tipv4 {\n\t\texport all;\n\t\timport all;\n\t};"
             for prefix in router["prefixs"]:
                 if "0.0.0.0" in prefix:
@@ -50,11 +50,11 @@ class BirdConfigGenerator:
                        f"\n\t\texport all;" \
                        f"\n\t\timport all;" \
                        f"\n\t\timport table on;" \
-                       f"\n\t\t}};\n}};\n"
+                       f"\n\t}};\n}};\n"
             content += "template bgp sav_inter from basic{" \
                        "\n\trpdp4{" \
-                       "\n\timport none" \
-                       "\n\texport none;" \
+                       "\n\t\timport none;" \
+                       "\n\t\texport none;" \
                        "\n\t};\n};\n"
             for interface_name, interface_value in router["net_interface"].items():
                 router_name, role, IP_Addr = router_name, interface_value["role"], interface_value["IP_Addr"],
@@ -74,7 +74,7 @@ class BirdConfigGenerator:
                     \n\tneighbor {peer_interface_IP_Addr}  as {peer_router_as_No}; \
                     \n\tinterface "{interface_name}"; \
                     \n\tdirect;\n}};\n'
-            with open(f"/root/test/configs/{as_no}.conf", "w") as f:
+            with open(f"/root/sav_simulate/sav-start/configs/conf_nsdi/{as_no}.conf", "w") as f:
                 f.write(content)
 
 
@@ -103,7 +103,7 @@ class SavAgentConfigGenerator:
                 links.append({"remote_addr": f"{peer_interface_IP_Addr}:5000", "remote_as": peer_router_as_no,
                               "remote_id": "peer_router_id", "local_role": local_interface_role,
                               "interface_name": interface_name})
-            links_str = str(links)
+            links_str = json.dumps(links)
             json_content = f'{{' \
                            '\n\t"apps": [' \
                            '\n\t\t"strict-uRPF",' \
@@ -129,7 +129,7 @@ class SavAgentConfigGenerator:
                            '\n\t},' \
                            '\n\t"location": "edge"' \
                            '\n}\n'
-            with open(f"/root/test/configs/{local_as}.json", "w") as f:
+            with open(f"/root/sav_simulate/sav-start/configs/conf_nsdi/{local_as}.json", "w") as f:
                 f.write(json_content)
 
 
@@ -152,7 +152,7 @@ class TopoConfigGenerator:
         host_run_content += '\npid_array=()'
         host_run_content += '\nfor node_num in ${node_array[*]}\
                 \ndo\
-                \n    temp=$(sudo docker inspect -f \'\{\{.State.Pid\}\}\' node_$node_num)\
+                \n    temp=$(sudo docker inspect -f \'{{.State.Pid}}\' node_$node_num)\
                 \n    ln -s /proc/$temp/ns/net /var/run/netns/$temp\
                 \n    pid_array+=($temp)\
                 \ndone\
@@ -200,6 +200,7 @@ class TopoConfigGenerator:
                 peer_pos = as_no_list.index(peer_router_as_No)
                 host_run_content += f"\n# {local_router_name}-{peer_router_as_No}\
                         \necho \"adding edge {local_router_name}-{peer_router_as_No}\"\
+                        \nsleep 0.5\
                         \nfunCreateV '{local_interface_name}' '{peer_interface_name}' '{local_pos}' '{peer_pos}' '{local_interface_IP_Addr}/24' '{peer_interface_IP_Addr}/24'"
         ###########################################################################################
         host_run_content += "\nsleep 15"
@@ -213,7 +214,7 @@ class TopoConfigGenerator:
                             '\n\tdocker exec -it node_${node_num} route -n -F >${FOLDER}/logs/${node_num}/router_table.txt 2>&1' \
                             '\n\tdocker exec -it node_${node_num} curl -s http://localhost:8888/sib_table/ >${FOLDER}/logs/${node_num}/sav_table.txt 2>&1' \
                             '\ndone\n'
-        with open(f"/root/test/topo.sh", "w") as f:
+        with open(f"/root/sav_simulate/sav-start/topology/topo_nsdi.sh", "w") as f:
             f.write(host_run_content)
 
 
@@ -233,15 +234,35 @@ class DockerComposeGenerator:
                     \n      - NET_ADMIN \
                     \n    volumes: \
                     \n      - ./configs/{as_no}.conf:/usr/local/etc/bird.conf \
-                    \n      - ./configs/{as_no}.json:/root/savnet_bird/SavAgent_config.json \
-                    \n      - ./logs/{as_no}/:/root/savnet_bird/logs/ \
+                    \n      - ./configs/{as_no}.json:/root/savop/SavAgent_config.json \
+                    \n      - ./logs/{as_no}/:/root/savop/logs/ \
                     \n      - ./logs/{as_no}/data:/root/savop/sav-agent/data/ \
                     \n    network_mode: none \
                     \n    command: \
                     \n        bash container_run.sh\n"
             yml_content = yml_content + content
-        with open(f"/root/test/docker-compose.yml", "w") as f:
+        with open(f"/root/sav_simulate/sav-start/docker_compose/docker_compose_nsdi.yml", "w") as f:
             f.write(yml_content)
+
+    def bash_generator(self, topo_list):
+        print("创建DockerCompose的bash替代脚本")
+        bash_content = '#!/usr/bin/bash\n'
+        for index in range(0, len(topo_list)):
+            pos = index + 1
+            router_name = topo_list[index]["router_name"]
+            as_no = topo_list[index]["as_no"]
+            content = f'echo "start container {router_name}"\n'
+            content += 'docker run -itd ' \
+                      f'-v /root/sav_simulate/sav-start/build/configs/{as_no}.conf:/usr/local/etc/bird.conf ' \
+                      f'-v /root/sav_simulate/sav-start/build/configs/{as_no}.json:/root/savop/SavAgent_config.json ' \
+                      f'-v /root/sav_simulate/sav-start/build/logs/{as_no}/:/root/savop/logs/ ' \
+                      f'-v /root/sav_simulate/sav-start/build/logs/{as_no}/data:/root/savop/sav-agent/data/ ' \
+                      f'--net none  --cap-add NET_ADMIN --name {router_name} savop_bird_base ' \
+                      f'bash /root/savop/container_run.sh\n\n' \
+
+            bash_content = bash_content + content
+        with open(f"/root/sav_simulate/sav-start/docker_compose/docker_compose_nsdi.yml", "w") as f:
+            f.write(bash_content)
 
 
 class ConfigGenerator:
@@ -386,10 +407,10 @@ class ConfigGenerator:
         return links
 
     def run(self):
-        # self.bird_config_generator.config_generator(topo_list=self.topo_list)
-        # self.sav_agent_config_generator.config_generator(topo_list=self.topo_list)
+        self.bird_config_generator.config_generator(topo_list=self.topo_list)
+        self.sav_agent_config_generator.config_generator(topo_list=self.topo_list)
         self.topo_config_generator.config_generator(topo_list=self.topo_list)
-        # self.docker_compose_generator.config_generator(topo_list=self.topo_list)
+        self.docker_compose_generator.bash_generator(topo_list=self.topo_list)
 
 
 
