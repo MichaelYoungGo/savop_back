@@ -12,6 +12,7 @@
 """
 import json
 import copy
+import queue
 
 start = 0
 
@@ -269,6 +270,7 @@ class ConfigGenerator:
     mode_data = {}
     business_relationship_data = {}
     topo_list = []
+    topo_list_bfs = []
     sav_agent_config_generator = SavAgentConfigGenerator()
     bird_config_generator = BirdConfigGenerator()
     topo_config_generator = TopoConfigGenerator()
@@ -278,6 +280,7 @@ class ConfigGenerator:
         self.mode_data = self.mode_data_analysis(path=mode_file_path)
         self.business_relationship_data = self.business_relation_data_analysis(path=business_relation_file_path)
         self.topo_list = self._convert_data_format()
+        self.topo_list_bfs = self._BFS(topo_list=self.topo_list)
 
     def mode_data_analysis(self, path):
         print(f"分析{path}, 获取模型数据")
@@ -412,6 +415,26 @@ class ConfigGenerator:
         self.topo_config_generator.config_generator(topo_list=self.topo_list)
         self.docker_compose_generator.bash_generator(topo_list=self.topo_list)
 
+    def _BFS(self, topo_list, start=0):
+        # 无向图、广度优先算法
+        topo_list_origin = copy.deepcopy(topo_list)
+        visited = []
+        q = queue.Queue()
+        topo_list_bfs = []
+        q.put(topo_list_origin[start])
+        while not q.empty():
+            node = q.get()
+            topo_list_bfs.append(node)
+            for link in node.get("links"):
+                router_name = list(link.keys())[0].replace("eth", "node")
+                for i in topo_list_origin:
+                    if i["router_name"] == router_name:
+                        neighbor = i
+                        break
+                if neighbor not in visited:
+                    visited.append(neighbor)
+                    q.put(neighbor)
+        return topo_list_bfs
 
 
 if __name__ == "__main__":
