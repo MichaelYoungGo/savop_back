@@ -16,6 +16,8 @@ import queue
 
 start = 0
 
+DEPLOY_DIR = "/root/sav_simulate/sav-start"
+
 
 class BirdConfigGenerator:
     def config_generator(self, topo_list):
@@ -75,7 +77,7 @@ class BirdConfigGenerator:
                     \n\tneighbor {peer_interface_IP_Addr}  as {peer_router_as_No}; \
                     \n\tinterface "{interface_name}"; \
                     \n\tdirect;\n}};\n'
-            with open(f"/root/sav_simulate/sav-start/configs/conf_nsdi/{as_no}.conf", "w") as f:
+            with open(f"{DEPLOY_DIR}/configs/conf_nsdi/{as_no}.conf", "w") as f:
                 f.write(content)
 
 
@@ -130,7 +132,7 @@ class SavAgentConfigGenerator:
                            '\n\t},' \
                            '\n\t"location": "edge"' \
                            '\n}\n'
-            with open(f"/root/sav_simulate/sav-start/configs/conf_nsdi/{local_as}.json", "w") as f:
+            with open(f"{DEPLOY_DIR}/configs/conf_nsdi/{local_as}.json", "w") as f:
                 f.write(json_content)
 
 
@@ -215,7 +217,7 @@ class TopoConfigGenerator:
                             '\n\tdocker exec -it node_${node_num} route -n -F >${FOLDER}/logs/${node_num}/router_table.txt 2>&1' \
                             '\n\tdocker exec -it node_${node_num} curl -s http://localhost:8888/sib_table/ >${FOLDER}/logs/${node_num}/sav_table.txt 2>&1' \
                             '\ndone\n'
-        with open(f"/root/sav_simulate/sav-start/topology/topo_nsdi.sh", "w") as f:
+        with open(f"{DEPLOY_DIR}/topology/topo_nsdi.sh", "w") as f:
             f.write(host_run_content)
 
 
@@ -242,7 +244,7 @@ class DockerComposeGenerator:
                     \n    command: \
                     \n        bash container_run.sh\n"
             yml_content = yml_content + content
-        with open(f"/root/sav_simulate/sav-start/docker_compose/docker_compose_nsdi.yml", "w") as f:
+        with open(f"{DEPLOY_DIR}/docker_compose/docker_compose_nsdi.yml", "w") as f:
             f.write(yml_content)
 
     def bash_generator(self, topo_list):
@@ -262,7 +264,7 @@ class DockerComposeGenerator:
                       f'bash /root/savop/container_run.sh\n\n' \
 
             bash_content = bash_content + content
-        with open(f"/root/sav_simulate/sav-start/docker_compose/docker_compose_nsdi.yml", "w") as f:
+        with open(f"{DEPLOY_DIR}/docker_compose/docker_compose_nsdi.yml", "w") as f:
             f.write(bash_content)
 
 
@@ -415,6 +417,14 @@ class ConfigGenerator:
         self.topo_config_generator.config_generator(topo_list=self.topo_list)
         self.docker_compose_generator.bash_generator(topo_list=self.topo_list)
 
+    def user_define_run(self):
+        global DEPLOY_DIR
+        DEPLOY_DIR = "/root/nsdi_config_file"
+        self.bird_config_generator.config_generator(topo_list=self.topo_list)
+        self.sav_agent_config_generator.config_generator(topo_list=self.topo_list)
+        self.topo_config_generator.config_generator(topo_list=self.topo_list)
+        self.docker_compose_generator.config_generator(topo_list=self.topo_list)
+
     def _BFS(self, topo_list, start=0):
         # 无向图、广度优先算法
         topo_list_origin = copy.deepcopy(topo_list)
@@ -441,5 +451,6 @@ if __name__ == "__main__":
     mode_file = "/root/sav_simulate/savop_back/data/NSDI/small_as_topo_all_prefixes.json"
     business_relation_file = "/root/sav_simulate/savop_back/data/NSDI/20230801.as-rel.txt"
     config_generator = ConfigGenerator(mode_file, business_relation_file)
-    config_generator.run()
+    #config_generator.run()
+    config_generator.user_define_run()
     print("over!!!!!!!!!!!!!")
