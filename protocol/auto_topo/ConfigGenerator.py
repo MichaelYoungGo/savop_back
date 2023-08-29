@@ -13,6 +13,8 @@
 import json
 import copy
 import queue
+import time
+from datetime import datetime
 
 start = 0
 
@@ -247,7 +249,7 @@ class DockerComposeGenerator:
         with open(f"{DEPLOY_DIR}/docker_compose/docker_compose_nsdi.yml", "w") as f:
             f.write(yml_content)
 
-    def bash_generator(self, topo_list):
+    def bash_generator(self, topo_list, container_run_command="bash /root/savop/container_run.sh"):
         print("创建DockerCompose的bash替代脚本")
         bash_content = '#!/usr/bin/bash\n'
         for index in range(0, len(topo_list)):
@@ -255,13 +257,15 @@ class DockerComposeGenerator:
             router_name = topo_list[index]["router_name"]
             as_no = topo_list[index]["as_no"]
             content = f'echo "start container {router_name}"\n'
-            content += 'docker run -itd ' \
+            content += 'docker run --init -itd ' \
                       f'-v /root/sav_simulate/sav-start/build/configs/{as_no}.conf:/usr/local/etc/bird.conf ' \
                       f'-v /root/sav_simulate/sav-start/build/configs/{as_no}.json:/root/savop/SavAgent_config.json ' \
                       f'-v /root/sav_simulate/sav-start/build/logs/{as_no}/:/root/savop/logs/ ' \
                       f'-v /root/sav_simulate/sav-start/build/logs/{as_no}/data:/root/savop/sav-agent/data/ ' \
+                      f'-v /root/sav_simulate/sav-start/build/signal:/root/savop/signal ' \
+                      f'-v /etc/localtime:/etc/localtime ' \
                       f'--net none  --cap-add NET_ADMIN --name {router_name} savop_bird_base ' \
-                      f'bash /root/savop/container_run.sh\n\n' \
+                      f'{container_run_command}\n\n' \
 
             bash_content = bash_content + content
         with open(f"{DEPLOY_DIR}/docker_compose/docker_compose_nsdi.yml", "w") as f:
@@ -418,12 +422,10 @@ class ConfigGenerator:
         self.docker_compose_generator.bash_generator(topo_list=self.topo_list)
 
     def user_define_run(self):
-        global DEPLOY_DIR
-        DEPLOY_DIR = "/root/nsdi_config_file"
         self.bird_config_generator.config_generator(topo_list=self.topo_list)
         self.sav_agent_config_generator.config_generator(topo_list=self.topo_list)
         self.topo_config_generator.config_generator(topo_list=self.topo_list)
-        self.docker_compose_generator.config_generator(topo_list=self.topo_list)
+        self.docker_compose_generator.bash_generator(topo_list=self.topo_list, container_run_command="python3 /root/savop/sav-agent/monitor.py")
 
     def _BFS(self, topo_list, start=0):
         # 无向图、广度优先算法
@@ -432,6 +434,7 @@ class ConfigGenerator:
         q = queue.Queue()
         topo_list_bfs = []
         q.put(topo_list_origin[start])
+        visited.append(topo_list_origin[start])
         while not q.empty():
             node = q.get()
             topo_list_bfs.append(node)
@@ -446,11 +449,35 @@ class ConfigGenerator:
                     q.put(neighbor)
         return topo_list_bfs
 
+    def caculate_lan_as(self, rate):
+        # 计算rate比例的局域网
+        lan_length = int(len(self.topo_list_bfs) * rate / 100)
+        command_scope = ""
+        for index in range(0, lan_length):
+            if index < lan_length - 1:
+                command_scope = command_scope + str(self.topo_list_bfs[index]["as_no"]) + ","
+            else:
+                command_scope = command_scope + str(self.topo_list_bfs[index]["as_no"])
+        print(int(time.time()))
+        command_timestamp = str(int(time.time())) + f"{rate:03d}"
+        command_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        signal_dict = {"command": "start", "command_scope": command_scope, "command_timestamp": command_timestamp,
+                       "command_date": command_date}
+        return signal_dict
+
 
 if __name__ == "__main__":
     mode_file = "/root/sav_simulate/savop_back/data/NSDI/small_as_topo_all_prefixes.json"
     business_relation_file = "/root/sav_simulate/savop_back/data/NSDI/20230801.as-rel.txt"
     config_generator = ConfigGenerator(mode_file, business_relation_file)
-    #config_generator.run()
+    # config_generator.run()
     config_generator.user_define_run()
-    print("over!!!!!!!!!!!!!")
+    # 计算局域网的拓扑结点：
+    # for rate in range(5, 101, 5):
+    #     time.sleep(2)
+    #     signal = config_generator.caculate_lan_as(rate=rate)
+    #     print(f'signal_{str(rate)}.txt')
+    #     print(signal)
+    #     with open(f'/root/sav_simulate/savop_back/data/NSDI/signal/signal_{str(rate)}.txt', "w") as json_file:
+    #         json.dump(signal, json_file)
+    # print("over!!!!!!!!!!!!!")

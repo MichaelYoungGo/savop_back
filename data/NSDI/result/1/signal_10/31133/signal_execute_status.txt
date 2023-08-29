@@ -1,0 +1,1 @@
+{"monitor_node": true, "command": "start_1693200358010", "execute_start_time": "2023-08-28 20:12:02", "action": "start", "execute_end_time": "2023-08-28 20:12:08", "execute_result": "ok", "sav_start": 1693224728, "stable_number": 0, "pre_sav_rule_number": 4129, "monitor_cycle_start_time": 1693224843, "judge_stable_time": "2023-08-28 20:14:18", "convergence_duration": 115}

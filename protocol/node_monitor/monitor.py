@@ -18,10 +18,10 @@ import sqlite3
 
 
 class Monitor:
-    DATA_PATH = "/root/savop/sav-agent/data"
+    DATA_PATH = "/root/savop"
 
     def _command_executor(self, command):
-        return subprocess.run(command, shell=True, capture_output=True, encoding='utf-8')
+        result = subprocess.run(command, shell=True, capture_output=True, encoding='utf-8')
         # result = subprocess.run("ls /root/", shell=True, capture_output=True, encoding='utf-8')
         return result.returncode
 
@@ -43,20 +43,25 @@ class Monitor:
         # 根据signal.txt, signal_excute_status.txt, sav_agent_config判断下一步路由器的执行动作
         # 执行动作有：start, restart, stop, keep
         try:
-            with open(f'{path}/signal.txt', 'r') as f:
+            with open(f'{self.DATA_PATH}/signal/signal.txt', 'r') as f:
                 signal = json.load(f)
         except Exception as e:
             signal = {}
+        time.sleep(0.5)
         try:
-            with open(f'{path}/signal_execute_status.txt', 'r') as f:
-                signal_excute_status = json.load(f)
+            with open(f'{self.DATA_PATH}/logs/signal_execute_status.txt', 'r') as f_s:
+                signal_excute_status = json.load(f_s)
         except Exception as e:
+            print(e)
+            print(f"signal_execute_status cannot open!!{path}/logs/signal_execute_status.txt")
             signal_excute_status = {}
         try:
-            with open(f'/root/savop/sav-agent/SavAgent_config.json', 'r') as f:
+            with open(f'/root/savop/SavAgent_config.json', 'r') as f:
                 sav_agent_config = json.load(f)
         except Exception as e:
             sav_agent_config = {}
+        if not signal:
+            return "null"
         command = signal["command"]
         command_timestamp = signal["command_timestamp"]
         command_scope = [int(value) for value in signal["command_scope"].split(",")]
@@ -75,6 +80,12 @@ class Monitor:
             if (command in pre_command) and (command_timestamp in pre_command) and (local_as in command_scope):
                 action = "keep"
             elif (command_timestamp not in pre_command) and (local_as in command_scope):
+                print(f"80_{int(time.time())}_start_reason_{command_timestamp}_precommand_{pre_command}")
+                print(signal_excute_status)
+                action = "start"
+                signal_excute_status = {}
+            elif (command not in pre_command) and (local_as in command_scope):
+                print(f"84_{int(time.time())}_start_reason_{command}")
                 action = "start"
                 signal_excute_status = {}
             elif (command_timestamp not in pre_command) and (local_as not in command_scope):
@@ -90,7 +101,7 @@ class Monitor:
             signal_excute_status.update({"monitor_node": True})
         else:
             signal_excute_status.update({"monitor_node": False})
-        with open(f'{self.DATA_PATH}/signal_execute_status.txt', "w") as json_file:
+        with open(f'{self.DATA_PATH}/logs/signal_execute_status.txt', "w") as json_file:
             json.dump(signal_excute_status, json_file)
         return action
 
@@ -104,7 +115,7 @@ class Monitor:
         # 根据字段action, execute_result来判断sav协议机制已经开始
         # 根据pre_sav_rule_number, current_sav_rule_number, statble_number来判断sav是否收敛
         # 根据stable_number==0和stable_time确定已经收敛无效继续监控
-        with open(f'{self.DATA_PATH}/signal_execute_status.txt', 'r') as f:
+        with open(f'{self.DATA_PATH}/logs/signal_execute_status.txt', 'r') as f:
             signal_excute_status = json.load(f)
         if signal_excute_status["monitor_node"] is False:
             return
@@ -122,7 +133,8 @@ class Monitor:
             else:
                 current_sav_rule_number = self._get_sav_rule_number()
                 if current_sav_rule_number == signal_excute_status["pre_sav_rule_number"]:
-                    signal_excute_status["stable_number"] = signal_excute_status["stable_number"] - 1
+                    if current_sav_rule_number != 0:
+                        signal_excute_status["stable_number"] = signal_excute_status["stable_number"] - 1
                     if signal_excute_status["stable_number"] == 0:
                         signal_excute_status["judge_stable_time"] = self._get_current_datatime_str()
                         signal_excute_status["convergence_duration"] = signal_excute_status["monitor_cycle_start_time"] - signal_excute_status["sav_start"]
@@ -130,12 +142,12 @@ class Monitor:
                     signal_excute_status.update({"stable_number": 10})
                     signal_excute_status.update({"pre_sav_rule_number": current_sav_rule_number})
                     signal_excute_status.update({"monitor_cycle_start_time": int(time.time())})
-            with open(f'{self.DATA_PATH}/signal_execute_status.txt', "w") as json_file:
+            with open(f'{self.DATA_PATH}/logs/signal_execute_status.txt', "w") as json_file:
                 json.dump(signal_excute_status, json_file)
 
     def stop_server(self, action):
         print("停止路由器")
-        with open(f'{self.DATA_PATH}/signal.txt', 'r') as f:
+        with open(f'{self.DATA_PATH}/signal/signal.txt', 'r') as f:
             signal = json.load(f)
         signal_excute_status = {}
         signal_excute_status.update({"command": f'{signal["command"]}_{signal["command_timestamp"]}',
@@ -148,14 +160,14 @@ class Monitor:
         else:
             signal_excute_status.update({"execute_end_time": f"{self._get_current_datatime_str()}",
                                          "execute_result": "fail"})
-        with open(f'{self.DATA_PATH}/signal_execute_status.txt', "w") as json_file:
+        with open(f'{self.DATA_PATH}/logs/signal_execute_status.txt', "w") as json_file:
             json.dump(signal_excute_status, json_file)
 
     def start_server(self, action):
         print("启动路由器")
-        with open(f'{self.DATA_PATH}/signal.txt', 'r') as f:
+        with open(f'{self.DATA_PATH}/signal/signal.txt', 'r') as f:
             signal = json.load(f)
-        with open(f'{self.DATA_PATH}/signal_execute_status.txt', 'r') as f:
+        with open(f'{self.DATA_PATH}/logs/signal_execute_status.txt', 'r') as f:
             signal_excute_status = json.load(f)
         signal_excute_status.update({"command": f'{signal["command"]}_{signal["command_timestamp"]}',
                                      "execute_start_time": f"{self._get_current_datatime_str()}",
@@ -169,7 +181,7 @@ class Monitor:
         else:
             signal_excute_status.update({"execute_end_time": f"{self._get_current_datatime_str()}",
                                          "execute_result": "fail"})
-        with open(f'{self.DATA_PATH}/signal_execute_status.txt', "w") as json_file:
+        with open(f'{self.DATA_PATH}/logs/signal_execute_status.txt', "w") as json_file:
             json.dump(signal_excute_status, json_file)
 
     def run(self):
@@ -184,6 +196,9 @@ class Monitor:
                 self.stop_server(action=action)
             elif action == "keep":
                 self.monitor_sav_convergence()
+            elif action == "null":
+                print("没有控制信号")
+                pass
             else:
                 raise
 
