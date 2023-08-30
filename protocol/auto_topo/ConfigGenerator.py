@@ -465,13 +465,49 @@ class ConfigGenerator:
                        "command_date": command_date}
         return signal_dict
 
+    def generetor_signal(self, off=False):
+        # 产生控制不同局域网的信号文件
+        for rate in range(5, 101, 5):
+            time.sleep(2)
+            signal = self.caculate_lan_as(rate=rate)
+            print(f'signal_{str(rate)}.txt')
+            print(signal)
+            if off:
+                with open(f'/root/sav_simulate/savop_back/data/NSDI/signal/signal_{str(rate)}.txt', "w") as json_file:
+                    json.dump(signal, json_file)
+            # 更全的信号文件，包含局域网的有效边数，边的集合，但是这些内容对控制程序运行没有作用，因此存到signal_{rate}_full.txt文件中
+            print("补充有效的BGP边")
+            as_number_list = signal["command_scope"].split(",")
+            bgp_link = {}
+            bgp_link_number = 0
+            for index in range(0, len(as_number_list)):
+                if self.topo_list_bfs[index]["as_no"] != as_number_list[index]:
+                    raise
+                effect_link = []
+                all_link_list = self.topo_list_bfs[index]["links"]
+                for link in all_link_list:
+                    router_name = list(link.keys())[0]
+                    role = list(link.values())[0]
+                    neighbor_as_number = router_name.split("_")[1]
+                    if neighbor_as_number not in as_number_list:
+                        continue
+                    effect_link.append({router_name: role})
+                    bgp_link_number += 1
+                bgp_link.update({f"node_{as_number_list[index]}": effect_link})
+            signal.update({"bgp_link_number": bgp_link_number, "bgp_link": bgp_link})
+            with open(f'/root/sav_simulate/savop_back/data/NSDI/signal/signal_{str(rate)}_full.txt', "w") as json_file:
+                json.dump(signal, json_file)
+
+
+
+
 
 if __name__ == "__main__":
     mode_file = "/root/sav_simulate/savop_back/data/NSDI/small_as_topo_all_prefixes.json"
     business_relation_file = "/root/sav_simulate/savop_back/data/NSDI/20230801.as-rel.txt"
     config_generator = ConfigGenerator(mode_file, business_relation_file)
     # config_generator.run()
-    config_generator.user_define_run()
+    # config_generator.user_define_run()
     # 计算局域网的拓扑结点：
     # for rate in range(5, 101, 5):
     #     time.sleep(2)
@@ -481,3 +517,5 @@ if __name__ == "__main__":
     #     with open(f'/root/sav_simulate/savop_back/data/NSDI/signal/signal_{str(rate)}.txt', "w") as json_file:
     #         json.dump(signal, json_file)
     # print("over!!!!!!!!!!!!!")
+    config_generator.generetor_signal()
+

@@ -76,7 +76,6 @@ class CollectData:
         self.observe_experiment(command_scope_list=command_scope_list, group=group, signal=signal)
 
 
-
 if __name__ == "__main__":
     collect_data = CollectData()
     # collect_data.parse_signal(signal="signal_10")
@@ -84,7 +83,7 @@ if __name__ == "__main__":
     turn = True
     while turn:
         try:
-            collect_data.run(group=1, signal="signal_15")
+            collect_data.run(group=1, signal="signal_20")
             turn = False
             break
         except Exception as e:
