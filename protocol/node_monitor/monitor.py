@@ -138,6 +138,15 @@ class Monitor:
                     if signal_excute_status["stable_number"] == 0:
                         signal_excute_status["judge_stable_time"] = self._get_current_datatime_str()
                         signal_excute_status["convergence_duration"] = signal_excute_status["monitor_cycle_start_time"] - signal_excute_status["sav_start"]
+                        sav_start_time = signal_excute_status["sav_start"]
+                        grep_command = subprocess.run(f'grep "FIB STABILIZED" {self.DATA_PATH}/logs/server.log |awk -F "  " \'{{ print $1 }}\' | head -n 1',shell=True, capture_output=True, encoding='utf-8')
+                        if grep_command.returncode != 0:
+                            raise
+                        fib_convergence_time = grep_command.stdout.replace("\n", "")[1:-1]
+                        fib_convergence_timestamp = int(time.mktime(time.strptime(fib_convergence_time, "%Y-%m-%d %H:%M:%S,%f")))
+                        fib_convergence_duration = fib_convergence_timestamp - sav_start_time + 8 * 60 * 60
+                        signal_excute_status.update({"fib_convergence_duration": fib_convergence_duration})
+
                 else:
                     signal_excute_status.update({"stable_number": 10})
                     signal_excute_status.update({"pre_sav_rule_number": current_sav_rule_number})
