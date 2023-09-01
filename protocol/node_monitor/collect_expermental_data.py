@@ -30,6 +30,7 @@ class CollectData:
 
     def observe_experiment(self, command_scope_list, group, signal):
         print(f"观察第{str(group)}组{signal}的实验室结果:")
+        all_result = []
         for as_number in command_scope_list:
             print(f"AS-{as_number}")
             # if as_number == "3356":
@@ -41,11 +42,13 @@ class CollectData:
                       "judge_stable_time": signal_execute_status["judge_stable_time"],
                       "convergence_duration": signal_execute_status["convergence_duration"]}
             print(result)
+            all_result.append({f"AS-{as_number}": result["convergence_duration"]})
             mkdir_command = f'mkdir -p {self.OUT_PATH}/{str(group)}/{signal}/{as_number}'
             result = subprocess.run(mkdir_command, shell=True, capture_output=True, encoding='utf-8')
             mv_command = f'cp {self.RUN_LOG_PATH}/{as_number}/signal_execute_status.txt {self.OUT_PATH}/{group}/{signal}/{as_number}/'
             result = subprocess.run(mv_command, shell=True, capture_output=True, encoding='utf-8')
             print(result.returncode)
+        print(all_result)
 
     def replenish_signal_15_FIB_convergence_duration(self):
         directory = "/root/sav_simulate/savop_back/data/NSDI/result/1/signal_15"
@@ -83,7 +86,7 @@ if __name__ == "__main__":
     turn = True
     while turn:
         try:
-            collect_data.run(group=1, signal="signal_20")
+            collect_data.run(group=1, signal="signal_100")
             turn = False
             break
         except Exception as e:

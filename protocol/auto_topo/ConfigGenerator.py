@@ -82,6 +82,74 @@ class BirdConfigGenerator:
             with open(f"{DEPLOY_DIR}/configs/conf_nsdi/{as_no}.conf", "w") as f:
                 f.write(content)
 
+    def config_limit_prefix_length_generator(self, topo_list):
+        print("创建bird的配置文件")
+        for index in range(0, len(topo_list)):
+            prefix_length = 100
+            router = topo_list[index]
+            router_id = router["router_id"]
+            router_name = router["router_name"].lower()
+            as_no = router["as_no"]
+            content = f"router id {router_id};\n"
+            content += "ipv4 table master4{\n\tsorted 1;\n};\n"
+            content += "roa4 table r4{\n\tsorted 1;\n};\n"
+            content += "protocol device {\n\tscan time 60;\n\tinterface \"eth_*\";\n};\n"
+            content += "protocol kernel {" \
+                       "\n\tscan time 60;" \
+                       "\n\tipv4 {" \
+                       "\n\t\texport all;" \
+                       "\n\t\timport all;" \
+                       "\n\t};" \
+                       "\n\tlearn;" \
+                       "\n\tpersist;" \
+                       "\n};\n"
+            content += 'protocol direct {\n\tipv4;\n\tinterface "eth_*";\n};\n'
+            content += "protocol static {\n\tipv4 {\n\t\texport all;\n\t\timport all;\n\t};"
+            for prefix in router["prefixs"]:
+                if "0.0.0.0" in prefix:
+                    continue
+                prefix_length -= 1
+                content += f"\n\troute {prefix} blackhole;"
+                if prefix_length == 0:
+                    break
+            content += "\n};\n"
+            content += f"template bgp basic{{\n\tlocal as {as_no};\n\tlong lived graceful restart on;\n\tdebug all;" \
+                       f"\n\tenable extended messages;" \
+                       f"\n\tipv4{{" \
+                       f"\n\t\texport all;" \
+                       f"\n\t\timport all;" \
+                       f"\n\t\timport table on;" \
+                       f"\n\t}};\n}};\n"
+            content += "template bgp sav_inter from basic{" \
+                       "\n\trpdp4{" \
+                       "\n\t\timport none;" \
+                       "\n\t\texport none;" \
+                       "\n\t};\n};\n"
+            proto_count = 0
+            for interface_name, interface_value in router["net_interface"].items():
+                router_name, role, IP_Addr = router_name, interface_value["role"], interface_value["IP_Addr"],
+                peer_router_name = interface_name.replace("eth", "node")
+                peer_interface = "eth_" + as_no
+                for peer_router in topo_list:
+                    if peer_router["router_name"] != peer_router_name:
+                        continue
+                    peer_router_as_No = peer_router["as_no"]
+                    peer_interface_IP_Addr = peer_router["net_interface"][peer_interface]["IP_Addr"]
+                    break
+                protocol_name = str(as_no) + "_" + peer_router_name.split("_")[1]
+                # delay参数，网络端口延迟启动
+                content += f'protocol bgp savbgp_{protocol_name} from sav_inter{{ \
+                    \n\tdescription "modified BGP between node {router_name} and {peer_router_name}"; \
+                    \n\tlocal role {role}; \
+                    \n\tsource address {IP_Addr}; \
+                    \n\tneighbor {peer_interface_IP_Addr}  as {peer_router_as_No}; \
+                    \n\tinterface "{interface_name}"; \
+                    \n\tconnect delay time {proto_count}; \
+                    \n\tdirect;\n}};\n'
+                proto_count += 1
+            with open(f"{DEPLOY_DIR}/configs/conf_nsdi/{as_no}.conf", "w") as f:
+                f.write(content)
+
 
 class SavAgentConfigGenerator:
     def config_generator(self, topo_list):
@@ -104,10 +172,10 @@ class SavAgentConfigGenerator:
                     peer_interface_IP_Addr = peer_router["net_interface"][peer_interface_name]["IP_Addr"]
                     peer_router_id = peer_router["router_id"]
                     peer_role = peer_router["net_interface"][peer_interface_name]["role"]
+                    links.append({"remote_addr": f"{peer_interface_IP_Addr}:5000", "remote_as": peer_router_as_no,
+                                  "remote_id": peer_router_id, "local_role": local_interface_role,
+                                  "interface_name": interface_name})
                     break
-                links.append({"remote_addr": f"{peer_interface_IP_Addr}:5000", "remote_as": peer_router_as_no,
-                              "remote_id": "peer_router_id", "local_role": local_interface_role,
-                              "interface_name": interface_name})
             links_str = json.dumps(links)
             json_content = f'{{' \
                            '\n\t"apps": [' \
@@ -194,6 +262,9 @@ class TopoConfigGenerator:
                 del node["net_interface"][local_interface_name]
                 peer_interface_name = local_router_name.replace("node", "eth")
                 peer_router_name = local_interface_name.replace("eth", "node")
+                peer_router_as_No = peer_router_name.split("_")[1]
+                if peer_router_as_No not in as_no_list:
+                    continue
                 for peer_router in topo_list_copy:
                     if peer_router["router_name"] != peer_router_name:
                         continue
@@ -287,6 +358,7 @@ class ConfigGenerator:
         self.business_relationship_data = self.business_relation_data_analysis(path=business_relation_file_path)
         self.topo_list = self._convert_data_format()
         self.topo_list_bfs = self._BFS(topo_list=self.topo_list)
+        print("\n")
 
     def mode_data_analysis(self, path):
         print(f"分析{path}, 获取模型数据")
@@ -323,6 +395,9 @@ class ConfigGenerator:
             node = {"No": index, "router_name": f"node_{as_num}", "as_no": as_num, "prefixs": as_content["prefix"]}
             links = self._get_business_role(as_num, as_content["neighbors"])
             node["links"] = links
+            if len(links) == 0:
+                # 一个结点所有的商业关系都无法确定，则舍弃这个结点
+                continue
             topo_list.append(node)
             index += 1
         # 产生网口、IP、router_id
@@ -396,23 +471,23 @@ class ConfigGenerator:
                     links.append({f"node_{neighbor}": "peer"})
                 else:
                     raise
-            else:
-                # raise "商业关系在真实的环境中不存在"
-                # global start
-                # start = start + 1
-                neighbor_length = len(neighbor_list)
-                neighbor_neighbor_length = len(self.mode_data[neighbor]["neighbors"])
-                if neighbor_length > neighbor_neighbor_length:
-                    links.append({f"node_{neighbor}": "customer"})
-                elif neighbor_length < neighbor_neighbor_length:
-                    links.append({f"node_{neighbor}": "provider"})
-                elif int(neighbor) > int(as_num):
-                    links.append({f"node_{neighbor}": "provider"})
-                elif int(neighbor) < int(as_num):
-                    links.append({f"node_{neighbor}": "customer"})
-                else:
-                    raise
-                # print(start)
+            # 调整实验策略，不再使用真实环境中不存在的商业关系
+            # else:
+            #     # raise "商业关系在真实的环境中不存在"
+            #     # global start
+            #     # start = start + 1
+            #     neighbor_length = len(neighbor_list)
+            #     neighbor_neighbor_length = len(self.mode_data[neighbor]["neighbors"])
+            #     if neighbor_length > neighbor_neighbor_length:
+            #         links.append({f"node_{neighbor}": "customer"})
+            #     elif neighbor_length < neighbor_neighbor_length:
+            #         links.append({f"node_{neighbor}": "provider"})
+            #     elif int(neighbor) > int(as_num):
+            #         links.append({f"node_{neighbor}": "provider"})
+            #     elif int(neighbor) < int(as_num):
+            #         links.append({f"node_{neighbor}": "customer"})
+            #     else:
+            #         raise
         return links
 
     def run(self):
@@ -422,10 +497,10 @@ class ConfigGenerator:
         self.docker_compose_generator.bash_generator(topo_list=self.topo_list)
 
     def user_define_run(self):
-        self.bird_config_generator.config_generator(topo_list=self.topo_list)
-        self.sav_agent_config_generator.config_generator(topo_list=self.topo_list)
-        self.topo_config_generator.config_generator(topo_list=self.topo_list)
-        self.docker_compose_generator.bash_generator(topo_list=self.topo_list, container_run_command="python3 /root/savop/sav-agent/monitor.py")
+        self.bird_config_generator.config_limit_prefix_length_generator(topo_list=self.topo_list_bfs[0:50])
+        self.sav_agent_config_generator.config_generator(topo_list=self.topo_list_bfs[0:50])
+        self.topo_config_generator.config_generator(topo_list=self.topo_list_bfs[0:50])
+        self.docker_compose_generator.bash_generator(topo_list=self.topo_list_bfs[0:50], container_run_command="python3 /root/savop/sav-agent/monitor.py")
 
     def _BFS(self, topo_list, start=0):
         # 无向图、广度优先算法
@@ -449,9 +524,9 @@ class ConfigGenerator:
                     q.put(neighbor)
         return topo_list_bfs
 
-    def caculate_lan_as(self, rate):
+    def caculate_lan_as(self, length, rate):
         # 计算rate比例的局域网
-        lan_length = int(len(self.topo_list_bfs) * rate / 100)
+        lan_length = int(length * rate / 100)
         command_scope = ""
         for index in range(0, lan_length):
             if index < lan_length - 1:
@@ -465,11 +540,11 @@ class ConfigGenerator:
                        "command_date": command_date}
         return signal_dict
 
-    def generetor_signal(self, off=False):
+    def generetor_signal(self, length, off=False):
         # 产生控制不同局域网的信号文件
         for rate in range(5, 101, 5):
             time.sleep(2)
-            signal = self.caculate_lan_as(rate=rate)
+            signal = self.caculate_lan_as(length=length ,rate=rate)
             print(f'signal_{str(rate)}.txt')
             print(signal)
             if off:
@@ -499,15 +574,12 @@ class ConfigGenerator:
                 json.dump(signal, json_file)
 
 
-
-
-
 if __name__ == "__main__":
     mode_file = "/root/sav_simulate/savop_back/data/NSDI/small_as_topo_all_prefixes.json"
     business_relation_file = "/root/sav_simulate/savop_back/data/NSDI/20230801.as-rel.txt"
     config_generator = ConfigGenerator(mode_file, business_relation_file)
     # config_generator.run()
-    # config_generator.user_define_run()
+    config_generator.user_define_run()
     # 计算局域网的拓扑结点：
     # for rate in range(5, 101, 5):
     #     time.sleep(2)
@@ -516,6 +588,6 @@ if __name__ == "__main__":
     #     print(signal)
     #     with open(f'/root/sav_simulate/savop_back/data/NSDI/signal/signal_{str(rate)}.txt', "w") as json_file:
     #         json.dump(signal, json_file)
-    # print("over!!!!!!!!!!!!!")
-    config_generator.generetor_signal()
+    print("over!!!!!!!!!!!!!")
+    # config_generator.generetor_signal(length=50, off=True)
 
