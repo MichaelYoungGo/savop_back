@@ -28,27 +28,33 @@ class CollectData:
         command_scope_list = signal_json["command_scope"].split(",")
         return command_scope_list
 
-    def observe_experiment(self, command_scope_list, group, signal):
-        print(f"观察第{str(group)}组{signal}的实验室结果:")
+    def observe_experiment(self, command_scope_list, group, signal_):
+        print(f"观察第{str(group)}组{signal_}%的实验室结果:")
+        with open('/root/sav_simulate/sav-start/build/signal/signal.txt', 'r') as f:
+            signal = json.load(f)
+        source = signal["source"]
         all_result = []
         for as_number in command_scope_list:
-            print(f"AS-{as_number}")
-            # if as_number == "3356":
+            if (int(as_number) in [701, 3491, 6461, 6453, 1239, 5511, 6762, 2914, 3257, 7018, 174, 1299, 209, 3356]) and (source in ["EFP-uRPF-Algorithm-A_app", "EFP-uRPF-Algorithm-B_app"]):
+                continue
+            # if int(as_number) in [33891, 16735, 209, 3549]:
             #     continue
+            print(f"AS-{as_number}")
             with open(f"{self.RUN_LOG_PATH}/{as_number}/signal_execute_status.txt", "r") as f:
                 signal_execute_status = json.load(f)
             print(signal_execute_status)
             result = {"command": signal_execute_status["command"],
                       "judge_stable_time": signal_execute_status["judge_stable_time"],
-                      "convergence_duration": signal_execute_status["convergence_duration"]}
+                      "sav_convergence_duration": signal_execute_status["convergence_duration"],
+                      "fib_convergence_duration": signal_execute_status["fib_convergence_duration"],
+                      "sav_rule_number": signal_execute_status["pre_sav_rule_number"]}
             print(result)
-            all_result.append({f"AS-{as_number}": result["convergence_duration"]})
-            mkdir_command = f'mkdir -p {self.OUT_PATH}/{str(group)}/{signal}/{as_number}'
+            all_result.append({f"AS-{as_number}": result})
+            mkdir_command = f'mkdir -p {self.OUT_PATH}/{source}/{group}/{signal_}/{as_number}'
             result = subprocess.run(mkdir_command, shell=True, capture_output=True, encoding='utf-8')
-            mv_command = f'cp {self.RUN_LOG_PATH}/{as_number}/signal_execute_status.txt {self.OUT_PATH}/{group}/{signal}/{as_number}/'
+            mv_command = f'cp {self.RUN_LOG_PATH}/{as_number}/signal_execute_status.txt {self.OUT_PATH}/{source}/{group}/{signal_}/{as_number}/'
             result = subprocess.run(mv_command, shell=True, capture_output=True, encoding='utf-8')
-            print(result.returncode)
-        print(all_result)
+        return all_result
 
     def replenish_signal_15_FIB_convergence_duration(self):
         directory = "/root/sav_simulate/savop_back/data/NSDI/result/1/signal_15"
@@ -76,7 +82,17 @@ class CollectData:
     def run(self, group, signal):
         command_scope_list = self.parse_signal(signal=signal)
         command_scope_list.reverse()
-        self.observe_experiment(command_scope_list=command_scope_list, group=group, signal=signal)
+        all_result = self.observe_experiment(command_scope_list=command_scope_list, group=group, signal_=signal)
+        sav_convergence_duration, fib_convergence_duration, sav_rule_number = 0, 0, 0
+        for result in all_result:
+            sav_rule_number += list(result.values())[0]["sav_rule_number"]
+            if list(result.values())[0]["sav_convergence_duration"] > sav_convergence_duration:
+                sav_convergence_duration = list(result.values())[0]["sav_convergence_duration"]
+            if list(result.values())[0]["fib_convergence_duration"] > fib_convergence_duration:
+                fib_convergence_duration = list(result.values())[0]["fib_convergence_duration"]
+        print(f"sav_convergence_duration: {sav_convergence_duration}\n "
+              f"fib_convergence_duration: {fib_convergence_duration}\n"
+              f" sav_rule_number: {sav_rule_number}\n")
 
 
 if __name__ == "__main__":
@@ -86,7 +102,7 @@ if __name__ == "__main__":
     turn = True
     while turn:
         try:
-            collect_data.run(group=1, signal="signal_100")
+            collect_data.run(group=1, signal="signal_80")
             turn = False
             break
         except Exception as e:

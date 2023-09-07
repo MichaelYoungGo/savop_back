@@ -136,17 +136,16 @@ class BirdConfigGenerator:
                         continue
                     peer_router_as_No = peer_router["as_no"]
                     peer_interface_IP_Addr = peer_router["net_interface"][peer_interface]["IP_Addr"]
-                    break
-                protocol_name = str(as_no) + "_" + peer_router_name.split("_")[1]
-                # delay参数，网络端口延迟启动
-                content += f'protocol bgp savbgp_{protocol_name} from sav_inter{{ \
-                    \n\tdescription "modified BGP between node {router_name} and {peer_router_name}"; \
-                    \n\tlocal role {role}; \
-                    \n\tsource address {IP_Addr}; \
-                    \n\tneighbor {peer_interface_IP_Addr}  as {peer_router_as_No}; \
-                    \n\tinterface "{interface_name}"; \
-                    \n\tconnect delay time {proto_count}; \
-                    \n\tdirect;\n}};\n'
+                    protocol_name = str(as_no) + "_" + peer_router_name.split("_")[1]
+                    # delay参数，网络端口延迟启动
+                    content += f'protocol bgp savbgp_{protocol_name} from sav_inter{{ \
+                        \n\tdescription "modified BGP between node {router_name} and {peer_router_name}"; \
+                        \n\tlocal role {role}; \
+                        \n\tsource address {IP_Addr}; \
+                        \n\tneighbor {peer_interface_IP_Addr}  as {peer_router_as_No}; \
+                        \n\tinterface "{interface_name}"; \
+                        \n\tconnect delay time {proto_count}; \
+                        \n\tdirect;\n}};\n'
                 proto_count += 1
             with open(f"{DEPLOY_DIR}/configs/conf_nsdi/{as_no}.conf", "w") as f:
                 f.write(content)
@@ -222,6 +221,8 @@ class SavAgentConfigGenerator:
                                          "remote_addr": peer_router_id}}})
                     break
             link_map_str = json.dumps(link_map)
+            # 不做quic实验时，不需要使用link_map信息
+            link_map_str = {}
             json_content = '{' \
                            '\n\t"apps": [' \
                            '\n\t\t"strict-uRPF",' \
@@ -240,6 +241,7 @@ class SavAgentConfigGenerator:
                            '\n\t\t"server_enabled": false' \
                            '\n\t},' \
                            f'\n\t"link_map": {link_map_str},' \
+                           '\n\t"quic_config": {"server_enabled": true},' \
                            f'\n\t"local_as":{local_as},' \
                            f'\n\t"rpdp_id": "{id_}",' \
                            '\n\t"location": "edge_full"' \
@@ -401,9 +403,13 @@ class DockerComposeGenerator:
                     \n      - ./logs/{as_no}/data:/root/savop/sav-agent/data/ \
                     \n      - ./signal:/root/savop/signal \
                     \n      - /etc/localtime:/etc/localtime \
+                    \n      - ./nodes/{router_name}/cert.pem:/root/savop/cert.pem \
+                    \n      - ./nodes/{router_name}/key.pem:/root/savop/key.pem \
+                    \n      - ./ca/cert.pem:/root/savop/ca_cert.pem \
                     \n    network_mode: none \
                     \n    command: \
-                    \n        {container_run_command}\n"
+                    \n        {container_run_command} \
+                    \n    privileged: true\n"
             yml_content = yml_content + content
         with open(f"{DEPLOY_DIR}/docker_compose/docker_compose_nsdi.yml", "w") as f:
             f.write(yml_content)
@@ -567,8 +573,8 @@ class ConfigGenerator:
         self.bird_config_generator.config_limit_prefix_length_generator(topo_list=self.topo_list_bfs[0:50])
         self.sav_agent_config_generator.config_generator(topo_list=self.topo_list_bfs[0:50])
         self.topo_config_generator.config_generator(topo_list=self.topo_list_bfs[0:50])
-        # self.docker_compose_generator.config_generator(topo_list=self.topo_list_bfs[0:50], container_run_command="python3 /root/savop/sav-agent/monitor.py")
-        self.docker_compose_generator.config_generator(topo_list=self.topo_list_bfs[0:50])
+        self.docker_compose_generator.config_generator(topo_list=self.topo_list_bfs[0:50], container_run_command="python3 /root/savop/sav-agent/monitor.py")
+        #self.docker_compose_generator.config_generator(topo_list=self.topo_list_bfs[0:50])
         self.ca_config_generator.config_generator(topo_list=self.topo_list_bfs[0:50])
 
     def run_3_nodes(self):
@@ -601,7 +607,7 @@ class ConfigGenerator:
                     q.put(neighbor)
         return topo_list_bfs
 
-    def caculate_lan_as(self, length, rate):
+    def caculate_lan_as(self, length, rate, source):
         # 计算rate比例的局域网
         lan_length = int(length * rate / 100)
         command_scope = ""
@@ -614,14 +620,14 @@ class ConfigGenerator:
         command_timestamp = str(int(time.time())) + f"{rate:03d}"
         command_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         signal_dict = {"command": "start", "command_scope": command_scope, "command_timestamp": command_timestamp,
-                       "command_date": command_date}
+                       "command_date": command_date, "source": source}
         return signal_dict
 
-    def generetor_signal(self, length, off=False):
+    def generetor_signal(self, length, source, off=False):
         # 产生控制不同局域网的信号文件
         for rate in range(5, 101, 5):
             time.sleep(2)
-            signal = self.caculate_lan_as(length=length, rate=rate)
+            signal = self.caculate_lan_as(length=length, rate=rate, source=source)
             print(f'signal_{str(rate)}.txt')
             print(signal)
             if off:
@@ -665,6 +671,6 @@ if __name__ == "__main__":
     #     print(signal)
     #     with open(f'/root/sav_simulate/savop_back/data/NSDI/signal/signal_{str(rate)}.txt', "w") as json_file:
     #         json.dump(signal, json_file)
-    print("over!!!!!!!!!!!!!")
-    # config_generator.generetor_signal(length=50, off=True)
+    # print("over!!!!!!!!!!!!!")
+    # config_generator.generetor_signal(length=50, source="EFP-uRPF-Algorithm-A_app", off=True)
 
