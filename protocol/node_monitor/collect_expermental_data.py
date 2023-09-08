@@ -37,8 +37,8 @@ class CollectData:
         for as_number in command_scope_list:
             if (int(as_number) in [701, 3491, 6461, 6453, 1239, 5511, 6762, 2914, 3257, 7018, 174, 1299, 209, 3356]) and (source in ["EFP-uRPF-Algorithm-A_app", "EFP-uRPF-Algorithm-B_app"]):
                 continue
-            # if int(as_number) in [33891, 16735, 209, 3549]:
-            #     continue
+            if int(as_number) in [9607, 33891, 16735, 209]:
+                continue
             print(f"AS-{as_number}")
             with open(f"{self.RUN_LOG_PATH}/{as_number}/signal_execute_status.txt", "r") as f:
                 signal_execute_status = json.load(f)
@@ -102,7 +102,7 @@ if __name__ == "__main__":
     turn = True
     while turn:
         try:
-            collect_data.run(group=1, signal="signal_80")
+            collect_data.run(group=1, signal="signal_90")
             turn = False
             break
         except Exception as e:
