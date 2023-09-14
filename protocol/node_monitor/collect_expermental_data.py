@@ -37,18 +37,19 @@ class CollectData:
         for as_number in command_scope_list:
             if (int(as_number) in [701, 3491, 6461, 6453, 1239, 5511, 6762, 2914, 3257, 7018, 174, 1299, 209, 3356]) and (source in ["EFP-uRPF-Algorithm-A_app", "EFP-uRPF-Algorithm-B_app"]):
                 continue
-            if int(as_number) in [9607, 33891, 16735, 209]:
-                continue
+            # if int(as_number) in [4809, 9607]:
+            #     continue
             print(f"AS-{as_number}")
             with open(f"{self.RUN_LOG_PATH}/{as_number}/signal_execute_status.txt", "r") as f:
                 signal_execute_status = json.load(f)
-            print(signal_execute_status)
+            print(f"{signal_execute_status}\n")
             result = {"command": signal_execute_status["command"],
                       "judge_stable_time": signal_execute_status["judge_stable_time"],
                       "sav_convergence_duration": signal_execute_status["convergence_duration"],
                       "fib_convergence_duration": signal_execute_status["fib_convergence_duration"],
-                      "sav_rule_number": signal_execute_status["pre_sav_rule_number"]}
-            print(result)
+                      "sav_rule_number": signal_execute_status["pre_sav_rule_number"],
+                      "grpc_communicate_msg_size": signal_execute_status["communication_message_size"]["rpdp_app"]["grpc"]["send"]["count"]}
+            print(f"avail_information: {result}\n")
             all_result.append({f"AS-{as_number}": result})
             mkdir_command = f'mkdir -p {self.OUT_PATH}/{source}/{group}/{signal_}/{as_number}'
             result = subprocess.run(mkdir_command, shell=True, capture_output=True, encoding='utf-8')
@@ -83,16 +84,18 @@ class CollectData:
         command_scope_list = self.parse_signal(signal=signal)
         command_scope_list.reverse()
         all_result = self.observe_experiment(command_scope_list=command_scope_list, group=group, signal_=signal)
-        sav_convergence_duration, fib_convergence_duration, sav_rule_number = 0, 0, 0
+        sav_convergence_duration, fib_convergence_duration, sav_rule_number, grpc_communicate_msg_size = 0, 0, 0, 0
         for result in all_result:
             sav_rule_number += list(result.values())[0]["sav_rule_number"]
+            grpc_communicate_msg_size += list(result.values())[0]["grpc_communicate_msg_size"]
             if list(result.values())[0]["sav_convergence_duration"] > sav_convergence_duration:
                 sav_convergence_duration = list(result.values())[0]["sav_convergence_duration"]
             if list(result.values())[0]["fib_convergence_duration"] > fib_convergence_duration:
                 fib_convergence_duration = list(result.values())[0]["fib_convergence_duration"]
         print(f"sav_convergence_duration: {sav_convergence_duration}\n "
               f"fib_convergence_duration: {fib_convergence_duration}\n"
-              f" sav_rule_number: {sav_rule_number}\n")
+              f"sav_rule_number: {sav_rule_number}\n"
+              f"grpc_communicate_msg_size: {grpc_communicate_msg_size}\n")
 
 
 if __name__ == "__main__":
@@ -102,7 +105,7 @@ if __name__ == "__main__":
     turn = True
     while turn:
         try:
-            collect_data.run(group=1, signal="signal_90")
+            collect_data.run(group=1, signal="signal_10")
             turn = False
             break
         except Exception as e:

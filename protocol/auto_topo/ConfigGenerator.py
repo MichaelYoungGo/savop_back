@@ -83,7 +83,7 @@ class BirdConfigGenerator:
             with open(f"{DEPLOY_DIR}/configs/conf_nsdi/{as_no}.conf", "w") as f:
                 f.write(content)
 
-    def config_limit_prefix_length_generator(self, topo_list):
+    def config_limit_prefix_length_generator(self, topo_list, directory, extent_bgp):
         print("创建bird的配置文件")
         for index in range(0, len(topo_list)):
             prefix_length = 100
@@ -105,6 +105,13 @@ class BirdConfigGenerator:
                        "\n\tpersist;" \
                        "\n};\n"
             content += 'protocol direct {\n\tipv4;\n\tinterface "eth_*";\n};\n'
+            content += "protocol rpki rpki1\n" \
+                       "{\n" \
+                       "\tdebug all;\n" \
+                       "\troa4 { table r4; };\n" \
+                       "\tremote 10.10.0.3 port 3323;\n" \
+                       "\tretry 1;\n" \
+                       "}\n"
             content += "protocol static {\n\tipv4 {\n\t\texport all;\n\t\timport all;\n\t};"
             for prefix in router["prefixs"]:
                 if "0.0.0.0" in prefix:
@@ -138,7 +145,11 @@ class BirdConfigGenerator:
                     peer_interface_IP_Addr = peer_router["net_interface"][peer_interface]["IP_Addr"]
                     protocol_name = str(as_no) + "_" + peer_router_name.split("_")[1]
                     # delay参数，网络端口延迟启动
-                    content += f'protocol bgp savbgp_{protocol_name} from sav_inter{{ \
+                    if extent_bgp is True:
+                        sav_inter = "sav_inter"
+                    else:
+                        sav_inter = "basic"
+                    content += f'protocol bgp savbgp_{protocol_name} from {sav_inter}{{ \
                         \n\tdescription "modified BGP between node {router_name} and {peer_router_name}"; \
                         \n\tlocal role {role}; \
                         \n\tsource address {IP_Addr}; \
@@ -147,12 +158,12 @@ class BirdConfigGenerator:
                         \n\tconnect delay time {proto_count}; \
                         \n\tdirect;\n}};\n'
                 proto_count += 1
-            with open(f"{DEPLOY_DIR}/configs/conf_nsdi/{as_no}.conf", "w") as f:
+            with open(f"{DEPLOY_DIR}/configs/conf_{directory}/{as_no}.conf", "w") as f:
                 f.write(content)
 
 
 class SavAgentConfigGenerator:
-    def config_generator(self, topo_list):
+    def config_generator(self, topo_list, directory, on_grpc):
         print("创建SavAgent的配置文件")
         for index in range(0, len(topo_list)):
             node = topo_list[index]
@@ -204,6 +215,7 @@ class SavAgentConfigGenerator:
             #                '\n\t"location": "edge"' \
             #                '\n}\n'
             # 新的SavAgent.json格式
+
             link_map = {}
             for interface_name, interface_value in node["net_interface"].items():
                 for peer_router in topo_list:
@@ -218,11 +230,14 @@ class SavAgentConfigGenerator:
                         "link_type": "grpc",
                         "link_data": {
                                          "remote_addr": f"{peer_interface_IP_Addr}:5000",
-                                         "remote_addr": peer_router_id}}})
+                                         "remote_id": peer_router_id}}})
                     break
             link_map_str = json.dumps(link_map)
             # 不做quic实验时，不需要使用link_map信息
-            link_map_str = {}
+            server_enabled = "true"
+            if on_grpc is False:
+                link_map_str = {}
+                server_enabled = "false"
             json_content = '{' \
                            '\n\t"apps": [' \
                            '\n\t\t"strict-uRPF",' \
@@ -238,20 +253,20 @@ class SavAgentConfigGenerator:
                            '\n\t"ca_port": 3000,' \
                            '\n\t"grpc_config": {' \
                            '\n\t\t"server_addr": "0.0.0.0:5000",' \
-                           '\n\t\t"server_enabled": false' \
+                           f'\n\t\t"server_enabled": {server_enabled}' \
                            '\n\t},' \
                            f'\n\t"link_map": {link_map_str},' \
-                           '\n\t"quic_config": {"server_enabled": true},' \
+                           f'\n\t"quic_config": {{"server_enabled": {server_enabled}}},' \
                            f'\n\t"local_as":{local_as},' \
                            f'\n\t"rpdp_id": "{id_}",' \
                            '\n\t"location": "edge_full"' \
                            '\n}\n'
-            with open(f"{DEPLOY_DIR}/configs/conf_nsdi/{local_as}.json", "w") as f:
+            with open(f"{DEPLOY_DIR}/configs/conf_{directory}/{local_as}.json", "w") as f:
                 f.write(json_content)
 
 
 class TopoConfigGenerator:
-    def config_generator(self, topo_list):
+    def config_generator(self, topo_list, filename):
         print("创建网络拓扑的配置文件")
         host_run_content = '#!/usr/bin/bash' \
                            '\n# remove folders created last time' \
@@ -320,7 +335,7 @@ class TopoConfigGenerator:
                 peer_pos = as_no_list.index(peer_router_as_No)
                 host_run_content += f"\n# {local_router_name}-{peer_router_as_No}\
                         \necho \"adding edge {local_router_name}-{peer_router_as_No}\"\
-                        \nsleep 0.5\
+                        \nsleep 1\
                         \nfunCreateV '{local_interface_name}' '{peer_interface_name}' '{local_pos}' '{peer_pos}' '{local_interface_IP_Addr}/24' '{peer_interface_IP_Addr}/24'"
         ###########################################################################################
         host_run_content += "\nsleep 15"
@@ -334,12 +349,12 @@ class TopoConfigGenerator:
                             '\n\tdocker exec -it node_${node_num} route -n -F >${FOLDER}/logs/${node_num}/router_table.txt 2>&1' \
                             '\n\tdocker exec -it node_${node_num} curl -s http://localhost:8888/sib_table/ >${FOLDER}/logs/${node_num}/sav_table.txt 2>&1' \
                             '\ndone\n'
-        with open(f"{DEPLOY_DIR}/topology/topo_nsdi.sh", "w") as f:
+        with open(f"{DEPLOY_DIR}/topology/topo_{filename}.sh", "w") as f:
             f.write(host_run_content)
 
 
 class CaConfigGenerator:
-    def config_generator(self, topo_list):
+    def config_generator(self, topo_list, directory):
         print("创建产生CA配置的脚本")
         bash_content = '#!/usr/bin/bash' \
                        '\nset -e' \
@@ -366,9 +381,9 @@ class CaConfigGenerator:
             router_name = topo_list[index]["router_name"]
             as_no = topo_list[index]["as_no"]
             content = f'echo "start refresh container {router_name} ca"\n'
-            content += f"funCGenPrivateKeyAndSign ./node_nsdi/node_{as_no} ./ca\n"
+            content += f"funCGenPrivateKeyAndSign ./node_{directory}/node_{as_no} ./ca\n"
             bash_content = bash_content + content
-        with open(f"{DEPLOY_DIR}/certification_authority/refresh_key_nsdi.sh", "w") as f:
+        with open(f"{DEPLOY_DIR}/certification_authority/refresh_key_{directory}.sh", "w") as f:
             f.write(bash_content)
         # 生成每个结点的证书
         for index in range(0, len(topo_list)):
@@ -379,13 +394,45 @@ class CaConfigGenerator:
                            '\nbasicConstraints=CA:FALSE' \
                            '\nkeyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment' \
                            f'\nsubjectAltName = DNS:{router_name}, DNS:localhost'
-            with open(f"{DEPLOY_DIR}/certification_authority/node_nsdi/{router_name}/sign.ext", "w") as f:
+            with open(f"{DEPLOY_DIR}/certification_authority/node_{directory}/{router_name}/sign.ext", "w") as f:
                 f.write(sign_content)
+
+    def aspas_generator(self, topo_list, diectory):
+        print("生成aspas.json文件")
+        aspas = {"ip": "localhost", "port": 3000, "token": "krill", "add": []}
+        as_number_list = [node["as_no"] for node in topo_list]
+        for node in topo_list:
+            as_no = node["as_no"]
+            aspas_item = {"customer": int(as_no), "providers": []}
+            for link in node["links"]:
+                if list(link.values())[0] != "customer":
+                    continue
+                if as_no not in as_number_list:
+                    continue
+                peer_as_no = list(link.keys())[0].split("_")[1]
+                aspas_item["providers"].append(f"AS{peer_as_no}(v4)")
+            if len(aspas_item["providers"]) != 0:
+                aspas["add"].append(aspas_item)
+        with open(f"{DEPLOY_DIR}/certification_authority/node_{diectory}/aspas.json", "w") as f:
+            json.dump(aspas, f, indent="\t")
+
+    def roas_generator(self, topo_list, diectory):
+        print("生成roas.json")
+        roas = {"ip": "localhost", "port": 3000, "token": "krill", "add": []}
+        for node in topo_list:
+            as_no = node["as_no"]
+            length = 100 if len(node["prefixs"]) >= 100 else len(node["prefixs"])
+            for index in range(0, length):
+                prefix = node["prefixs"][index].split("/")[0]
+                prefix_length = node["prefixs"][index].split("/")[1]
+                roas["add"].append({"asn": int(as_no), "prefix": node["prefixs"][index], "max_length": int(prefix_length)})
+        with open(f"{DEPLOY_DIR}/certification_authority/node_{diectory}/roas.json", "w") as f:
+            json.dump(roas, f, indent="\t")
 
 
 class DockerComposeGenerator:
-    def config_generator(self, topo_list, container_run_command="bash container_run.sh"):
-        print("创建DockerCompose的配置文件")
+    def config_generator(self, topo_list, file_name, container_run_command="bash container_run.sh"):
+        print("创建不需要与RPKI进行通信的DockerCompose的配置文件")
         yml_content = 'version: "2"\nservices:\n'
         for index in range(0, len(topo_list)):
             router_name = topo_list[index]["router_name"]
@@ -411,9 +458,107 @@ class DockerComposeGenerator:
                     \n        {container_run_command} \
                     \n    privileged: true\n"
             yml_content = yml_content + content
-        with open(f"{DEPLOY_DIR}/docker_compose/docker_compose_nsdi.yml", "w") as f:
+        with open(f"{DEPLOY_DIR}/docker_compose/docker_compose_{file_name}.yml", "w") as f:
             f.write(yml_content)
 
+    def rpki_generator(self, topo_list):
+        print("创建rpki的docker_compose配置文件")
+        # 文件映射恐怕还存在问题，暂时这样
+        yml_content = 'version: "2"\n' \
+                      'networks:\n' \
+                      '  ca_net:\n' \
+                      '    external: false\n' \
+                      '    ipam:\n' \
+                      '      driver: default\n' \
+                      '      config:\n' \
+                      '        - subnet: "10.10.0.0/16"\n' \
+                      'services:\n' \
+                      '  savopkrill.com:\n' \
+                      '    image: krill\n' \
+                      '    container_name: ca\n' \
+                      '    cap_add:\n' \
+                      '      - NET_ADMIN\n' \
+                      '    volumes:\n' \
+                      '      - ./add_info.py:/var/krill/add_info.py\n' \
+                      '      - ./logs/krill.log:/var/krill/logs/krill.log\n' \
+                      '      - ./logs/rsync.log:/var/krill/logs/rsync.log\n' \
+                      '      - ./krill.sh:/var/krill/start.sh\n' \
+                      '      - ./configs/krill/krill.conf:/var/krill/data/krill.conf\n' \
+                      '      - ./configs/krill/rsyncd.conf:/etc/rsyncd.conf\n' \
+                      '      - ./nodes/roas.json:/var/krill/roas.json\n' \
+                      '      - ./nodes/aspas.json:/var/krill/aspas.json\n' \
+                      '      - ./configs/krill/keys/web/cert.pem:/var/krill/data/ssl/cert.pem\n' \
+                      '      - ./configs/krill/keys/web/key.pem:/var/krill/data/ssl/key.pem\n' \
+                      '      - ./configs/krill/keys/ca/cert.pem:/usr/local/share/ca-certificates/extra/ca.crt\n' \
+                      '    networks:\n' \
+                      '      ca_net:\n' \
+                      '        ipv4_address: 10.10.0.2\n' \
+                      '    command: >\n' \
+                      '      bash /var/krill/start.sh\n' \
+                      '  roa:\n' \
+                      '    image: routinator\n' \
+                      '    container_name: roa\n' \
+                      '    cap_add:\n' \
+                      '      - NET_ADMIN\n' \
+                      '    networks:\n' \
+                      '      ca_net:\n' \
+                      '        ipv4_address: 10.10.0.3\n' \
+                      '    depends_on:\n' \
+                      '      - savopkrill.com\n' \
+                      '    volumes:\n' \
+                      '      - ./configs/routinator.conf:/etc/routinator/routinator.conf\n' \
+                      '      - ./logs/routinator.log:/var/routinator/logs/routinator.log\n' \
+                      '      - ./configs/krill/keys/ca/cert.pem:/usr/local/share/ca-certificates/extra/ca.crt\n' \
+                      '      - ./configs/krill/keys/web/cert.pem:/var/routinator/data/web.pem\n' \
+                      '      - ./configs/krill/keys/ca/cert.pem:/var/routinator/data/ca.pem\n' \
+                      '      - ./routinator.sh:/var/routinator/start_routinator.sh\n' \
+                      '    ports:\n' \
+                      '        - "8323:8323"\n' \
+                      '        - "9556:9556"\n' \
+                      '    command: >\n' \
+                      '      bash /var/routinator/start_routinator.sh\n'
+        with open(f"{DEPLOY_DIR}/docker_compose/rpki_infrastracture.yml", "w") as f:
+            f.write(yml_content)
+
+    def config_generator_with_roa(self, topo_list, container_run_command="bash container_run.sh"):
+        print("创建与RPKI进行通信的DockerCompose的配置文件")
+        yml_content = 'version: "2"\n' \
+                      'networks:\n' \
+                      '  build_ca_net:\n' \
+                      '    external: true\n' \
+                      '    ipam:\n' \
+                      '      driver: default\n' \
+                      '      config:\n' \
+                      '        - subnet: "10.10.0.0/16"\n' \
+                      'services:\n'
+        for index in range(0, len(topo_list)):
+            router_name = topo_list[index]["router_name"]
+            as_no = topo_list[index]["as_no"]
+            content = f"  {router_name}: \
+                    \n    image: savop_bird_base \
+                    \n    init: true \
+                    \n    container_name: {router_name} \
+                    \n    cap_add: \
+                    \n      - NET_ADMIN \
+                    \n    volumes: \
+                    \n      - ./configs/{as_no}.conf:/usr/local/etc/bird.conf \
+                    \n      - ./configs/{as_no}.json:/root/savop/SavAgent_config.json \
+                    \n      - ./logs/{as_no}/:/root/savop/logs/ \
+                    \n      - ./logs/{as_no}/data:/root/savop/sav-agent/data/ \
+                    \n      - ./signal:/root/savop/signal \
+                    \n      - /etc/localtime:/etc/localtime \
+                    \n      - ./nodes/{router_name}/cert.pem:/root/savop/cert.pem \
+                    \n      - ./nodes/{router_name}/key.pem:/root/savop/key.pem \
+                    \n      - ./ca/cert.pem:/root/savop/ca_cert.pem \
+                    \n    networks: \
+                    \n      build_ca_net: \
+                    \n        ipv4_address: 10.10.0.{index+4} \
+                    \n    command: \
+                    \n        {container_run_command} \
+                    \n    privileged: true\n"
+            yml_content = yml_content + content
+        with open(f"{DEPLOY_DIR}/docker_compose/docker_compose_nsdi_with_roa.yml", "w") as f:
+            f.write(yml_content)
 
 class ConfigGenerator:
     mode_data = {}
@@ -569,13 +714,15 @@ class ConfigGenerator:
         self.topo_config_generator.config_generator(topo_list=self.topo_list)
         self.docker_compose_generator.bash_generator(topo_list=self.topo_list)
 
-    def run_50_nodes(self):
-        self.bird_config_generator.config_limit_prefix_length_generator(topo_list=self.topo_list_bfs[0:50])
-        self.sav_agent_config_generator.config_generator(topo_list=self.topo_list_bfs[0:50])
-        self.topo_config_generator.config_generator(topo_list=self.topo_list_bfs[0:50])
-        self.docker_compose_generator.config_generator(topo_list=self.topo_list_bfs[0:50], container_run_command="python3 /root/savop/sav-agent/monitor.py")
-        #self.docker_compose_generator.config_generator(topo_list=self.topo_list_bfs[0:50])
-        self.ca_config_generator.config_generator(topo_list=self.topo_list_bfs[0:50])
+    def run_50_nodes_with_roa(self):
+        # self.bird_config_generator.config_limit_prefix_length_generator(topo_list=self.topo_list_bfs[0:50], directory="nsdi_with_roa", extent_bgp=False)
+        # self.sav_agent_config_generator.config_generator(topo_list=self.topo_list_bfs[0:50], directory="nsdi_with_roa", on_grpc=False)
+        # self.docker_compose_generator.rpki_generator(self.topo_list_bfs[0:50])
+        # self.docker_compose_generator.config_generator_with_roa(topo_list=self.topo_list_bfs[0:50], container_run_command="python3 /root/savop/sav-agent/monitor.py")
+        self.topo_config_generator.config_generator(topo_list=self.topo_list_bfs[0:50], filename="nsdi_with_roa")
+        # self.ca_config_generator.config_generator(topo_list=self.topo_list_bfs[0:50], directory="nsdi_with_roa")
+        # self.ca_config_generator.aspas_generator(self.topo_list_bfs[0:50], diectory="nsdi_with_roa")
+        # self.ca_config_generator.roas_generator(topo_list=self.topo_list_bfs[0:50], diectory="nsdi_with_roa")
 
     def run_3_nodes(self):
         global DEPLOY_DIR
@@ -632,7 +779,7 @@ class ConfigGenerator:
             print(signal)
             if off:
                 with open(f'/root/sav_simulate/savop_back/data/NSDI/signal/signal_{str(rate)}.txt', "w") as json_file:
-                    json.dump(signal, json_file)
+                    json.dump(signal, json_file, indent=4)
             # 更全的信号文件，包含局域网的有效边数，边的集合，但是这些内容对控制程序运行没有作用，因此存到signal_{rate}_full.txt文件中
             print("补充有效的BGP边")
             as_number_list = signal["command_scope"].split(",")
@@ -654,7 +801,7 @@ class ConfigGenerator:
                 bgp_link.update({f"node_{as_number_list[index]}": effect_link})
             signal.update({"bgp_link_number": bgp_link_number, "bgp_link": bgp_link})
             with open(f'/root/sav_simulate/savop_back/data/NSDI/signal/signal_{str(rate)}_full.txt', "w") as json_file:
-                json.dump(signal, json_file)
+                json.dump(signal, json_file, indent=4)
 
 
 if __name__ == "__main__":
@@ -662,7 +809,7 @@ if __name__ == "__main__":
     business_relation_file = "/root/sav_simulate/savop_back/data/NSDI/20230801.as-rel.txt"
     config_generator = ConfigGenerator(mode_file, business_relation_file)
     # config_generator.run_3_nodes()
-    config_generator.run_50_nodes()
+    # config_generator.run_50_nodes_with_roa()
     # 计算局域网的拓扑结点：
     # for rate in range(5, 101, 5):
     #     time.sleep(2)
@@ -672,5 +819,5 @@ if __name__ == "__main__":
     #     with open(f'/root/sav_simulate/savop_back/data/NSDI/signal/signal_{str(rate)}.txt', "w") as json_file:
     #         json.dump(signal, json_file)
     # print("over!!!!!!!!!!!!!")
-    # config_generator.generetor_signal(length=50, source="EFP-uRPF-Algorithm-A_app", off=True)
+    config_generator.generetor_signal(length=50, source="BAR", off=True)
 

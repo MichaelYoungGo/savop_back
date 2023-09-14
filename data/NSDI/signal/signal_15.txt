@@ -1,1 +1,7 @@
-{"command": "start", "command_scope": "3356,34224,3549,13335,3303,209,1299", "command_timestamp": "1693982187015", "command_date": "2023-09-06 14:36:27", "source": "EFP-uRPF-Algorithm-A_app"}
+{
+    "command": "start",
+    "command_scope": "3356,34224,3549,13335,3303,209,1299",
+    "command_timestamp": "1694657480015",
+    "command_date": "2023-09-14 10:11:20",
+    "source": "BAR"
+}

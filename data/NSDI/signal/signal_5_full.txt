@@ -1,1 +1,20 @@
-{"command": "start", "command_scope": "3356,34224", "command_timestamp": "1693982183005", "command_date": "2023-09-06 14:36:23", "source": "EFP-uRPF-Algorithm-A_app", "bgp_link_number": 2, "bgp_link": {"node_3356": [{"node_34224": "customer"}], "node_34224": [{"node_3356": "provider"}]}}
+{
+    "command": "start",
+    "command_scope": "3356,34224",
+    "command_timestamp": "1694657476005",
+    "command_date": "2023-09-14 10:11:16",
+    "source": "BAR",
+    "bgp_link_number": 2,
+    "bgp_link": {
+        "node_3356": [
+            {
+                "node_34224": "customer"
+            }
+        ],
+        "node_34224": [
+            {
+                "node_3356": "provider"
+            }
+        ]
+    }
+}

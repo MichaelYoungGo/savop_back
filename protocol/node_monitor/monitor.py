@@ -15,6 +15,7 @@ import json
 import subprocess
 from datetime import datetime
 import sqlite3
+import requests
 
 
 class Monitor:
@@ -22,17 +23,23 @@ class Monitor:
 
     def _command_executor(self, command):
         result = subprocess.run(command, shell=True, capture_output=True, encoding='utf-8')
-        # result = subprocess.run("ls /root/", shell=True, capture_output=True, encoding='utf-8')
         return result.returncode
+    
+    def _http_request_executor(self, url_str):
+        response = requests.get(f"http://localhost:8888{url_str}")
+        text_json=json.loads(response.text)
+        return text_json
+
 
     def _get_current_datatime_str(self):
         current_datetime = datetime.now()
         return current_datetime.strftime("%Y-%m-%d %H:%M:%S")
 
-    def _get_sav_rule_number(self):
+    def _get_sav_rule_number(self, source):
         conn = sqlite3.connect('/root/savop/sav-agent/data/sib.sqlite')
         cursor = conn.cursor()
-        query = "SELECT COUNT(*) FROM STB"
+        source = "bar_app" if source == "BAR" else source
+        query = f'SELECT COUNT(*) FROM STB WHERE source="{source}"'
         cursor.execute(query)
         results = cursor.fetchone()[0]
         cursor.close()
@@ -46,6 +53,9 @@ class Monitor:
             with open(f'{self.DATA_PATH}/signal/signal.txt', 'r') as f:
                 signal = json.load(f)
         except Exception as e:
+            print(e)
+            print(time.time())
+            print("signal.txt存在问题")
             signal = {}
         time.sleep(0.5)
         try:
@@ -117,6 +127,9 @@ class Monitor:
         # 根据stable_number==0和stable_time确定已经收敛无效继续监控
         with open(f'{self.DATA_PATH}/logs/signal_execute_status.txt', 'r') as f:
             signal_excute_status = json.load(f)
+        with open(f'{self.DATA_PATH}/signal/signal.txt', 'r') as f:
+            signal = json.load(f)
+        source = signal["source"]
         if signal_excute_status["monitor_node"] is False:
             return
         if "stable_number" in list(signal_excute_status.keys()) and ("judge_stable_time" in list(signal_excute_status.keys())):
@@ -127,11 +140,11 @@ class Monitor:
             # 对sav_rule进行监控，根据pre_sav_rule_number和current_sav_rule_number一致，则statble_number减1；为0时，稳定，记录时间
             # 出现十次sav_rule条数稳定，则判定sav机制已经收敛
             if signal_excute_status.get("stable_number", 11) == 11:
-                signal_excute_status.update({"pre_sav_rule_number": self._get_sav_rule_number()})
+                signal_excute_status.update({"pre_sav_rule_number": self._get_sav_rule_number(source=source)})
                 signal_excute_status.update({"monitor_cycle_start_time": int(time.time())})
                 signal_excute_status["stable_number"] = signal_excute_status["stable_number"] - 1
             else:
-                current_sav_rule_number = self._get_sav_rule_number()
+                current_sav_rule_number = self._get_sav_rule_number(source=source)
                 if current_sav_rule_number == signal_excute_status["pre_sav_rule_number"]:
                     if current_sav_rule_number != 0:
                         signal_excute_status["stable_number"] = signal_excute_status["stable_number"] - 1
@@ -146,9 +159,15 @@ class Monitor:
                         fib_convergence_timestamp = int(time.mktime(time.strptime(fib_convergence_time, "%Y-%m-%d %H:%M:%S,%f")))
                         fib_convergence_duration = fib_convergence_timestamp - sav_start_time + 8 * 60 * 60
                         signal_excute_status.update({"fib_convergence_duration": fib_convergence_duration})
-
+                        signal_excute_status.update({"communication_message_size": self._http_request_executor(url_str="/metric/")})
+                        try:
+                            source_ = "bar_app" if source == "BAR" else source
+                            self._http_request_executor(url_str=f"/refresh_proto/{source_}/")
+                        except Exception as e:
+                            pass
                 else:
                     signal_excute_status.update({"stable_number": 10})
+                    signal_excute_status.update({"source": source})
                     signal_excute_status.update({"pre_sav_rule_number": current_sav_rule_number})
                     signal_excute_status.update({"monitor_cycle_start_time": int(time.time())})
             with open(f'{self.DATA_PATH}/logs/signal_execute_status.txt', "w") as json_file:
@@ -162,6 +181,7 @@ class Monitor:
         signal_excute_status.update({"command": f'{signal["command"]}_{signal["command_timestamp"]}',
                                      "execute_start_time": f"{self._get_current_datatime_str()}",
                                      "action": action})
+        result = self._command_executor("iptables -F SAVAGENT")
         result = self._command_executor("bash /root/savop/router_kill_and_start.sh stop")
         if result == 0:
             signal_excute_status.update({"execute_end_time": f"{self._get_current_datatime_str()}",
@@ -178,6 +198,29 @@ class Monitor:
             signal = json.load(f)
         with open(f'{self.DATA_PATH}/logs/signal_execute_status.txt', 'r') as f:
             signal_excute_status = json.load(f)
+
+        # 动态更改sav-agent的配置文件
+        with open(f'{self.DATA_PATH}/SavAgent_config.json', 'r') as f:
+            sav_agent_config = json.load(f)
+        source = signal["source"]
+        if source == "rpdp_app":
+            sav_agent_config["apps"] = ["rpdp_app"]
+        elif source == "fpurpf_app":
+            sav_agent_config["apps"] = ["rpdp_app", "FP-uRPF"]
+        elif source == "strict_urpf_app":
+            sav_agent_config["apps"] = ["rpdp_app", "strict-uRPF"]
+        elif source == "loose_urpf_app":
+            sav_agent_config["apps"] = ["rpdp_app", "loose-uRPF"]
+        elif source == "EFP-uRPF-Algorithm-A_app":
+            sav_agent_config["apps"] = ["rpdp_app", "EFP-uRPF-A"]
+        elif source == "EFP-uRPF-Algorithm-B_app":
+            sav_agent_config["apps"] = ["rpdp_app", "EFP-uRPF-B"]
+        elif source == "BAR":
+            sav_agent_config["apps"] = ["rpdp_app", "BAR"]
+        else:
+            raise
+        with open(f'{self.DATA_PATH}/SavAgent_config.json', "w") as json_file:
+            json.dump(sav_agent_config, json_file)
         signal_excute_status.update({"command": f'{signal["command"]}_{signal["command_timestamp"]}',
                                      "execute_start_time": f"{self._get_current_datatime_str()}",
                                      "action": action})
@@ -198,6 +241,7 @@ class Monitor:
         while True:
             time.sleep(1)
             action = self.check_signal_file(self.DATA_PATH)
+            print(f"{time.time()}_{action}")
             # 循环，监控配置文件与sav数据库的转态
             if action == "start":
                 self.start_server(action=action)

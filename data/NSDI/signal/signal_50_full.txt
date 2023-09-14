@@ -1,1 +1,750 @@
-{"command": "start", "command_scope": "3356,34224,3549,13335,3303,209,1299,174,7018,2519,3257,3741,2914,6762,2516,38040,2152,5511,293,4837,1273,1239,6453,31133,64049", "command_timestamp": "1693982201050", "command_date": "2023-09-06 14:36:41", "source": "EFP-uRPF-Algorithm-A_app", "bgp_link_number": 230, "bgp_link": {"node_3356": [{"node_34224": "customer"}, {"node_3549": "customer"}, {"node_13335": "customer"}, {"node_3303": "customer"}, {"node_209": "peer"}, {"node_1299": "peer"}, {"node_174": "peer"}, {"node_7018": "peer"}, {"node_2519": "customer"}, {"node_3257": "peer"}, {"node_3741": "customer"}, {"node_2914": "peer"}, {"node_6762": "peer"}, {"node_2516": "customer"}, {"node_38040": "customer"}, {"node_2152": "customer"}, {"node_5511": "peer"}, {"node_293": "customer"}, {"node_4837": "customer"}, {"node_1273": "customer"}, {"node_1239": "peer"}, {"node_6453": "peer"}, {"node_31133": "customer"}, {"node_64049": "customer"}], "node_34224": [{"node_3356": "provider"}, {"node_13335": "peer"}, {"node_38040": "peer"}, {"node_6453": "provider"}, {"node_6762": "provider"}], "node_3549": [{"node_3356": "provider"}], "node_13335": [{"node_7018": "peer"}, {"node_3257": "provider"}, {"node_3356": "provider"}, {"node_3741": "peer"}, {"node_34224": "peer"}, {"node_1299": "provider"}, {"node_2152": "peer"}, {"node_293": "peer"}, {"node_2914": "provider"}, {"node_1239": "peer"}], "node_3303": [{"node_3356": "provider"}, {"node_38040": "peer"}, {"node_4837": "peer"}, {"node_6453": "peer"}, {"node_2914": "peer"}, {"node_174": "provider"}, {"node_64049": "peer"}, {"node_1273": "peer"}, {"node_3257": "peer"}], "node_209": [{"node_3356": "peer"}], "node_1299": [{"node_13335": "customer"}, {"node_7018": "peer"}, {"node_3257": "peer"}, {"node_3356": "peer"}, {"node_2519": "customer"}, {"node_38040": "customer"}, {"node_4837": "peer"}, {"node_2914": "peer"}, {"node_31133": "customer"}, {"node_174": "peer"}, {"node_6453": "peer"}, {"node_6762": "peer"}, {"node_1273": "customer"}, {"node_64049": "customer"}, {"node_1239": "peer"}, {"node_5511": "peer"}], "node_174": [{"node_3356": "peer"}, {"node_2519": "customer"}, {"node_3741": "customer"}, {"node_5511": "peer"}, {"node_7018": "peer"}, {"node_3257": "peer"}, {"node_3303": "customer"}, {"node_31133": "customer"}, {"node_1299": "peer"}, {"node_2914": "peer"}, {"node_1239": "peer"}, {"node_6453": "peer"}, {"node_38040": "customer"}, {"node_1273": "customer"}, {"node_4837": "customer"}, {"node_6762": "peer"}], "node_7018": [{"node_13335": "peer"}, {"node_1299": "peer"}, {"node_3356": "peer"}, {"node_2914": "peer"}, {"node_6453": "peer"}, {"node_5511": "peer"}, {"node_4837": "peer"}, {"node_1239": "peer"}, {"node_174": "peer"}, {"node_3257": "peer"}, {"node_6762": "peer"}], "node_2519": [{"node_3356": "provider"}, {"node_1299": "provider"}, {"node_174": "provider"}], "node_3257": [{"node_13335": "customer"}, {"node_1299": "peer"}, {"node_3356": "peer"}, {"node_2914": "peer"}, {"node_4837": "peer"}, {"node_174": "peer"}, {"node_6453": "peer"}, {"node_1239": "peer"}, {"node_1273": "peer"}, {"node_7018": "peer"}, {"node_3303": "peer"}, {"node_5511": "peer"}, {"node_6762": "peer"}], "node_3741": [{"node_13335": "peer"}, {"node_3356": "provider"}, {"node_174": "provider"}, {"node_2914": "provider"}, {"node_64049": "peer"}], "node_2914": [{"node_13335": "customer"}, {"node_6453": "peer"}, {"node_293": "peer"}, {"node_3356": "peer"}, {"node_7018": "peer"}, {"node_3257": "peer"}, {"node_38040": "customer"}, {"node_4837": "peer"}, {"node_1299": "peer"}, {"node_3741": "customer"}, {"node_1239": "peer"}, {"node_3303": "peer"}, {"node_174": "peer"}, {"node_64049": "customer"}, {"node_6762": "peer"}, {"node_1273": "peer"}, {"node_5511": "peer"}], "node_6762": [{"node_3356": "peer"}, {"node_1299": "peer"}, {"node_6453": "peer"}, {"node_2914": "peer"}, {"node_38040": "customer"}, {"node_34224": "customer"}, {"node_1273": "peer"}, {"node_5511": "peer"}, {"node_7018": "peer"}, {"node_3257": "peer"}, {"node_174": "peer"}, {"node_1239": "peer"}], "node_2516": [{"node_2152": "peer"}, {"node_3356": "provider"}], "node_38040": [{"node_6453": "provider"}, {"node_3356": "provider"}, {"node_34224": "peer"}, {"node_1299": "provider"}, {"node_2914": "provider"}, {"node_3303": "peer"}, {"node_174": "provider"}, {"node_6762": "provider"}, {"node_293": "peer"}], "node_2152": [{"node_13335": "peer"}, {"node_1239": "peer"}, {"node_2516": "peer"}, {"node_3356": "provider"}], "node_5511": [{"node_7018": "peer"}, {"node_4837": "customer"}, {"node_3356": "peer"}, {"node_174": "peer"}, {"node_1239": "peer"}, {"node_6762": "peer"}, {"node_6453": "peer"}, {"node_3257": "peer"}, {"node_1299": "peer"}, {"node_2914": "peer"}], "node_293": [{"node_13335": "peer"}, {"node_2914": "peer"}, {"node_6453": "peer"}, {"node_3356": "provider"}, {"node_1273": "peer"}, {"node_38040": "peer"}], "node_4837": [{"node_3257": "peer"}, {"node_5511": "provider"}, {"node_1299": "peer"}, {"node_6453": "peer"}, {"node_2914": "peer"}, {"node_3303": "peer"}, {"node_7018": "peer"}, {"node_3356": "provider"}, {"node_174": "provider"}, {"node_1239": "provider"}], "node_1273": [{"node_3356": "provider"}, {"node_1299": "provider"}, {"node_6453": "peer"}, {"node_293": "peer"}, {"node_3257": "peer"}, {"node_3303": "peer"}, {"node_1239": "peer"}, {"node_174": "provider"}, {"node_2914": "peer"}, {"node_6762": "peer"}], "node_1239": [{"node_13335": "peer"}, {"node_2152": "peer"}, {"node_5511": "peer"}, {"node_6453": "peer"}, {"node_7018": "peer"}, {"node_3356": "peer"}, {"node_2914": "peer"}, {"node_174": "peer"}, {"node_1299": "peer"}, {"node_3257": "peer"}, {"node_1273": "peer"}, {"node_4837": "customer"}, {"node_6762": "peer"}], "node_6453": [{"node_2914": "peer"}, {"node_7018": "peer"}, {"node_38040": "customer"}, {"node_293": "peer"}, {"node_34224": "customer"}, {"node_4837": "peer"}, {"node_3303": "peer"}, {"node_1239": "peer"}, {"node_3356": "peer"}, {"node_1299": "peer"}, {"node_174": "peer"}, {"node_3257": "peer"}, {"node_6762": "peer"}, {"node_1273": "peer"}, {"node_5511": "peer"}], "node_31133": [{"node_1299": "provider"}, {"node_3356": "provider"}, {"node_174": "provider"}], "node_64049": [{"node_1299": "provider"}, {"node_3356": "provider"}, {"node_3741": "peer"}, {"node_2914": "provider"}, {"node_3303": "peer"}]}}
+{
+    "command": "start",
+    "command_scope": "3356,34224,3549,13335,3303,209,1299,174,7018,2519,3257,3741,2914,6762,2516,38040,2152,5511,293,4837,1273,1239,6453,31133,64049",
+    "command_timestamp": "1694657494050",
+    "command_date": "2023-09-14 10:11:34",
+    "source": "BAR",
+    "bgp_link_number": 230,
+    "bgp_link": {
+        "node_3356": [
+            {
+                "node_34224": "customer"
+            },
+            {
+                "node_3549": "customer"
+            },
+            {
+                "node_13335": "customer"
+            },
+            {
+                "node_3303": "customer"
+            },
+            {
+                "node_209": "peer"
+            },
+            {
+                "node_1299": "peer"
+            },
+            {
+                "node_174": "peer"
+            },
+            {
+                "node_7018": "peer"
+            },
+            {
+                "node_2519": "customer"
+            },
+            {
+                "node_3257": "peer"
+            },
+            {
+                "node_3741": "customer"
+            },
+            {
+                "node_2914": "peer"
+            },
+            {
+                "node_6762": "peer"
+            },
+            {
+                "node_2516": "customer"
+            },
+            {
+                "node_38040": "customer"
+            },
+            {
+                "node_2152": "customer"
+            },
+            {
+                "node_5511": "peer"
+            },
+            {
+                "node_293": "customer"
+            },
+            {
+                "node_4837": "customer"
+            },
+            {
+                "node_1273": "customer"
+            },
+            {
+                "node_1239": "peer"
+            },
+            {
+                "node_6453": "peer"
+            },
+            {
+                "node_31133": "customer"
+            },
+            {
+                "node_64049": "customer"
+            }
+        ],
+        "node_34224": [
+            {
+                "node_3356": "provider"
+            },
+            {
+                "node_13335": "peer"
+            },
+            {
+                "node_38040": "peer"
+            },
+            {
+                "node_6453": "provider"
+            },
+            {
+                "node_6762": "provider"
+            }
+        ],
+        "node_3549": [
+            {
+                "node_3356": "provider"
+            }
+        ],
+        "node_13335": [
+            {
+                "node_7018": "peer"
+            },
+            {
+                "node_3257": "provider"
+            },
+            {
+                "node_3356": "provider"
+            },
+            {
+                "node_3741": "peer"
+            },
+            {
+                "node_34224": "peer"
+            },
+            {
+                "node_1299": "provider"
+            },
+            {
+                "node_2152": "peer"
+            },
+            {
+                "node_293": "peer"
+            },
+            {
+                "node_2914": "provider"
+            },
+            {
+                "node_1239": "peer"
+            }
+        ],
+        "node_3303": [
+            {
+                "node_3356": "provider"
+            },
+            {
+                "node_38040": "peer"
+            },
+            {
+                "node_4837": "peer"
+            },
+            {
+                "node_6453": "peer"
+            },
+            {
+                "node_2914": "peer"
+            },
+            {
+                "node_174": "provider"
+            },
+            {
+                "node_64049": "peer"
+            },
+            {
+                "node_1273": "peer"
+            },
+            {
+                "node_3257": "peer"
+            }
+        ],
+        "node_209": [
+            {
+                "node_3356": "peer"
+            }
+        ],
+        "node_1299": [
+            {
+                "node_13335": "customer"
+            },
+            {
+                "node_7018": "peer"
+            },
+            {
+                "node_3257": "peer"
+            },
+            {
+                "node_3356": "peer"
+            },
+            {
+                "node_2519": "customer"
+            },
+            {
+                "node_38040": "customer"
+            },
+            {
+                "node_4837": "peer"
+            },
+            {
+                "node_2914": "peer"
+            },
+            {
+                "node_31133": "customer"
+            },
+            {
+                "node_174": "peer"
+            },
+            {
+                "node_6453": "peer"
+            },
+            {
+                "node_6762": "peer"
+            },
+            {
+                "node_1273": "customer"
+            },
+            {
+                "node_64049": "customer"
+            },
+            {
+                "node_1239": "peer"
+            },
+            {
+                "node_5511": "peer"
+            }
+        ],
+        "node_174": [
+            {
+                "node_3356": "peer"
+            },
+            {
+                "node_2519": "customer"
+            },
+            {
+                "node_3741": "customer"
+            },
+            {
+                "node_5511": "peer"
+            },
+            {
+                "node_7018": "peer"
+            },
+            {
+                "node_3257": "peer"
+            },
+            {
+                "node_3303": "customer"
+            },
+            {
+                "node_31133": "customer"
+            },
+            {
+                "node_1299": "peer"
+            },
+            {
+                "node_2914": "peer"
+            },
+            {
+                "node_1239": "peer"
+            },
+            {
+                "node_6453": "peer"
+            },
+            {
+                "node_38040": "customer"
+            },
+            {
+                "node_1273": "customer"
+            },
+            {
+                "node_4837": "customer"
+            },
+            {
+                "node_6762": "peer"
+            }
+        ],
+        "node_7018": [
+            {
+                "node_13335": "peer"
+            },
+            {
+                "node_1299": "peer"
+            },
+            {
+                "node_3356": "peer"
+            },
+            {
+                "node_2914": "peer"
+            },
+            {
+                "node_6453": "peer"
+            },
+            {
+                "node_5511": "peer"
+            },
+            {
+                "node_4837": "peer"
+            },
+            {
+                "node_1239": "peer"
+            },
+            {
+                "node_174": "peer"
+            },
+            {
+                "node_3257": "peer"
+            },
+            {
+                "node_6762": "peer"
+            }
+        ],
+        "node_2519": [
+            {
+                "node_3356": "provider"
+            },
+            {
+                "node_1299": "provider"
+            },
+            {
+                "node_174": "provider"
+            }
+        ],
+        "node_3257": [
+            {
+                "node_13335": "customer"
+            },
+            {
+                "node_1299": "peer"
+            },
+            {
+                "node_3356": "peer"
+            },
+            {
+                "node_2914": "peer"
+            },
+            {
+                "node_4837": "peer"
+            },
+            {
+                "node_174": "peer"
+            },
+            {
+                "node_6453": "peer"
+            },
+            {
+                "node_1239": "peer"
+            },
+            {
+                "node_1273": "peer"
+            },
+            {
+                "node_7018": "peer"
+            },
+            {
+                "node_3303": "peer"
+            },
+            {
+                "node_5511": "peer"
+            },
+            {
+                "node_6762": "peer"
+            }
+        ],
+        "node_3741": [
+            {
+                "node_13335": "peer"
+            },
+            {
+                "node_3356": "provider"
+            },
+            {
+                "node_174": "provider"
+            },
+            {
+                "node_2914": "provider"
+            },
+            {
+                "node_64049": "peer"
+            }
+        ],
+        "node_2914": [
+            {
+                "node_13335": "customer"
+            },
+            {
+                "node_6453": "peer"
+            },
+            {
+                "node_293": "peer"
+            },
+            {
+                "node_3356": "peer"
+            },
+            {
+                "node_7018": "peer"
+            },
+            {
+                "node_3257": "peer"
+            },
+            {
+                "node_38040": "customer"
+            },
+            {
+                "node_4837": "peer"
+            },
+            {
+                "node_1299": "peer"
+            },
+            {
+                "node_3741": "customer"
+            },
+            {
+                "node_1239": "peer"
+            },
+            {
+                "node_3303": "peer"
+            },
+            {
+                "node_174": "peer"
+            },
+            {
+                "node_64049": "customer"
+            },
+            {
+                "node_6762": "peer"
+            },
+            {
+                "node_1273": "peer"
+            },
+            {
+                "node_5511": "peer"
+            }
+        ],
+        "node_6762": [
+            {
+                "node_3356": "peer"
+            },
+            {
+                "node_1299": "peer"
+            },
+            {
+                "node_6453": "peer"
+            },
+            {
+                "node_2914": "peer"
+            },
+            {
+                "node_38040": "customer"
+            },
+            {
+                "node_34224": "customer"
+            },
+            {
+                "node_1273": "peer"
+            },
+            {
+                "node_5511": "peer"
+            },
+            {
+                "node_7018": "peer"
+            },
+            {
+                "node_3257": "peer"
+            },
+            {
+                "node_174": "peer"
+            },
+            {
+                "node_1239": "peer"
+            }
+        ],
+        "node_2516": [
+            {
+                "node_2152": "peer"
+            },
+            {
+                "node_3356": "provider"
+            }
+        ],
+        "node_38040": [
+            {
+                "node_6453": "provider"
+            },
+            {
+                "node_3356": "provider"
+            },
+            {
+                "node_34224": "peer"
+            },
+            {
+                "node_1299": "provider"
+            },
+            {
+                "node_2914": "provider"
+            },
+            {
+                "node_3303": "peer"
+            },
+            {
+                "node_174": "provider"
+            },
+            {
+                "node_6762": "provider"
+            },
+            {
+                "node_293": "peer"
+            }
+        ],
+        "node_2152": [
+            {
+                "node_13335": "peer"
+            },
+            {
+                "node_1239": "peer"
+            },
+            {
+                "node_2516": "peer"
+            },
+            {
+                "node_3356": "provider"
+            }
+        ],
+        "node_5511": [
+            {
+                "node_7018": "peer"
+            },
+            {
+                "node_4837": "customer"
+            },
+            {
+                "node_3356": "peer"
+            },
+            {
+                "node_174": "peer"
+            },
+            {
+                "node_1239": "peer"
+            },
+            {
+                "node_6762": "peer"
+            },
+            {
+                "node_6453": "peer"
+            },
+            {
+                "node_3257": "peer"
+            },
+            {
+                "node_1299": "peer"
+            },
+            {
+                "node_2914": "peer"
+            }
+        ],
+        "node_293": [
+            {
+                "node_13335": "peer"
+            },
+            {
+                "node_2914": "peer"
+            },
+            {
+                "node_6453": "peer"
+            },
+            {
+                "node_3356": "provider"
+            },
+            {
+                "node_1273": "peer"
+            },
+            {
+                "node_38040": "peer"
+            }
+        ],
+        "node_4837": [
+            {
+                "node_3257": "peer"
+            },
+            {
+                "node_5511": "provider"
+            },
+            {
+                "node_1299": "peer"
+            },
+            {
+                "node_6453": "peer"
+            },
+            {
+                "node_2914": "peer"
+            },
+            {
+                "node_3303": "peer"
+            },
+            {
+                "node_7018": "peer"
+            },
+            {
+                "node_3356": "provider"
+            },
+            {
+                "node_174": "provider"
+            },
+            {
+                "node_1239": "provider"
+            }
+        ],
+        "node_1273": [
+            {
+                "node_3356": "provider"
+            },
+            {
+                "node_1299": "provider"
+            },
+            {
+                "node_6453": "peer"
+            },
+            {
+                "node_293": "peer"
+            },
+            {
+                "node_3257": "peer"
+            },
+            {
+                "node_3303": "peer"
+            },
+            {
+                "node_1239": "peer"
+            },
+            {
+                "node_174": "provider"
+            },
+            {
+                "node_2914": "peer"
+            },
+            {
+                "node_6762": "peer"
+            }
+        ],
+        "node_1239": [
+            {
+                "node_13335": "peer"
+            },
+            {
+                "node_2152": "peer"
+            },
+            {
+                "node_5511": "peer"
+            },
+            {
+                "node_6453": "peer"
+            },
+            {
+                "node_7018": "peer"
+            },
+            {
+                "node_3356": "peer"
+            },
+            {
+                "node_2914": "peer"
+            },
+            {
+                "node_174": "peer"
+            },
+            {
+                "node_1299": "peer"
+            },
+            {
+                "node_3257": "peer"
+            },
+            {
+                "node_1273": "peer"
+            },
+            {
+                "node_4837": "customer"
+            },
+            {
+                "node_6762": "peer"
+            }
+        ],
+        "node_6453": [
+            {
+                "node_2914": "peer"
+            },
+            {
+                "node_7018": "peer"
+            },
+            {
+                "node_38040": "customer"
+            },
+            {
+                "node_293": "peer"
+            },
+            {
+                "node_34224": "customer"
+            },
+            {
+                "node_4837": "peer"
+            },
+            {
+                "node_3303": "peer"
+            },
+            {
+                "node_1239": "peer"
+            },
+            {
+                "node_3356": "peer"
+            },
+            {
+                "node_1299": "peer"
+            },
+            {
+                "node_174": "peer"
+            },
+            {
+                "node_3257": "peer"
+            },
+            {
+                "node_6762": "peer"
+            },
+            {
+                "node_1273": "peer"
+            },
+            {
+                "node_5511": "peer"
+            }
+        ],
+        "node_31133": [
+            {
+                "node_1299": "provider"
+            },
+            {
+                "node_3356": "provider"
+            },
+            {
+                "node_174": "provider"
+            }
+        ],
+        "node_64049": [
+            {
+                "node_1299": "provider"
+            },
+            {
+                "node_3356": "provider"
+            },
+            {
+                "node_3741": "peer"
+            },
+            {
+                "node_2914": "provider"
+            },
+            {
+                "node_3303": "peer"
+            }
+        ]
+    }
+}

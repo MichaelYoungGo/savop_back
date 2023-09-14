@@ -1,1 +1,138 @@
-{"command": "start", "command_scope": "3356,34224,3549,13335,3303,209,1299,174,7018,2519", "command_timestamp": "1693982189020", "command_date": "2023-09-06 14:36:29", "source": "EFP-uRPF-Algorithm-A_app", "bgp_link_number": 36, "bgp_link": {"node_3356": [{"node_34224": "customer"}, {"node_3549": "customer"}, {"node_13335": "customer"}, {"node_3303": "customer"}, {"node_209": "peer"}, {"node_1299": "peer"}, {"node_174": "peer"}, {"node_7018": "peer"}, {"node_2519": "customer"}], "node_34224": [{"node_3356": "provider"}, {"node_13335": "peer"}], "node_3549": [{"node_3356": "provider"}], "node_13335": [{"node_7018": "peer"}, {"node_3356": "provider"}, {"node_34224": "peer"}, {"node_1299": "provider"}], "node_3303": [{"node_3356": "provider"}, {"node_174": "provider"}], "node_209": [{"node_3356": "peer"}], "node_1299": [{"node_13335": "customer"}, {"node_7018": "peer"}, {"node_3356": "peer"}, {"node_2519": "customer"}, {"node_174": "peer"}], "node_174": [{"node_3356": "peer"}, {"node_2519": "customer"}, {"node_7018": "peer"}, {"node_3303": "customer"}, {"node_1299": "peer"}], "node_7018": [{"node_13335": "peer"}, {"node_1299": "peer"}, {"node_3356": "peer"}, {"node_174": "peer"}], "node_2519": [{"node_3356": "provider"}, {"node_1299": "provider"}, {"node_174": "provider"}]}}
+{
+    "command": "start",
+    "command_scope": "3356,34224,3549,13335,3303,209,1299,174,7018,2519",
+    "command_timestamp": "1694657482020",
+    "command_date": "2023-09-14 10:11:22",
+    "source": "BAR",
+    "bgp_link_number": 36,
+    "bgp_link": {
+        "node_3356": [
+            {
+                "node_34224": "customer"
+            },
+            {
+                "node_3549": "customer"
+            },
+            {
+                "node_13335": "customer"
+            },
+            {
+                "node_3303": "customer"
+            },
+            {
+                "node_209": "peer"
+            },
+            {
+                "node_1299": "peer"
+            },
+            {
+                "node_174": "peer"
+            },
+            {
+                "node_7018": "peer"
+            },
+            {
+                "node_2519": "customer"
+            }
+        ],
+        "node_34224": [
+            {
+                "node_3356": "provider"
+            },
+            {
+                "node_13335": "peer"
+            }
+        ],
+        "node_3549": [
+            {
+                "node_3356": "provider"
+            }
+        ],
+        "node_13335": [
+            {
+                "node_7018": "peer"
+            },
+            {
+                "node_3356": "provider"
+            },
+            {
+                "node_34224": "peer"
+            },
+            {
+                "node_1299": "provider"
+            }
+        ],
+        "node_3303": [
+            {
+                "node_3356": "provider"
+            },
+            {
+                "node_174": "provider"
+            }
+        ],
+        "node_209": [
+            {
+                "node_3356": "peer"
+            }
+        ],
+        "node_1299": [
+            {
+                "node_13335": "customer"
+            },
+            {
+                "node_7018": "peer"
+            },
+            {
+                "node_3356": "peer"
+            },
+            {
+                "node_2519": "customer"
+            },
+            {
+                "node_174": "peer"
+            }
+        ],
+        "node_174": [
+            {
+                "node_3356": "peer"
+            },
+            {
+                "node_2519": "customer"
+            },
+            {
+                "node_7018": "peer"
+            },
+            {
+                "node_3303": "customer"
+            },
+            {
+                "node_1299": "peer"
+            }
+        ],
+        "node_7018": [
+            {
+                "node_13335": "peer"
+            },
+            {
+                "node_1299": "peer"
+            },
+            {
+                "node_3356": "peer"
+            },
+            {
+                "node_174": "peer"
+            }
+        ],
+        "node_2519": [
+            {
+                "node_3356": "provider"
+            },
+            {
+                "node_1299": "provider"
+            },
+            {
+                "node_174": "provider"
+            }
+        ]
+    }
+}
