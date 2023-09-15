@@ -83,7 +83,7 @@ class BirdConfigGenerator:
             with open(f"{DEPLOY_DIR}/configs/conf_nsdi/{as_no}.conf", "w") as f:
                 f.write(content)
 
-    def config_limit_prefix_length_generator(self, topo_list, directory, extent_bgp):
+    def config_limit_prefix_length_generator(self, topo_list, directory, extent_bgp, rpki):
         print("创建bird的配置文件")
         for index in range(0, len(topo_list)):
             prefix_length = 100
@@ -105,13 +105,14 @@ class BirdConfigGenerator:
                        "\n\tpersist;" \
                        "\n};\n"
             content += 'protocol direct {\n\tipv4;\n\tinterface "eth_*";\n};\n'
-            content += "protocol rpki rpki1\n" \
-                       "{\n" \
-                       "\tdebug all;\n" \
-                       "\troa4 { table r4; };\n" \
-                       "\tremote 10.10.0.3 port 3323;\n" \
-                       "\tretry 1;\n" \
-                       "}\n"
+            if rpki is True:
+                content += "protocol rpki rpki1\n" \
+                           "{\n" \
+                           "\tdebug all;\n" \
+                           "\troa4 { table r4; };\n" \
+                           "\tremote 10.10.0.3 port 3323;\n" \
+                           "\tretry 1;\n" \
+                           "}\n"
             content += "protocol static {\n\tipv4 {\n\t\texport all;\n\t\timport all;\n\t};"
             for prefix in router["prefixs"]:
                 if "0.0.0.0" in prefix:
@@ -171,51 +172,6 @@ class SavAgentConfigGenerator:
             grpc_id = node["router_id"]
             local_as = node["as_no"]
             id_ = node["router_id"]
-            # 使用quic之后将配置文件格式进行了调整，调整了SavAgent.json的格式
-            # links = []
-            # for interface_name, interface_value in node["net_interface"].items():
-            #     local_interface_role = interface_value["role"]
-            #     for peer_router in topo_list:
-            #         peer_router_name = interface_name.replace("eth", "node")
-            #         if peer_router["router_name"] != peer_router_name:
-            #             continue
-            #         peer_router_as_no = peer_router["as_no"]
-            #         peer_interface_name = router_name.replace("node", "eth")
-            #         peer_interface_IP_Addr = peer_router["net_interface"][peer_interface_name]["IP_Addr"]
-            #         peer_router_id = peer_router["router_id"]
-            #         peer_role = peer_router["net_interface"][peer_interface_name]["role"]
-            #         links.append({"remote_addr": f"{peer_interface_IP_Addr}:5000", "remote_as": peer_router_as_no,
-            #                       "remote_id": peer_router_id, "local_role": local_interface_role,
-            #                       "interface_name": interface_name})
-            #         break
-            # links_str = json.dumps(links)
-            # json_content = f'{{' \
-            #                '\n\t"apps": [' \
-            #                '\n\t\t"strict-uRPF",' \
-            #                '\n\t\t"rpdp_app",' \
-            #                '\n\t\t"loose-uRPF",' \
-            #                '\n\t\t"EFP-uRPF-A",' \
-            #                '\n\t\t"EFP-uRPF-B",' \
-            #                '\n\t\t"FP-uRPF"' \
-            #                '\n\t],' \
-            #                '\n\t"enabled_sav_app": "rpdp_app",' \
-            #                '\n\t"fib_stable_threshold": 5,' \
-            #                '\n\t"ca_host": "10.10.0.2",' \
-            #                '\n\t"ca_port": 3000,' \
-            #                '\n\t"grpc_server_addr": "0.0.0.0:5000",' \
-            #                f'\n\t"grpc_id": "{grpc_id}",' \
-            #                f'\n\t"local_as":{local_as},' \
-            #                '\n\t"grpc_config": {' \
-            #                '\n\t\t"server_addr": "0.0.0.0:5000",' \
-            #                f'\n\t\t"id": "{id_}",' \
-            #                f'\n\t\t"local_as": {local_as},' \
-            #                f'\n\t\t"enabled": false,' \
-            #                f'\n\t\t"links": {links_str}' \
-            #                '\n\t},' \
-            #                '\n\t"location": "edge"' \
-            #                '\n}\n'
-            # 新的SavAgent.json格式
-
             link_map = {}
             for interface_name, interface_value in node["net_interface"].items():
                 for peer_router in topo_list:
@@ -338,17 +294,17 @@ class TopoConfigGenerator:
                         \nsleep 1\
                         \nfunCreateV '{local_interface_name}' '{peer_interface_name}' '{local_pos}' '{peer_pos}' '{local_interface_IP_Addr}/24' '{peer_interface_IP_Addr}/24'"
         ###########################################################################################
-        host_run_content += "\nsleep 15"
-        host_run_content += "\nFOLDER=$(cd \"$(dirname \"$0\")\";pwd)"
-        host_run_content += '\nfor node_num in ${node_array[*]}' \
-                            '\ndo' \
-                            '\n\techo "======================== node_$node_num log========================"' \
-                            '\n\tdocker logs node_${node_num}' \
-                            '\n\techo "======================== node_$node_num FIB========================"' \
-                            '\n\tdocker exec -it node_${node_num} route -n -F' \
-                            '\n\tdocker exec -it node_${node_num} route -n -F >${FOLDER}/logs/${node_num}/router_table.txt 2>&1' \
-                            '\n\tdocker exec -it node_${node_num} curl -s http://localhost:8888/sib_table/ >${FOLDER}/logs/${node_num}/sav_table.txt 2>&1' \
-                            '\ndone\n'
+        # host_run_content += "\nsleep 15"
+        # host_run_content += "\nFOLDER=$(cd \"$(dirname \"$0\")\";pwd)"
+        # host_run_content += '\nfor node_num in ${node_array[*]}' \
+        #                     '\ndo' \
+        #                     '\n\techo "======================== node_$node_num log========================"' \
+        #                     '\n\tdocker logs node_${node_num}' \
+        #                     '\n\techo "======================== node_$node_num FIB========================"' \
+        #                     '\n\tdocker exec -it node_${node_num} route -n -F' \
+        #                     '\n\tdocker exec -it node_${node_num} route -n -F >${FOLDER}/logs/${node_num}/router_table.txt 2>&1' \
+        #                     '\n\tdocker exec -it node_${node_num} curl -s http://localhost:8888/sib_table/ >${FOLDER}/logs/${node_num}/sav_table.txt 2>&1' \
+        #                     '\ndone\n'
         with open(f"{DEPLOY_DIR}/topology/topo_{filename}.sh", "w") as f:
             f.write(host_run_content)
 
@@ -724,6 +680,18 @@ class ConfigGenerator:
         # self.ca_config_generator.aspas_generator(self.topo_list_bfs[0:50], diectory="nsdi_with_roa")
         # self.ca_config_generator.roas_generator(topo_list=self.topo_list_bfs[0:50], diectory="nsdi_with_roa")
 
+    def run_node_RPDP(self, node_number):
+        self.bird_config_generator.config_limit_prefix_length_generator(topo_list=self.topo_list_bfs[0:node_number], directory="nsdi", extent_bgp=True, rpki=False)
+        self.sav_agent_config_generator.config_generator(topo_list=self.topo_list_bfs[0:node_number], directory="nsdi", on_grpc=True)
+        self.docker_compose_generator.config_generator(topo_list=self.topo_list_bfs[0:node_number], file_name="nsdi", container_run_command="python3 /root/savop/sav-agent/monitor.py")
+        self.topo_config_generator.config_generator(topo_list=self.topo_list_bfs[0:node_number], filename="nsdi")
+
+    def run_node_DSAV(self, node_number):
+        self.bird_config_generator.config_limit_prefix_length_generator(topo_list=self.topo_list_bfs[0:100], directory="nsdi", extent_bgp=True, rpki=False)
+        self.sav_agent_config_generator.config_generator(topo_list=self.topo_list_bfs[0:100], directory="nsdi", on_grpc=False)
+        self.docker_compose_generator.config_generator(topo_list=self.topo_list_bfs[0:100], file_name="nsdi", container_run_command="python3 /root/savop/sav-agent/monitor.py")
+        self.topo_config_generator.config_generator(topo_list=self.topo_list_bfs[0:100], filename="nsdi")
+
     def run_3_nodes(self):
         global DEPLOY_DIR
         DEPLOY_DIR = "/root/nsdi_3_nodes_config_file"
@@ -809,15 +777,7 @@ if __name__ == "__main__":
     business_relation_file = "/root/sav_simulate/savop_back/data/NSDI/20230801.as-rel.txt"
     config_generator = ConfigGenerator(mode_file, business_relation_file)
     # config_generator.run_3_nodes()
-    # config_generator.run_50_nodes_with_roa()
-    # 计算局域网的拓扑结点：
-    # for rate in range(5, 101, 5):
-    #     time.sleep(2)
-    #     signal = config_generator.caculate_lan_as(rate=rate)
-    #     print(f'signal_{str(rate)}.txt')
-    #     print(signal)
-    #     with open(f'/root/sav_simulate/savop_back/data/NSDI/signal/signal_{str(rate)}.txt', "w") as json_file:
-    #         json.dump(signal, json_file)
-    # print("over!!!!!!!!!!!!!")
-    config_generator.generetor_signal(length=50, source="BAR", off=True)
+    # config_generator.run_200_node_RPDP()
+    config_generator.run_node_DSAV(node_number=200)
+    config_generator.generetor_signal(length=25, source="rpdp_app", off=True)
 
