@@ -10,6 +10,7 @@
                    2023/8/28:
 -------------------------------------------------
 """
+import copy
 import json
 import os
 import subprocess
@@ -28,7 +29,7 @@ class CollectData:
         command_scope_list = signal_json["command_scope"].split(",")
         return command_scope_list
 
-    def observe_experiment(self, command_scope_list, group, signal_):
+    def observe_experiment(self, command_scope_list, group, signal_, ignore_ns_list):
         print(f"观察第{str(group)}组{signal_}%的实验室结果:")
         with open('/root/sav_simulate/sav-start/build/signal/signal.txt', 'r') as f:
             signal = json.load(f)
@@ -37,10 +38,8 @@ class CollectData:
         for as_number in command_scope_list:
             if (int(as_number) in [701, 3491, 6461, 6453, 1239, 5511, 6762, 2914, 3257, 7018, 174, 1299, 209, 3356]) and (source in ["EFP-uRPF-Algorithm-A_app", "EFP-uRPF-Algorithm-B_app"]):
                 continue
-            # if int(as_number) in [209, 3549]:
-            #     continue
-            # if int(as_number) in [209, 3549]:
-            #     continue
+            if int(as_number) in ignore_ns_list:
+                continue
             print(f"AS-{as_number}")
             with open(f"{self.RUN_LOG_PATH}/{as_number}/signal_execute_status.txt", "r") as f:
                 signal_execute_status = json.load(f)
@@ -50,7 +49,7 @@ class CollectData:
                       "sav_convergence_duration": signal_execute_status["convergence_duration"],
                       "fib_convergence_duration": signal_execute_status["fib_convergence_duration"],
                       "sav_rule_number": signal_execute_status["pre_sav_rule_number"],
-                      "grpc_communicate_msg_size": signal_execute_status["communication_message_size"]["rpdp_app"]["grpc"]["send"]["count"]}
+                      "grpc_communicate_msg_size": signal_execute_status["communication_message_size"]["agent"]["count"]}
             print(f"avail_information: {result}\n")
             all_result.append({f"AS-{as_number}": result})
             mkdir_command = f'mkdir -p {self.OUT_PATH}/{source}/{group}/{signal_}/{as_number}'
@@ -82,22 +81,37 @@ class CollectData:
                 json.dump(signal_execute_status, json_file)
         print("over!!!")
 
-    def run(self, group, signal):
+    def run(self, group, signal, ignore_ns_list):
         command_scope_list = self.parse_signal(signal=signal)
         command_scope_list.reverse()
-        all_result = self.observe_experiment(command_scope_list=command_scope_list, group=group, signal_=signal)
+        all_result = self.observe_experiment(command_scope_list=command_scope_list, group=group, signal_=signal, ignore_ns_list=ignore_ns_list)
         sav_convergence_duration, fib_convergence_duration, sav_rule_number, grpc_communicate_msg_size = 0, 0, 0, 0
         for result in all_result:
             sav_rule_number += list(result.values())[0]["sav_rule_number"]
             grpc_communicate_msg_size += list(result.values())[0]["grpc_communicate_msg_size"]
+            if list(result.values())[0]["sav_convergence_duration"] == 1875:
+                continue
             if list(result.values())[0]["sav_convergence_duration"] > sav_convergence_duration:
                 sav_convergence_duration = list(result.values())[0]["sav_convergence_duration"]
             if list(result.values())[0]["fib_convergence_duration"] > fib_convergence_duration:
                 fib_convergence_duration = list(result.values())[0]["fib_convergence_duration"]
+        print("实验概览：")
         print(f"sav_convergence_duration: {sav_convergence_duration}\n "
               f"fib_convergence_duration: {fib_convergence_duration}\n"
               f"sav_rule_number: {sav_rule_number}\n"
               f"grpc_communicate_msg_size: {grpc_communicate_msg_size}\n")
+        print("各节点的sav_rule条数：")
+        sav_num_dict = {}
+        for result in all_result:
+            as_num = list(result.keys())[0].split("-")[1]
+            sav_rule_number = list(result.values())[0]["sav_rule_number"]
+            sav_num_dict.update({as_num: sav_rule_number})
+        command_scope_list.reverse()
+        for as_num in command_scope_list:
+            print(f"{as_num}: {sav_num_dict.get(str(as_num), 'NULL')}")
+
+        for as_num in command_scope_list:
+            print(f"{sav_num_dict.get(str(as_num), 'NULL')}")
 
 
 if __name__ == "__main__":
@@ -105,9 +119,10 @@ if __name__ == "__main__":
     # collect_data.parse_signal(signal="signal_10")
     # 监控实验实时情况的代码片段
     turn = True
+    ignore_ns_list = [16735]
     while turn:
         try:
-            collect_data.run(group=1, signal="signal_100")
+            collect_data.run(group=1, signal="signal_90", ignore_ns_list=ignore_ns_list)
             turn = False
             break
         except Exception as e:

@@ -193,7 +193,7 @@ class SavAgentConfigGenerator:
             server_enabled = "true"
             if on_grpc is False:
                 link_map_str = {}
-                server_enabled = "false"
+                ipta = "false"
             json_content = '{' \
                            '\n\t"apps": [' \
                            '\n\t\t"strict-uRPF",' \
@@ -395,6 +395,10 @@ class DockerComposeGenerator:
             as_no = topo_list[index]["as_no"]
             content = f"  {router_name}: \
                     \n    image: savop_bird_base \
+                    \n    deploy: \
+                    \n      resources:\
+                    \n        limits:\
+                    \n          memory: 4G\
                     \n    init: true \
                     \n    container_name: {router_name} \
                     \n    cap_add: \
@@ -492,6 +496,11 @@ class DockerComposeGenerator:
             as_no = topo_list[index]["as_no"]
             content = f"  {router_name}: \
                     \n    image: savop_bird_base \
+                    \n    deploy: \
+                    \n      resources:\
+                    \n        limits:\
+                    \n          cpus: '0.2'\
+                    \n          memory: 4G\
                     \n    init: true \
                     \n    container_name: {router_name} \
                     \n    cap_add: \
@@ -515,6 +524,7 @@ class DockerComposeGenerator:
             yml_content = yml_content + content
         with open(f"{DEPLOY_DIR}/docker_compose/docker_compose_nsdi_with_roa.yml", "w") as f:
             f.write(yml_content)
+
 
 class ConfigGenerator:
     mode_data = {}
@@ -607,10 +617,15 @@ class ConfigGenerator:
         for node in topo_list:
             router_id = "10.255.255.255"
             for value in list(node["net_interface"].values()):
-                if value["IP_Addr"] < router_id:
-                    router_id = value["IP_Addr"]
+                router_id_list = router_id.split(".")
+                IP_Addr_list = value["IP_Addr"].split(".")
+                for index in range(0, 4):
+                    if int(IP_Addr_list[index]) > int(router_id_list[index]):
+                        break
+                    if int(IP_Addr_list[index]) < int(router_id_list[index]):
+                        router_id = value["IP_Addr"]
+                        break
             node["router_id"] = router_id
-            router_id = "10.255.255.255"
         return topo_list
 
     def net_seg_self_add(self, net_seg):
@@ -670,27 +685,28 @@ class ConfigGenerator:
         self.topo_config_generator.config_generator(topo_list=self.topo_list)
         self.docker_compose_generator.bash_generator(topo_list=self.topo_list)
 
-    def run_50_nodes_with_roa(self):
-        # self.bird_config_generator.config_limit_prefix_length_generator(topo_list=self.topo_list_bfs[0:50], directory="nsdi_with_roa", extent_bgp=False)
-        # self.sav_agent_config_generator.config_generator(topo_list=self.topo_list_bfs[0:50], directory="nsdi_with_roa", on_grpc=False)
-        # self.docker_compose_generator.rpki_generator(self.topo_list_bfs[0:50])
-        # self.docker_compose_generator.config_generator_with_roa(topo_list=self.topo_list_bfs[0:50], container_run_command="python3 /root/savop/sav-agent/monitor.py")
-        self.topo_config_generator.config_generator(topo_list=self.topo_list_bfs[0:50], filename="nsdi_with_roa")
-        # self.ca_config_generator.config_generator(topo_list=self.topo_list_bfs[0:50], directory="nsdi_with_roa")
-        # self.ca_config_generator.aspas_generator(self.topo_list_bfs[0:50], diectory="nsdi_with_roa")
-        # self.ca_config_generator.roas_generator(topo_list=self.topo_list_bfs[0:50], diectory="nsdi_with_roa")
+    def run_node_with_roa(self, node_number, container_run_command):
+        self.bird_config_generator.config_limit_prefix_length_generator(topo_list=self.topo_list_bfs[0:node_number], directory="nsdi_with_roa", extent_bgp=True, rpki=True)
+        self.sav_agent_config_generator.config_generator(topo_list=self.topo_list_bfs[0:node_number], directory="nsdi_with_roa", on_grpc=False)
+        self.docker_compose_generator.rpki_generator(self.topo_list_bfs[0:node_number])
+        self.docker_compose_generator.config_generator_with_roa(topo_list=self.topo_list_bfs[0:node_number], container_run_command=container_run_command)
+        self.topo_config_generator.config_generator(topo_list=self.topo_list_bfs[0:node_number], filename="nsdi_with_roa")
+        # self.ca_config_generator.config_generator(topo_list=self.topo_list_bfs[0:node_number], directory="nsdi_with_roa")
+        # self.ca_config_generator.aspas_generator(self.topo_list_bfs[0:node_number], diectory="nsdi_with_roa")
+        # self.ca_config_generator.roas_generator(topo_list=self.topo_list_bfs[0:node_number], diectory="nsdi_with_roa")
 
-    def run_node_RPDP(self, node_number):
+    def run_node_RPDP(self, node_number, container_run_command="bash container_run.sh"):
+        # "python3 /root/savop/sav-agent/monitor.py"
         self.bird_config_generator.config_limit_prefix_length_generator(topo_list=self.topo_list_bfs[0:node_number], directory="nsdi", extent_bgp=True, rpki=False)
         self.sav_agent_config_generator.config_generator(topo_list=self.topo_list_bfs[0:node_number], directory="nsdi", on_grpc=True)
-        self.docker_compose_generator.config_generator(topo_list=self.topo_list_bfs[0:node_number], file_name="nsdi", container_run_command="python3 /root/savop/sav-agent/monitor.py")
+        self.docker_compose_generator.config_generator(topo_list=self.topo_list_bfs[0:node_number], file_name="nsdi", container_run_command=container_run_command)
         self.topo_config_generator.config_generator(topo_list=self.topo_list_bfs[0:node_number], filename="nsdi")
 
     def run_node_DSAV(self, node_number):
-        self.bird_config_generator.config_limit_prefix_length_generator(topo_list=self.topo_list_bfs[0:100], directory="nsdi", extent_bgp=True, rpki=False)
-        self.sav_agent_config_generator.config_generator(topo_list=self.topo_list_bfs[0:100], directory="nsdi", on_grpc=False)
-        self.docker_compose_generator.config_generator(topo_list=self.topo_list_bfs[0:100], file_name="nsdi", container_run_command="python3 /root/savop/sav-agent/monitor.py")
-        self.topo_config_generator.config_generator(topo_list=self.topo_list_bfs[0:100], filename="nsdi")
+        self.bird_config_generator.config_limit_prefix_length_generator(topo_list=self.topo_list_bfs[0:node_number], directory="nsdi", extent_bgp=True, rpki=False)
+        self.sav_agent_config_generator.config_generator(topo_list=self.topo_list_bfs[0:node_number], directory="nsdi", on_grpc=False)
+        self.docker_compose_generator.config_generator(topo_list=self.topo_list_bfs[0:node_number], file_name="nsdi", container_run_command="python3 /root/savop/sav-agent/monitor.py")
+        self.topo_config_generator.config_generator(topo_list=self.topo_list_bfs[0:node_number], filename="nsdi")
 
     def run_3_nodes(self):
         global DEPLOY_DIR
@@ -749,7 +765,6 @@ class ConfigGenerator:
                 with open(f'/root/sav_simulate/savop_back/data/NSDI/signal/signal_{str(rate)}.txt', "w") as json_file:
                     json.dump(signal, json_file, indent=4)
             # 更全的信号文件，包含局域网的有效边数，边的集合，但是这些内容对控制程序运行没有作用，因此存到signal_{rate}_full.txt文件中
-            print("补充有效的BGP边")
             as_number_list = signal["command_scope"].split(",")
             bgp_link = {}
             bgp_link_number = 0
@@ -776,8 +791,13 @@ if __name__ == "__main__":
     mode_file = "/root/sav_simulate/savop_back/data/NSDI/small_as_topo_all_prefixes.json"
     business_relation_file = "/root/sav_simulate/savop_back/data/NSDI/20230801.as-rel.txt"
     config_generator = ConfigGenerator(mode_file, business_relation_file)
+    node_number = 50
     # config_generator.run_3_nodes()
-    # config_generator.run_200_node_RPDP()
-    config_generator.run_node_DSAV(node_number=200)
-    config_generator.generetor_signal(length=25, source="rpdp_app", off=True)
+    config_generator.run_node_RPDP(node_number=node_number, container_run_command="python3 /root/savop/sav-agent/monitor.py")
+    # config_generator.run_node_DSAV(node_number=node_number)
+    config_generator.generetor_signal(length=node_number, source="loose_urpf_app", off=True)
+
+
+    # config_generator.run_node_with_roa(node_number=node_number,container_run_command="python3 /root/savop/sav-agent/monitor.py")
+    # config_generator.generetor_signal(length=node_number, source="loose-uRPF", off=True)
 

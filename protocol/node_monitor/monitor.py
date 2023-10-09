@@ -46,6 +46,17 @@ class Monitor:
         conn.close()
         return results
 
+    def _get_max_update_timestamp(self, source):
+        conn = sqlite3.connect('/root/savop/sav-agent/data/sib.sqlite')
+        cursor = conn.cursor()
+        source = "bar_app" if source == "BAR" else source
+        query = f'SELECT strftime("%s", MAX(updatetime)) AS max_updatetime FROM STB WHERE source="{source}"'
+        cursor.execute(query)
+        results = cursor.fetchone()[0]
+        cursor.close()
+        conn.close()
+        return results
+
     def check_signal_file(self, path):
         # 根据signal.txt, signal_excute_status.txt, sav_agent_config判断下一步路由器的执行动作
         # 执行动作有：start, restart, stop, keep
@@ -148,6 +159,8 @@ class Monitor:
                 if current_sav_rule_number == signal_excute_status["pre_sav_rule_number"]:
                     if current_sav_rule_number != 0:
                         signal_excute_status["stable_number"] = signal_excute_status["stable_number"] - 1
+                    #if int(time.time()) - signal_excute_status["sav_start"] > 1800:
+                    #    signal_excute_status.update({"fib_convergence_duration": False})
                     if signal_excute_status["stable_number"] == 0:
                         signal_excute_status["judge_stable_time"] = self._get_current_datatime_str()
                         signal_excute_status["convergence_duration"] = signal_excute_status["monitor_cycle_start_time"] - signal_excute_status["sav_start"]
@@ -159,7 +172,10 @@ class Monitor:
                         fib_convergence_timestamp = int(time.mktime(time.strptime(fib_convergence_time, "%Y-%m-%d %H:%M:%S,%f")))
                         fib_convergence_duration = fib_convergence_timestamp - sav_start_time + 8 * 60 * 60
                         signal_excute_status.update({"fib_convergence_duration": fib_convergence_duration})
-                        signal_excute_status.update({"communication_message_size": self._http_request_executor(url_str="/metric/")})
+                        try:
+                            signal_excute_status.update({"communication_message_size": self._http_request_executor(url_str="/metric/")})
+                        except Exception as e:
+                            pass
                         try:
                             source_ = "bar_app" if source == "BAR" else source
                             self._http_request_executor(url_str=f"/refresh_proto/{source_}/")
