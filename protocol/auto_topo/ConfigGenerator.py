@@ -291,7 +291,7 @@ class TopoConfigGenerator:
                 peer_pos = as_no_list.index(peer_router_as_No)
                 host_run_content += f"\n# {local_router_name}-{peer_router_as_No}\
                         \necho \"adding edge {local_router_name}-{peer_router_as_No}\"\
-                        \nsleep 1\
+                        \nsleep 0.2\
                         \nfunCreateV '{local_interface_name}' '{peer_interface_name}' '{local_pos}' '{peer_pos}' '{local_interface_IP_Addr}/24' '{peer_interface_IP_Addr}/24'"
         ###########################################################################################
         # host_run_content += "\nsleep 15"
@@ -398,6 +398,7 @@ class DockerComposeGenerator:
                     \n    deploy: \
                     \n      resources:\
                     \n        limits:\
+                    \n          cpus: '0.2'\
                     \n          memory: 4G\
                     \n    init: true \
                     \n    container_name: {router_name} \
@@ -499,7 +500,7 @@ class DockerComposeGenerator:
                     \n    deploy: \
                     \n      resources:\
                     \n        limits:\
-                    \n          cpus: '0.2'\
+                    \n          cpus: '0.3'\
                     \n          memory: 4G\
                     \n    init: true \
                     \n    container_name: {router_name} \
@@ -793,11 +794,10 @@ if __name__ == "__main__":
     config_generator = ConfigGenerator(mode_file, business_relation_file)
     node_number = 50
     # config_generator.run_3_nodes()
-    config_generator.run_node_RPDP(node_number=node_number, container_run_command="python3 /root/savop/sav-agent/monitor.py")
+    # config_generator.run_node_RPDP(node_number=node_number, container_run_command="python3 /root/savop/sav-agent/monitor.py")
     # config_generator.run_node_DSAV(node_number=node_number)
-    config_generator.generetor_signal(length=node_number, source="loose_urpf_app", off=True)
+    config_generator.generetor_signal(length=node_number, source="rpdp_app", off=True)
 
-
-    # config_generator.run_node_with_roa(node_number=node_number,container_run_command="python3 /root/savop/sav-agent/monitor.py")
-    # config_generator.generetor_signal(length=node_number, source="loose-uRPF", off=True)
+    # config_generator.run_node_with_roa(node_number=node_number, container_run_command="python3 /root/savop/sav-agent/monitor.py")
+    # config_generator.generetor_signal(length=node_number, source="bar_app", off=True)
 

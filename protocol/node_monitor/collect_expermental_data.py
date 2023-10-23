@@ -119,10 +119,12 @@ if __name__ == "__main__":
     # collect_data.parse_signal(signal="signal_10")
     # 监控实验实时情况的代码片段
     turn = True
-    ignore_ns_list = [16735]
+    # ignore_ns_list = [4809, 16509, 9680, 2497, 55410, 9607, 33891, 16735, 57866, 701, 5413, 64049, 31133, 4837, 293, 5511,
+    #                   2152, 2516, 2519, 209, 34224]
+    ignore_ns_list = []
     while turn:
         try:
-            collect_data.run(group=1, signal="signal_90", ignore_ns_list=ignore_ns_list)
+            collect_data.run(group=1, signal="signal_100", ignore_ns_list=ignore_ns_list)
             turn = False
             break
         except Exception as e:
