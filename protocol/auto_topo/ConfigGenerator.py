@@ -14,6 +14,7 @@ import json
 import copy
 import queue
 import time
+import os
 from datetime import datetime
 import subprocess
 
@@ -85,6 +86,9 @@ class BirdConfigGenerator:
 
     def config_limit_prefix_length_generator(self, topo_list, directory, extent_bgp, rpki):
         print("创建bird的配置文件")
+        if not os.path.exists(f"{DEPLOY_DIR}/configs/conf_{directory}"):
+            # If it doesn't exist, create it
+            os.makedirs(f"{DEPLOY_DIR}/configs/conf_{directory}")
         for index in range(0, len(topo_list)):
             prefix_length = 100
             router = topo_list[index]
@@ -162,6 +166,92 @@ class BirdConfigGenerator:
             with open(f"{DEPLOY_DIR}/configs/conf_{directory}/{as_no}.conf", "w") as f:
                 f.write(content)
 
+    def cluster_config_limit_prefix_length_generator(self, topo_list, cluster_size, directory, extent_bgp, rpki):
+        print("创建bird的配置文件")
+        if not os.path.exists(f"{DEPLOY_DIR}/configs/conf_{directory}"):
+            # If it doesn't exist, create it
+            os.makedirs(f"{DEPLOY_DIR}/configs/conf_{directory}")
+        for index in range(1, cluster_size+1):
+            if not os.path.exists(f"{DEPLOY_DIR}/configs/conf_{directory}/{index}"):
+                os.makedirs(f"{DEPLOY_DIR}/configs/conf_{directory}/{index}")
+        for index in range(0, len(topo_list)):
+            prefix_length = 100
+            router = topo_list[index]
+            router_id = router["router_id"]
+            router_name = router["router_name"].lower()
+            as_no = router["as_no"]
+            content = f"router id {router_id};\n"
+            content += "ipv4 table master4{\n\tsorted 1;\n};\n"
+            content += "roa4 table r4{\n\tsorted 1;\n};\n"
+            content += "protocol device {\n\tscan time 60;\n\tinterface \"eth_*\";\n};\n"
+            content += "protocol kernel {" \
+                       "\n\tscan time 60;" \
+                       "\n\tipv4 {" \
+                       "\n\t\texport all;" \
+                       "\n\t\timport all;" \
+                       "\n\t};" \
+                       "\n\tlearn;" \
+                       "\n\tpersist;" \
+                       "\n};\n"
+            content += 'protocol direct {\n\tipv4;\n\tinterface "eth_*";\n};\n'
+            if rpki is True:
+                content += "protocol rpki rpki1\n" \
+                           "{\n" \
+                           "\tdebug all;\n" \
+                           "\troa4 { table r4; };\n" \
+                           "\tremote 10.10.0.3 port 3323;\n" \
+                           "\tretry 1;\n" \
+                           "}\n"
+            content += "protocol static {\n\tipv4 {\n\t\texport all;\n\t\timport all;\n\t};"
+            for prefix in router["prefixs"]:
+                if "0.0.0.0" in prefix:
+                    continue
+                prefix_length -= 1
+                content += f"\n\troute {prefix} blackhole;"
+                if prefix_length == 0:
+                    break
+            content += "\n};\n"
+            content += f"template bgp basic{{\n\tlocal as {as_no};\n\tlong lived graceful restart on;\n\tdebug all;" \
+                       f"\n\tenable extended messages;" \
+                       f"\n\tipv4{{" \
+                       f"\n\t\texport all;" \
+                       f"\n\t\timport all;" \
+                       f"\n\t\timport table on;" \
+                       f"\n\t}};\n}};\n"
+            content += "template bgp sav_inter from basic{" \
+                       "\n\trpdp4{" \
+                       "\n\t\timport none;" \
+                       "\n\t\texport none;" \
+                       "\n\t};\n};\n"
+            proto_count = 0
+            for interface_name, interface_value in router["net_interface"].items():
+                router_name, role, IP_Addr = router_name, interface_value["role"], interface_value["IP_Addr"],
+                peer_router_name = interface_name.replace("eth", "node")
+                peer_interface = "eth_" + as_no
+                for peer_router in topo_list:
+                    if peer_router["router_name"] != peer_router_name:
+                        continue
+                    peer_router_as_No = peer_router["as_no"]
+                    peer_interface_IP_Addr = peer_router["net_interface"][peer_interface]["IP_Addr"]
+                    protocol_name = str(as_no) + "_" + peer_router_name.split("_")[1]
+                    # delay参数，网络端口延迟启动
+                    if extent_bgp is True:
+                        sav_inter = "sav_inter"
+                    else:
+                        sav_inter = "basic"
+                    content += f'protocol bgp savbgp_{protocol_name} from {sav_inter}{{ \
+                        \n\tdescription "modified BGP between node {router_name} and {peer_router_name}"; \
+                        \n\tlocal role {role}; \
+                        \n\tsource address {IP_Addr}; \
+                        \n\tneighbor {peer_interface_IP_Addr}  as {peer_router_as_No}; \
+                        \n\tinterface "{interface_name}"; \
+                        \n\tconnect delay time {proto_count}; \
+                        \n\tdirect;\n}};\n'
+                proto_count += 1
+            # 需要提前判断结点在哪个结点
+            cluster_pos = index // int((len(topo_list) / cluster_size)) + 1
+            with open(f"{DEPLOY_DIR}/configs/conf_{directory}/{cluster_pos}/{as_no}.conf", "w") as f:
+                f.write(content)
 
 class SavAgentConfigGenerator:
     def config_generator(self, topo_list, directory, on_grpc):
@@ -220,6 +310,62 @@ class SavAgentConfigGenerator:
             with open(f"{DEPLOY_DIR}/configs/conf_{directory}/{local_as}.json", "w") as f:
                 f.write(json_content)
 
+    def cluster_config_generator(self, topo_list, cluster_size, directory, on_grpc):
+        print("创建SavAgent的配置文件")
+        for index in range(0, len(topo_list)):
+            node = topo_list[index]
+            router_name = node["router_name"]
+            grpc_id = node["router_id"]
+            local_as = node["as_no"]
+            id_ = node["router_id"]
+            link_map = {}
+            for interface_name, interface_value in node["net_interface"].items():
+                for peer_router in topo_list:
+                    peer_router_name = interface_name.replace("eth", "node")
+                    if peer_router["router_name"] != peer_router_name:
+                        continue
+                    peer_router_as_no = peer_router["as_no"]
+                    peer_interface_name = router_name.replace("node", "eth")
+                    peer_interface_IP_Addr = peer_router["net_interface"][peer_interface_name]["IP_Addr"]
+                    peer_router_id = peer_router["router_id"]
+                    link_map.update({f"savbgp_{local_as}_{peer_router_as_no}": {
+                        "link_type": "grpc",
+                        "link_data": {
+                                         "remote_addr": f"{peer_interface_IP_Addr}:5000",
+                                         "remote_id": peer_router_id}}})
+                    break
+            link_map_str = json.dumps(link_map)
+            # 不做quic实验时，不需要使用link_map信息
+            server_enabled = "true"
+            if on_grpc is False:
+                link_map_str = {}
+                ipta = "false"
+            json_content = '{' \
+                           '\n\t"apps": [' \
+                           '\n\t\t"strict-uRPF",' \
+                           '\n\t\t"rpdp_app",' \
+                           '\n\t\t"loose-uRPF",' \
+                           '\n\t\t"EFP-uRPF-A",' \
+                           '\n\t\t"EFP-uRPF-B",' \
+                           '\n\t\t"FP-uRPF"' \
+                           '\n\t],' \
+                           '\n\t"enabled_sav_app": "rpdp_app",' \
+                           '\n\t"fib_stable_threshold": 5,' \
+                           '\n\t"ca_host": "10.10.0.2",' \
+                           '\n\t"ca_port": 3000,' \
+                           '\n\t"grpc_config": {' \
+                           '\n\t\t"server_addr": "0.0.0.0:5000",' \
+                           f'\n\t\t"server_enabled": {server_enabled}' \
+                           '\n\t},' \
+                           f'\n\t"link_map": {link_map_str},' \
+                           f'\n\t"quic_config": {{"server_enabled": {server_enabled}}},' \
+                           f'\n\t"local_as":{local_as},' \
+                           f'\n\t"rpdp_id": "{id_}",' \
+                           '\n\t"location": "edge_full"' \
+                           '\n}\n'
+            cluster_pos = index // int(len(topo_list)/cluster_size) + 1
+            with open(f"{DEPLOY_DIR}/configs/conf_{directory}/{cluster_pos}/{local_as}.json", "w") as f:
+                f.write(json_content)
 
 class TopoConfigGenerator:
     def config_generator(self, topo_list, filename):
@@ -308,6 +454,124 @@ class TopoConfigGenerator:
         with open(f"{DEPLOY_DIR}/topology/topo_{filename}.sh", "w") as f:
             f.write(host_run_content)
 
+    def cluster_config_generator(self, topo_list, cluster_size, filename):
+        print("创建网络拓扑的配置文件")
+        host_run_content_1 = '#!/usr/bin/bash' \
+                           '\n# remove folders created last time' \
+                           '\nrm -r /var/run/netns' \
+                           '\nmkdir /var/run/netns' \
+                           '\n' \
+                           '\nnode_array=('
+        as_no_list = []
+        for pos in range(1, len(topo_list) + 1):
+            as_no = topo_list[pos-1]["as_no"]
+            as_no_list.append(as_no)
+        host_run_content_2 = ")"
+        host_run_content_2 += '\n# node_array must be countinus mubers'
+        host_run_content_2 += '\npid_array=()'
+        host_run_content_2 += '\nfor node_num in ${node_array[*]}\
+                \ndo\
+                \n    temp=$(sudo docker inspect -f \'{{.State.Pid}}\' node_$node_num)\
+                \n    ln -s /proc/$temp/ns/net /var/run/netns/$temp\
+                \n    pid_array+=($temp)\
+                \ndone\
+                \n\
+                \nfunCreateV(){\
+                \n    # para 1: local node in letter, must be lowercase;a\
+                \n    # para 2: peer node in letter, must be lowercase;b\
+                \n    # para 3: local node in number,;1\
+                \n    # para 4: peer node in number,2\
+                \n    # para 5: the IP addr of the local node interface\
+                \n    # para 6: the IP addr of the peer node interface\
+                \n    PID_L=${pid_array[$3]}\
+                \n    PID_P=${pid_array[$4]}\
+                \n    NET_L=$1\
+                \n    NET_P=$2\
+                \n    ip link add ${NET_L} type veth peer name ${NET_P}\
+                \n    ip link set ${NET_L}  netns ${PID_L}\
+                \n    ip link set ${NET_P}  netns ${PID_P}\
+                \n    ip netns exec ${PID_L} ip addr add ${5} dev ${NET_L}\
+                \n    ip netns exec ${PID_L} ip link set ${NET_L} up\
+                \n    ip netns exec ${PID_P} ip addr add ${6} dev ${NET_P}\
+                \n    ip netns exec ${PID_P} ip link set ${NET_P} up\
+                \n}\
+                \nfunCreateClusterV(){\
+                \n    # para 1: local node in letter, must be lowercase;a\
+                \n    # para 2: peer node in letter, must be lowercase;b\
+                \n    # para 3: local node in number,;1\
+                \n    # para 4: peer node in number,2\
+                \n    # para 5: the IP addr of the local node interface\
+                \n    # para 6: the IP addr of the peer node interface\
+                \n    PID_L=${pid_array[$3]}\
+                \n    NET_L=$1\
+                \n    NET_P=$2\
+                \n    ip link add ${NET_L} type veth peer name ${NET_P}\
+                \n    ip link set ${NET_L}  netns ${PID_L}\
+                \n    ip netns exec ${PID_L} ip addr add ${5} dev ${NET_L}\
+                \n    ip netns exec ${PID_L} ip link set ${NET_L} up\
+                \n    ip link set dev ${NET_P} master savop_bridge\
+                \n    ip link set ${NET_P} up\
+                \n}'
+        # 添加网口与IP
+        ##########################################################################################
+        chunk_size = len(topo_list) // cluster_size
+        for cluster_pos in range(0, cluster_size):
+            start = cluster_pos * chunk_size
+            end = (cluster_pos + 1) * chunk_size
+            topo_list_copy = copy.deepcopy(topo_list)
+            host_run_content = host_run_content_1
+            for as_no in as_no_list[start: end]:
+                host_run_content += f'"{as_no}" '
+            host_run_content += host_run_content_2
+            for node in topo_list_copy[start: end]:
+                local_router_as_no = node["as_no"]
+                local_router_name = node["router_name"]
+                net_interface_name_list = list(node["net_interface"].keys())
+                while len(net_interface_name_list) != 0:
+                    local_interface_name = net_interface_name_list.pop(0)
+                    local_interface_IP_Addr = node["net_interface"][local_interface_name]["IP_Addr"]
+                    del node["net_interface"][local_interface_name]
+                    # peer_interface_name = local_router_name.replace("node", "eth")
+                    peer_interface_name = "eth_" + local_interface_name.split("_")[-1] + "_" +local_interface_name.split("_")[-2]
+                    peer_router_name = "node_" + peer_interface_name.split("_")[-2]
+                    peer_router_as_No = peer_router_name.split("_")[-1]
+                    if peer_router_as_No not in as_no_list:
+                        continue
+                    for peer_router in topo_list_copy:
+                        if peer_router["router_name"] != peer_router_name:
+                            continue
+                        peer_router_as_No = peer_router["as_no"]
+                        peer_interface_IP_Addr = peer_router["net_interface"][peer_interface_name]["IP_Addr"]
+                        del peer_router["net_interface"][peer_interface_name]
+                        break
+                    local_pos = as_no_list.index(local_router_as_no)
+                    peer_pos = as_no_list.index(peer_router_as_No)
+                    cluster_local_pos = as_no_list[start: end].index(local_router_as_no)
+                    if (peer_pos >= start) and (peer_pos < end):
+                        cluster_peer_pos = as_no_list[start: end].index(peer_router_as_No)
+                        host_run_content += f"\n# {local_router_name}-{peer_router_as_No}\
+                                \necho \"adding host edge {local_router_name}-{peer_router_as_No}\"\
+                                \nsleep 0.2\
+                                \nfunCreateV '{local_interface_name}' '{peer_interface_name}' '{cluster_local_pos}' '{cluster_peer_pos}' '{local_interface_IP_Addr}/24' '{peer_interface_IP_Addr}/24'"
+                    else:
+                        host_run_content += f"\n# {local_router_name}-{peer_router_as_No}\
+                                \necho \"adding cluster edge {local_router_name}-{peer_router_as_No}\"\
+                                \nsleep 0.2\
+                                \nfunCreateClusterV '{local_interface_name}' '{peer_interface_name}' '{cluster_local_pos}' 'None' '{local_interface_IP_Addr}/24' '{peer_interface_IP_Addr}/24'"
+            ###########################################################################################
+            # host_run_content += "\nsleep 15"
+            # host_run_content += "\nFOLDER=$(cd \"$(dirname \"$0\")\";pwd)"
+            # host_run_content += '\nfor node_num in ${node_array[*]}' \
+            #                     '\ndo' \
+            #                     '\n\techo "======================== node_$node_num log========================"' \
+            #                     '\n\tdocker logs node_${node_num}' \
+            #                     '\n\techo "======================== node_$node_num FIB========================"' \
+            #                     '\n\tdocker exec -it node_${node_num} route -n -F' \
+            #                     '\n\tdocker exec -it node_${node_num} route -n -F >${FOLDER}/logs/${node_num}/router_table.txt 2>&1' \
+            #                     '\n\tdocker exec -it node_${node_num} curl -s http://localhost:8888/sib_table/ >${FOLDER}/logs/${node_num}/sav_table.txt 2>&1' \
+            #                     '\ndone\n'
+            with open(f"{DEPLOY_DIR}/topology/topo_{filename}_{cluster_pos+1}.sh", "w") as f:
+                f.write(host_run_content)
 
 class CaConfigGenerator:
     def config_generator(self, topo_list, directory):
@@ -411,9 +675,6 @@ class DockerComposeGenerator:
                     \n      - ./logs/{as_no}/data:/root/savop/sav-agent/data/ \
                     \n      - ./signal:/root/savop/signal \
                     \n      - /etc/localtime:/etc/localtime \
-                    \n      - ./nodes/{router_name}/cert.pem:/root/savop/cert.pem \
-                    \n      - ./nodes/{router_name}/key.pem:/root/savop/key.pem \
-                    \n      - ./ca/cert.pem:/root/savop/ca_cert.pem \
                     \n    network_mode: none \
                     \n    command: \
                     \n        {container_run_command} \
@@ -422,6 +683,40 @@ class DockerComposeGenerator:
         with open(f"{DEPLOY_DIR}/docker_compose/docker_compose_{file_name}.yml", "w") as f:
             f.write(yml_content)
 
+    def cluster_config_generator(self, topo_list, cluster_size, file_name, container_run_command="bash container_run.sh"):
+        print("创建不需要与RPKI进行通信的DockerCompose的配置文件")
+        chunk_size = len(topo_list) // cluster_size
+        for cluster_pos in range(0, cluster_size):
+            yml_content = 'version: "2"\nservices:\n'
+            start = cluster_pos * chunk_size
+            end = (cluster_pos + 1) * chunk_size
+            for index in range(start, end):
+                router_name = topo_list[index]["router_name"]
+                as_no = topo_list[index]["as_no"]
+                content = f"  {router_name}: \
+                        \n    image: savop_bird_base \
+                        \n    deploy: \
+                        \n      resources:\
+                        \n        limits:\
+                        \n          memory: 4G\
+                        \n    init: true \
+                        \n    container_name: {router_name} \
+                        \n    cap_add: \
+                        \n      - NET_ADMIN \
+                        \n    volumes: \
+                        \n      - ./configs/{as_no}.conf:/usr/local/etc/bird.conf \
+                        \n      - ./configs/{as_no}.json:/root/savop/SavAgent_config.json \
+                        \n      - ./logs/{as_no}/:/root/savop/logs/ \
+                        \n      - ./logs/{as_no}/data:/root/savop/sav-agent/data/ \
+                        \n      - ./signal:/root/savop/signal \
+                        \n      - /etc/localtime:/etc/localtime \
+                        \n    network_mode: none \
+                        \n    command: \
+                        \n        {container_run_command} \
+                        \n    privileged: true\n"
+                yml_content = yml_content + content
+            with open(f"{DEPLOY_DIR}/docker_compose/docker_compose_{file_name}_{cluster_pos+1}.yml", "w") as f:
+                f.write(yml_content)
     def rpki_generator(self, topo_list):
         print("创建rpki的docker_compose配置文件")
         # 文件映射恐怕还存在问题，暂时这样
@@ -589,10 +884,11 @@ class ConfigGenerator:
         # 网口
         for node in topo_list:
             router_name, links = node["router_name"], node["links"]
+            as_no = node["as_no"]
             net_interface = {}
             for link in links:
-                net_interface_name = list(link.keys())[0].replace("node", "eth")
-                net_interface.update({net_interface_name: {"role": list(link.values())[0], "IP_Addr": None}})
+                net_interface_name = list(link.keys())[0].replace("node_", "")
+                net_interface.update({f"eth_{as_no}_{net_interface_name}": {"role": list(link.values())[0], "IP_Addr": None}})
             node.update({"net_interface": net_interface})
         # IP
         net_seg = "0.0"
@@ -603,11 +899,11 @@ class ConfigGenerator:
                 if IP_Addr is None:
                     net_interface_info["IP_Addr"] = "10." + str(net_seg) + ".1"
                     for peer_node in topo_list:
-                        peer_node_name = net_interface_name.replace("eth", "node")
+                        peer_node_name = "node_" + net_interface_name.split("_")[-1]
                         # net_interface_str = net_interface_name.split("_")
                         if peer_node["router_name"] != peer_node_name:
                             continue
-                        peer_net_interface = node["router_name"].replace("node", "eth")
+                        peer_net_interface = peer_node_name.replace("node", "eth") + "_" + node["as_no"]
                         if peer_node["net_interface"][peer_net_interface]["IP_Addr"] is not None:
                             break
                         else:
@@ -696,12 +992,18 @@ class ConfigGenerator:
         # self.ca_config_generator.aspas_generator(self.topo_list_bfs[0:node_number], diectory="nsdi_with_roa")
         # self.ca_config_generator.roas_generator(topo_list=self.topo_list_bfs[0:node_number], diectory="nsdi_with_roa")
 
-    def run_node_RPDP(self, node_number, container_run_command="bash container_run.sh"):
+    def run_node_RPDP(self, node_number, project_name, container_run_command="bash container_run.sh"):
         # "python3 /root/savop/sav-agent/monitor.py"
-        self.bird_config_generator.config_limit_prefix_length_generator(topo_list=self.topo_list_bfs[0:node_number], directory="nsdi", extent_bgp=True, rpki=False)
-        self.sav_agent_config_generator.config_generator(topo_list=self.topo_list_bfs[0:node_number], directory="nsdi", on_grpc=True)
-        self.docker_compose_generator.config_generator(topo_list=self.topo_list_bfs[0:node_number], file_name="nsdi", container_run_command=container_run_command)
-        self.topo_config_generator.config_generator(topo_list=self.topo_list_bfs[0:node_number], filename="nsdi")
+        self.bird_config_generator.config_limit_prefix_length_generator(topo_list=self.topo_list_bfs[0:node_number], directory=project_name, extent_bgp=True, rpki=False)
+        self.sav_agent_config_generator.config_generator(topo_list=self.topo_list_bfs[0:node_number], directory=project_name, on_grpc=True)
+        self.docker_compose_generator.config_generator(topo_list=self.topo_list_bfs[0:node_number], file_name=project_name, container_run_command=container_run_command)
+        self.topo_config_generator.config_generator(topo_list=self.topo_list_bfs[0:node_number], filename=project_name)
+
+    def run_node_RPDP_cluser(self, node_number, project_name, cluster_size, container_run_command="bash container_run.sh"):
+        self.bird_config_generator.cluster_config_limit_prefix_length_generator(topo_list=self.topo_list_bfs[0:node_number], cluster_size=cluster_size, directory=project_name, extent_bgp=True, rpki=False)
+        self.sav_agent_config_generator.cluster_config_generator(topo_list=self.topo_list_bfs[0:node_number], cluster_size=cluster_size, directory=project_name, on_grpc=True)
+        self.docker_compose_generator.cluster_config_generator(topo_list=self.topo_list_bfs[0:node_number], cluster_size=cluster_size, file_name=project_name, container_run_command=container_run_command)
+        self.topo_config_generator.cluster_config_generator(topo_list=self.topo_list_bfs[0:node_number], cluster_size=cluster_size, filename=project_name)
 
     def run_node_DSAV(self, node_number):
         self.bird_config_generator.config_limit_prefix_length_generator(topo_list=self.topo_list_bfs[0:node_number], directory="nsdi", extent_bgp=True, rpki=False)
@@ -792,12 +1094,14 @@ if __name__ == "__main__":
     mode_file = "/root/sav_simulate/savop_back/data/NSDI/small_as_topo_all_prefixes.json"
     business_relation_file = "/root/sav_simulate/savop_back/data/NSDI/20230801.as-rel.txt"
     config_generator = ConfigGenerator(mode_file, business_relation_file)
-    node_number = 50
+    node_number = 200
     # config_generator.run_3_nodes()
-    # config_generator.run_node_RPDP(node_number=node_number, container_run_command="python3 /root/savop/sav-agent/monitor.py")
+    config_generator.run_node_RPDP_cluser(node_number=200, project_name="cluster_200", cluster_size=2, container_run_command="python3 /root/savop/sav-agent/monitor.py")
     # config_generator.run_node_DSAV(node_number=node_number)
-    config_generator.generetor_signal(length=node_number, source="rpdp_app", off=True)
+    # config_generator.generetor_signal(length=node_number, source="rpdp_app", off=True)
 
     # config_generator.run_node_with_roa(node_number=node_number, container_run_command="python3 /root/savop/sav-agent/monitor.py")
     # config_generator.generetor_signal(length=node_number, source="bar_app", off=True)
+
+
 
