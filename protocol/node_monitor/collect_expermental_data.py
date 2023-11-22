@@ -19,7 +19,7 @@ import datetime
 
 
 class CollectData:
-    SINGANL_PATH = "/root/sav_simulate/savop_back/data/NSDI/signal"
+    SINGANL_PATH = "/root/sav_simulate/sav-start/build/signal"
     RUN_LOG_PATH = "/root/sav_simulate/sav-start/build/logs"
     OUT_PATH = "/root/sav_simulate/savop_back/data/NSDI/result"
 
@@ -48,8 +48,8 @@ class CollectData:
                       "judge_stable_time": signal_execute_status["judge_stable_time"],
                       "sav_convergence_duration": signal_execute_status["convergence_duration"],
                       "fib_convergence_duration": signal_execute_status["fib_convergence_duration"],
-                      "sav_rule_number": signal_execute_status["pre_sav_rule_number"],
-                      "grpc_communicate_msg_size": signal_execute_status["communication_message_size"]["agent"]["count"]}
+                      "sav_rule_number": signal_execute_status["pre_sav_rule_number"]}
+                      # "grpc_communicate_msg_size": signal_execute_status["communication_message_size"]["agent"]["count"]}
             print(f"avail_information: {result}\n")
             all_result.append({f"AS-{as_number}": result})
             mkdir_command = f'mkdir -p {self.OUT_PATH}/{source}/{group}/{signal_}/{as_number}'
@@ -88,7 +88,7 @@ class CollectData:
         sav_convergence_duration, fib_convergence_duration, sav_rule_number, grpc_communicate_msg_size = 0, 0, 0, 0
         for result in all_result:
             sav_rule_number += list(result.values())[0]["sav_rule_number"]
-            grpc_communicate_msg_size += list(result.values())[0]["grpc_communicate_msg_size"]
+            # grpc_communicate_msg_size += list(result.values())[0]["grpc_communicate_msg_size"]
             if list(result.values())[0]["sav_convergence_duration"] == 1875:
                 continue
             if list(result.values())[0]["sav_convergence_duration"] > sav_convergence_duration:
@@ -98,8 +98,8 @@ class CollectData:
         print("实验概览：")
         print(f"sav_convergence_duration: {sav_convergence_duration}\n "
               f"fib_convergence_duration: {fib_convergence_duration}\n"
-              f"sav_rule_number: {sav_rule_number}\n"
-              f"grpc_communicate_msg_size: {grpc_communicate_msg_size}\n")
+              f"sav_rule_number: {sav_rule_number}\n")
+              # f"grpc_communicate_msg_size: {grpc_communicate_msg_size}\n")
         print("各节点的sav_rule条数：")
         sav_num_dict = {}
         for result in all_result:
@@ -119,12 +119,10 @@ if __name__ == "__main__":
     # collect_data.parse_signal(signal="signal_10")
     # 监控实验实时情况的代码片段
     turn = True
-    # ignore_ns_list = [4809, 16509, 9680, 2497, 55410, 9607, 33891, 16735, 57866, 701, 5413, 64049, 31133, 4837, 293, 5511,
-    #                   2152, 2516, 2519, 209, 34224]
     ignore_ns_list = []
     while turn:
         try:
-            collect_data.run(group=1, signal="signal_100", ignore_ns_list=ignore_ns_list)
+            collect_data.run(group=1, signal="signal", ignore_ns_list=ignore_ns_list)
             turn = False
             break
         except Exception as e:
