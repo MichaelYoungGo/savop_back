@@ -831,6 +831,63 @@ class DockerComposeGenerator:
             f.write(yml_content)
 
 
+class TopoJsonFileGenerator:
+    def json_generator(self, topo_list, link_number, prefix_number):
+        print("开始创建Json文件")
+        content = {"devices": {}, "links": [],
+                   "as_relations": {
+                       "description": "only provider-customer relation is saved,if we didn't find when building config, we assume peer-peer relation",
+                       "provider-customer": []
+                   },
+                   "enable_rpki": False,
+                   "prefix_method": "blackhole",
+                   "auto_ip_version": 4
+                   }
+        as_index_map = {}
+        as_interface_map = {}
+        for index in range(0, len(topo_list)):
+            node = topo_list[index]
+            content["devices"].update({str(index+1): {"as": int(node["as_no"]), "prefixes": {}}})
+            prefix_number = prefix_number if len(node["prefixs"]) > prefix_number else len(node["prefixs"])
+            for prefix in node["prefixs"][0:prefix_number]:
+                content["devices"][str(index+1)]["prefixes"].update({prefix: {"miig_tag": 0, "miig_type": 1}})
+            as_index_map.update({node["as_no"]: str(index+1)})
+            as_interface_map.update({node["as_no"]: 0})
+
+        as_scope = list(as_index_map.keys())
+        link_map = []
+        for index in range(0, len(topo_list)):
+            local_as_no = topo_list[index]["as_no"]
+            peer_link_count = 0
+            for link in topo_list[index]["links"]:
+                peer_as_no = list(link.keys())[0].split("_")[1]
+                if peer_as_no not in as_scope:
+                    continue
+                if as_interface_map[peer_as_no] >= link_number:
+                    continue
+                if peer_link_count >= link_number:
+                    break
+                link_line = {as_index_map[local_as_no], as_index_map[peer_as_no], "dsav"}
+                as_interface_map[local_as_no] = as_interface_map[local_as_no] + 1
+                as_interface_map[peer_as_no] = as_interface_map[peer_as_no] + 1
+                if link_line not in link_map:
+                    link_map.append(link_line)
+                    if list(link.values())[0] == "customer":
+                        content["as_relations"]["provider-customer"].append([local_as_no, peer_as_no])
+                    elif list(link.values())[0] == "provider":
+                        content["as_relations"]["provider-customer"].append([peer_as_no, local_as_no])
+                peer_link_count = peer_link_count + 1
+        for item in link_map:
+            item_ = list(item)
+            item_.sort()
+            if int(item_[0]) > int(item_[1]):
+                tmp = item_[0]
+                item_[0] = item_[1]
+                item_[1] = tmp
+            content["links"].append(item_)
+        return content
+
+
 class ConfigGenerator:
     mode_data = {}
     business_relationship_data = {}
@@ -841,6 +898,7 @@ class ConfigGenerator:
     topo_config_generator = TopoConfigGenerator()
     docker_compose_generator = DockerComposeGenerator()
     ca_config_generator = CaConfigGenerator()
+    topo_json_generator = TopoJsonFileGenerator()
 
     def __init__(self, mode_file_path, business_relation_file_path, transfor_topo=False):
         self.mode_data = self.mode_data_analysis(path=mode_file_path)
@@ -1161,20 +1219,27 @@ class ConfigGenerator:
         with open(f'{DEPLOY_DIR}/topology/topo_{length}.json', 'w') as file:
             file.write(content)
 
+    def generate_savop_topo_json_file(self, radio, node_number, link_nubmer, prefix_number):
+        json_dict = self.topo_json_generator.json_generator(topo_list=self.topo_list_bfs[0: node_number], link_number=link_nubmer, prefix_number=prefix_number)
+        filename = f"246_{radio}_{link_nubmer}_{prefix_number}_{node_number}_nodes_inter_v4.json"
+        with open(f"/root/sav_simulate/savop/base_configs/{filename}", 'w') as json_file:
+            json.dump(json_dict, json_file, indent=4)
+
 
 if __name__ == "__main__":
     mode_file = "/root/sav_simulate/savop_back/data/NSDI/small_as_topo_all_prefixes.json"
     business_relation_file = "/root/sav_simulate/savop_back/data/NSDI/20230801.as-rel.txt"
-    config_generator = ConfigGenerator(mode_file, business_relation_file, transfor_topo="star")
-    node_number = 246
+    config_generator = ConfigGenerator(mode_file, business_relation_file, transfor_topo=False)
+    for radio in range(5, 101, 5):
+        node_number = int(246 * radio / 100)
     # config_generator.load_topo_file(length=200)
     # config_generator.run_3_nodes()
-    config_generator.run_node_RPDP_cluser(node_number=node_number, project_name=f"cluster_{node_number}", cluster_size=2, container_run_command="python3 /root/savop/sav-agent/monitor.py")
+    # config_generator.run_node_RPDP_cluser(node_number=node_number, project_name=f"cluster_{node_number}", cluster_size=2, container_run_command="python3 /root/savop/sav-agent/monitor.py")
     # config_generator.run_node_DSAV(node_number=node_number)
-    config_generator.generetor_cluster_signal(length=node_number, source="rpdp_app", off=True)
-
+    # config_generator.generetor_cluster_signal(length=node_number, source="rpdp_app", off=True)
     # config_generator.run_node_with_roa(node_number=node_number, container_run_command="python3 /root/savop/sav-agent/monitor.py")
     # config_generator.generetor_signal(length=node_number, source="bar_app", off=True)
+        config_generator.generate_savop_topo_json_file(radio=radio, node_number=node_number, link_nubmer=50, prefix_number=50)
 
 
 
