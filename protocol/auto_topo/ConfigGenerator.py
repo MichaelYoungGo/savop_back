@@ -1080,9 +1080,9 @@ class ConfigGenerator:
         self.docker_compose_generator.rpki_generator(self.topo_list_bfs[0:node_number])
         self.docker_compose_generator.config_generator_with_roa(topo_list=self.topo_list_bfs[0:node_number], container_run_command=container_run_command)
         self.topo_config_generator.config_generator(topo_list=self.topo_list_bfs[0:node_number], filename="nsdi_with_roa")
-        # self.ca_config_generator.config_generator(topo_list=self.topo_list_bfs[0:node_number], directory="nsdi_with_roa")
-        # self.ca_config_generator.aspas_generator(self.topo_list_bfs[0:node_number], diectory="nsdi_with_roa")
-        # self.ca_config_generator.roas_generator(topo_list=self.topo_list_bfs[0:node_number], diectory="nsdi_with_roa")
+        self.ca_config_generator.config_generator(topo_list=self.topo_list_bfs[0:node_number], directory="nsdi_with_roa")
+        self.ca_config_generator.aspas_generator(self.topo_list_bfs[0:node_number], diectory="nsdi_with_roa")
+        self.ca_config_generator.roas_generator(topo_list=self.topo_list_bfs[0:node_number], diectory="nsdi_with_roa")
 
     def run_node_RPDP(self, node_number, project_name, container_run_command="bash container_run.sh"):
         # "python3 /root/savop/sav-agent/monitor.py"

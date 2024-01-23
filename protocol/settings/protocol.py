@@ -41,3 +41,5 @@ DATABASES = {
 USE_TZ = True
 
 TIME_ZONE = 'Asia/Shanghai'
+
+ASGI_APPLICATION = "protocol.asgi.application"

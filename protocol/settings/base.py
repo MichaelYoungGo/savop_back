@@ -62,7 +62,7 @@ JWT_AUTH = {
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
         'rest_framework.authentication.SessionAuthentication',
     )
 }
@@ -73,7 +73,8 @@ DEFAULT_PERMISSION_CLASSES = {
 
 # Application definition
 INSTALLED_APPS = [
-    'protocol.log',
+    'protocol.log.apps.DeviceConfig',
+    'channels',
     'rest_framework',
     'webpack_loader',
     'django.contrib.admin',
