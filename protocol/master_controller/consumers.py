@@ -15,10 +15,9 @@ import time
 import os
 from channels.generic.websocket import WebsocketConsumer, JsonWebsocketConsumer
 from constants.error_code import ErrorCode
-from protocol.settings.protocol import BASE_DIR
 from protocol.utils.command import command_executor_with_popen
 
-SAV_ROOT_DIR = os.path.dirname(BASE_DIR)
+SAV_ROOT_DIR = "/root/sav_simulate"
 
 
 class SavControlMaster:
