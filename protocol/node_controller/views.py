@@ -24,9 +24,8 @@ class NodeControllerSet(ViewSet):
         protocol_name = request.query_params.get("protocol_name")
         if protocol_name is None:
             return response_data(code=ErrorCode.E_PARAM_ERROR, message="The protocol name cannot be empty")
-        protocol_dict = {"strict-uRPF": "strict_urpf_app", "rpdp": "rpdp_app", "loose-uRPF": "loose_urpf_app",
-                         "EFP-uRPF-A": "EFP-uRPF-Algorithm-A_app", "EFP-uRPF-B": "EFP-uRPF-Algorithm-B_app",
-                         "FP-uRPF": "fpurpf_app"}
+        protocol_dict = {"strict-uRPF": "strict_urpf", "rpdp": "rpdp", "loose-uRPF": "loose_urpf",
+                         "EFP-uRPF-A": "efp_urpf_a", "EFP-uRPF-B": "efp_urpf_b", "FP-uRPF": "fp_urpf"}
         if protocol_name not in protocol_dict.keys():
             return response_data(code=ErrorCode.E_PARAM_ERROR, message='the protocol name does not exist. Please choose one of the following: strict-uRPF,\
                                        rpdp, loose-uRPF, EFP-uRPF-A, EFP-uRPF-B, FP-uRPF')
