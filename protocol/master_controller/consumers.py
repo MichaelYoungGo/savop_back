@@ -16,8 +16,8 @@ import os
 from channels.generic.websocket import WebsocketConsumer, JsonWebsocketConsumer
 from constants.error_code import ErrorCode
 from protocol.utils.command import command_executor_with_popen
+from constants.common_variable import SAV_ROOT_DIR
 
-SAV_ROOT_DIR = "/root/sav_simulate"
 
 
 class SavControlMaster:
