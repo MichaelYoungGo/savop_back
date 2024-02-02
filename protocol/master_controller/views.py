@@ -10,13 +10,41 @@
                    2024/1/19:
 -------------------------------------------------
 """
+import json
+import subprocess
 from rest_framework.viewsets import ViewSet
 from rest_framework.decorators import action
 from protocol.utils.http_utils import response_data
 from protocol.utils.command import command_executor
 from constants.error_code import ErrorCode
+from constants.common_variable import SAV_ROOT_DIR
 
 class HostControllerSet(ViewSet):
-    @action(detail=False, methods=['get'], url_path="test", url_name="test")
-    def start(self, request, *args, **kwargs):
-        return response_data(data="test success")
+    @action(detail=False, methods=['get'], url_path="metric", url_name="metric")
+    def metric(self, request, *args, **kwargs):
+        topo_name = request.query_params.get("topo")
+        data = {}
+        command = f"python3 {SAV_ROOT_DIR}/savop/sav_control_master.py --metric {topo_name}"
+        command_result = subprocess.run(command, shell=True, capture_output=True, encoding='utf-8')
+        for metric in command_result.stdout.split("\n"):
+            if "the protocol performance metric" in metric:
+                continue
+            if "run over" in metric:
+                break
+            data.update(json.loads(metric))
+        return response_data(data=data)
+
+    @action(detail=False, methods=['get'], url_path="sav_table", url_name="sav_table")
+    def sav_table(self, request, *args, **kwargs):
+        topo_name = request.query_params.get("topo")
+        data = {}
+        command = f"python3 {SAV_ROOT_DIR}/savop/sav_control_master.py --table {topo_name}"
+        command_result = subprocess.run(command, shell=True, capture_output=True, encoding='utf-8')
+        for sav_table in command_result.stdout.split("\n"):
+            if "the protocol table" in sav_table:
+                continue
+            if "run over" in sav_table:
+                break
+            data.update(json.loads(sav_table))
+        return response_data(data=data)
+
