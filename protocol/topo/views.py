@@ -163,7 +163,11 @@ class TopologySet(ViewSet):
         data = MongoDBClient.find_one_by_id(id_=params)[0]
         topo_name = data["name"]
         data = data["data"]["content"]
-        config_file = {"devices": {}, "links": [], "enable_rpki": False, "prefix_method": "blackhole", "ip_version": 4}
+        config_file = {"devices": {}, "links": [], "as_relations": {"provider-customer": []},"enable_rpki": False,
+                       "prefix_method": "blackhole", "auto_ip_version": 4, "enable_rpki": False,
+                       "prefix_method": "blackhole", "sav_apps": ["rpdp", "strict_urpf", "loose_urpf", "fp_urpf", "efp_urpf_a", "efp_urpf_b"],
+                       "active_sav_app": "rpdp", "ignore_irrelevant_nets": True, "fib_threshold": 5, "ignore_private": True
+                       }
         # 将纯数据文件转化为描述任意topo结构的json文件
         # 首先提取topo的各种构件信息
         as_info = {}
@@ -190,7 +194,10 @@ class TopologySet(ViewSet):
                 as_id = component["businessInfo"]["affiliationAS"]
                 router_id = component["businessInfo"]["routerId"]
                 router_mongo_id = component["id"]
-                config_file["devices"].update({router_id: {"as": as_info[as_id], "prefixes": prefix_info[router_mongo_id]}})
+                prefixes = {}
+                for item in prefix_info[router_mongo_id]:
+                    prefixes.update({item:{"miig_tag": 0, "miig_type": 1}})
+                config_file["devices"].update({router_id: {"as": int(as_info[as_id]), "prefixes": prefixes}})
         for component in data["edges"]:
             source_router_mongo_id = component["source"]
             target_router_mongo_id = component["target"]
@@ -198,6 +205,6 @@ class TopologySet(ViewSet):
             target_router_id = router_info[target_router_mongo_id]
             config_file["links"].append([source_router_id, target_router_id, "dsav"])
         # 打开文件以进行写入，如果文件不存在则创建
-        with open(f'/root/sav_simulate/sav-start/base_configs/{topo_name}.json', 'w') as file:
+        with open(f'/root/sav_simulate/savop/base_configs/{topo_name}.json', 'w') as file:
             file.write(json.dumps(config_file, indent=2))
         return response_data(data=config_file)
