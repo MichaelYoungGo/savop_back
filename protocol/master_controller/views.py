@@ -98,3 +98,17 @@ class HostControllerSet(ViewSet):
             data.update(json.loads(performance))
         return response_data(data=data)
 
+    @action(detail=False, methods=['get'], url_path="step", url_name="step")
+    def step(self, request, *args, **kwargs):
+        topo_name = request.query_params.get("topo")
+        data = []
+        command = f"python3 {SAV_ROOT_DIR}/savop/sav_control_master.py --step {topo_name}"
+        command_result = subprocess.run(command, shell=True, capture_output=True, encoding='utf-8')
+        for step in command_result.stdout.split("\n"):
+            if "the protocol process of sending packets" in step:
+                continue
+            if "run over" in step:
+                break
+            data.append(json.loads(step))
+        return response_data(data=data)
+
