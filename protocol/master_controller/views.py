@@ -112,3 +112,16 @@ class HostControllerSet(ViewSet):
             data.append(json.loads(step))
         return response_data(data=data)
 
+    @action(detail=False, methods=['get'], url_path="enable", url_name="enable")
+    def enable(self, request, *args, **kwargs):
+        protocol_name = request.query_params.get("protocol_name")
+        data = []
+        command = f"python3 {SAV_ROOT_DIR}/savop/sav_control_master.py --enable {protocol_name}"
+        command_result = subprocess.run(command, shell=True, capture_output=True, encoding='utf-8')
+        for result in command_result.stdout.split("\n"):
+            if "the enable sav_table's rules situation" in result:
+                continue
+            if "run over" in result:
+                break
+            data.append(json.loads(result))
+        return response_data(data=data)
