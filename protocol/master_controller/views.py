@@ -20,6 +20,42 @@ from constants.error_code import ErrorCode
 from constants.common_variable import SAV_ROOT_DIR
 
 class HostControllerSet(ViewSet):
+    @action(detail=False, methods=['get'], url_path="config", url_name="config")
+    def config(self, request, *args, **kwargs):
+        topo_name = request.query_params.get("topo")
+        data = ""
+        command = f"python3 {SAV_ROOT_DIR}/savop/sav_control_master.py --topo_json {topo_name} --config refresh"
+        command_result = subprocess.run(command, shell=True, capture_output=True, encoding='utf-8')
+        for content in command_result.stdout.split("\n"):
+            if "run over" in content:
+                break
+            data += content
+        return response_data(data=data)
+
+    @action(detail=False, methods=['get'], url_path="distribute", url_name="distribute")
+    def distribute(self, request, *args, **kwargs):
+        topo_name = request.query_params.get("topo")
+        data = ""
+        command = f"python3 {SAV_ROOT_DIR}/savop/sav_control_master.py --topo_json {topo_name} --distribute all"
+        command_result = subprocess.run(command, shell=True, capture_output=True, encoding='utf-8')
+        for content in command_result.stdout.split("\n"):
+            if "run over" in content:
+                break
+            data += content
+        return response_data(data=data)
+
+    @action(detail=False, methods=['get'], url_path="run", url_name="run")
+    def run(self, request, *args, **kwargs):
+        topo_name = request.query_params.get("topo")
+        data = ""
+        command = f"python3 {SAV_ROOT_DIR}/savop/sav_control_master.py --topo_json {topo_name} --action start"
+        command_result = subprocess.run(command, shell=True, capture_output=True, encoding='utf-8')
+        for content in command_result.stdout.split("\n"):
+            if "run over" in content:
+                break
+            data += content
+        return response_data(data=data)
+
     @action(detail=False, methods=['get'], url_path="metric", url_name="metric")
     def metric(self, request, *args, **kwargs):
         topo_name = request.query_params.get("topo")
