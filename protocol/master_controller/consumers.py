@@ -31,7 +31,7 @@ class SavControlMaster:
         return {"action": "执行监控类命令"}
 
     def experiment(self, mode_name):
-        cmd = f"python3 {SAV_ROOT_DIR}/savop/sav_control_master.py -e {mode_name} -s"
+        cmd = f"python3 {SAV_ROOT_DIR}/savop/sav_control_master.py -e {mode_name}"
         process = command_executor_with_popen(command=cmd)
         return process
         return {"action": f"Run {mode_name} with One Click"}

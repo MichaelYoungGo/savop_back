@@ -84,3 +84,17 @@ class HostControllerSet(ViewSet):
             data.update(json.loads(sav_table))
         return response_data(data=data)
 
+    @action(detail=False, methods=['get'], url_path="performance", url_name="performance")
+    def performance(self, request, *args, **kwargs):
+        topo_name = request.query_params.get("topo")
+        data = {}
+        command = f"python3 {SAV_ROOT_DIR}/savop/sav_control_master.py --performance all"
+        command_result = subprocess.run(command, shell=True, capture_output=True, encoding='utf-8')
+        for performance in command_result.stdout.split("\n"):
+            if "the protocol table" in performance:
+                continue
+            if "run over" in performance:
+                break
+            data.update(json.loads(performance))
+        return response_data(data=data)
+
