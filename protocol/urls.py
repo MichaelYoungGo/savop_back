@@ -20,11 +20,11 @@ router.register('sav_control', HostControllerSet, basename="sav_control")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path(r'^api/getNetData/$', log_views.FPathInfoView.as_view()),
-    re_path(r'^api/netinfo/refresh/(?P<topo>.+)/$', log_views.RefreshTopologyProgressData.as_view(), name="netinfo_update"),
-    re_path(r'^api/netinfo/(?P<topo>.+)/$', log_views.CollectTopologyProgressData.as_view(), name="netinfo"),
-    re_path(r'^api/auto_build/$', AutoBuildTopology.as_view(), name="simulate_run"),
-    re_path(r'^api/', include(router.urls)),
+    re_path(r'^api/v1/getNetData/$', log_views.FPathInfoView.as_view()),
+    re_path(r'^api/v1/netinfo/refresh/(?P<topo>.+)/$', log_views.RefreshTopologyProgressData.as_view(), name="netinfo_update"),
+    re_path(r'^api/v1/netinfo/(?P<topo>.+)/$', log_views.CollectTopologyProgressData.as_view(), name="netinfo"),
+    re_path(r'^api/v1/auto_build/$', AutoBuildTopology.as_view(), name="simulate_run"),
+    re_path(r'^api/v1/', include(router.urls)),
 ]
 urlpatterns += websocket_urlpatterns
 

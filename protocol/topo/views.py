@@ -14,6 +14,7 @@ import json
 
 import pymongo
 import time
+import ipaddress
 from rest_framework.viewsets import ViewSet
 from rest_framework.decorators import action
 from protocol.utils.http_utils import response_data
@@ -94,6 +95,11 @@ class TopologySet(ViewSet):
         data.pop("_id")
         data.pop("id")
         data.pop("name")
+        config_flag = request.query_params.get("config_flag")
+        if config_flag == "true":
+            with open(f'/root/sav_simulate/savop/base_configs/{data["data"]["name"]}.json', 'r') as file:
+                config_content = json.load(file)
+            data["data"].update({"init_json": config_content})
         return response_data(data=data)
 
     @action(detail=False, methods=['post'], url_path="add", url_name="add_topo")
@@ -163,47 +169,58 @@ class TopologySet(ViewSet):
         data = MongoDBClient.find_one_by_id(id_=params)[0]
         topo_name = data["name"]
         data = data["data"]["content"]
-        config_file = {"devices": {}, "links": [], "as_relations": {"provider-customer": []},"enable_rpki": False,
-                       "prefix_method": "blackhole", "auto_ip_version": 4, "enable_rpki": False,
-                       "prefix_method": "blackhole", "sav_apps": ["rpdp", "strict_urpf", "loose_urpf", "fp_urpf", "efp_urpf_a", "efp_urpf_b"],
-                       "active_sav_app": "rpdp", "ignore_irrelevant_nets": True, "fib_threshold": 5, "ignore_private": True
-                       }
+        config_file = {"devices": {}, "links": [], "as_relations": {"provider-customer": []}, "enable_rpki": False,
+                       "prefix_method": "blackhole", "auto_ip_version": 4, "enable_rpki": False, "sav_apps": [],
+                       "active_sav_app": "rpdp", "ignore_irrelevant_nets": True,  "fib_threshold": 5,
+                       "ignore_private": True}
         # 将纯数据文件转化为描述任意topo结构的json文件
         # 首先提取topo的各种构件信息
         as_info = {}
         prefix_info = {}
         router_info = {}
-        for component in data["nodes"]:
-            component_type = component["id"].split("_")[0]
-            if component_type == "as":
-                as_id = component["id"]
-                label = component["label"]
-                as_info[as_id] = label
-            elif component_type == "pref":
-                router_id = component["businessInfo"]["affiliationRouter"]
-                prefix_IPs = component["businessInfo"]["prefixIP"]
-                prefix_IP_list = prefix_IPs.split(",")
-                prefix_info.update({router_id: prefix_IP_list})
-            elif component_type == "rt":
-                router_mongo_id = component["id"]
-                router_id = component["businessInfo"]["routerId"]
-                router_info.update({router_mongo_id: router_id})
-        for component in data["nodes"]:
-            component_type = component["id"].split("_")[0]
-            if component_type == "rt":
-                as_id = component["businessInfo"]["affiliationAS"]
-                router_id = component["businessInfo"]["routerId"]
-                router_mongo_id = component["id"]
-                prefixes = {}
-                for item in prefix_info[router_mongo_id]:
-                    prefixes.update({item:{"miig_tag": 0, "miig_type": 1}})
-                config_file["devices"].update({router_id: {"as": int(as_info[as_id]), "prefixes": prefixes}})
+        for autoSyst in data["autoSysts"]:
+            as_id = autoSyst["id"]
+            label = autoSyst["label"]
+            as_info[as_id] = label
+
+        for prefix in data["prefixs"]:
+            router_id = prefix["businessInfo"]["affiliationRouter"]
+            prefix_IPs = prefix["businessInfo"]["prefixIP"]
+            prefix_info.update({router_id: prefix_IPs})
+
+        for route in data["routes"]:
+            router_mongo_id = route["id"]
+            as_id = route["businessInfo"]["affiliationAS"]
+            router_info.update({router_mongo_id: as_id})
+
+        for index in range(0, len(data["routes"])):
+            router_id = data["routes"][index]["id"]
+            as_id = data["routes"][index]["businessInfo"]["affiliationAS"]
+            prefixes = {}
+            for p in prefix_info[router_id]:
+                ip_network = ipaddress.ip_network(p["IPaddress"], strict=False)
+                prefixes.update({ip_network.compressed: {"id": p["id"], "miig_tag": p["miig_tag"], "miig_type": p["miig_type"]}})
+            config_file["devices"].update({index+1: {"as": int(as_info[as_id]), "prefixes": prefixes, "id": router_id}})
+
         for component in data["edges"]:
-            source_router_mongo_id = component["source"]
-            target_router_mongo_id = component["target"]
-            source_router_id = router_info[source_router_mongo_id]
-            target_router_id = router_info[target_router_mongo_id]
-            config_file["links"].append([source_router_id, target_router_id, "dsav"])
+            source_router_id = component["source"]
+            target_router_id = component["target"]
+            for index in range(0, len(data["routes"])):
+                if data["routes"][index]["id"] == source_router_id:
+                    source_router_index = index + 1
+                    break
+            for index in range(0, len(data["routes"])):
+                if data["routes"][index]["id"] == target_router_id:
+                    target_router_index = index + 1
+                    break
+            config_file["links"].append([str(source_router_index), str(target_router_index), "dsav"])
+            if component["businessInfo"]["businessRelation"] == "CtoP":
+                as_relateion = [as_info[router_info[target_router_id]], as_info[router_info[source_router_id]]]
+            if component["businessInfo"]["businessRelation"] == "PtoC":
+                as_relateion = [as_info[router_info[source_router_id]], as_info[router_info[target_router_id]]]
+            config_file["as_relations"]["provider-customer"].append(as_relateion)
+        # 更新topo属性
+        config_file.update(data["properties"])
         # 打开文件以进行写入，如果文件不存在则创建
         with open(f'/root/sav_simulate/savop/base_configs/{topo_name}.json', 'w') as file:
             file.write(json.dumps(config_file, indent=2))
