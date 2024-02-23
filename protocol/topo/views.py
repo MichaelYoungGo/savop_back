@@ -219,6 +219,7 @@ class TopologySet(ViewSet):
             if component["businessInfo"]["businessRelation"] == "PtoC":
                 as_relateion = [as_info[router_info[source_router_id]], as_info[router_info[target_router_id]]]
             config_file["as_relations"]["provider-customer"].append(as_relateion)
+        config_file["as_relations"]["provider-customer"] =  [list(t) for t in {tuple(element) for element in config_file["as_relations"]["provider-customer"]}]
         # 更新topo属性
         config_file.update(data["properties"])
         # 打开文件以进行写入，如果文件不存在则创建
