@@ -22,7 +22,7 @@ from constants.error_code import ErrorCode
 
 def start_udp_server(receive_pos, dst_ip, trans_num, q):
     print("udp server start")
-    traffic_receive_command = f"docker exec -i node_{receive_pos} python3 /root/savop/extend_server/trafficTools/UDP_server.py  \
+    traffic_receive_command = f"docker exec -i r{receive_pos} python3 /root/savop/sav-agent/tools/UDP_server.py  \
                            --dst {dst_ip} --trans_num {trans_num}"
     receive_result = command_executor(command=traffic_receive_command)
     if receive_result.returncode == 0:
@@ -34,7 +34,7 @@ def start_udp_server(receive_pos, dst_ip, trans_num, q):
 
 def start_udp_client(send_pos, dst_ip, src_ip, trans_num, iface):
     print("udp client start")
-    traffic_send_command = f"docker exec -i node_{send_pos} python3 /root/savop/extend_server/trafficTools/UDP_client.py  \
+    traffic_send_command = f"docker exec -i r{send_pos} python3 /root/savop/sav-agent/tools/UDP_client.py  \
                            --dst {dst_ip} --src {src_ip} --trans_num {trans_num} --iface {iface}"
     send_result = command_executor(command=traffic_send_command)
     print("udp client end")
@@ -85,6 +85,22 @@ class TrafficControllerSet(ViewSet):
         # if send_result.returncode != 0:
         #     return response_data(code=ErrorCode.E_SERVER, message=f"Docker command execution failed, {traffic_send_command}")
         # send_data = eval(send_result.stdout)
+        # 获取全局IP地址视野
+        router_info = command_executor(command="docker ps |grep savop |awk '{print $NF}'")
+        router_name_list = [i for i in router_info.stdout.split("\n") if len(i) >= 2]
+        router_map = {}
+        for router_name in router_name_list:
+            IP_info = command_executor(f"docker exec -it {router_name} ip -j address")
+            IP_json = json.loads(IP_info.stdout)
+            for i in IP_json:
+                if "eth_" not in i["ifname"]:
+                    continue
+                router_map.update({i["addr_info"][0]["local"]: router_name})
+        # 获取正常的发包路径
+        trace_route_info = command_executor(f"docker exec -it r{send_pos} traceroute -i {iface} {dst_ip} |grep -v traceroute |awk '{{print $2}}'")
+        normal_packet_path = [router_map[i] for i in trace_route_info.stdout.split("\n") if len(i) >= 7]
+        # 清空拦截日志
+        clear_block_log = command_executor("echo \"\" > /var/log/syslog")
         q = multiprocessing.Queue()
         server = multiprocessing.Process(target=start_udp_server, args=(receive_pos, dst_ip, trans_num, q))
         client = multiprocessing.Process(target=start_udp_client, args=(send_pos, dst_ip, src_ip, trans_num, iface))
@@ -96,7 +112,14 @@ class TrafficControllerSet(ViewSet):
         server_result = q.get()
         if type(server_result) == int:
             return response_data(code=ErrorCode.E_SERVER, message="UDP server command execution failed")
-        return response_data(data=eval(server_result))
+        data = eval(server_result)
+        data.update({"normal_path": normal_packet_path})
+        intercept_router = ""
+        if data["fail_count"] != 0:
+            container_id = command_executor(command="grep \"IPTABLES\" /var/log/syslog|awk '{print $8}'|uniq").stdout.strip()
+            intercept_router =  command_executor(command="docker ps |grep ad6bc8304ccd|awk '{print $NF}'").stdout.strip()
+        data.update({"intercept_router": intercept_router})
+        return response_data(data=data)
 
     @action(detail=False, methods=['get', 'post'], url_path="receiver", url_name="traffic_receiver")
     def receiver(self, request, *args, **kwargs):
