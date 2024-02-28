@@ -98,7 +98,7 @@ class TrafficControllerSet(ViewSet):
                 router_map.update({i["addr_info"][0]["local"]: router_name})
         # 获取正常的发包路径
         trace_route_info = command_executor(f"docker exec -it r{send_pos} traceroute -i {iface} {dst_ip} |grep -v traceroute |awk '{{print $2}}'")
-        normal_packet_path = [router_map[i] for i in trace_route_info.stdout.split("\n") if len(i) >= 7]
+        normal_packet_path =[f"r{send_pos}"] + [router_map[i] for i in trace_route_info.stdout.split("\n") if len(i) >= 7]
         # 清空拦截日志
         clear_block_log = command_executor("echo \"\" > /var/log/syslog")
         q = multiprocessing.Queue()
