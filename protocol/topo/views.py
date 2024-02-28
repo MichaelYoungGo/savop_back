@@ -196,7 +196,7 @@ class TopologySet(ViewSet):
         for index in range(0, len(data["routes"])):
             router_id = data["routes"][index]["id"]
             as_id = data["routes"][index]["businessInfo"]["affiliationAS"]
-            prefixes = {}
+            prefixes = config_file["devices"].get(index+1, {}).get("prefixes", {})
             for p in prefix_info[router_id]:
                 ip_network = ipaddress.ip_network(p["IPaddress"], strict=False)
                 prefixes.update({ip_network.compressed: {"id": p["id"], "miig_tag": p["miig_tag"], "miig_type": p["miig_type"]}})
