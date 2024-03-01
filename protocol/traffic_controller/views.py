@@ -53,7 +53,7 @@ class TrafficControllerSet(ViewSet):
             return response_data(code=ErrorCode.E_PARAM_ERROR, message="lack parameter")
         # checkout if the dst have exited
         dst_ip, dst_prefix = parameters.get("dst").split("/")[0], parameters.get("dst").split("/")[1]
-        src_ip, src_prefix = parameters.get("src").split("/")[0], parameters.get("src").split("/")[1]
+        src_ip = parameters.get("src").split("/")[0]
         # receive_link_info_command = f"docker exec -i node_{receive_pos} ip -j a"
         # link_info_result = command_executor(command=receive_link_info_command)
         # if link_info_result.returncode != 0:
@@ -90,14 +90,14 @@ class TrafficControllerSet(ViewSet):
         router_name_list = [i for i in router_info.stdout.split("\n") if len(i) >= 2]
         router_map = {}
         for router_name in router_name_list:
-            IP_info = command_executor(f"docker exec -it {router_name} ip -j address")
+            IP_info = command_executor(f"docker exec -i {router_name} ip -j address")
             IP_json = json.loads(IP_info.stdout)
             for i in IP_json:
                 if "eth_" not in i["ifname"]:
                     continue
                 router_map.update({i["addr_info"][0]["local"]: router_name})
         # 获取正常的发包路径
-        trace_route_info = command_executor(f"docker exec -it r{send_pos} traceroute -i {iface} {dst_ip} |grep -v traceroute |awk '{{print $2}}'")
+        trace_route_info = command_executor(f"docker exec -i r{send_pos} traceroute -i {iface} {dst_ip} |grep -v traceroute |awk '{{print $2}}'")
         normal_packet_path =[f"r{send_pos}"] + [router_map[i] for i in trace_route_info.stdout.split("\n") if len(i) >= 7]
         # 清空拦截日志
         clear_block_log = command_executor("echo \"\" > /var/log/syslog")

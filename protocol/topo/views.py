@@ -191,8 +191,10 @@ class TopologySet(ViewSet):
         for prefix in data["prefixs"]:
             router_id = prefix["businessInfo"]["affiliationRouter"]
             prefix_IPs = prefix["businessInfo"]["prefixIP"]
-            prefix_info.update({router_id: prefix_IPs})
-
+            if len(prefix_info.get(router_id, {})) == 0:
+                prefix_info.update({router_id: prefix_IPs})
+            else:
+                prefix_info[router_id].extend(prefix_IPs)
         for route in data["routes"]:
             router_mongo_id = route["id"]
             as_id = route["businessInfo"]["affiliationAS"]
