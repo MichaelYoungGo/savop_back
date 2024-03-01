@@ -170,7 +170,7 @@ class TopologySet(ViewSet):
         topo_name = data["name"]
         data = data["data"]["content"]
         config_file = {"devices": {}, "links": [], "as_relations": {"provider-customer": []}, "enable_rpki": False,
-                       "prefix_method": "blackhole", "auto_ip_version": 4, "enable_rpki": False, "sav_apps": [],
+                       "prefix_method": "independent_interface", "auto_ip_version": 4, "enable_rpki": False, "sav_apps": [],
                        "active_sav_app": "rpdp", "ignore_irrelevant_nets": True,  "fib_threshold": 5,
                        "ignore_private": True}
         # 将纯数据文件转化为描述任意topo结构的json文件
