@@ -78,7 +78,12 @@ class MongoDBClient:
 class TopologySet(ViewSet):
     @action(detail=False, methods=['get'], url_path="list", url_name="list_topo")
     def list_(self, request, *args, **kwargs):
-        data = MongoDBClient.get_all()
+        reverse = request.query_params.get("reverse", "false")
+        if reverse == "true":
+            data = MongoDBClient.get_all()
+            data.reverse()
+        else:
+            data = MongoDBClient.get_all()
         return response_data(data=data)
 
     @action(detail=False, methods=['get'], url_path="search", url_name="search_topo")
