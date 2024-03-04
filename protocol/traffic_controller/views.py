@@ -19,6 +19,7 @@ from rest_framework.decorators import action
 from protocol.utils.http_utils import response_data
 from protocol.utils.command import command_executor
 from constants.error_code import ErrorCode
+from protocol.utils.decorator import api_check_mode_name
 
 
 def start_udp_server(receive_pos, dst_ip, trans_num, q):
@@ -42,6 +43,7 @@ def start_udp_client(send_pos, dst_ip, src_ip, trans_num, iface):
 
 
 class TrafficControllerSet(ViewSet):
+    @api_check_mode_name
     @action(detail=False, methods=['get', 'post'], url_path="sender", url_name="traffic_sender")
     def sender(self, request, *args, **kwargs):
         parameters = request.data
