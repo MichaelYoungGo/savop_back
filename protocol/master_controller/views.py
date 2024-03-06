@@ -18,7 +18,7 @@ from protocol.utils.http_utils import response_data
 from protocol.utils.command import command_executor
 from constants.error_code import ErrorCode
 from constants.common_variable import SAV_ROOT_DIR
-from protocol.utils.decorator import api_check_mode_name
+from protocol.utils.decorator import api_check_mode_name, api_check_mode_status
 
 class HostControllerSet(ViewSet):
     @action(detail=False, methods=['get'], url_path="config", url_name="config")
@@ -57,7 +57,9 @@ class HostControllerSet(ViewSet):
             data += content
         return response_data(data=data)
 
+
     @api_check_mode_name
+    @api_check_mode_status
     @action(detail=False, methods=['get'], url_path="metric", url_name="metric")
     def metric(self, request, *args, **kwargs):
         topo_name = request.query_params.get("topo")
@@ -73,6 +75,7 @@ class HostControllerSet(ViewSet):
         return response_data(data=data)
 
     @api_check_mode_name
+    @api_check_mode_status
     @action(detail=False, methods=['get'], url_path="sav_table", url_name="sav_table")
     def sav_table(self, request, *args, **kwargs):
         topo_name = request.query_params.get("topo")
@@ -88,6 +91,7 @@ class HostControllerSet(ViewSet):
         return response_data(data=data)
 
     @api_check_mode_name
+    @api_check_mode_status
     @action(detail=False, methods=['get'], url_path="performance", url_name="performance")
     def performance(self, request, *args, **kwargs):
         topo_name = request.query_params.get("topo")
@@ -103,6 +107,7 @@ class HostControllerSet(ViewSet):
         return response_data(data=data)
 
     @api_check_mode_name
+    @api_check_mode_status
     @action(detail=False, methods=['get'], url_path="step", url_name="step")
     def step(self, request, *args, **kwargs):
         topo_name = request.query_params.get("topo")
