@@ -98,10 +98,11 @@ class TrafficControllerSet(ViewSet):
             for i in IP_json:
                 if "eth_" not in i["ifname"]:
                     continue
-                router_map.update({i["addr_info"][0]["local"]: router_name})
-        # 获取正常的发包路径
-        trace_route_info = command_executor(f"docker exec -i r{send_pos} traceroute -i {iface} {dst_ip} |grep -v traceroute |awk '{{print $2}}'")
-        normal_packet_path =[f"r{send_pos}"] + [router_map[i] for i in trace_route_info.stdout.split("\n") if len(i) >= 7]
+                for add_info in i["addr_info"]:
+                    router_map.update({add_info["local"]: router_name})
+        # 获取发包路径，无论在
+        trace_route_info = command_executor(f"docker exec -i {iface.replace('eth_', 'r')} traceroute {dst_ip} |grep -v traceroute |awk '{{print $2}}'")
+        normal_packet_path =[f"r{send_pos}", iface.replace('eth_', 'r')] + [router_map[i] for i in trace_route_info.stdout.split("\n") if len(i) >= 7]
         # 清空拦截日志
         clear_block_log = command_executor("echo \"\" > /var/log/syslog")
         q = multiprocessing.Queue()
@@ -121,12 +122,6 @@ class TrafficControllerSet(ViewSet):
         if data["fail_count"] != 0:
             container_id = command_executor(command="grep \"IPTABLES\" /var/log/syslog|awk '{print $8}'|uniq").stdout.strip()
             intercept_router =  command_executor(command=f"docker ps |grep {container_id}|awk '{{print $NF}}'").stdout.strip()
-        if intercept_router != "" and intercept_router not in normal_packet_path:
-            normal_packet_path.append(iface.replace('eth_', 'r'))
-            trace_route_info = command_executor(f"docker exec -i {iface.replace('eth_', 'r')} traceroute {dst_ip} |grep -v traceroute |awk '{{print $2}}'")
-            for i in trace_route_info.stdout.split("\n"):
-                if len(i) >= 7:
-                    normal_packet_path.append(router_map[i])
         normal_packet_path = list(OrderedDict.fromkeys(normal_packet_path).keys())
         data.update({"intercept_router": intercept_router})
         data.update({"normal_path": normal_packet_path})
