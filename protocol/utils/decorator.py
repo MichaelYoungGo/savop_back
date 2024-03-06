@@ -58,7 +58,7 @@ def api_check_mode_status(func):
         router_info = command_executor(command="docker ps |grep savop |awk '{print $NF}'")
         router_name_list = [i for i in router_info.stdout.split("\n") if len(i) >= 2]
         for router_name in router_name_list:
-            run_status = command_executor(f"docker exec -it {router_name} bash -c \"ps -ef|grep -E 'python3|bird'|grep -v grep|wc -l\"")
+            run_status = command_executor(f"docker exec -i {router_name} bash -c \"ps -ef|grep -E 'python3|bird'|grep -v grep|wc -l\"")
             if int(run_status.stdout.strip("\n")) != 5:
                 return response_data(code=ErrorCode.E_SERVER, message=f"The {topo_name} model is running abnormally")
         return func(*args, **kwargs)
