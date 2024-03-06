@@ -123,6 +123,7 @@ class HostControllerSet(ViewSet):
         return response_data(data=data)
 
     @api_check_mode_name
+    @api_check_mode_status
     @action(detail=False, methods=['get'], url_path="enable", url_name="enable")
     def enable(self, request, *args, **kwargs):
         protocol_name = request.query_params.get("protocol_name")
