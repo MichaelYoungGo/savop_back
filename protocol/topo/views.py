@@ -223,8 +223,10 @@ class TopologySet(ViewSet):
             config_file["links"].append([str(source_router_index), str(target_router_index), "dsav"])
             if component["businessInfo"]["businessRelation"] == "CtoP":
                 as_relateion = [as_info[router_info[target_router_id]], as_info[router_info[source_router_id]]]
-            if component["businessInfo"]["businessRelation"] == "PtoC":
+            elif component["businessInfo"]["businessRelation"] == "PtoC":
                 as_relateion = [as_info[router_info[source_router_id]], as_info[router_info[target_router_id]]]
+            else:
+                continue
             config_file["as_relations"]["provider-customer"].append(as_relateion)
         config_file["as_relations"]["provider-customer"] =  [list(t) for t in {tuple(element) for element in config_file["as_relations"]["provider-customer"]}]
         # 更新topo属性
