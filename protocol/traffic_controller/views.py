@@ -122,7 +122,7 @@ class TrafficControllerSet(ViewSet):
         intercept_router = ""
         if data["fail_count"] != 0:
             container_id = command_executor(command="grep \"IPTABLES\" /var/log/syslog|awk '{print $8}'|uniq").stdout.strip()
-            intercept_router =  command_executor(command=f"docker ps |grep {container_id}|awk '{{print $NF}}'").stdout.strip()
+            intercept_router = command_executor(command=f"docker ps |grep {container_id}|awk '{{print $NF}}'").stdout.strip()
         normal_packet_path = list(OrderedDict.fromkeys(normal_packet_path).keys())
         data.update({"intercept_router": intercept_router})
         data.update({"normal_path": normal_packet_path})

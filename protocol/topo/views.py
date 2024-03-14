@@ -203,22 +203,23 @@ class TopologySet(ViewSet):
         for index in range(0, len(data["routes"])):
             router_id = data["routes"][index]["id"]
             as_id = data["routes"][index]["businessInfo"]["affiliationAS"]
-            prefixes = config_file["devices"].get(index+1, {}).get("prefixes", {})
+            device_id = data["routes"][index]["label"].replace("r", "")
+            prefixes = config_file["devices"].get(device_id, {}).get("prefixes", {})
             for p in prefix_info[router_id]:
                 ip_network = ipaddress.ip_network(p["IPaddress"], strict=False)
                 prefixes.update({ip_network.compressed: {"id": p["id"], "miig_tag": p["miig_tag"], "miig_type": p["miig_type"]}})
-            config_file["devices"].update({index+1: {"as": int(as_info[as_id]), "prefixes": prefixes, "id": router_id}})
+            config_file["devices"].update({device_id: {"as": int(as_info[as_id]), "prefixes": prefixes, "id": router_id}})
 
         for component in data["edges"]:
             source_router_id = component["source"]
             target_router_id = component["target"]
             for index in range(0, len(data["routes"])):
                 if data["routes"][index]["id"] == source_router_id:
-                    source_router_index = index + 1
+                    source_router_index = data["routes"][index]["label"].replace("r", "")
                     break
             for index in range(0, len(data["routes"])):
                 if data["routes"][index]["id"] == target_router_id:
-                    target_router_index = index + 1
+                    target_router_index = data["routes"][index]["label"].replace("r", "")
                     break
             config_file["links"].append([str(source_router_index), str(target_router_index), "dsav"])
             if component["businessInfo"]["businessRelation"] == "CtoP":
@@ -228,7 +229,7 @@ class TopologySet(ViewSet):
             else:
                 continue
             config_file["as_relations"]["provider-customer"].append(as_relateion)
-        config_file["as_relations"]["provider-customer"] =  [list(t) for t in {tuple(element) for element in config_file["as_relations"]["provider-customer"]}]
+        config_file["as_relations"]["provider-customer"] = [list(t) for t in {tuple(element) for element in config_file["as_relations"]["provider-customer"]}]
         # 更新topo属性
         config_file.update(data["properties"])
         # 打开文件以进行写入，如果文件不存在则创建
