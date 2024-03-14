@@ -132,3 +132,4 @@ __pycache__
 migrations
 gunicorn.pid
 log/gunicorn_error.log
+log/*

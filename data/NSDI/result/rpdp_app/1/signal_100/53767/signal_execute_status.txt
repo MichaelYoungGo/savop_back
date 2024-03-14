@@ -1,0 +1,1 @@
+{"monitor_node": true, "command": "start_1694766952100", "execute_start_time": "2023-09-15 19:05:15", "action": "start", "execute_end_time": "2023-09-15 19:05:21", "execute_result": "ok", "sav_start": 1694775921, "stable_number": 10, "pre_sav_rule_number": 0, "monitor_cycle_start_time": 1694775923, "fib_convergence_duration": false}
