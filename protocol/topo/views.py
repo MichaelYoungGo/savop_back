@@ -11,7 +11,7 @@
 -------------------------------------------------
 """
 import json
-
+import copy
 import pymongo
 import time
 import ipaddress
@@ -42,6 +42,10 @@ class MongoDBClient:
         return [i for i in db.static_topo.find({"id": id_})]
 
     @staticmethod
+    def find_one_by_name_and_id(name, id_):
+        return [i for i in db.static_topo.find({"$and":[{"id": id_}, {"name": name}]})]
+
+    @staticmethod
     def exists_by_name(name):
         count = db.static_topo.count_documents({"name": name})
         if count != 0:
@@ -50,7 +54,14 @@ class MongoDBClient:
 
     @staticmethod
     def exists_by_name_exclude_by_id(name, id_):
-        count = db.static_topo.count_documents({"$and": [{"name": name}, {"id": { "$ne": id_}}]})
+        count = db.static_topo.count_documents({"$and": [{"name": name}, {"id": {"$ne": id_}}]})
+        if count != 0:
+            return True
+        return False
+
+    @staticmethod
+    def exists_by_name_and_id(name, id_):
+        count = db.static_topo.count_documents({"$and": [{"name": name}, {"id": id_}]})
         if count != 0:
             return True
         return False
@@ -89,14 +100,26 @@ class TopologySet(ViewSet):
     @action(detail=False, methods=['get'], url_path="search", url_name="search_topo")
     def search(self, request, *args, **kwargs):
         params = request.query_params.get("id")
-        if params is None:
+        name = request.query_params.get("name")
+        if (params is None) and (name is None):
             return response_data(code=ErrorCode.E_PARAM_ERROR,
                                  message="Request parameter can not be empty. Please checkout your request!")
         # params = int(params)
-        if MongoDBClient.exists_by_id(id_=params) is False:
-            return response_data(code=ErrorCode.E_PARAM_ERROR, message="the query topology don't existed")
-
-        data = MongoDBClient.find_one_by_id(id_=params)[0]
+        elif (name is None) and (params is not None):
+            if MongoDBClient.exists_by_id(id_=params) is False:
+                return response_data(code=ErrorCode.E_PARAM_ERROR, message="the query topology don't existed")
+            else:
+                data = MongoDBClient.find_one_by_id(id_=params)[0]
+        elif (params is None) and (name is not None):
+            if MongoDBClient.exists_by_name(name=name) is False:
+                return response_data(code=ErrorCode.E_PARAM_ERROR, message="the query topology don't existed")
+            else:
+                data = MongoDBClient.find_one_by_name(name=name)[0]
+        else:
+            if MongoDBClient.exists_by_name_and_id(name=name, id_=params) is False:
+                return response_data(code=ErrorCode.E_PARAM_ERROR, message="the query topology don't existed")
+            else:
+                data = MongoDBClient.find_one_by_name_and_id(name=name, id_=params)[0]
         data.pop("_id")
         data.pop("id")
         data.pop("name")
@@ -163,7 +186,7 @@ class TopologySet(ViewSet):
         MongoDBClient.delete_by_id(id_=params)
         return response_data(data="delete, successfully!")
 
-    @action(detail=False, methods=['get'], url_path="config", url_name="delete_topo")
+    @action(detail=False, methods=['get', 'post'], url_path="config", url_name="delete_topo")
     def config(self, request, *args, **kwargs):
         params = request.query_params.get("id")
         if params is None:
@@ -175,9 +198,17 @@ class TopologySet(ViewSet):
         topo_name = data["name"]
         data = data["data"]["content"]
         config_file = {"devices": {}, "links": [], "as_relations": {"provider-customer": []}, "enable_rpki": False,
-                       "prefix_method": "independent_interface", "auto_ip_version": 4, "enable_rpki": False, "sav_apps": [],
-                       "active_sav_app": "rpdp", "ignore_irrelevant_nets": True,  "fib_threshold": 5,
-                       "ignore_private": True}
+                       "prefix_method": "independent_interface", "auto_ip_version": 4, "enable_rpki": False,
+                       "sav_app_map": [{
+                        "devices": [],
+                        "sav_apps": [],
+                        "active_app": None,
+                        "ignore_irrelevant_nets": True,
+                        "fib_threshold": 5,
+                        "original_bird": False,
+                        "enable_rpki": False,
+                        "ignore_private": True
+                        }], "rpdp_full_link": False, "rpdp_full_link_type": "rpdp-http"}
         # 将纯数据文件转化为描述任意topo结构的json文件
         # 首先提取topo的各种构件信息
         as_info = {}
@@ -209,7 +240,13 @@ class TopologySet(ViewSet):
                 ip_network = ipaddress.ip_network(p["IPaddress"], strict=False)
                 prefixes.update({ip_network.compressed: {"id": p["id"], "miig_tag": p["miig_tag"], "miig_type": p["miig_type"]}})
             config_file["devices"].update({device_id: {"as": int(as_info[as_id]), "prefixes": prefixes, "id": router_id}})
-
+            #更新sav_app_map
+            sav_app_map = copy.deepcopy(data["routes"][index]["businessInfo"])
+            sav_app_map.update({"devices": [device_id]})
+            sav_app_map.update({"active_app": sav_app_map["active_sav_app"]})
+            del sav_app_map["affiliationAS"]
+            del sav_app_map["active_sav_app"]
+            config_file["sav_app_map"].append(sav_app_map)
         for component in data["edges"]:
             source_router_id = component["source"]
             target_router_id = component["target"]
@@ -221,8 +258,10 @@ class TopologySet(ViewSet):
                 if data["routes"][index]["id"] == target_router_id:
                     target_router_index = data["routes"][index]["label"].replace("r", "")
                     break
-            config_file["links"].append([str(source_router_index), str(target_router_index), "dsav"])
-            if component["businessInfo"]["businessRelation"] == "CtoP":
+            config_file["links"].append([str(source_router_index), str(target_router_index), "bgp"])
+            if len(component["businessInfo"]) == 0:
+                continue
+            elif component["businessInfo"]["businessRelation"] == "CtoP":
                 as_relateion = [as_info[router_info[target_router_id]], as_info[router_info[source_router_id]]]
             elif component["businessInfo"]["businessRelation"] == "PtoC":
                 as_relateion = [as_info[router_info[source_router_id]], as_info[router_info[target_router_id]]]
@@ -232,6 +271,10 @@ class TopologySet(ViewSet):
         config_file["as_relations"]["provider-customer"] = [list(t) for t in {tuple(element) for element in config_file["as_relations"]["provider-customer"]}]
         # 更新topo属性
         config_file.update(data["properties"])
+
+        # 临时代码
+        config_file["links"].extend([["1", "4", "rpdp-http"], ["1", "5", "rpdp-http"],
+                                    ["3", "4", "rpdp-http"], ["4", "5", "rpdp-http"]])
         # 打开文件以进行写入，如果文件不存在则创建
         with open(f'/root/sav_simulate/savop/base_configs/{topo_name}.json', 'w') as file:
             file.write(json.dumps(config_file, indent=2))

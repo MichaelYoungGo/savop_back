@@ -124,11 +124,15 @@ class HostControllerSet(ViewSet):
 
     @api_check_mode_name
     @api_check_mode_status
-    @action(detail=False, methods=['get'], url_path="enable", url_name="enable")
+    @action(detail=False, methods=['get', 'post'], url_path="enable", url_name="enable")
     def enable(self, request, *args, **kwargs):
         protocol_name = request.query_params.get("protocol_name")
+        router_scope = request.data["router_scope"]
         data = []
-        command = f"python3 {SAV_ROOT_DIR}/savop/sav_control_master.py --enable {protocol_name}"
+        router = router_scope[0]
+        for index in range(1, len(router_scope)):
+            router += "," + router_scope[index]
+        command = f"python3 {SAV_ROOT_DIR}/savop/sav_control_master.py --enable {protocol_name} --router {router}"
         command_result = subprocess.run(command, shell=True, capture_output=True, encoding='utf-8')
         for result in command_result.stdout.split("\n"):
             if "the enable sav_table's rules situation" in result:
